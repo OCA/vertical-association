@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_variable_period
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: vertical-association (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-23 19:13+0000\n"
+"PO-Revision-Date: 2015-09-20 19:07+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_type:0
+msgid "Fixed dates"
+msgstr "Fiksni datumi"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.membership_products_form_period
+msgid "Interval"
+msgstr "Interval"
+
+#. module: membership_variable_period
+#: field:product.template,membership_interval_qty:0
+msgid "Interval quantity"
+msgstr "Količina intervala"
+
+#. module: membership_variable_period
+#: field:product.template,membership_interval_unit:0
+msgid "Interval unit"
+msgstr "Enota intervala"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Postavka računa"
+
+#. module: membership_variable_period
+#: field:account.invoice.line,membership_lines:0
+msgid "Membership lines"
+msgstr "Postavke članarin"
+
+#. module: membership_variable_period
+#: field:product.template,membership_type:0
+msgid "Membership type"
+msgstr "Tip članarine"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_type:0
+msgid "Variable periods"
+msgstr "Variabilna obdobja"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "days"
+msgstr "dni"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "months"
+msgstr "mesecev"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "weeks"
+msgstr "tednov"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "years"
+msgstr "let"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.membership_products_form_period
+msgid "{'invisible': [('membership_type', '!=', 'fixed')]}"
+msgstr "{'invisible': [('membership_type', '!=', 'fixed')]}"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.product_template_form_view_membership_period
+msgid ""
+"{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)],"
+" 'invisible': [('membership_type', '!=', 'fixed')]}"
+msgstr "{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)], 'invisible': [('membership_type', '!=', 'fixed')]}"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.membership_products_form_period
+msgid ""
+"{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}"
+msgstr "{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}"
