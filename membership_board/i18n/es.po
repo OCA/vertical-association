@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* membership_board
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-19 08:33+0000\n"
+"PO-Revision-Date: 2015-09-19 10:35+0100\n"
+"Last-Translator: Sergio Teruel <sergio@incaser.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: es_ES\n"
+
+#. module: membership_board
+#: view:res.company:membership_board.membership_board_company_view_form
+msgid "Association"
+msgstr "Asociación"
+
+#. module: membership_board
+#: view:membership.board.member:membership_board.membership_board_member_form_view
+#: view:membership.board.member:membership_board.membership_board_member_tree_view
+msgid "Board Members"
+msgstr "Miembros junta directiva"
+
+#. module: membership_board
+#: field:membership.board.position,name:0
+msgid "Board Position"
+msgstr "Cargos junta directiva"
+
+#. module: membership_board
+#: model:ir.model,name:membership_board.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: membership_board
+#: field:membership.board,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: membership_board
+#: view:res.company:membership_board.membership_board_company_view_form
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: membership_board
+#: field:membership.board,create_uid:0
+#: field:membership.board.member,create_uid:0
+#: field:membership.board.position,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: membership_board
+#: field:membership.board,create_date:0
+#: field:membership.board.member,create_date:0
+#: field:membership.board.position,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: membership_board
+#: field:membership.board.member,date_end:0
+msgid "Date End"
+msgstr "Fecha final"
+
+#. module: membership_board
+#: field:membership.board.member,date_start:0
+msgid "Date Start"
+msgstr "Fecha inicio"
+
+#. module: membership_board
+#: field:membership.board,note:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: membership_board
+#: view:res.company:membership_board.membership_board_company_view_form
+msgid "Membership Board"
+msgstr "Junta directiva"
+
+#. module: membership_board
+#: field:membership.board.member,email:0
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: membership_board
+#: field:membership.board,date_end:0
+msgid "Finish Date"
+msgstr "Fecha Fin"
+
+#. module: membership_board
+#: field:membership.board,id:0 field:membership.board.member,id:0
+#: field:membership.board.position,id:0
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: membership_board
+#: field:membership.board,date_start:0
+msgid "Init Date"
+msgstr "Fecha inicial"
+
+#. module: membership_board
+#: field:membership.board,write_uid:0
+#: field:membership.board.member,write_uid:0
+#: field:membership.board.position,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: membership_board
+#: field:membership.board,write_date:0
+#: field:membership.board.member,write_date:0
+#: field:membership.board.position,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: membership_board
+#: view:membership.board.member:membership_board.membership_board_member_tree_view
+#: field:membership.board.member,partner_id:0
+msgid "Member"
+msgstr "Miembro"
+
+#. module: membership_board
+#: view:membership.board:membership_board.membership_board_form_view
+#: field:membership.board,members_ids:0
+msgid "Members"
+msgstr "Miembros"
+
+#. module: membership_board
+#: model:ir.actions.act_window,name:membership_board.act_view_membership_board
+#: model:ir.ui.menu,name:membership_board.menu_membership_board
+#: view:membership.board:membership_board.membership_board_form_view
+#: view:membership.board:membership_board.membership_board_tree_view
+#: field:membership.board,name:0 field:membership.board.member,board_id:0
+#: field:res.company,membership_board_id:0
+#: model:res.partner.category,name:membership_board.membership_board_tag
+msgid "Membership Board"
+msgstr "Junta Directiva"
+
+#. module: membership_board
+#: field:membership.board.member,note:0
+msgid "Note"
+msgstr "Nota"
+
+#. module: membership_board
+#: field:membership.board.member,position_id:0
+msgid "Position"
+msgstr "Cargo"
+
+#. module: membership_board
+#: field:membership.board.member,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: membership_board
+#: view:membership.board:membership_board.membership_board_form_view
+msgid "Update Membership Board Tag"
+msgstr "Actuliza etiquetas junta directiva"

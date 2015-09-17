@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="membership_board_position_president"
+                model="membership.board.position">
+            <field name="name">President</field>
+        </record>
+
+        <record id="membership_board_position_treasurer"
+                model="membership.board.position">
+            <field name="name">Treasurer</field>
+        </record>
+
+        <record id="membership_board_position_secretary"
+                model="membership.board.position">
+            <field name="name">Secretary</field>
+        </record>
+
+    </data>
+
+    <data noupdate="1">
+        <record id="membership_board_tag" model="res.partner.category">
+            <field name="name">Membership Board</field>
+        </record>
+	</data>
+
+</openerp>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="membership_board_form_view" model="ir.ui.view">
+        <field name="name">membership.board.form</field>
+        <field name="model">membership.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Membership Board">
+                <header>
+                    <button name="update_board_tag"
+                            string="Update Membership Board Tag"
+                            type="object" groups="base.user_root"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="company_id"
+                               groups="base.group_multi_company"
+                               widget="selection"/>
+                        <field name="name"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="note"/>
+                    </group>
+                    <group string="Members">
+                        <field name="members_ids" widget="one2many_list"
+                               nolabel="1"
+                                context="{'default_board_id':id}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="membership_board_tree_view" model="ir.ui.view">
+        <field name="name">membership.board.tree</field>
+        <field name="model">membership.board</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Membership Board">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+            </tree>
+        </field>
+    </record>
+
+    <act_window id="act_view_membership_board"
+                name="Membership Board"
+                res_model="membership.board"/>
+
+    <record id="membership_board_member_form_view" model="ir.ui.view">
+        <field name="name">membership.board.member.form</field>
+        <field name="model">membership.board.member</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Board Members">
+                <sheet>
+                    <group>
+                        <field name="position_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="partner_id"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="membership_board_member_tree_view" model="ir.ui.view">
+        <field name="name">membership.member.tree</field>
+        <field name="model">membership.board.member</field>
+        <field name="priority">6</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Board Members" colors="red:(date_end!=False)">
+                <field name="sequence" widget="handle"/>
+                <field name="position_id"/>
+                <field name="partner_id" string="Member"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+            </tree>
+        </field>
+    </record>
+
+</data>
+</openerp>

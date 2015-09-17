@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <menuitem id="menu_membership_board" name="Membership Board"
+              parent="membership.menu_membership" sequence="20"
+              action="act_view_membership_board"/>
+
+</data>
+</openerp>
