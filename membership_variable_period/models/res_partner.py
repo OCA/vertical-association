@@ -11,7 +11,8 @@ class ResPartner(models.Model):
     def check_membership_expiry(self):
         """Force a recalculation on each partner that is member."""
         partners = self.search(
-            [('membership_state', 'not in', ['old', 'none'])])
+            [('membership_state', 'not in', ['old', 'none', 'free']),
+             ('associate_member', '=', False)])
         # It has to be triggered one by one to avoid an error
         for partner in partners:
             partner.write({'membership_state': 'none'})
