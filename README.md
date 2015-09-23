@@ -6,6 +6,21 @@
 
 Addons for association and membership related tasks.
 
+[//]: # (addons)
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[membership_initial_fee](membership_initial_fee/) | 8.0.1.0.0 | Initial fee for memberships
+[membership_prorrate](membership_prorrate/) | 8.0.1.0.0 | Prorrate membership fee
+[membership_variable_period](membership_variable_period/) | 8.0.1.0.0 | Variable period for memberships
+
+[//]: # (end addons)
+
+Translation Status
+------------------
+[![Transifex Status](https://www.transifex.com/projects/p/OCA-vertical-association-8-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-vertical-association-8-0)
+
 ----
 
 OCA, or the Odoo Community Association, is a nonprofit organization whose
@@ -13,7 +28,3 @@ mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
 http://odoo-community.org/
-
-Translation Status
-------------------
-[![Transifex Status](https://www.transifex.com/projects/p/OCA-vertical-association-8-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-vertical-association-8-0)
