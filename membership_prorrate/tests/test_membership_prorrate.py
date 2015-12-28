@@ -46,3 +46,4 @@ class TestMembershipProrrate(common.TransactionCase):
             limit=1)
         self.assertAlmostEqual(memb_line.member_price, 50.00, 2)
         self.assertEqual(memb_line.date_from, '2015-07-01')
+        self.assertEqual(memb_line.date_to, '2015-12-31')

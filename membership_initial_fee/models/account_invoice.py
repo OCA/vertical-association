@@ -34,7 +34,8 @@ class AccountInvoiceLine(models.Model):
     @api.model
     def create(self, vals):
         invoice_line = super(AccountInvoiceLine, self).create(vals)
-        product = self.env['product.product'].browse(vals['product_id'])
+        product = self.env['product.product'].browse(
+            vals.get('product_id'))
         if not product.membership or product.initial_fee == 'none':
             return invoice_line
         # See if this is the first invoice
