@@ -36,6 +36,7 @@ class AccountInvoiceLine(models.Model):
                 'quantity': round(float(real_duration.days) /
                                   theoretical_duration.days, 2),
                 'date_from': date_invoice,
+                'date_to': date_to,
             }
 
     @api.model
@@ -50,10 +51,12 @@ class AccountInvoiceLine(models.Model):
             invoice_line)
         if invoice_line_vals:
             date_from = invoice_line_vals.pop('date_from')
+            date_to = invoice_line_vals.pop('date_to')
             invoice_line.write(invoice_line_vals)
             # Rectify membership price and start date in this case
             memb_line = self.env['membership.membership_line'].search(
                 [('account_invoice_line', '=', invoice_line.id)], limit=1)
             memb_line.write({'member_price': invoice_line.price_subtotal,
-                             'date_from': date_from})
+                             'date_from': date_from,
+                             'date_to': date_to})
         return invoice_line
