@@ -13,13 +13,8 @@ class AccountInvoiceLine(models.Model):
         comodel_name='membership.membership_line',
         inverse_name='account_invoice_line')
 
-    def _prepare_membership_line(self, invoice, product, price_unit, line_id):
-        memb_line_model = self.env['membership.membership_line']
-        memb_lines = memb_line_model.search(
-            [('partner', '=', invoice.partner_id.id),
-             ('account_invoice_line', '!=', line_id),
-             ('state', 'not in', ['none', 'canceled'])],
-            order="date_to desc")
+    def _prepare_membership_line(self, invoice, product, price_unit, line_id,
+                                 memb_lines=False):
         if memb_lines and memb_lines[0].date_to:
             date_from = (fields.Date.from_string(memb_lines[0].date_to) +
                          timedelta(days=1))
@@ -39,6 +34,17 @@ class AccountInvoiceLine(models.Model):
             'account_invoice_line': line_id,
         }
 
+    def _membership_line_extra_create(self, qty, invoice, line, price_unit):
+        memb_line_model = self.env['membership.membership_line']
+        for i in range(qty):
+            memb_lines = memb_line_model.search(
+                [('account_invoice_line', '=', line.id),
+                 ('state', 'not in', ['none', 'canceled'])],
+                order="date_to desc")
+            membership_vals = self._prepare_membership_line(
+                invoice, line.product_id, price_unit, line.id, memb_lines)
+            memb_line_model.create(membership_vals)
+
     @api.multi
     def write(self, vals):
         """Create before the lines of membership with variable period."""
@@ -55,25 +61,37 @@ class AccountInvoiceLine(models.Model):
                         product.membership and
                         product.membership_type == 'variable'):
                     quantity = vals.get('quantity', line.quantity)
+                    quantity = int(math.ceil(quantity))
+                    price_unit = vals.get('price_unit', line.price_unit)
                     memb_lines = memb_line_model.search(
                         [('account_invoice_line', '=', line.id),
                          ('state', 'not in', ['none', 'canceled'])],
                         order="date desc, id desc")
-                    price_unit = vals.get('price_unit', line.price_unit)
-                    membership_vals = self._prepare_membership_line(
-                        invoice, product, price_unit, line.id)
+                    # Invoice date or product changed
+                    if (memb_lines and (
+                            invoice.date_invoice != memb_lines[-1].date_from or
+                            product.id != memb_lines[-1].membership_id.id)):
+                        if len(memb_lines) > 1:
+                            # Remove all except last one
+                            memb_lines[:-1].unlink()
+                        # Update with changes
+                        membership_vals = self._prepare_membership_line(
+                            invoice, product, price_unit, line.id)
+                        memb_lines[0].write(membership_vals)
+                    # Qty changed
                     if len(memb_lines) < quantity:
                         # Add missing membership lines
                         missing_number = quantity - len(memb_lines)
-                        for i in range(int(missing_number)):
-                            memb_line_model.create(membership_vals)
+                        self._membership_line_extra_create(
+                            missing_number, invoice, line, price_unit)
                     elif len(memb_lines) > quantity:
                         # Remove extra membership lines
-                        extra_number = (
-                            len(memb_lines) - int(math.ceil(quantity)))
+                        extra_number = len(memb_lines) - quantity
                         memb_lines[:extra_number].unlink()
                     else:
                         # Update data of current membership line
+                        membership_vals = self._prepare_membership_line(
+                            invoice, product, price_unit, line.id)
                         memb_lines[0].write(membership_vals)
         return super(AccountInvoiceLine, self).write(vals)
 
@@ -84,9 +102,13 @@ class AccountInvoiceLine(models.Model):
         if (line.invoice_id.type == 'out_invoice' and
                 line.product_id.membership and
                 line.product_id.membership_type == 'variable'):
-            for i in range(int(line.quantity)):
-                membership_vals = self._prepare_membership_line(
-                    line.invoice_id, line.product_id, price_unit, line.id)
-                # There's already the super line
-                line.membership_lines[0].write(membership_vals)
+            membership_vals = self._prepare_membership_line(
+                line.invoice_id, line.product_id, price_unit, line.id)
+            # There's already the super line
+            line.membership_lines[0].write(membership_vals)
+            qty = int(line.quantity)
+            if qty > 1:
+                # Create more membership lines if qty > 1
+                self._membership_line_extra_create(
+                    qty - 1, line.invoice_id, line, price_unit)
         return line
