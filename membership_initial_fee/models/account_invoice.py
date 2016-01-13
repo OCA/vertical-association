@@ -28,6 +28,7 @@ class AccountInvoiceLine(models.Model):
             'product_id': product_fee.id,
             'quantity': 1.0,
             'invoice_id': invoice_line.invoice_id.id,
+            'account_analytic_id': invoice_line.account_analytic_id.id,
         }
         line_dict = self.product_id_change(
             product_fee.id, False, line_vals['quantity'], '',
