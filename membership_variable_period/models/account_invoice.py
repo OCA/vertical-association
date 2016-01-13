@@ -17,6 +17,7 @@ class AccountInvoiceLine(models.Model):
         memb_line_model = self.env['membership.membership_line']
         memb_lines = memb_line_model.search(
             [('partner', '=', invoice.partner_id.id),
+             ('account_invoice_line', '!=', line_id),
              ('state', 'not in', ['none', 'canceled'])],
             order="date_to desc")
         if memb_lines and memb_lines[0].date_to:
