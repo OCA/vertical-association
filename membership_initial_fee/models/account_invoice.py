@@ -46,7 +46,7 @@ class AccountInvoiceLine(models.Model):
             ('account_invoice_line', 'not in', (invoice_line.id, )),
             ('state', 'not in', ['none', 'canceled']),
         ])
-        return True if member_lines else False
+        return not bool(member_lines)
 
     @api.model
     def create(self, vals):
