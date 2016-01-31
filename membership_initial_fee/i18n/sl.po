@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 20:26+0000\n"
+"POT-Creation-Date: 2016-01-19 12:02+0000\n"
 "PO-Revision-Date: 2015-09-07 14:28+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/sl/)\n"
@@ -40,7 +40,7 @@ msgid "Invoice Line"
 msgstr "Postavka računa"
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:28
+#: code:addons/membership_initial_fee/models/account_invoice.py:29
 #, python-format
 msgid "Membership initial fee"
 msgstr "Začetna članarina"

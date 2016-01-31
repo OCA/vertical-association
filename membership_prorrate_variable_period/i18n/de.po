@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_prorrate_variable_period
+# 
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: vertical-association (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-19 12:02+0000\n"
+"PO-Revision-Date: 2016-01-18 20:04+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_prorrate_variable_period
+#: model:ir.model,name:membership_prorrate_variable_period.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Rechnungsposition"
+
+#. module: membership_prorrate_variable_period
+#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:30
+#, python-format
+msgid "It's not possible to prorrate daily periods."
+msgstr "Es ist nicht möglich tägliche Termine zu unterteilen."
+
+#. module: membership_prorrate_variable_period
+#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:26
+#, python-format
+msgid ""
+"It's not possible to prorrate periods which interval quantity is different "
+"from 1."
+msgstr "Es ist nicht möglich, Perioden zu unterteilen, deren Intervallzahl nicht 1 ist."
