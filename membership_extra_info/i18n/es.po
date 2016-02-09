@@ -1,0 +1,267 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* membership_extra_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-14 13:19+0000\n"
+"PO-Revision-Date: 2016-02-14 13:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: membership_extra_info
+#: view:membership.decline_reason_wizard:membership_extra_info.decline_reason_wizard_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: membership_extra_info
+#: model:membership.membership_category,name:membership_extra_info.category_bronce
+msgid "Bronce"
+msgstr "Bronce"
+
+#. module: membership_extra_info
+#: view:membership.decline_reason_wizard:membership_extra_info.decline_reason_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Category"
+msgstr "Categoría"
+
+#. module: membership_extra_info
+#: model:membership.decline_reason,name:membership_extra_info.reason_company_bankrupt
+msgid "Company bankrupt"
+msgstr "Bancarota"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason,create_uid:0
+#: field:membership.decline_reason_wizard,create_uid:0
+#: field:membership.membership_category,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason,create_date:0
+#: field:membership.decline_reason_wizard,create_date:0
+#: field:membership.membership_category,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: membership_extra_info
+#: help:membership.decline_reason_wizard,date_decline:0
+#: help:membership.membership_line,date_decline:0
+msgid "Date when member requested membership withdrawl"
+msgstr "Fecha en la que el miembro solicita la baja"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_partner_form
+msgid "Decline"
+msgstr "Baja"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Decline Month"
+msgstr "Mes de baja"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason_wizard,date_decline:0
+#: field:membership.membership_line,date_decline:0
+msgid "Decline date"
+msgstr "Fecha de baja"
+
+#. module: membership_extra_info
+#: help:res.partner,membership_last_decline_date:0
+msgid "Decline date of current membership period"
+msgstr "Fecha de solicitud de baja del período actual de asociación"
+
+#. module: membership_extra_info
+#: code:addons/membership_extra_info/models/membership_line.py:46
+#: model:ir.model,name:membership_extra_info.model_membership_decline_reason_wizard
+#: view:membership.decline_reason_wizard:membership_extra_info.decline_reason_wizard_form
+#, python-format
+msgid "Decline membership"
+msgstr "Baja de asociación"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Decline month"
+msgstr "Mes de baja"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason_wizard,decline_reason:0
+#: field:membership.membership_line,decline_reason:0
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Decline reason"
+msgstr "Razón de la baja"
+
+#. module: membership_extra_info
+#: help:res.partner,membership_last_decline_reason:0
+msgid "Decline reason of current membership period"
+msgstr "Razón de la baja del período actual de asociación"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "End Month"
+msgstr "Mes final"
+
+#. module: membership_extra_info
+#: model:membership.membership_category,name:membership_extra_info.category_gold
+msgid "Gold"
+msgstr "Oro"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason,id:0
+#: field:membership.decline_reason_wizard,id:0
+#: field:membership.membership_category,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Last Start Month"
+msgstr "Último mes de inicio"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason,write_uid:0
+#: field:membership.decline_reason_wizard,write_uid:0
+#: field:membership.membership_category,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actulización por"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason,write_date:0
+#: field:membership.decline_reason_wizard,write_date:0
+#: field:membership.membership_category,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: membership_extra_info
+#: model:ir.model,name:membership_extra_info.model_membership_membership_line
+msgid "Member line"
+msgstr "Linea de asociación"
+
+#. module: membership_extra_info
+#: model:ir.actions.act_window,name:membership_extra_info.membership_category_action
+#: model:ir.ui.menu,name:membership_extra_info.menu_membership_category
+#: view:membership.membership_category:membership_extra_info.membership_category_tree_view
+msgid "Membership categories"
+msgstr "Categorías de asociación"
+
+#. module: membership_extra_info
+#: model:ir.model,name:membership_extra_info.model_membership_membership_category
+#: field:product.template,membership_category:0
+#: field:res.partner,membership_last_category:0
+msgid "Membership category"
+msgstr "Categoría de asociación"
+
+#. module: membership_extra_info
+#: help:res.partner,membership_last_category:0
+msgid "Membership category of current membership period"
+msgstr "Categoría de asociacion del período actual"
+
+#. module: membership_extra_info
+#: field:res.partner,membership_last_decline_date:0
+msgid "Membership decline date"
+msgstr "Fecha de baja solicitada"
+
+#. module: membership_extra_info
+#: field:res.partner,membership_last_decline_reason:0
+msgid "Membership decline reason"
+msgstr "Razón de la baja"
+
+#. module: membership_extra_info
+#: model:ir.actions.act_window,name:membership_extra_info.membership_decline_reason_action
+#: model:ir.ui.menu,name:membership_extra_info.menu_membership_decline_reason
+#: view:membership.decline_reason:membership_extra_info.membership_decline_reason_tree_view
+msgid "Membership decline reasons"
+msgstr "Razones de baja"
+
+#. module: membership_extra_info
+#: field:res.partner,membership_last_start:0
+msgid "Membership last start date"
+msgstr "Fecha de inicio de la última asociación"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason_wizard,membership_line_id:0
+msgid "Membership line id"
+msgstr "ID de la linea de asociación"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_partner_form
+msgid "Memberships"
+msgstr "Socios"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason,name:0
+#: field:membership.membership_category,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: membership_extra_info
+#: field:membership.decline_reason_wizard,date_to:0
+msgid "New finish date"
+msgstr "Nueva fecha de finalización"
+
+#. module: membership_extra_info
+#: help:membership.decline_reason_wizard,date_to:0
+msgid "New finish date in membership line. Date when user wants that membership withdrawl really applies"
+msgstr "Nueva fecha de finalización en la línea de asociación. Fecha en la que el asociado quiere realmente darse de baja"
+
+#. module: membership_extra_info
+#: code:addons/membership_extra_info/wizards/membership_decline_reason_wizard.py:29
+#, python-format
+msgid "No membership line selected"
+msgstr "No se ha seleccionado ninguna línea de asociación"
+
+#. module: membership_extra_info
+#: model:ir.model,name:membership_extra_info.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: membership_extra_info
+#: model:ir.model,name:membership_extra_info.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: membership_extra_info
+#: model:ir.model,name:membership_extra_info.model_membership_decline_reason
+msgid "Reason for decline in membership"
+msgstr "Razón de la baja de asociación"
+
+#. module: membership_extra_info
+#: model:membership.membership_category,name:membership_extra_info.category_silver
+msgid "Silver"
+msgstr "Plata"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Start Month"
+msgstr "Mes de inicio"
+
+#. module: membership_extra_info
+#: help:res.partner,membership_last_start:0
+msgid "Start date of last membership period"
+msgstr "Fecha de inicio del último período de asociación"
+
+#. module: membership_extra_info
+#: view:res.partner:membership_extra_info.view_res_partner_member_filter
+msgid "Starting month of last membership period"
+msgstr "Mes de inicio del último período de asociación"
+
+#. module: membership_extra_info
+#: model:membership.decline_reason,name:membership_extra_info.reason_unsatisfied
+msgid "Unsatisfied"
+msgstr "Insatisfecho"
+
+#. module: membership_extra_info
+#: view:membership.decline_reason_wizard:membership_extra_info.decline_reason_wizard_form
+msgid "or"
+msgstr "o"
+

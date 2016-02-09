@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Antiun Ingenieria S.L. - Antonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="membership_products_form">
+    <field name="name">Membership extra info</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="membership.membership_products_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//group/field[@name='categ_id']" position="after">
+            <field name="membership_category" />
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="product_template_form_view">
+    <field name="name">Membership extra info</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="membership.product_template_form_view" />
+    <field name="arch" type="xml">
+        <field name="membership" position="after">
+            <field name="membership_category" />
+        </field>
+    </field>
+</record>
+
+</data>
+</openerp>

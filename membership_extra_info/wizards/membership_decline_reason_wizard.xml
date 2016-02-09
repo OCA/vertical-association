@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Antiun Ingenieria S.L. - Antonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record id="decline_reason_wizard_form" model="ir.ui.view">
+    <field name="name">Decline membership</field>
+    <field name="model">membership.decline_reason_wizard</field>
+    <field name="arch" type="xml">
+        <form string="Decline membership">
+            <group>
+                <field name="date_decline"/>
+                <field name="date_to"/>
+                <field name="decline_reason"/>
+            </group>
+            <footer>
+                <button string="Apply" name="decline"
+                        type="object" class="oe_highlight"/>
+                or
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+        </form>
+    </field>
+</record>
+
+</data>
+</openerp>
