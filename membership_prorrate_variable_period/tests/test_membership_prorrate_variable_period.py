@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+import datetime
+from dateutil.relativedelta import relativedelta
 from openerp import exceptions, fields
 import openerp.tests.common as common
 
@@ -35,15 +37,24 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_prorrate_fixed(self):
         self.product.membership_type = 'fixed'
-        self.product.membership_date_from = '2015-01-01'
-        self.product.membership_date_to = '2015-12-31'
+        self.product.membership_date_from = fields.Date.to_string(
+            datetime.date.today() + relativedelta(month=1, day=1))
+        self.product.membership_date_to = fields.Date.to_string(
+            datetime.date.today() + relativedelta(month=12, months=1, day=1,
+                                                  days=-1))
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
-             'date_invoice': '2015-07-01',
+             'date_invoice': fields.Date.context_today(self.product),
              'account_id': self.partner.property_account_receivable.id,
              'invoice_line': [(0, 0, {'product_id': self.product.id,
                                       'name': 'Membership prorrate fixed'})]})
-        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 0.5, 2)
+        self.assertAlmostEqual(
+            invoice.invoice_line[0].quantity,
+            1 - (
+                datetime.date.today() -
+                fields.Date.from_string(self.product.membership_date_from)
+            ).days / float(365),
+            2)
         self.assertEqual(self.partner.membership_state, 'waiting')
 
     def test_create_invoice_membership_product_prorrate_week(self):
