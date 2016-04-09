@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="product_autoextend_membership" model="product.product">
+            <field name="name">One year</field>
+            <field name="membership" eval="True" />
+            <field name="membership_type">variable</field>
+            <field name="membership_interval_qty">1</field>
+            <field name="membership_interval_unit">years</field>
+            <field name="membership_autoextend" eval="True" />
+            <field name="membership_autoextend_warning_days">7</field>
+            <field name="membership_autoextend_warning_template_id" ref="email_template_autoextend_warning" />
+            <field name="membership_autoextend_info_template_id" ref="email_template_autoextend_info" />
+            <field name="list_price">80</field>
+        </record>
+    </data>
+</openerp>
