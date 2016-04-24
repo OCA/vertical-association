@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="menu_membership_signup" model="website.menu">
+            <field name="name">Sign up as member</field>
+            <field name="url">/page/website_membership_signup.signup</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">60</field>
+        </record>
+    </data>
+</openerp>

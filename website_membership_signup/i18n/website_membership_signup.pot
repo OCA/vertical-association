@@ -1,0 +1,228 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_membership_signup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-27 21:00+0000\n"
+"PO-Revision-Date: 2016-04-27 21:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.signup
+msgid "/membership/sign_up"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Account number"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,website_published:0
+#: field:product.template,website_published:0
+msgid "Available in the website"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "BIC"
+msgstr ""
+
+#. module: website_membership_signup
+#: help:product.product,membership:0
+msgid "Check if the product is eligible for membership."
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "City"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Country"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,taxes_id:0
+msgid "Customer Taxes"
+msgstr ""
+
+#. module: website_membership_signup
+#: help:product.product,membership_date_from:0
+msgid "Date from which membership becomes active."
+msgstr ""
+
+#. module: website_membership_signup
+#: help:product.product,membership_date_to:0
+msgid "Date until which membership remains active."
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Email"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,property_account_expense:0
+msgid "Expense Account"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "First name"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,property_account_income:0
+msgid "Income Account"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Infix"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Last name"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,membership:0
+#: view:website:website_membership_signup.signup
+msgid "Membership"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,membership_date_to:0
+msgid "Membership End Date"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,membership_date_from:0
+msgid "Membership Start Date"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Mobile"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Name"
+msgstr ""
+
+#. module: website_membership_signup
+#: model:ir.model,name:website_membership_signup.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Phone"
+msgstr ""
+
+#. module: website_membership_signup
+#: model:ir.model,name:website_membership_signup.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: website_membership_signup
+#: model:ir.model,name:website_membership_signup.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: website_membership_signup
+#: code:addons/website_membership_signup/controllers/main.py:14
+#: code:addons/website_membership_signup/models/res_partner.py:26
+#: code:addons/website_membership_signup/models/res_partner.py:28
+#, python-format
+msgid "Required field!"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Select country..."
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.signup
+msgid "Select membership..."
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Sign up"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.signup_intro
+msgid "Sign up as a member of"
+msgstr ""
+
+#. module: website_membership_signup
+#: model:website.menu,name:website_membership_signup.menu_membership_signup
+msgid "Sign up as member"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+#: view:website:website_membership_signup.thankyou
+msgid "Sign up for"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Street"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Street number"
+msgstr ""
+
+#. module: website_membership_signup
+#: field:product.product,supplier_taxes_id:0
+msgid "Supplier Taxes"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.thankyou
+msgid "Thank you"
+msgstr ""
+
+#. module: website_membership_signup
+#: help:product.product,property_account_expense:0
+msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
+msgstr ""
+
+#. module: website_membership_signup
+#: help:product.product,property_account_income:0
+msgid "This account will be used for invoices instead of the default one to value sales for the current product."
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Zip"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.thankyou
+msgid "for signing up for"
+msgstr ""
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.signup
+msgid "website_membership_signup.signup"
+msgstr ""
+

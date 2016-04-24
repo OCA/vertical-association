@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_membership_signup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-27 20:58+0000\n"
+"PO-Revision-Date: 2016-04-27 20:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Account number"
+msgstr "IBAN"
+
+#. module: website_membership_signup
+#: field:product.product,website_published:0
+#: field:product.template,website_published:0
+msgid "Available in the website"
+msgstr "Verkrijgbaar op de website"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "BIC"
+msgstr "BIC"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "City"
+msgstr "Stad"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Country"
+msgstr "Land"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Email"
+msgstr "E-mail"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "First name"
+msgstr "Voornaam"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Infix"
+msgstr "Tussenvoegsel"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Last name"
+msgstr "Achternaam"
+
+#. module: website_membership_signup
+#: field:product.product,membership:0
+#: view:website:website_membership_signup.signup
+msgid "Membership"
+msgstr "Lidmaatschap"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Mobile"
+msgstr "Mobiel"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Name"
+msgstr "Naam"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Phone"
+msgstr "Telefoon"
+
+#. module: website_membership_signup
+#: code:addons/website_membership_signup/controllers/main.py:14
+#: code:addons/website_membership_signup/models/res_partner.py:26
+#: code:addons/website_membership_signup/models/res_partner.py:28
+#, python-format
+msgid "Required field!"
+msgstr "Verplicht veld!"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Select country..."
+msgstr "Kies land..."
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.signup
+msgid "Select membership..."
+msgstr "Kies lidmaatschap..."
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Sign up"
+msgstr "Aanmelden"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.signup_intro
+msgid "Sign up as a member of"
+msgstr "Word lid van"
+
+#. module: website_membership_signup
+#: model:website.menu,name:website_membership_signup.menu_membership_signup
+msgid "Sign up as member"
+msgstr "Word lid"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+#: view:website:website_membership_signup.thankyou
+msgid "Sign up for"
+msgstr "Lid worden van"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Street"
+msgstr "Straat"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Street number"
+msgstr "Huisnummer"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.thankyou
+msgid "Thank you"
+msgstr "Bedankt"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.partner_signup_form
+msgid "Zip"
+msgstr "Postcode"
+
+#. module: website_membership_signup
+#: view:website:website_membership_signup.thankyou
+msgid "for signing up for"
+msgstr "dat je lid bent geworden van"
