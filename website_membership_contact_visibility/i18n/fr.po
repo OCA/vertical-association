@@ -1,0 +1,34 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * website_membership_contact_visibility
+# 
+# Translators:
+# Fabien Bourgeois <fabien@yaltik.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: vertical-association (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-14 08:13+0000\n"
+"PO-Revision-Date: 2016-04-19 15:02+0000\n"
+"Last-Translator: Fabien Bourgeois <fabien@yaltik.com>\n"
+"Language-Team: French (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: website_membership_contact_visibility
+#: view:res.partner:website_membership_contact_visibility.membership_contact_visibility_form_view
+msgid "Membership"
+msgstr "Adhésion"
+
+#. module: website_membership_contact_visibility
+#: model:ir.model,name:website_membership_contact_visibility.model_res_partner
+msgid "Partner"
+msgstr "Contact"
+
+#. module: website_membership_contact_visibility
+#: field:res.partner,website_membership_published:0
+msgid "Visible Contact Info On The Website"
+msgstr "Coordonnées affichées sur le site Web"
