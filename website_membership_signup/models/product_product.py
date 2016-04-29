@@ -11,4 +11,5 @@ class ProductProduct(models.Model):
     def _website_membership_signup_get_products(self):
         return self.sudo().search([
             ('website_published', '=', True),
+            ('membership', '=', True),
         ])
