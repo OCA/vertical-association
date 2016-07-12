@@ -46,7 +46,7 @@
         <record model="ir.ui.view" id="product_template_form_view_membership_period">
             <field name="name">Membership Products (regular - variable period)</field>
             <field name="model">product.template</field>
-            <field name="inherit_id" ref="membership.product_template_form_view" />
+            <field name="inherit_id" ref="membership.membership_products_form" />
             <field name="arch" type="xml">
                 <field name="membership_date_from" position="before">
                     <field name="membership_type"/>
