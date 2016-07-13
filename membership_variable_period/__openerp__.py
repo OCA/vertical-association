@@ -9,11 +9,12 @@
     'category': 'Association',
     'author': 'Antiun Ingeniería S.L., '
               'Serv. Tecnol. Avanzados - Pedro M. Baeza, '
-              'Camptocamp SA - Denis Leemann'
+              'Camptocamp SA - Denis Leemann, '
               'Odoo Community Association (OCA)',
     'website': 'http://www.antiun.com',
     'depends': [
         'membership',
+        'product',
     ],
     'data': [
         'views/product_template_views.xml',

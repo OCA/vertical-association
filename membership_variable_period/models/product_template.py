@@ -19,17 +19,17 @@ class ProductTemplate(models.Model):
         @rtype: date
         @return: The date incremented in 'interval' units of 'unit'.
         """
-        self.ensure_one()
-        if isinstance(date, str):
-            date = fields.Date.from_string(date)
-        if self.membership_interval_unit == 'days':
-            return date + timedelta(days=self.membership_interval_qty)
-        elif self.membership_interval_unit == 'weeks':
-            return date + timedelta(weeks=self.membership_interval_qty)
-        elif self.membership_interval_unit == 'months':
-            return date + relativedelta(months=self.membership_interval_qty)
-        elif self.membership_interval_unit == 'years':
-            return date + relativedelta(years=self.membership_interval_qty)
+        for rec in self:
+            if isinstance(date, str):
+                date = fields.Date.from_string(date)
+            if rec.membership_interval_unit == 'days':
+                return date + timedelta(days=rec.membership_interval_qty)
+            elif rec.membership_interval_unit == 'weeks':
+                return date + timedelta(weeks=rec.membership_interval_qty)
+            elif rec.membership_interval_unit == 'months':
+                return date + relativedelta(months=rec.membership_interval_qty)
+            elif rec.membership_interval_unit == 'years':
+                return date + relativedelta(years=rec.membership_interval_qty)
 
     membership_type = fields.Selection(
         selection=[('fixed', 'Fixed dates'),

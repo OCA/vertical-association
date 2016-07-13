@@ -20,6 +20,9 @@ class TestMembershipVariablePeriod(common.TransactionCase):
                 'membership_interval_unit': 'weeks',
             })
         self.partner = self.env['res.partner'].create({'name': 'Test'})
+        self.account_id = self.env['account.invoice'].create(
+            {'name': 'Account'}
+        )
 
     def test_create_invoice_membership_product_days(self):
         self.product.membership_interval_qty = 20
@@ -27,7 +30,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
              'date_invoice': '2015-07-01',
-             'account_id': 4,
+             'account_id': self.account_id.id,
              'invoice_line_ids': [(0, 0, {'product_id': self.product.id,
                                           'price_unit': 100,
                                           'name': 'Membership w/o prorrate'})]}
@@ -42,7 +45,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
              'date_invoice': '2015-07-01',
-             'account_id': 4,
+             'account_id': self.account_id.id,
              'invoice_line_ids': [(0, 0, {'product_id': self.product.id,
                                           'price_unit': 100,
                                           'name': 'Membership w/o prorrate'})]}
@@ -58,7 +61,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
              'date_invoice': '2015-04-15',
-             'account_id': 4,
+             'account_id': self.account_id.id,
              'invoice_line_ids': [(0, 0, {'product_id': self.product.id,
                                           'price_unit': 100,
                                           'name': 'Membership wth prorrate'})]}
@@ -74,7 +77,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
              'date_invoice': '2016-07-01',  # It's leap year
-             'account_id': 4,
+             'account_id': self.account_id.id,
              'invoice_line_ids': [(0, 0, {'product_id': self.product.id,
                                           'price_unit': 100,
                                           'name': 'Membership wth prorrate'})]}
@@ -90,7 +93,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
              'date_invoice': '2015-07-01',
-             'account_id': 4,
+             'account_id': self.account_id.id,
              'invoice_line_ids': [(0, 0, {'product_id': self.product.id,
                                           'price_unit': 100,
                                           'name': 'Membership w/o prorrate'})]}
@@ -122,7 +125,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         invoice = self.env['account.invoice'].create(
             {'partner_id': self.partner.id,
              'date_invoice': '2015-07-01',
-             'account_id': 4})
+             'account_id': self.account_id.id})
         invoice_line.invoice_id = invoice.id
         membership_line = invoice.invoice_line[0].membership_lines[0]
         self.assertEqual(membership_line.date_from, '2015-07-01')

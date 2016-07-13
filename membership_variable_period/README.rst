@@ -47,6 +47,7 @@ Contributors
 ------------
 
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Denis Leemann <denis.leemann@camptocamp.com>
 
 Icon
 ----
