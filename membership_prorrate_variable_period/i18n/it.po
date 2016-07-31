@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_prorrate_variable_period
+# 
+# Translators:
+# Marius Marolla <mariusmarolla@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: vertical-association (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-30 00:57+0000\n"
+"PO-Revision-Date: 2016-07-19 15:51+0000\n"
+"Last-Translator: Marius Marolla <mariusmarolla@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_prorrate_variable_period
+#: model:ir.model,name:membership_prorrate_variable_period.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Riga Fattura"
+
+#. module: membership_prorrate_variable_period
+#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:30
+#, python-format
+msgid "It's not possible to prorrate daily periods."
+msgstr "Non è possibile dividere proporzionalmente periodi giornalieri"
+
+#. module: membership_prorrate_variable_period
+#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:26
+#, python-format
+msgid ""
+"It's not possible to prorrate periods which interval quantity is different "
+"from 1."
+msgstr "Non è possibile dividere proporzionalmente periodi la cui quantità di intervallo è diversa da 1."

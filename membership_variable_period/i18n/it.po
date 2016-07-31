@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_variable_period
+# 
+# Translators:
+# Marius Marolla <mariusmarolla@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: vertical-association (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-30 00:57+0000\n"
+"PO-Revision-Date: 2016-07-19 15:50+0000\n"
+"Last-Translator: Marius Marolla <mariusmarolla@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_type:0
+msgid "Fixed dates"
+msgstr "Date fisse"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.membership_products_form_period
+msgid "Interval"
+msgstr "Intervallo"
+
+#. module: membership_variable_period
+#: field:product.template,membership_interval_qty:0
+msgid "Interval quantity"
+msgstr "Quantità intervallo"
+
+#. module: membership_variable_period
+#: field:product.template,membership_interval_unit:0
+msgid "Interval unit"
+msgstr "Unità intervallo"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Riga Fattura"
+
+#. module: membership_variable_period
+#: field:account.invoice.line,membership_lines:0
+msgid "Membership lines"
+msgstr "Righe Iscrizione"
+
+#. module: membership_variable_period
+#: field:product.template,membership_type:0
+msgid "Membership type"
+msgstr "Tipo Iscrizione"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_product_template
+msgid "Product Template"
+msgstr "Template Prodotto"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_type:0
+msgid "Variable periods"
+msgstr "Pariodi variabili"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "days"
+msgstr "giorni"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "months"
+msgstr "mesi"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "weeks"
+msgstr "settimane"
+
+#. module: membership_variable_period
+#: selection:product.template,membership_interval_unit:0
+msgid "years"
+msgstr "anni"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.membership_products_form_period
+msgid "{'invisible': [('membership_type', '!=', 'fixed')]}"
+msgstr "{'invisible': [('membership_type', '!=', 'fixed')]}"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.product_template_form_view_membership_period
+msgid ""
+"{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)],"
+" 'invisible': [('membership_type', '!=', 'fixed')]}"
+msgstr "{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)], 'invisible': [('membership_type', '!=', 'fixed')]}"
+
+#. module: membership_variable_period
+#: view:product.template:membership_variable_period.membership_products_form_period
+msgid ""
+"{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}"
+msgstr "{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}"
