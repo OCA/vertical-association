@@ -7,8 +7,7 @@
     'version': '9.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Association',
-    'author': 'Antiun Ingeniería S.L., '
-              'Serv. Tecnol. Avanzados - Pedro M. Baeza, '
+    'author': 'Tecnativa - Pedro M. Baeza, '
               'Camptocamp Sa, '
               'Odoo Community Association (OCA)',
     'website': 'http://www.antiun.com',
