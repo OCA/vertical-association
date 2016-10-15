@@ -20,6 +20,8 @@ To configure this module, you need to:
 * optionally set an amount of days before the extension the warning mail should be sent
 * if you select an extension membership, this product will be used to extend the membership. Otherwise, the current membership product will be used
 
+Note that this module is not strictly necessary for automatic extensions, you can have the same effect with the modules ``subscription`` and ``membership_variable_period``.
+
 Usage
 =====
 
