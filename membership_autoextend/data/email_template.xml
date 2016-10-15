@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="email_template_autoextend_warning" model="email.template">
+            <field name="name">Membership autoextend warning</field>
+            <field name="model_id" ref="membership.model_membership_membership_line" />
+            <field name="subject">Extension of your membership is imminent</field>
+            <field name="email_from">${object.company_id.name} &lt;${object.company_id.email}></field>
+            <field name="partner_to">${object.partner.ids|join(',')}</field>
+            <field name="body_html" type="xml">
+                <p>Dear ${object.partner.name},</p>
+                <p>Your membership with ${object.company_id.name} will be extended in ${object.membership_id.membership_autoextend_warning_days} days. If you disagree with this, please reply to this email to opt out of automatic extension.</p>
+            </field>
+        </record>
+        <record id="email_template_autoextend_info" model="email.template">
+            <field name="name">Membership autoextend information</field>
+            <field name="model_id" ref="membership.model_membership_membership_line" />
+            <field name="subject">Your membership was extended</field>
+            <field name="email_from">${object.company_id.name} &lt;${object.company_id.email}></field>
+            <field name="partner_to">${object.partner.ids|join(',')}</field>
+            <field name="body_html" type="xml">
+                <p>Dear ${object.partner.name},</p>
+                <p>Your membership with ${object.company_id.name} was extended and the amount of ${object.account_invoice_id.amount_total} was billed to your account.</p>
+            </field>
+        </record>
+    </data>
+</openerp>
