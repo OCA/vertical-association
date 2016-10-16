@@ -11,6 +11,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[membership_autoextend](membership_autoextend/) | 8.0.1.0.0 | Extend variable memberships automatically
 [membership_initial_fee](membership_initial_fee/) | 8.0.1.0.0 | Initial fee for memberships
 [membership_prorrate](membership_prorrate/) | 8.0.1.0.0 | Prorrate membership fee
 [membership_prorrate_variable_period](membership_prorrate_variable_period/) | 8.0.1.0.0 | Prorrate membership fee for variable periods
