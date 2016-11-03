@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="res_partner_form_view">
+            <field name="name">Partner - Membership Contact Visibility</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="membership.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='associate_member']" position="after">
+                    <field name="website_membership_published"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
