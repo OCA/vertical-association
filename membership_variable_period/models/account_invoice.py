@@ -27,7 +27,7 @@ class AccountInvoiceLine(models.Model):
             'partner': invoice.partner_id.id,
             'membership_id': product.id,
             'member_price': price_unit,
-            'date': fields.Date.today(),
+            'date': invoice.date_invoice or fields.Date.today(),
             'date_from': fields.Date.to_string(date_from),
             'date_to': fields.Date.to_string(date_to),
             'state': 'waiting',
