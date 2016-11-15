@@ -156,7 +156,9 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             'state': 'paid',
         })
         # Force state to let the calculation return to the computed one
-        self.partner.membership_stop = '2014-12-31'
+        free_state = self.partner.free_member
+        self.partner.write({'free_member': not free_state})
+        self.partner.write({'free_member': free_state})
         self.env['res.partner'].check_membership_expiry()
         self.assertEqual(self.partner.membership_state, 'old')
 
