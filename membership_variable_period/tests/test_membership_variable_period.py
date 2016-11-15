@@ -146,20 +146,19 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         self.assertEqual(self.partner.membership_stop, '2015-07-20')
 
     def test_check_membership_expiry(self):
-        self.env['membership.membership_line'].create(
-            {'partner': self.partner.id,
-             'membership_id': self.product.id,
-             'member_price': 1.0,
-             'date': '2014-01-01',
-             'date_from': '2014-01-01',
-             'date_to': '2014-12-31',
-             'state': 'paid',
-             'account_invoice_line': self.env['account.invoice.line'].search(
-                 [], limit=1).id})
+        self.env['membership.membership_line'].create({
+            'partner': self.partner.id,
+            'membership_id': self.product.id,
+            'member_price': 1.0,
+            'date': '2014-01-01',
+            'date_from': '2014-01-01',
+            'date_to': '2014-12-31',
+            'state': 'paid',
+        })
         # Force state to let the calculation return to the computed one
         self.partner.membership_stop = '2014-12-31'
         self.env['res.partner'].check_membership_expiry()
-        self.assertEqual(self.partner.membership_state, 'none')
+        self.assertEqual(self.partner.membership_state, 'old')
 
     def test_get_next_date(self):
         test_suite = [
