@@ -4,7 +4,6 @@
 
 from openerp import models, exceptions, _
 import datetime
-import calendar
 
 
 class AccountInvoiceLine(models.Model):
