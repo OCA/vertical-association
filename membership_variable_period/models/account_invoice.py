@@ -14,14 +14,11 @@ class AccountInvoiceLine(models.Model):
         inverse_name='account_invoice_line')
 
     def _prepare_membership_line(self, invoice, product, price_unit, line_id,
-                                 memb_lines=False):
-        if memb_lines and memb_lines[0].date_to:
-            date_from = (fields.Date.from_string(memb_lines[0].date_to) +
-                         timedelta(days=1))
-        else:
-            date_from = fields.Date.from_string(
-                invoice.date_invoice or fields.Date.today())
-        date_to = (product.product_tmpl_id._get_next_date(date_from) -
+                                 qty=1):
+        qty = int(math.ceil(qty))
+        date_from = fields.Date.from_string(
+            invoice.date_invoice or fields.Date.today())
+        date_to = (product.product_tmpl_id._get_next_date(date_from, qty=qty) -
                    timedelta(days=1))
         return {
             'partner': invoice.partner_id.id,
@@ -33,17 +30,6 @@ class AccountInvoiceLine(models.Model):
             'state': 'waiting',
             'account_invoice_line': line_id,
         }
-
-    def _membership_line_extra_create(self, qty, invoice, line, price_unit):
-        memb_line_model = self.env['membership.membership_line']
-        for i in range(qty):
-            memb_lines = memb_line_model.search(
-                [('account_invoice_line', '=', line.id),
-                 ('state', 'not in', ['none', 'canceled'])],
-                order="date_to desc")
-            membership_vals = self._prepare_membership_line(
-                invoice, line.product_id, price_unit, line.id, memb_lines)
-            memb_line_model.create(membership_vals)
 
     @api.multi
     def write(self, vals):
@@ -60,39 +46,20 @@ class AccountInvoiceLine(models.Model):
                 if (invoice.type == 'out_invoice' and
                         product.membership and
                         product.membership_type == 'variable'):
-                    quantity = vals.get('quantity', line.quantity)
-                    quantity = int(math.ceil(quantity))
+                    quantity = float(vals.get('quantity', line.quantity))
                     price_unit = vals.get('price_unit', line.price_unit)
-                    memb_lines = memb_line_model.search(
-                        [('account_invoice_line', '=', line.id),
-                         ('state', 'not in', ['none', 'canceled'])],
-                        order="date desc, id desc")
-                    # Invoice date or product changed
-                    if (memb_lines and (
-                            invoice.date_invoice != memb_lines[-1].date_from or
-                            product.id != memb_lines[-1].membership_id.id)):
-                        if len(memb_lines) > 1:
-                            # Remove all except last one
-                            memb_lines[:-1].unlink()
+                    membership_vals = self._prepare_membership_line(
+                        invoice, product, price_unit, line.id, qty=quantity)
+                    if line.membership_lines:
+                        if len(line.membership_lines) > 1:
+                            # Remove all except last one,
+                            # only one membership line per invoice line
+                            line.membership_lines[:-1].unlink()
                         # Update with changes
-                        membership_vals = self._prepare_membership_line(
-                            invoice, product, price_unit, line.id)
-                        memb_lines[0].write(membership_vals)
-                    # Qty changed
-                    if len(memb_lines) < quantity:
-                        # Add missing membership lines
-                        missing_number = quantity - len(memb_lines)
-                        self._membership_line_extra_create(
-                            missing_number, invoice, line, price_unit)
-                    elif len(memb_lines) > quantity:
-                        # Remove extra membership lines
-                        extra_number = len(memb_lines) - quantity
-                        memb_lines[:extra_number].unlink()
+                        line.membership_lines[0].write(membership_vals)
                     else:
-                        # Update data of current membership line
-                        membership_vals = self._prepare_membership_line(
-                            invoice, product, price_unit, line.id)
-                        memb_lines[0].write(membership_vals)
+                        # Create membership line
+                        memb_line_model.create(membership_vals)
         return super(AccountInvoiceLine, self).write(vals)
 
     @api.model
@@ -102,13 +69,9 @@ class AccountInvoiceLine(models.Model):
         if (line.invoice_id.type == 'out_invoice' and
                 line.product_id.membership and
                 line.product_id.membership_type == 'variable'):
+            qty = float(line.quantity)
             membership_vals = self._prepare_membership_line(
-                line.invoice_id, line.product_id, price_unit, line.id)
+                line.invoice_id, line.product_id, price_unit, line.id, qty=qty)
             # There's already the super line
             line.membership_lines[0].write(membership_vals)
-            qty = int(line.quantity)
-            if qty > 1:
-                # Create more membership lines if qty > 1
-                self._membership_line_extra_create(
-                    qty - 1, line.invoice_id, line, price_unit)
         return line

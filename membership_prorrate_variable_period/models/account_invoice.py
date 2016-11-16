@@ -21,24 +21,15 @@ class AccountInvoiceLine(models.Model):
         if product.membership_type == 'fixed':
             return super(AccountInvoiceLine, self)._get_membership_interval(
                 product, date)
-        if product.membership_interval_qty != 1:
-            raise exceptions.Warning(
-                _("It's not possible to prorrate periods which interval "
-                  "quantity is different from 1."))
         if product.membership_interval_unit == 'days':
             raise exceptions.Warning(
                 _("It's not possible to prorrate daily periods."))
         if product.membership_interval_unit == 'weeks':
             weekday = date.weekday()
             date_from = date - datetime.timedelta(weekday)
-            date_to = date_from + datetime.timedelta(6)
         elif product.membership_interval_unit == 'months':
             date_from = datetime.date(day=1, month=date.month, year=date.year)
-            last_month_day = calendar.monthrange(
-                date.year, date.month)[1]
-            date_to = datetime.date(
-                day=last_month_day, month=date.month, year=date.year)
         elif product.membership_interval_unit == 'years':
             date_from = datetime.date(day=1, month=1, year=date.year)
-            date_to = datetime.date(day=31, month=12, year=date.year)
+        date_to = product._get_next_date(date) - datetime.timedelta(1)
         return date_from, date_to

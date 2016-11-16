@@ -105,14 +105,6 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
         self.assertEqual(self.partner.member_lines[0].date_to, '2016-12-31')
 
     def test_create_invoice_exceptions(self):
-        # Test period quantity different from 1
-        self.product.membership_interval_qty = 3
-        with self.assertRaises(exceptions.Warning):
-            self.env['account.invoice'].create(
-                {'partner_id': self.partner.id,
-                 'account_id': self.partner.property_account_receivable.id,
-                 'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                          'name': 'Membership error'})]})
         # Test daily period
         self.product.membership_interval_qty = 1
         self.product.membership_interval_unit = 'days'
