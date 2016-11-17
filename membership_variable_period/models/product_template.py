@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
+import math
 from openerp import models, fields, api
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
@@ -10,7 +12,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     @api.multi
-    def _get_next_date(self, date):
+    def _get_next_date(self, date, qty=1):
         """Get the date that results on incrementing given date an interval of
         time in time unit.
         @param date: Original date.
@@ -20,16 +22,17 @@ class ProductTemplate(models.Model):
         @return: The date incremented in 'interval' units of 'unit'.
         """
         self.ensure_one()
+        delta = self.membership_interval_qty * int(math.ceil(qty))
         if isinstance(date, str):
             date = fields.Date.from_string(date)
         if self.membership_interval_unit == 'days':
-            return date + timedelta(days=self.membership_interval_qty)
+            return date + timedelta(days=delta)
         elif self.membership_interval_unit == 'weeks':
-            return date + timedelta(weeks=self.membership_interval_qty)
+            return date + timedelta(weeks=delta)
         elif self.membership_interval_unit == 'months':
-            return date + relativedelta(months=self.membership_interval_qty)
+            return date + relativedelta(months=delta)
         elif self.membership_interval_unit == 'years':
-            return date + relativedelta(years=self.membership_interval_qty)
+            return date + relativedelta(years=delta)
 
     membership_type = fields.Selection(
         selection=[('fixed', 'Fixed dates'),
