@@ -57,10 +57,6 @@ class TestMembershipAutoextend(TransactionCase):
             'date_invoice': fields.Date.to_string(invoice_date),
         })
         invoice.signal_workflow('invoice_open')
-        # trigger membership_state update
-        partner.write({
-            'membership_state': 'none',
-        })
         return invoice
 
     def test_membership_autoextend(self):

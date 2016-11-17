@@ -43,12 +43,15 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
         self.product.membership_date_to = fields.Date.to_string(
             datetime.date.today() + relativedelta(month=12, months=1, day=1,
                                                   days=-1))
-        invoice = self.env['account.invoice'].create(
-            {'partner_id': self.partner.id,
-             'date_invoice': fields.Date.context_today(self.product),
-             'account_id': self.partner.property_account_receivable.id,
-             'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                      'name': 'Membership prorrate fixed'})]})
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': fields.Date.context_today(self.product),
+            'account_id': self.partner.property_account_receivable.id,
+            'invoice_line': [(0, 0, {
+                'product_id': self.product.id,
+                'name': 'Membership prorrate fixed',
+            })],
+        })
         self.assertAlmostEqual(
             invoice.invoice_line[0].quantity,
             1 - (
