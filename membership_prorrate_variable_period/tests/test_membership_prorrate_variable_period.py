@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
 import datetime
 from dateutil.relativedelta import relativedelta
 from openerp import exceptions, fields
@@ -42,12 +43,15 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
         self.product.membership_date_to = fields.Date.to_string(
             datetime.date.today() + relativedelta(month=12, months=1, day=1,
                                                   days=-1))
-        invoice = self.env['account.invoice'].create(
-            {'partner_id': self.partner.id,
-             'date_invoice': fields.Date.context_today(self.product),
-             'account_id': self.partner.property_account_receivable.id,
-             'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                      'name': 'Membership prorrate fixed'})]})
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': fields.Date.context_today(self.product),
+            'account_id': self.partner.property_account_receivable.id,
+            'invoice_line': [(0, 0, {
+                'product_id': self.product.id,
+                'name': 'Membership prorrate fixed',
+            })],
+        })
         self.assertAlmostEqual(
             invoice.invoice_line[0].quantity,
             1 - (
@@ -104,18 +108,56 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
         self.assertEqual(self.partner.member_lines[0].date_from, '2016-07-01')
         self.assertEqual(self.partner.member_lines[0].date_to, '2016-12-31')
 
-    def test_create_invoice_exceptions(self):
-        # Test period quantity different from 1
-        self.product.membership_interval_qty = 3
-        with self.assertRaises(exceptions.Warning):
-            self.env['account.invoice'].create(
-                {'partner_id': self.partner.id,
-                 'account_id': self.partner.property_account_receivable.id,
-                 'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                          'name': 'Membership error'})]})
+    def test_get_next_date(self):
+        # Weeks
+        self.product.membership_interval_qty = 1
+        self.product.membership_interval_unit = 'weeks'
+        date = fields.Date.from_string('2015-07-01')
+        self.assertEqual(
+            datetime.date(day=6, month=7, year=2015),
+            self.product._get_next_date(date))
+        self.assertEqual(
+            datetime.date(day=20, month=7, year=2015),
+            self.product._get_next_date(date, qty=3))
+        self.product.membership_interval_qty = 2
+        self.assertEqual(
+            datetime.date(day=10, month=8, year=2015),
+            self.product._get_next_date(date, qty=3))
+        # Months
+        date = fields.Date.from_string('2015-07-31')
+        self.product.membership_interval_qty = 1
+        self.product.membership_interval_unit = 'months'
+        self.assertEqual(
+            datetime.date(day=1, month=8, year=2015),
+            self.product._get_next_date(date))
+        self.assertEqual(
+            datetime.date(day=1, month=10, year=2015),
+            self.product._get_next_date(date, qty=3))
+        self.product.membership_interval_qty = 2
+        self.assertEqual(
+            datetime.date(day=1, month=3, year=2016),
+            self.product._get_next_date(date, qty=4))
+        # Years
+        date = fields.Date.from_string('2015-07-31')
+        self.product.membership_interval_qty = 1
+        self.product.membership_interval_unit = 'years'
+        self.assertEqual(
+            datetime.date(day=1, month=1, year=2016),
+            self.product._get_next_date(date))
+        self.assertEqual(
+            datetime.date(day=1, month=1, year=2018),
+            self.product._get_next_date(date, qty=3))
+        self.product.membership_interval_qty = 2
+        self.assertEqual(
+            datetime.date(day=1, month=1, year=2021),
+            self.product._get_next_date(date, qty=3))
+
+    def test_exceptions(self):
         # Test daily period
         self.product.membership_interval_qty = 1
         self.product.membership_interval_unit = 'days'
+        with self.assertRaises(exceptions.Warning):
+            self.product._get_next_date(fields.Date.from_string('2015-07-01'))
         with self.assertRaises(exceptions.Warning):
             self.env['account.invoice'].create(
                 {'partner_id': self.partner.id,
