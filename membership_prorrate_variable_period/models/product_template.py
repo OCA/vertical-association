@@ -3,9 +3,10 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import math
-from openerp import models, exceptions, api, _
 import datetime
 import calendar
+from dateutil.relativedelta import relativedelta
+from openerp import models, exceptions, api, _
 
 
 class ProductTemplate(models.Model):
@@ -17,7 +18,7 @@ class ProductTemplate(models.Model):
         if self.membership_interval_unit == 'days':
             raise exceptions.Warning(
                 _("It's not possible to prorrate daily periods."))
-        qty = int(math.ceil(qty))
+        qty = int(math.ceil(qty)) * self.membership_interval_qty
         if self.membership_interval_unit == 'weeks':
             weekday = date.weekday()
             date_from = date - datetime.timedelta(weekday)
@@ -25,7 +26,7 @@ class ProductTemplate(models.Model):
         elif self.membership_interval_unit == 'months':
             date_to = date
             if qty > 1:
-                date_to += datetime.timedelta(months=(qty - 1))
+                date_to += relativedelta(months=(qty - 1))
             last_month_day = calendar.monthrange(
                 date_to.year, date_to.month)[1]
             res = (datetime.date(
@@ -34,7 +35,7 @@ class ProductTemplate(models.Model):
         elif self.membership_interval_unit == 'years':
             date_to = date
             if qty > 1:
-                date_to += datetime.timedelta(years=(qty - 1))
+                date_to += relativedelta(years=(qty - 1))
             res = (datetime.date(day=31, month=12, year=date_to.year) +
                    datetime.timedelta(1))
         return res
