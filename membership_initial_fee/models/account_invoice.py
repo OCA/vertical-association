@@ -47,18 +47,27 @@ class AccountInvoiceLine(models.Model):
         return line_vals
 
     @api.model
+    def initial_fee_create_check(self, product, invoice_line):
+        """Inherit this method to implement a custom method
+           to decide whether or not to create the initial fee
+        """
+        if not product.membership or product.initial_fee == 'none':
+            return False
+        # See if partner has any membership line to decide whether or not
+        # to create the initial fee
+        member_lines = self.env['membership.membership_line'].search([
+            ('partner', '=', invoice_line.invoice_id.partner_id.id),
+            ('account_invoice_line', 'not in', (invoice_line.id, )),
+            ('state', 'not in', ['none', 'canceled']),
+        ])
+        return not bool(member_lines)
+
+    @api.model
     def create(self, vals):
         invoice_line = super(AccountInvoiceLine, self).create(vals)
         product = self.env['product.product'].browse(
             vals.get('product_id'))
-        if not product.membership or product.initial_fee == 'none':
-            return invoice_line
-        # See if this is the first invoice
-        invoices = self.env['account.invoice'].search(
-            [('partner_id', '=', invoice_line.invoice_id.partner_id.id),
-             ('state', 'in', ('draft', 'open', 'paid')),
-             ('invoice_line.product_id', '=', product.id)])
-        if len(invoices) == 1:
+        if self.initial_fee_create_check(product, invoice_line):
             # Charge initial fee
             self.create(self._prepare_initial_fee_vals(invoice_line))
         return invoice_line
