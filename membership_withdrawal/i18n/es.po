@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* membership_withdrawal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-23 21:29+0000\n"
+"PO-Revision-Date: 2016-11-23 21:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
+msgid "Company bankrupt"
+msgstr "Quiebra de la empresa"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: membership_withdrawal
+#: help:membership.membership_line,date_withdrawal:0
+msgid "Date when member requested membership withdrawl"
+msgstr "Fecha en la que el miembro solicita la baja"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,display_name:0
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: membership_withdrawal
+#: view:res.partner:membership_withdrawal.view_res_partner_member_filter
+msgid "End Month"
+msgstr "Mes de fin"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_membership_membership_line
+msgid "Member line"
+msgstr "Linea de asociación"
+
+#. module: membership_withdrawal
+#: field:res.partner,membership_last_withdrawal_date:0
+msgid "Membership withdrawal date"
+msgstr "Fecha de baja"
+
+#. module: membership_withdrawal
+#: field:res.partner,membership_last_withdrawal_reason_id:0
+msgid "Membership withdrawal reason"
+msgstr "Razón de la baja"
+
+#. module: membership_withdrawal
+#: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
+#: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
+#: view:membership.withdrawal_reason:membership_withdrawal.membership_withdrawal_reason_tree_view
+msgid "Membership withdrawal reasons"
+msgstr "Razones de baja"
+
+#. module: membership_withdrawal
+#: field:membership.withdrawal_reason,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_other
+msgid "Other"
+msgstr "Otra"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_membership_withdrawal_reason
+msgid "Reason for withdrawal in membership"
+msgstr "Razón de baja de asociación"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_unsatisfied
+msgid "Unsatisfied"
+msgstr "Insatisfecho"
+
+#. module: membership_withdrawal
+#: view:res.partner:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal Month"
+msgstr "Mes de baja"
+
+#. module: membership_withdrawal
+#: field:membership.membership_line,date_withdrawal:0
+msgid "Withdrawal date"
+msgstr "Fecha de baja"
+
+#. module: membership_withdrawal
+#: help:res.partner,membership_last_withdrawal_date:0
+msgid "Withdrawal date of current membership period"
+msgstr "Fecha de baja del período actual de asociación"
+
+#. module: membership_withdrawal
+#: view:res.partner:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal month"
+msgstr "Mes de baja"
+
+#. module: membership_withdrawal
+#: field:membership.membership_line,withdrawal_reason_id:0
+#: view:res.partner:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal reason"
+msgstr "Razón de la baja"
+
+#. module: membership_withdrawal
+#: help:res.partner,membership_last_withdrawal_reason_id:0
+msgid "Withdrawal reason of current membership period"
+msgstr "Razón de la baja en el período actual de asociación"
