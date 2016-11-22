@@ -201,11 +201,11 @@ class TestMembership(TransactionCase):
         })
         action = self.env.ref('membership.action_membership_members')
         with self.assertRaises(UserError):
-            self.partner.with_context(params={'model': 'res.partner'}).\
+            self.partner.with_context(active_model='res.partner').\
                 member_lines[0].unlink()
             self.partner.with_context(params={'action': action.id}).\
                 member_lines[0].unlink()
-            self.partner.with_context(active_model='res.partner').\
+            self.partner.with_context(params={'model': 'res.partner'}).\
                 member_lines[0].unlink()
         self.partner.member_lines[0].unlink()
 
