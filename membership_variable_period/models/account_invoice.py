@@ -49,7 +49,7 @@ class AccountInvoiceLine(models.Model):
                     membership_vals = self._prepare_membership_line(
                         invoice, product, price_unit, line.id, qty=quantity)
                     if line.membership_lines:
-                        if len(line.membership_lines) > 1:
+                        if len(line.membership_lines) > 1:  # pragma: no cover
                             # Remove all except last one,
                             # only one membership line per invoice line
                             line.membership_lines[:-1].unlink()

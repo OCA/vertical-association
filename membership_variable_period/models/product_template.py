@@ -35,7 +35,7 @@ class ProductTemplate(models.Model):
                 return date + relativedelta(months=delta)
             elif self.membership_interval_unit == 'years':
                 return date + relativedelta(years=delta)
-        return res
+        return res  # pragma: no cover
 
     membership_type = fields.Selection(
         selection=[('fixed', 'Fixed dates'),
