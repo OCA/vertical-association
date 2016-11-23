@@ -6,6 +6,8 @@
 Membership extension
 ====================
 
+This module extends Odoo's membership management with the following features:
+
 * Membership Category
 * Membership lines editable
 * Do not calculate membership state from invoice status
@@ -15,16 +17,18 @@ Membership extension
 Configuration
 =============
 
-To configure this module, you need to:
-
-#. Go to ...
+Users can define membership categories in Association > Configuration > Membership Categories
+Then go to membership products and set a category to each one
 
 Usage
 =====
 
-To use this module, you need to:
+Membership lines are created when a membership product is invoiced, like in
+Odoo standard version. But now users can create a new membership line without
+creating an invoice.
 
-#. Go to ...
+Also, users can edit membership line dates and state even an invoice is related
+with it.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
