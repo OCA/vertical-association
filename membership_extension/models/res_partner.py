@@ -14,6 +14,7 @@ LAST_START_DELTA_DAYS = 3
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
+    associate_member = fields.Many2one(index=True)
     membership_start = fields.Date(
         string="Membership Start Date", readonly=True, store=True,
         compute="_compute_membership_date",
@@ -35,10 +36,10 @@ class ResPartner(models.Model):
         comodel_name='membership.membership_category',
         compute="_compute_membership_state")
     membership_categories = fields.Char(
-        string="Membership categories", readonly=True, store=True,
+        string="Membership categories", readonly=True, store=True, index=True,
         compute='_compute_membership_state')
     membership_state = fields.Selection(
-        selection=STATE, store=True,
+        selection=STATE, store=True, index=True,
         compute='_compute_membership_state',
     )
 
@@ -202,3 +203,7 @@ class ResPartner(models.Model):
         ])
         partners._compute_membership_state()
         return True
+
+    @api.model
+    def _cron_update_membership(self):
+        return self.check_membership_expiry()

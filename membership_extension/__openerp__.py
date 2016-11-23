@@ -20,7 +20,6 @@
         "views/product_template_view.xml",
         "views/res_partner_view.xml",
         "data/membership_category_data.xml",
-        "data/ir_cron_data.xml",
     ],
     "demo": [
         "demo/membership_category_demo.xml",
