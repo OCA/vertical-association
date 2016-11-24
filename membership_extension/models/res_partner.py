@@ -2,9 +2,15 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import logging
 from datetime import timedelta
 from openerp import models, fields, api
-from openerp.addons.membership.membership import STATE, STATE_PRIOR
+_logger = logging.getLogger(__name__)
+try:
+    from openerp.addons.membership.membership import STATE, STATE_PRIOR
+except ImportError:
+    _logger.warning("Cannot import 'membership' addon.")
+    _logger.debug("Details", exc_info=True)
 
 # Max number of days between date_from and date_to of two consecutive
 # membership lines to consider a different membership period
@@ -71,7 +77,7 @@ class ResPartner(models.Model):
     def _membership_state_prior(self):
         """Inherit this method to define membership state precedence
 
-        Diccionary with precendence of each state
+        Dictionary with precendence of each state
         """
         return STATE_PRIOR
 

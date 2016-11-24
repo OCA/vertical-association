@@ -2,10 +2,16 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import logging
 from datetime import timedelta
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning as UserError
-from openerp.addons.membership.membership import STATE
+_logger = logging.getLogger(__name__)
+try:
+    from openerp.addons.membership.membership import STATE
+except ImportError:
+    _logger.warning("Cannot import 'membership' addon.")
+    _logger.debug("Details", exc_info=True)
 
 
 class MembershipLine(models.Model):
