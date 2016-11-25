@@ -47,6 +47,7 @@ Contributors
 ------------
 
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Antonio Espinosa <antonio.espinosa@tecnativa.com>
 
 Icon
 ----
