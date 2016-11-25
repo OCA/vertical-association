@@ -3,6 +3,7 @@
     <data>
         <record id="product_autoextend_membership" model="product.product">
             <field name="name">One year</field>
+            <field name="type">service</field>
             <field name="membership" eval="True" />
             <field name="membership_type">variable</field>
             <field name="membership_interval_qty">1</field>
