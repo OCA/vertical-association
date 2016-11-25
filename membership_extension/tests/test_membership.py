@@ -190,7 +190,7 @@ class TestMembership(TransactionCase):
         self.assertFalse(self.child.membership_categories)
 
     def test_remove_membership_line_with_invoice(self):
-        self.env['account.invoice'].create({
+        invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
             'date_invoice': '2016-07-01',
             'account_id': self.partner.property_account_receivable.id,
@@ -199,15 +199,10 @@ class TestMembership(TransactionCase):
                 'name': 'Membership',
             })],
         })
-        action = self.env.ref('membership.action_membership_members')
         with self.assertRaises(UserError):
-            self.partner.with_context(active_model='res.partner').\
-                member_lines[0].unlink()
-            self.partner.with_context(params={'action': action.id}).\
-                member_lines[0].unlink()
-            self.partner.with_context(params={'model': 'res.partner'}).\
-                member_lines[0].unlink()
-        self.partner.member_lines[0].unlink()
+            self.partner.member_lines[0].unlink()
+        invoice.invoice_line.unlink()
+        self.assertFalse(self.partner.member_lines)
 
     def test_membership_line_onchange(self):
         line = self.env['membership.membership_line'].create({

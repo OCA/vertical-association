@@ -21,3 +21,8 @@ class AccountInvoiceLine(models.Model):
                 'state': 'waiting',
             })
         return line
+
+    @api.multi
+    def unlink(self):
+        lines = self.with_context(allow_membership_line_unlink=True)
+        return super(AccountInvoiceLine, lines).unlink()

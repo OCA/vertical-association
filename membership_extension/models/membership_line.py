@@ -51,7 +51,7 @@ class MembershipLine(models.Model):
                 if date_to >= self.date:
                     self.date_to = date_to
 
-    # Define two empty methods _compute_state and _inverse_state in order
+    # Two empty methods _compute_state and _inverse_state in order
     # to make state field a regular field (non computed).
     @api.multi
     def _compute_state(self):
@@ -63,15 +63,8 @@ class MembershipLine(models.Model):
 
     @api.multi
     def unlink(self):
-        model = self.env.context.get('params', {}).get('model', False)
-        action_id = self.env.context.get('params', {}).get('action', False)
-        active_model = self.env.context.get('active_model', False)
-        if not model and action_id:
-            action = self.env['ir.actions.act_window'].browse(action_id)
-            model = action.res_model
-        if not model and active_model:
-            model = active_model
-        if model == 'res.partner' and self.filtered('account_invoice_id'):
+        allow = self.env.context.get('allow_membership_line_unlink', False)
+        if self.filtered('account_invoice_id') and not allow:
             raise UserError(
                 _('Can not remove membership line related to an '
                   'invoice. Please, cancel invoice or remove invoice '
