@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record id="membership.membership_0_product_template"
+        model="product.template">
+    <field name="membership_category_id"
+           ref="membership_extension.membership_category_gold"/>
+</record>
+
+
+<record id="membership.membership_1_product_template"
+        model="product.template">
+    <field name="membership_category_id"
+           ref="membership_extension.membership_category_silver"/>
+</record>
+
+<record id="membership.membership_2_product_template"
+        model="product.template">
+    <field name="membership_category_id"
+           ref="membership_extension.membership_category_member"/>
+</record>
+
+</data>
+</openerp>
