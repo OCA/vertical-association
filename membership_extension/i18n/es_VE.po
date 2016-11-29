@@ -11,11 +11,11 @@ msgstr ""
 "POT-Creation-Date: 2016-11-26 04:01+0000\n"
 "PO-Revision-Date: 2016-11-26 04:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language-Team: Spanish (Venezuela) (https://www.transifex.com/oca/teams/23907/es_VE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
+"Language: es_VE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_extension
@@ -25,8 +25,6 @@ msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice"
 " or remove invoice line instead"
 msgstr ""
-"No es posible borrar lineas de asociación relacionadas con una factura. Por "
-"favor, como alternativa, cancela la factura o elimina la linea de factura."
 
 #. module: membership_extension
 #: field:membership.membership_line,category_id:0
@@ -37,7 +35,7 @@ msgstr "Categoría"
 #. module: membership_extension
 #: help:product.product,membership:0
 msgid "Check if the product is eligible for membership."
-msgstr "Comprueba si el producto es seleccionable para asociación."
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,create_uid:0
@@ -52,37 +50,37 @@ msgstr "Creado en"
 #. module: membership_extension
 #: field:product.product,taxes_id:0
 msgid "Customer Taxes"
-msgstr "Impuestos de cliente"
+msgstr ""
 
 #. module: membership_extension
 #: help:product.product,membership_date_from:0
 msgid "Date from which membership becomes active."
-msgstr "Fecha a partir de la cual la asociación está activa."
+msgstr ""
 
 #. module: membership_extension
 #: help:product.product,membership_date_to:0
 msgid "Date until which membership remains active."
-msgstr "Fecha hasta la que la asociación está activa."
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,display_name:0
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Mostrar nombre"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "End Month"
-msgstr "Mes de finalización"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,property_account_expense:0
 msgid "Expense Account"
-msgstr "Cuenta de gastos"
+msgstr ""
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
-msgstr "Oro"
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,id:0
@@ -92,85 +90,85 @@ msgstr "ID"
 #. module: membership_extension
 #: field:product.product,property_account_income:0
 msgid "Income Account"
-msgstr "Cuenta de ingresos"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice
 msgid "Invoice"
-msgstr "Factura"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Linea de factura"
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,__last_update:0
 msgid "Last Modified on"
-msgstr "Úlima modificación en"
+msgstr "Modificada por última vez"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
-msgstr "Mes del último inicio"
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,write_uid:0
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr "Última actualización realizada por"
 
 #. module: membership_extension
 #: field:membership.membership_category,write_date:0
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Ultima actualizacion en"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
-msgstr "Miembro"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 msgid "Member line"
-msgstr "Linea de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,membership:0
 msgid "Membership"
-msgstr "Socio"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
-msgstr "Categorias de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
-msgstr "Categoría de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,membership_date_to:0
 msgid "Membership End Date"
-msgstr "Fecha de fin de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: field:res.partner,membership_last_start:0
 msgid "Membership Last Start Date"
-msgstr "Fecha de inicio del último período"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,membership_date_from:0
 msgid "Membership Start Date"
-msgstr "Fecha de inicio de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: view:membership.membership_category:membership_extension.membership_category_tree_view
 #: field:res.partner,membership_categories:0
 #: field:res.partner,membership_category_ids:0
 msgid "Membership categories"
-msgstr "Categorias de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
@@ -178,17 +176,17 @@ msgstr "Categorias de asociación"
 #: view:product.template:membership_extension.membership_product_search_form_view
 #: field:product.template,membership_category_id:0
 msgid "Membership category"
-msgstr "Categoría de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: field:account.invoice.line,membership_lines:0
 msgid "Membership lines"
-msgstr "Lineas de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_partner_form
 msgid "Memberships"
-msgstr "Socios"
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,name:0
@@ -203,37 +201,37 @@ msgstr "Empresa"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
 msgid "Product"
-msgstr "Producto"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr ""
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
 msgid "Silver"
-msgstr "Plata"
+msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "Start Month"
-msgstr "Mes de inicio"
+msgstr ""
 
 #. module: membership_extension
 #: help:res.partner,membership_last_start:0
 msgid "Start date of last membership period."
-msgstr "Fecha de inicio del último período de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr "Mes de inicio del último período de asociación"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,supplier_taxes_id:0
 msgid "Supplier Taxes"
-msgstr "Impuestos de proveedor"
+msgstr ""
 
 #. module: membership_extension
 #: help:product.product,property_account_expense:0
@@ -241,8 +239,6 @@ msgid ""
 "This account will be used for invoices instead of the default one to value "
 "expenses for the current product."
 msgstr ""
-"Esta cuenta se utilizará en facturas, en lugar de la cuenta por defecto, "
-"para valorar gastos de este producto."
 
 #. module: membership_extension
 #: help:product.product,property_account_income:0
@@ -250,8 +246,6 @@ msgid ""
 "This account will be used for invoices instead of the default one to value "
 "sales for the current product."
 msgstr ""
-"Esta cuenta se utilizará en facturas, en lugar de la cuenta por defecto, "
-"para valorar los ingresos de este producto."
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_partner_form
