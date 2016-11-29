@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-30 01:45+0000\n"
-"PO-Revision-Date: 2015-12-30 06:34+0000\n"
+"POT-Creation-Date: 2016-11-26 04:01+0000\n"
+"PO-Revision-Date: 2016-11-19 06:23+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -24,15 +24,13 @@ msgid "Invoice Line"
 msgstr "Postavka računa"
 
 #. module: membership_prorrate_variable_period
-#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:30
+#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:25
+#: code:addons/membership_prorrate_variable_period/models/product_template.py:20
 #, python-format
 msgid "It's not possible to prorrate daily periods."
 msgstr "Proporcionalno porazdeljevanje dnevnih obdobij ni mogoče."
 
 #. module: membership_prorrate_variable_period
-#: code:addons/membership_prorrate_variable_period/models/account_invoice.py:26
-#, python-format
-msgid ""
-"It's not possible to prorrate periods which interval quantity is different "
-"from 1."
-msgstr "Proporcionalno porazdeljevanje obdobij s količino intervalov drugačno od 1 ni mogoče."
+#: model:ir.model,name:membership_prorrate_variable_period.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
