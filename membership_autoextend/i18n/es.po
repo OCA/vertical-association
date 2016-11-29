@@ -1,0 +1,139 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_autoextend
+# 
+# Translators:
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-26 04:01+0000\n"
+"PO-Revision-Date: 2016-11-26 04:01+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_autoextend
+#: model:email.template,body_html:membership_autoextend.email_template_autoextend_info
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Dear ${object.partner.name},</p>\n"
+"                <p>Your membership with ${object.company_id.name} was extended and the amount of ${object.account_invoice_id.amount_total} was billed to your account.</p>\n"
+"            </data>"
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Estimado/a ${object.partner.name},</p>\n"
+"<p>Su afiliación con ${object.company_id.name} se ha extendido y el importe ${object.account_invoice_id.amount_total} fue facturado a su cuenta.</p>\n"
+"</data>"
+
+#. module: membership_autoextend
+#: model:email.template,body_html:membership_autoextend.email_template_autoextend_warning
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Dear ${object.partner.name},</p>\n"
+"                <p>Your membership with ${object.company_id.name} will be extended in ${object.membership_id.membership_autoextend_warning_days} days. If you disagree with this, please reply to this email to opt out of automatic extension.</p>\n"
+"            </data>"
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Estimado/a ${object.partner.name},</p>\n"
+"<p>Su afiliación con ${object.company_id.name} será extendida en ${object.membership_id.membership_autoextend_warning_days}. días Si no está de acuerdo, por favor responda a este correo para indicar que no desea la auto-extensión.</p>\n"
+"</data>"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_info_template_id:0
+msgid "Autoextend info"
+msgstr "Información de auto-extensión"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend:0
+#: field:res.partner,membership_autoextend:0
+msgid "Autoextend membership"
+msgstr "Auto-extender afiliación"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_warning_template_id:0
+msgid "Autoextend warning"
+msgstr "Aviso de auto-extensión"
+
+#. module: membership_autoextend
+#: field:res.partner,membership_current:0
+msgid "Current membership"
+msgstr "Afiliación actual"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_product_id:0
+msgid "Extension membership"
+msgstr "Extensión de afiliación"
+
+#. module: membership_autoextend
+#: model:email.template,subject:membership_autoextend.email_template_autoextend_warning
+msgid "Extension of your membership is imminent"
+msgstr "La extensión de su afiliación es inminente"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_product_id:0
+msgid ""
+"If selected, use this product for extensions. Otherwise, the current "
+"membership product will be used."
+msgstr ""
+"Si está establecido, se usará este producto para las extensiones. En caso "
+"contrario, se utilizará el producto actual de afiliación."
+
+#. module: membership_autoextend
+#: model:product.template,name:membership_autoextend.product_autoextend_membership_product_template
+msgid "One year"
+msgstr "Un año"
+
+#. module: membership_autoextend
+#: field:res.partner,membership_autoextend_opt_out:0
+msgid "Opt out of autoextension"
+msgstr "No desea auto-extensión"
+
+#. module: membership_autoextend
+#: model:ir.model,name:membership_autoextend.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: membership_autoextend
+#: model:ir.model,name:membership_autoextend.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_warning_days:0
+msgid "The amount of days to send warning email before automatic extension"
+msgstr ""
+"La cantidad de días para enviar el correo de aviso antes de la extensión "
+"automática"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_info_template_id:0
+msgid "This email is sent after a membership was extended"
+msgstr ""
+"Este correo electrónico se envía después de que la auto-extensión de una "
+"afiliación"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_warning_template_id:0
+msgid ""
+"This email is sent the selected amount of days before a membership was "
+"extended"
+msgstr ""
+"Este correo electrónico se envía la cantidad de días seleccionada antes de "
+"la auto-extensión de una afiliación"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_warning_days:0
+msgid "Warn before autoextend"
+msgstr "Avisar antes de auto-extender"
+
+#. module: membership_autoextend
+#: model:email.template,subject:membership_autoextend.email_template_autoextend_info
+msgid "Your membership was extended"
+msgstr "Su afiliación fue auto-extendida"

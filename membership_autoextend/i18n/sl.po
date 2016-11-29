@@ -1,0 +1,136 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_autoextend
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-26 04:01+0000\n"
+"PO-Revision-Date: 2016-11-26 04:01+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: membership_autoextend
+#: model:email.template,body_html:membership_autoextend.email_template_autoextend_info
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Dear ${object.partner.name},</p>\n"
+"                <p>Your membership with ${object.company_id.name} was extended and the amount of ${object.account_invoice_id.amount_total} was billed to your account.</p>\n"
+"            </data>"
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Spoštovani ${object.partner.name},</p>\n"
+"                <p>Vaše članstvo pri ${object.company_id.name} je bilo podaljšano, znesek ${object.account_invoice_id.amount_total} pa vam je bil zaračunan.</p>\n"
+"            </data>"
+
+#. module: membership_autoextend
+#: model:email.template,body_html:membership_autoextend.email_template_autoextend_warning
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Dear ${object.partner.name},</p>\n"
+"                <p>Your membership with ${object.company_id.name} will be extended in ${object.membership_id.membership_autoextend_warning_days} days. If you disagree with this, please reply to this email to opt out of automatic extension.</p>\n"
+"            </data>"
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Spoštovani ${object.partner.name},</p>\n"
+"                <p>Vaše članstvo pri ${object.company_id.name} bo podaljšano v ${object.membership_id.membership_autoextend_warning_days} dneh. V kolikor se s tem ne strinjate, vas prosimo, da za odjavo od samodejnega podaljšanja odgovorite na to e-poštno.</p>\n"
+"            </data>"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_info_template_id:0
+msgid "Autoextend info"
+msgstr "Podatki o samodejnem podaljšanju"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend:0
+#: field:res.partner,membership_autoextend:0
+msgid "Autoextend membership"
+msgstr "Samodejno podaljšanje članstva"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_warning_template_id:0
+msgid "Autoextend warning"
+msgstr "Opozorilo o samodejnem podaljšanju"
+
+#. module: membership_autoextend
+#: field:res.partner,membership_current:0
+msgid "Current membership"
+msgstr "Tekoče članstvo"
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_product_id:0
+msgid "Extension membership"
+msgstr "Podaljšanje članstva"
+
+#. module: membership_autoextend
+#: model:email.template,subject:membership_autoextend.email_template_autoextend_warning
+msgid "Extension of your membership is imminent"
+msgstr "Skorajšnje podaljšanje vašega članstva"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_product_id:0
+msgid ""
+"If selected, use this product for extensions. Otherwise, the current "
+"membership product will be used."
+msgstr ""
+"Če izbrano, se ta proizvod uporablja za podaljšanja. V nasprotnem primeru se"
+" uporabi trenutni proizvod za članarine."
+
+#. module: membership_autoextend
+#: model:product.template,name:membership_autoextend.product_autoextend_membership_product_template
+msgid "One year"
+msgstr "Eno leto"
+
+#. module: membership_autoextend
+#: field:res.partner,membership_autoextend_opt_out:0
+msgid "Opt out of autoextension"
+msgstr "Odjava od samodejnega podaljšanja"
+
+#. module: membership_autoextend
+#: model:ir.model,name:membership_autoextend.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: membership_autoextend
+#: model:ir.model,name:membership_autoextend.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_warning_days:0
+msgid "The amount of days to send warning email before automatic extension"
+msgstr ""
+"Število dni do pošiljanja opozorilnega e-poštnega sporočila pred samodejnim "
+"podaljšanjem"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_info_template_id:0
+msgid "This email is sent after a membership was extended"
+msgstr "To sporočilo je bilo poslano po podaljšanju članstva"
+
+#. module: membership_autoextend
+#: help:product.template,membership_autoextend_warning_template_id:0
+msgid ""
+"This email is sent the selected amount of days before a membership was "
+"extended"
+msgstr ""
+"To sporočilo se pošlje v izbranem številu dni pred podaljšanjem članstva."
+
+#. module: membership_autoextend
+#: field:product.template,membership_autoextend_warning_days:0
+msgid "Warn before autoextend"
+msgstr "Opozori pred samodejnim podaljšanjem"
+
+#. module: membership_autoextend
+#: model:email.template,subject:membership_autoextend.email_template_autoextend_info
+msgid "Your membership was extended"
+msgstr "Vaše članstvo je bilo podaljšano"
