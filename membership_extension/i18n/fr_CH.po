@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# leemannd <leemannd@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-26 04:01+0000\n"
-"PO-Revision-Date: 2016-11-26 04:01+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2016-11-29 19:10+0000\n"
+"PO-Revision-Date: 2016-11-29 19:10+0000\n"
+"Last-Translator: leemannd <leemannd@gmail.com>, 2016\n"
 "Language-Team: French (Switzerland) (https://www.transifex.com/oca/teams/23907/fr_CH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +31,7 @@ msgstr ""
 #: field:membership.membership_line,category_id:0
 #: view:product.template:membership_extension.membership_product_search_form_view
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #. module: membership_extension
 #: help:product.product,membership:0
@@ -65,12 +66,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "End Month"
-msgstr ""
+msgstr "Fin du mois"
 
 #. module: membership_extension
 #: field:product.product,property_account_expense:0
@@ -80,7 +81,7 @@ msgstr ""
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
-msgstr ""
+msgstr "Or"
 
 #. module: membership_extension
 #: field:membership.membership_category,id:0
@@ -100,12 +101,12 @@ msgstr "Facture"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr ""
+msgstr "Ligne de facture"
 
 #. module: membership_extension
 #: field:membership.membership_category,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
@@ -125,7 +126,7 @@ msgstr "Modifié le"
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
-msgstr ""
+msgstr "Membre"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
@@ -196,27 +197,27 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Partenaire"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produit"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Template de produit"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
 msgid "Silver"
-msgstr ""
+msgstr "Argent"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
 msgid "Start Month"
-msgstr ""
+msgstr "Début du mois"
 
 #. module: membership_extension
 #: help:res.partner,membership_last_start:0
