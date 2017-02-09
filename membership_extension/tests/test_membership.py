@@ -5,55 +5,59 @@
 from datetime import timedelta
 from openerp import fields
 from openerp.exceptions import Warning as UserError
-from openerp.tests.common import TransactionCase
+from openerp.tests import common
 
 
-class TestMembership(TransactionCase):
-    def setUp(self, *args, **kwargs):
-        super(TestMembership, self).setUp(*args, **kwargs)
-        self.next_two_months = fields.Date.to_string(
-            fields.Date.from_string(fields.Date.today()) + timedelta(days=60))
-        self.next_month = fields.Date.to_string(
-            fields.Date.from_string(fields.Date.today()) + timedelta(days=30))
-        self.yesterday = fields.Date.to_string(
-            fields.Date.from_string(fields.Date.today()) - timedelta(days=1))
-        self.category_gold = self.env.ref(
-            'membership_extension.membership_category_gold')
-        self.category_silver = self.env.ref(
-            'membership_extension.membership_category_silver')
-        self.partner = self.env['res.partner'].create({
+class TestMembership(common.SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestMembership, cls).setUpClass()
+        date_today = fields.Date.from_string(fields.Date.today())
+        cls.next_two_months = fields.Date.to_string(
+            date_today + timedelta(days=60)
+        )
+        cls.next_month = fields.Date.to_string(date_today + timedelta(days=30))
+        cls.yesterday = fields.Date.to_string(date_today - timedelta(days=1))
+        cls.category_gold = cls.env.ref(
+            'membership_extension.membership_category_gold'
+        )
+        cls.category_silver = cls.env.ref(
+            'membership_extension.membership_category_silver'
+        )
+        cls.partner = cls.env['res.partner'].create({
             'name': 'Test company',
         })
-        self.child = self.env['res.partner'].create({
+        cls.child = cls.env['res.partner'].create({
             'name': 'Test child',
-            'associate_member': self.partner.id,
+            'associate_member': cls.partner.id,
         })
-        self.gold_product = self.env['product.product'].create({
+        cls.gold_product = cls.env['product.product'].create({
             'type': 'service',
             'name': 'Membership Gold',
             'membership': True,
-            'membership_date_from': '2016-02-01',
-            'membership_date_to': self.next_two_months,
-            'membership_category_id': self.category_gold.id,
+            'membership_date_from': fields.Date.today(),
+            'membership_date_to': cls.next_month,
+            'membership_category_id': cls.category_gold.id,
             'list_price': 100.00,
         })
-        self.silver_product = self.env['product.product'].create({
+        cls.silver_product = cls.env['product.product'].create({
             'type': 'service',
             'name': 'Membership Silver',
             'membership': True,
-            'membership_date_from': '2016-02-01',
-            'membership_date_to': self.next_month,
-            'membership_category_id': self.category_silver.id,
+            'membership_date_from': fields.Date.today(),
+            'membership_date_to': cls.next_two_months,
+            'membership_category_id': cls.category_silver.id,
             'list_price': 50.00,
         })
+        cls.current_year = date_today.year
 
     def test_compute_membership(self):
         line = self.env['membership.membership_line'].create({
             'membership_id': self.gold_product.id,
             'member_price': 100.00,
-            'date': '2016-03-01',
-            'date_from': '2016-02-01',
-            'date_to': self.next_two_months,
+            'date': fields.Date.today(),
+            'date_from': fields.Date.today(),
+            'date_to': self.next_month,
             'partner': self.partner.id,
             'state': 'waiting',
         })
@@ -71,26 +75,30 @@ class TestMembership(TransactionCase):
             'state': 'invoiced',
         })
         self.assertEqual('invoiced', self.partner.membership_state)
-        self.assertEqual('2016-02-01', self.partner.membership_start)
-        self.assertEqual('2016-02-01', self.partner.membership_last_start)
-        self.assertEqual(self.next_two_months, self.partner.membership_stop)
+        self.assertEqual(fields.Date.today(), self.partner.membership_start)
+        self.assertEqual(
+            fields.Date.today(), self.partner.membership_last_start,
+        )
+        self.assertEqual(self.next_month, self.partner.membership_stop)
         self.assertFalse(self.partner.membership_cancel)
         self.assertEqual('invoiced', self.child.membership_state)
-        self.assertEqual('2016-02-01', self.child.membership_start)
-        self.assertEqual('2016-02-01', self.child.membership_last_start)
-        self.assertEqual(self.next_two_months, self.child.membership_stop)
+        self.assertEqual(fields.Date.today(), self.child.membership_start)
+        self.assertEqual(fields.Date.today(), self.child.membership_last_start)
+        self.assertEqual(self.next_month, self.child.membership_stop)
         self.assertFalse(self.child.membership_cancel)
         line.write({
             'date_cancel': self.yesterday,
         })
         self.assertEqual('old', self.partner.membership_state)
-        self.assertEqual('2016-02-01', self.partner.membership_start)
-        self.assertEqual('2016-02-01', self.partner.membership_last_start)
+        self.assertEqual(fields.Date.today(), self.partner.membership_start)
+        self.assertEqual(
+            fields.Date.today(), self.partner.membership_last_start,
+        )
         self.assertEqual(self.yesterday, self.partner.membership_stop)
         self.assertEqual(self.yesterday, self.partner.membership_cancel)
         self.assertEqual('old', self.child.membership_state)
-        self.assertEqual('2016-02-01', self.child.membership_start)
-        self.assertEqual('2016-02-01', self.child.membership_last_start)
+        self.assertEqual(fields.Date.today(), self.child.membership_start)
+        self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.yesterday, self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
         line.write({
@@ -107,10 +115,10 @@ class TestMembership(TransactionCase):
         self.assertFalse(self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
         other_line = self.env['membership.membership_line'].create({
-            'membership_id': self.gold_product.id,
+            'membership_id': self.silver_product.id,
             'member_price': 100.00,
-            'date': '2016-05-01',
-            'date_from': '2016-04-01',
+            'date': fields.Date.today(),
+            'date_from': fields.Date.today(),
             'date_to': self.next_two_months,
             'partner': self.partner.id,
             'state': 'waiting',
@@ -129,13 +137,15 @@ class TestMembership(TransactionCase):
             'state': 'paid',
         })
         self.assertEqual('paid', self.partner.membership_state)
-        self.assertEqual('2016-04-01', self.partner.membership_start)
-        self.assertEqual('2016-04-01', self.partner.membership_last_start)
+        self.assertEqual(fields.Date.today(), self.partner.membership_start)
+        self.assertEqual(
+            fields.Date.today(), self.partner.membership_last_start,
+        )
         self.assertEqual(self.next_two_months, self.partner.membership_stop)
         self.assertEqual(self.yesterday, self.partner.membership_cancel)
         self.assertEqual('paid', self.child.membership_state)
-        self.assertEqual('2016-04-01', self.child.membership_start)
-        self.assertEqual('2016-04-01', self.child.membership_last_start)
+        self.assertEqual(fields.Date.today(), self.child.membership_start)
+        self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.next_two_months, self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
 
@@ -143,43 +153,51 @@ class TestMembership(TransactionCase):
         line_one = self.env['membership.membership_line'].create({
             'membership_id': self.gold_product.id,
             'member_price': 100.00,
-            'date': '2016-03-01',
-            'date_from': '2016-02-01',
-            'date_to': self.next_two_months,
+            'date': fields.Date.today(),
+            'date_from': fields.Date.today(),
+            'date_to': self.next_month,
             'partner': self.partner.id,
             'state': 'invoiced',
         })
-        self.assertEqual([self.category_gold.id],
-                         self.partner.membership_category_ids.ids)
+        self.assertEqual(
+            self.category_gold, self.partner.membership_category_ids,
+        )
         self.assertEqual('Gold', self.partner.membership_categories)
-        self.assertEqual([self.category_gold.id],
-                         self.child.membership_category_ids.ids)
+        self.assertEqual(
+            self.category_gold, self.child.membership_category_ids,
+        )
         self.assertEqual('Gold', self.child.membership_categories)
         line_two = self.env['membership.membership_line'].create({
             'membership_id': self.silver_product.id,
             'member_price': 50.00,
-            'date': '2016-04-01',
-            'date_from': '2016-05-01',
-            'date_to': self.next_month,
+            'date': fields.Date.today(),
+            'date_from': fields.Date.today(),
+            'date_to': self.next_two_months,
             'partner': self.partner.id,
             'state': 'paid',
         })
-        self.assertEqual(set([self.category_gold.id, self.category_silver.id]),
-                         set(self.partner.membership_category_ids.ids))
+        self.assertEqual(
+            self.category_gold + self.category_silver,
+            self.partner.membership_category_ids,
+        )
         self.assertTrue('Silver' in self.partner.membership_categories)
         self.assertTrue('Gold' in self.partner.membership_categories)
-        self.assertEqual(set([self.category_gold.id, self.category_silver.id]),
-                         set(self.child.membership_category_ids.ids))
+        self.assertEqual(
+            self.category_gold + self.category_silver,
+            self.child.membership_category_ids,
+        )
         self.assertTrue('Silver' in self.child.membership_categories)
         self.assertTrue('Gold' in self.child.membership_categories)
         line_one.write({
             'state': 'canceled',
         })
-        self.assertEqual([self.category_silver.id],
-                         self.partner.membership_category_ids.ids)
+        self.assertEqual(
+            self.category_silver, self.partner.membership_category_ids,
+        )
         self.assertEqual('Silver', self.partner.membership_categories)
-        self.assertEqual([self.category_silver.id],
-                         self.child.membership_category_ids.ids)
+        self.assertEqual(
+            self.category_silver, self.child.membership_category_ids,
+        )
         self.assertEqual('Silver', self.child.membership_categories)
         line_two.write({
             'state': 'waiting',
@@ -192,7 +210,7 @@ class TestMembership(TransactionCase):
     def test_remove_membership_line_with_invoice(self):
         invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
-            'date_invoice': '2016-07-01',
+            'date_invoice': fields.Date.today(),
             'account_id': self.partner.property_account_receivable.id,
             'invoice_line': [(0, 0, {
                 'product_id': self.gold_product.id,
@@ -208,26 +226,26 @@ class TestMembership(TransactionCase):
         line = self.env['membership.membership_line'].create({
             'membership_id': self.gold_product.id,
             'member_price': 100.00,
-            'date': '2016-03-01',
+            'date': fields.Date.today(),
             'partner': self.partner.id,
             'state': 'invoiced',
         })
         line._onchange_date()
         self.assertEqual(100.00, line.member_price)
-        self.assertEqual('2016-03-01', line.date_from)
-        self.assertEqual(self.next_two_months, line.date_to)
+        self.assertEqual(fields.Date.today(), line.date_from)
+        self.assertEqual(self.next_month, line.date_to)
         line.write({
             'membership_id': self.silver_product.id,
         })
         line._onchange_membership_id()
         self.assertEqual(50, line.member_price)
-        self.assertEqual('2016-03-01', line.date_from)
-        self.assertEqual(self.next_month, line.date_to)
+        self.assertEqual(fields.Date.today(), line.date_from)
+        self.assertEqual(self.next_two_months, line.date_to)
 
     def test_invoice(self):
         invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
-            'date_invoice': '2016-07-01',
+            'date_invoice': fields.Date.today(),
             'account_id': self.partner.property_account_receivable.id,
             'invoice_line': [(0, 0, {
                 'product_id': self.gold_product.id,
@@ -240,8 +258,8 @@ class TestMembership(TransactionCase):
         invoice.journal_id.update_posted = True
         line = self.partner.member_lines[0]
         self.assertEqual('waiting', line.state)
-        self.assertEqual('2016-07-01', line.date_from)
-        self.assertEqual(self.next_two_months, line.date_to)
+        self.assertEqual(fields.Date.today(), line.date_from)
+        self.assertEqual(self.next_month, line.date_to)
         invoice.signal_workflow('invoice_open')
         self.assertEqual('invoiced', line.state)
         invoice.confirm_paid()
@@ -265,7 +283,6 @@ class TestMembership(TransactionCase):
         invoice.button_reset_taxes()
         self.assertNotEqual(invoice.amount_untaxed, refund.amount_untaxed)
         refund.signal_workflow('invoice_open')
-
         self.assertEqual('paid', line.state)
 
     def test_check_membership_all(self):
