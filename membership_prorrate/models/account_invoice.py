@@ -34,7 +34,7 @@ class AccountInvoiceLine(models.Model):
     @api.multi
     def _prepare_invoice_line_prorrate_vals(self):
         res = {}
-        date_from, date_to = self._get_membership_interval()
+        date_from, date_to = self._get_membership_interval() 
         theoretical_duration = date_to - date_from + timedelta(1)
         real_duration = date_to - self._get_updated_invoice_date()
         if theoretical_duration != real_duration:
@@ -58,12 +58,14 @@ class AccountInvoiceLine(models.Model):
         :param product: Product that defines the membership
         :param date: date object for the requested date (if needed for
         inherited computations)
-        :return: A tuple with 3 date objects with the invoice, beginning and 
+        :return: A tuple with 2 date objects with the beginning and 
         the end of the period
         """
-        date_from = fields.Date.from_string(self.product_id.membership_date_from)
-        date_to = fields.Date.from_string(self.product_id.membership_date_to)
-        return date_from, date_to
+        date_from = self.product_id.membership_date_from or fields.Date.today()
+        date_from_str = fields.Date.from_string(date_from)
+        date_to = self.product_id.membership_date_to or fields.Date.today()
+        date_to_str = fields.Date.from_string(date_to)
+        return date_from_str, date_to_str
 
 
 

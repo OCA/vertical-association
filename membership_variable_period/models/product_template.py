@@ -1,13 +1,39 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
+# (c) 2017 Rigoberto Martínez <rigo1985@gmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from openerp import models, fields, api
-from datetime import timedelta
+
+from odoo import api, fields, models, _
+from datetime import datetime, date, time, timedelta
 from dateutil.relativedelta import relativedelta
 
+MEMBERSHIP_TYPE = [('fixed', 'Fixed dates'), ('variable', 'Variable periods')]
+INTERVAL_UNIT = [('days', 'days'), ('weeks', 'weeks'), 
+                 ('months', 'months'), ('years', 'years')]
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
+
+    membership_type = fields.Selection(selection=MEMBERSHIP_TYPE,
+                                       string="Membership type",
+                                       default='fixed', required=True)
+    membership_interval_qty = fields.Integer(string="Interval quantity", 
+                                             default=1)
+    membership_interval_unit = fields.Selection(selection=INTERVAL_UNIT,
+                                                string="Interval unit", 
+                                                default='years')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('membership_type'):
+            vals.update(self._correct_vals_membership_type(vals))
+        return super(ProductTemplate, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('membership_type'):
+            vals.update(self._correct_vals_membership_type(vals))
+        return super(ProductTemplate, self).write(vals)
 
     @api.multi
     def _get_next_date(self, date):
@@ -19,7 +45,6 @@ class ProductTemplate(models.Model):
         @rtype: date
         @return: The date incremented in 'interval' units of 'unit'.
         """
-        self.ensure_one()
         if isinstance(date, str):
             date = fields.Date.from_string(date)
         if self.membership_interval_unit == 'days':
@@ -30,34 +55,11 @@ class ProductTemplate(models.Model):
             return date + relativedelta(months=self.membership_interval_qty)
         elif self.membership_interval_unit == 'years':
             return date + relativedelta(years=self.membership_interval_qty)
-
-    membership_type = fields.Selection(
-        selection=[('fixed', 'Fixed dates'),
-                   ('variable', 'Variable periods')],
-        default='fixed', string="Membership type", required=True)
-    membership_interval_qty = fields.Integer(
-        string="Interval quantity", default=1)
-    membership_interval_unit = fields.Selection(
-        selection=[('days', 'days'),
-                   ('weeks', 'weeks'),
-                   ('months', 'months'),
-                   ('years', 'years')],
-        string="Interval unit", default='years')
-
-    def _correct_vals_membership_type(self, vals, membership_type):
-        if membership_type == 'variable':
-            vals['membership_date_from'] = False
-            vals['membership_date_to'] = False
-        return vals
-
-    @api.model
-    def create(self, vals):
-        self._correct_vals_membership_type(
-            vals, vals.get('membership_type', 'fixed'))
-        return super(ProductTemplate, self).create(vals)
+        else: return date
 
     @api.multi
-    def write(self, vals):
-        self._correct_vals_membership_type(
-            vals, vals.get('membership_type', self.membership_type))
-        return super(ProductTemplate, self).write(vals)
+    def _correct_vals_membership_type(self, vals):
+        if vals.get('membership_type') == 'variable':
+            return {'membership_date_from': False, 'membership_date_to': False}
+        return {}
+

@@ -18,8 +18,8 @@ class ProductTemplate(models.Model):
                                    string="Initial fee", required=True)
     fixed_fee = fields.Float(digits_compute=dp.get_precision('Product Price'))
     percentage_fee = fields.Float(digits=(12, 2), string="Perc. fee (%)")
-    product_fee = fields.Many2one('product.product', 
-                                  string='Product for initial fee', 
+    product_fee = fields.Many2one('product.product',
+                                  string='Product for initial fee',
                                   domain=[('membership', '=', False)])
     
     @api.onchange('product_fee')

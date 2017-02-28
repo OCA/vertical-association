@@ -23,7 +23,6 @@ class AccountInvoiceLine(models.Model):
                 ('id', '!=', rec_invoice_line.invoice_id.id),
                 ('invoice_line_ids.product_id', '=', rec_product.id)]
         rec_invoice = self.env['account.invoice'].search(args)
-        all_prods = rec_invoice.mapped('invoice_line_ids').mapped('product_id')
         if not rec_invoice.exists():
             # Charge initial fee
             rec_fee = self.create(rec_invoice_line._prepare_initial_fee_vals())
