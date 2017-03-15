@@ -28,16 +28,17 @@ class AccountInvoiceLine(models.Model):
     @api.multi
     def _prepare_initial_fee_vals(self):
         rec_prod_fee = self.product_id.product_fee or False
-        if not rec_prod_fee.exists(): return False
+        if not rec_prod_fee.exists():
+            return False
         if self.product_id.initial_fee == 'fixed':
             price = self.product_id.fixed_fee
         elif self.product_id.initial_fee == 'percentage':
             price = self.product_id.percentage_fee * self.price_unit / 100
         account_id = rec_prod_fee.property_account_income_id and \
-                        rec_prod_fee.property_account_income_id.id or \
-                            self.product_id.property_account_income_id.id
+            rec_prod_fee.property_account_income_id.id or \
+            self.product_id.property_account_income_id.id
         line_vals = {
-            'name' : _('Membership initial fee'),
+            'name': _('Membership initial fee'),
             'product_id': self.product_id.product_fee.id,
             'invoice_id': self.invoice_id.id,
             'account_analytic_id': self.account_analytic_id.id,
