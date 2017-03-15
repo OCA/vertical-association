@@ -1,6 +1,6 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/208/9.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-vertical-association-208)
-[![Build Status](https://travis-ci.org/OCA/vertical-association.svg?branch=9.0)](https://travis-ci.org/OCA/vertical-association)
-[![Coverage Status](https://coveralls.io/repos/OCA/vertical-association/badge.svg?branch=9.0)](https://coveralls.io/r/OCA/vertical-association?branch=9.0)
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/208/10.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-vertical-association-208)
+[![Build Status](https://travis-ci.org/OCA/vertical-association.svg?branch=10.0)](https://travis-ci.org/OCA/vertical-association)
+[![Coverage Status](https://coveralls.io/repos/OCA/vertical-association/badge.svg?branch=10.0)](https://coveralls.io/r/OCA/vertical-association?branch=10.0)
 
 # Vertical Association addons for Odoo 
 
@@ -19,7 +19,7 @@ addon | version | summary
 
 Translation Status
 ------------------
-[![Transifex Status](https://www.transifex.com/projects/p/OCA-vertical-association-9-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-vertical-association-9-0)
+[![Transifex Status](https://www.transifex.com/projects/p/OCA-vertical-association-10-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-vertical-association-10-0)
 
 ----
 
