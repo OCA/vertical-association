@@ -4,18 +4,18 @@
 
 {
     'name': 'Prorrate membership fee',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Association',
     'author': 'Antiun Ingeniería S.L., '
               'Serv. Tecnol. Avanzados - Pedro M. Baeza, '
               'Odoo Community Association (OCA)',
-    'website': 'http://www.antiun.com',
+    'website': 'https://www.tecnativa.com',
     'depends': [
         'membership',
     ],
     'data': [
         'views/product_template_views.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
