@@ -7,6 +7,7 @@
 Addons for association and membership related tasks.
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
