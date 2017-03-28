@@ -7,6 +7,7 @@
 Addons for association and membership related tasks.
 
 [//]: # (addons)
+
 Unported addons
 ---------------
 addon | version | summary
