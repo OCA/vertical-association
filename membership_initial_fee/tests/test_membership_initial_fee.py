@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Pedro M. Baeza
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-import openerp.tests.common as common
+import odoo.tests.common as common
 
 
 class TestMembershipInitialFee(common.TransactionCase):
@@ -31,9 +31,9 @@ class TestMembershipInitialFee(common.TransactionCase):
 
     def check_membership_invoice(self, invoice, expected_amount):
         self.assertEqual(
-            len(invoice.invoice_line), 2,
+            len(invoice.invoice_line_ids), 2,
             "The created invoice should have 2 lines")
-        initial_fee_line = invoice.invoice_line.filtered(
+        initial_fee_line = invoice.invoice_line_ids.filtered(
             lambda x: x.product_id == self.product_fee)
         self.assertEqual(
             initial_fee_line.price_unit, expected_amount,
@@ -45,7 +45,7 @@ class TestMembershipInitialFee(common.TransactionCase):
             product_id=self.product_fixed.id, datas={})[0]
         invoice = self.env['account.invoice'].browse(invoice_id)
         self.assertEqual(
-            len(invoice.invoice_line), 1,
+            len(invoice.invoice_line_ids), 1,
             "The created invoice should have 1 lines")
 
     def test_create_invoice_initial_fee_fixed(self):
@@ -71,7 +71,7 @@ class TestMembershipInitialFee(common.TransactionCase):
             product_id=self.product_fixed.id,
             datas={'amount': 150.0})[0]
         invoice = self.env['account.invoice'].browse(invoice_id)
-        initial_fee_line = invoice.invoice_line.filtered(
+        initial_fee_line = invoice.invoice_line_ids.filtered(
             lambda x: x.product_id == self.product_fee)
         self.assertEqual(initial_fee_line.invoice_line_tax_id, tax)
 
