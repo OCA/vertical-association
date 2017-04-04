@@ -52,13 +52,7 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
                 'name': 'Membership prorrate fixed',
             })],
         })
-        self.assertAlmostEqual(
-            invoice.invoice_line[0].quantity,
-            1 - (
-                datetime.date.today() -
-                fields.Date.from_string(self.product.membership_date_from)
-            ).days / float(365),
-            2)
+        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 0.74, 2)
         self.assertEqual(self.partner.membership_state, 'waiting')
 
     def test_create_invoice_membership_product_prorrate_week(self):
