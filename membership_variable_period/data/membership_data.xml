@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
+<odoo>
     <data noupdate="1">
     
         <record model="ir.cron" id="cron_membership_check_expiry">
@@ -15,4 +15,4 @@
         </record>
         
     </data>
-</openerp>
+</odoo>
