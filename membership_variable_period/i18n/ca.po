@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-31 10:04+0000\n"
-"PO-Revision-Date: 2017-01-17 19:17+0000\n"
+"POT-Creation-Date: 2017-04-05 01:01+0000\n"
+"PO-Revision-Date: 2017-03-24 18:36+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -60,22 +60,22 @@ msgstr ""
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "days"
-msgstr ""
+msgstr "dies "
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "months"
-msgstr ""
+msgstr "mesos "
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "weeks"
-msgstr ""
+msgstr "setmanes "
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "years"
-msgstr ""
+msgstr "anys"
 
 #. module: membership_variable_period
 #: view:product.template:membership_variable_period.membership_products_form_period
