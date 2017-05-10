@@ -56,7 +56,7 @@ class ResPartner(models.Model):
             if product.membership_autoextend_warning_days and\
                     product.membership_autoextend_warning_template_id and\
                     (
-                        today - date_to
+                        date_to - today
                     ).days == product.membership_autoextend_warning_days:
                 product.membership_autoextend_warning_template_id.send_mail(
                     membership.id)
