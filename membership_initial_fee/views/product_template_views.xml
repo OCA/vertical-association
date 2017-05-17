@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record model="ir.ui.view" id="membership_products_form_initial_fee">
             <field name="name">Membership Products (initial fee)</field>
@@ -26,26 +25,5 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="membership_products_form_period">
-            <field name="name">Membership Products (regular - initial fee)</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="membership.product_template_form_view" />
-            <field name="arch" type="xml">
-                <field name="membership_date_from" position="before">
-                    <field name="initial_fee"/>
-                    <field name="product_variant_ids" invisible="1"/>
-                    <field name="product_fee"
-                           domain="[('id', 'not in', product_variant_ids[0][2])]"
-                           attrs="{'required': [('initial_fee', '!=', 'none')], 'invisible': [('initial_fee', '=', 'none')]}"
-                            />
-                    <field name="fixed_fee"
-                           attrs="{'required': [('initial_fee', '=', 'fixed')], 'invisible': [('initial_fee', '!=', 'fixed')]}"
-                            />
-                    <field name="percentage_fee"
-                           attrs="{'required': [('initial_fee', '=', 'percentage')], 'invisible': [('initial_fee', '!=', 'percentage')]}"
-                            />
-                </field>
-            </field>
-        </record>
-    </data>
-</openerp>
+</odoo>
+
