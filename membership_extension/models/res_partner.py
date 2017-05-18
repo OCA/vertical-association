@@ -4,10 +4,10 @@
 
 import logging
 from datetime import timedelta
-from openerp import models, fields, api
+from odoo import models, fields, api
 _logger = logging.getLogger(__name__)
 try:
-    from openerp.addons.membership.membership import STATE, STATE_PRIOR
+    from odoo.addons.membership.models.membership import STATE
 except ImportError:
     _logger.warning("Cannot import 'membership' addon.")
     _logger.debug("Details", exc_info=True)
@@ -49,14 +49,15 @@ class ResPartner(models.Model):
         compute='_compute_membership_state',
     )
 
-    def __init__(self, pool, cr):
-        super(ResPartner, self).__init__(pool, cr)
-        fields = {'membership_start', 'membership_stop', 'membership_cancel',
-                  'membership_state'}
-        for model, store in pool._store_function.iteritems():
-            pool._store_function[model] = [
-                x for x in store
-                if x[0] != 'res.partner' and x[1] not in fields]
+    # todo: is this for migration?
+    # def __init__(self, pool, cr):
+    #     super(ResPartner, self).__init__(pool, cr)
+    #     fields = {'membership_start', 'membership_stop', 'membership_cancel',
+    #               'membership_state'}
+    #     for model, store in pool._store_function.iteritems():
+    #         pool._store_function[model] = [
+    #             x for x in store
+    #             if x[0] != 'res.partner' and x[1] not in fields]
 
     @api.model
     def _last_start_delta_days(self):
@@ -79,7 +80,16 @@ class ResPartner(models.Model):
 
         Dictionary with precendence of each state
         """
-        return STATE_PRIOR
+        state_prior = {
+            'none': 0,
+            'canceled': 1,
+            'old': 2,
+            'waiting': 3,
+            'invoiced': 4,
+            'free': 6,
+            'paid': 7
+        }
+        return state_prior
 
     @api.multi
     @api.depends('membership_state',
