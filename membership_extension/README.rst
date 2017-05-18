@@ -41,7 +41,7 @@ membership category.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/208/8.0
+   :target: https://runbot.odoo-community.org/runbot/208/10.0
 
 
 Bug Tracker
@@ -65,6 +65,7 @@ Contributors
 
 * Antonio Espinosa <antonio.espinosa@tecnativa.com>
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
+* David Vidal <david.vidal@tecnativa.com>
 
 Maintainer
 ----------
