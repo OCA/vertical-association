@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import logging
 from datetime import timedelta
-from openerp import models, fields, api, _
-from openerp.exceptions import Warning as UserError
-_logger = logging.getLogger(__name__)
-try:
-    from openerp.addons.membership.membership import STATE
-except ImportError:
-    _logger.warning("Cannot import 'membership' addon.")
-    _logger.debug("Details", exc_info=True)
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
 
 
 class MembershipLine(models.Model):
@@ -23,17 +17,7 @@ class MembershipLine(models.Model):
         related="membership_id.membership_category_id", readonly=True)
     date_from = fields.Date(readonly=False)
     date_to = fields.Date(readonly=False)
-    state = fields.Selection(
-        selection=STATE, readonly=False,
-        compute='_compute_state', inverse="_inverse_state",
-    )
-
-    def __init__(self, pool, cr):
-        super(MembershipLine, self).__init__(pool, cr)
-        for model, store in pool._store_function.iteritems():
-            pool._store_function[model] = [
-                x for x in store
-                if x[0] != 'membership.membership_line' and x[1] != 'state']
+    state = fields.Selection(compute=False, inverse=False)
 
     @api.onchange('membership_id')
     def _onchange_membership_id(self):

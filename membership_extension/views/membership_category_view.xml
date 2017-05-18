@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<openerp>
-<data>
+<odoo>
 
 <record id="membership_category_action" model="ir.actions.act_window">
     <field name="name">Membership Categories</field>
@@ -24,8 +23,7 @@
 <menuitem action="membership_category_action"
           id="menu_membership_category"
           name="Membership Categories"
-          parent="base.menu_marketing_config_association"
+          parent="membership.menu_marketing_config_association"
           sequence="2"/>
 
-</data>
-</openerp>
+</odoo>
