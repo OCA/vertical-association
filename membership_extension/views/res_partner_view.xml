@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<openerp>
-<data>
+<odoo>
 
 <record model="ir.ui.view" id="view_partner_form">
     <field name="name">Membership extension</field>
@@ -68,18 +67,15 @@
     <field name="model">res.partner</field>
     <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
     <field name="arch" type="xml">
-        <filter string="Start Month" position="after">
+        <xpath expr="//group" position="inside">
             <filter string="Last Start Month"
                     help="Starting month of last membership period"
                     domain="[]" context="{'group_by':'membership_last_start'}"/>
-        </filter>
-        <filter string="End Month" position="after">
             <filter string="Membership Category" domain="[('membership_state', 'in', ['invoiced', 'paid'])]"
                     context="{'group_by':'membership_categories'}"/>
-        </filter>
+        </xpath>
     </field>
 </record>
 
 
-</data>
-</openerp>
+</odoo>

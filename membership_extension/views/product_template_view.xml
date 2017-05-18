@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<openerp>
-<data>
+<odoo>
 
 <record model="ir.ui.view" id="membership_products_tree">
     <field name="name">Membership extension</field>
@@ -26,10 +25,10 @@
     </field>
 </record>
 
-<record model="ir.ui.view" id="product_template_form_view">
+<record model="ir.ui.view" id="membership_products_form">
     <field name="name">Add membership category field</field>
     <field name="model">product.template</field>
-    <field name="inherit_id" ref="membership.product_template_form_view" />
+    <field name="inherit_id" ref="membership.membership_products_form" />
     <field name="arch" type="xml">
         <field name="membership" position="after">
             <field name="membership_category_id" />
@@ -45,12 +44,11 @@
         <field name="categ_id" position="after">
             <field name="membership_category_id" />
         </field>
-        <filter string="Category" position="after">
-            <filter string="Membership category" domain="[]"
-                    context="{'group_by' : 'membership_category_id'}"/>
-        </filter>
+        <xpath expr="//search//group//filter[1]" position="after">
+            <filter name="Membership category" domain="[]"
+                    context="{'group_by':'membership_category_id'}"/>
+        </xpath>
     </field>
 </record>
 
-</data>
-</openerp>
+</odoo>

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import timedelta
-from openerp import fields
-from openerp.exceptions import Warning as UserError
-from openerp.tests import common
+from odoo import fields
+from odoo.exceptions import Warning as UserError
+from odoo.tests import common
 
 
 class TestMembership(common.SavepointCase):
@@ -25,7 +26,7 @@ class TestMembership(common.SavepointCase):
             'membership_extension.membership_category_silver'
         )
         cls.partner = cls.env['res.partner'].create({
-            'name': 'Test company',
+            'name': 'Test partner',
         })
         cls.child = cls.env['res.partner'].create({
             'name': 'Test child',
@@ -208,18 +209,23 @@ class TestMembership(common.SavepointCase):
         self.assertFalse(self.child.membership_categories)
 
     def test_remove_membership_line_with_invoice(self):
+        account = self.partner.property_account_receivable_id.id
         invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
             'date_invoice': fields.Date.today(),
-            'account_id': self.partner.property_account_receivable.id,
-            'invoice_line': [(0, 0, {
-                'product_id': self.gold_product.id,
-                'name': 'Membership',
-            })],
+            'account_id': self.partner.property_account_receivable_id.id,
+        })
+        self.env['account.invoice.line'].create({
+            'product_id': self.gold_product.id,
+            'price_unit': 100.0,
+            'name': 'Membership gold',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+            'account_id': account,
         })
         with self.assertRaises(UserError):
             self.partner.member_lines[0].unlink()
-        invoice.invoice_line.unlink()
+        invoice.invoice_line_ids.unlink()
         self.assertFalse(self.partner.member_lines)
 
     def test_membership_line_onchange(self):
@@ -243,46 +249,46 @@ class TestMembership(common.SavepointCase):
         self.assertEqual(self.next_two_months, line.date_to)
 
     def test_invoice(self):
+        account = self.partner.property_account_receivable_id.id
         invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
             'date_invoice': fields.Date.today(),
-            'account_id': self.partner.property_account_receivable.id,
-            'invoice_line': [(0, 0, {
-                'product_id': self.gold_product.id,
-                'name': 'Membership',
-                'quantity': 1.0,
-                'price_unit': 100.00,
-            })],
+            'account_id': account,
         })
-        invoice.button_reset_taxes()
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'product_id': self.gold_product.id,
+            'price_unit': 100.0,
+            'name': 'Membership gold',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
         invoice.journal_id.update_posted = True
         line = self.partner.member_lines[0]
         self.assertEqual('waiting', line.state)
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
-        invoice.signal_workflow('invoice_open')
+        invoice.action_invoice_open()
         self.assertEqual('invoiced', line.state)
-        invoice.confirm_paid()
+        invoice.action_invoice_paid()
         self.assertEqual('paid', line.state)
-        invoice.action_cancel()
-        self.assertEqual('canceled', line.state)
-        invoice.action_cancel_draft()
+        invoice.action_invoice_draft()
         self.assertEqual('waiting', line.state)
-        invoice.signal_workflow('invoice_open')
-        invoice.confirm_paid()
+        invoice.action_invoice_cancel()
+        self.assertEqual('canceled', line.state)
+        invoice.action_invoice_open()
+        invoice.action_invoice_paid()
         self.assertEqual('paid', line.state)
         refund = invoice.refund()
-        invoice.button_reset_taxes()
         refund.journal_id.update_posted = True
-        refund.signal_workflow('invoice_open')
+        invoice.action_invoice_open()
         self.assertEqual('canceled', line.state)
-        refund.action_cancel()
+        refund.action_invoice_cancel()
         self.assertEqual('paid', line.state)
-        refund.action_cancel_draft()
-        refund.invoice_line[0].quantity = 0.5
-        invoice.button_reset_taxes()
+        refund.action_invoice_cancel()
+        refund.invoice_line_ids[0].quantity = 0.5
         self.assertNotEqual(invoice.amount_untaxed, refund.amount_untaxed)
-        refund.signal_workflow('invoice_open')
+        refund.action_invoice_open()
         self.assertEqual('paid', line.state)
 
     def test_check_membership_all(self):
