@@ -14,12 +14,16 @@ member product.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/208/8.0
+   :target: https://runbot.odoo-community.org/runbot/208/10.0
 
 Known issues / Roadmap
 ======================
 
 * Add initial fee information to membership analysis.
+* Add some criteria for adding initial fee:
+   * Add initial fee if last membership ended x weeks/months/years ago
+   * Add initial fee if last membership product_id is different
+
 
 Bug Tracker
 ===========
