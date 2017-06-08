@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Antiun Ingenieria S.L. - Antonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record id="membership_decline_reason_action" model="ir.actions.act_window">
+    <field name="name">Membership decline reasons</field>
+    <field name="res_model">membership.decline_reason</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree</field>
+</record>
+
+<record id="membership_decline_reason_tree_view" model="ir.ui.view">
+    <field name="name">Membership decline reasons</field>
+    <field name="model">membership.decline_reason</field>
+    <field name="arch" type="xml">
+        <tree string="Membership decline reasons" editable="top">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+<menuitem action="membership_decline_reason_action"
+          id="menu_membership_decline_reason"
+          name="Membership decline reasons"
+          parent="base.menu_marketing_config_association"
+          sequence="3"/>
+
+
+</data>
+</openerp>

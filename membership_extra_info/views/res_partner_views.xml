@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Antiun Ingenieria S.L. - Antonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="view_partner_form">
+    <field name="name">Membership extra info</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="membership.view_partner_form" />
+    <field name="arch" type="xml">
+        <field name="membership_start" position="after">
+            <field name="membership_last_start" />
+        </field>
+
+        <field name="free_member" position="after">
+            <field name="membership_last_category" />
+        </field>
+
+        <field name="membership_stop" position="after">
+            <field name="membership_last_decline_date" />
+            <field name="membership_last_decline_reason" />
+        </field>
+
+        <xpath expr="//field[@name='member_lines']/tree/field[@name='state']" position="after">
+            <field name="show_decline_button" invisible="1" />
+            <button name="button_decline"
+                    string="Decline" type="object" icon="STOCK_STOP"
+                    attrs="{'invisible': [('show_decline_button', '=', False)]}"/>
+        </xpath>
+
+        <xpath expr="//field[@name='member_lines']/form" position="replace">
+            <form string="Memberships">
+                <group>
+                    <group>
+                        <field name="date"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="date_cancel"/>
+                        <field name="date_decline"/>
+                        <field name="decline_reason"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="state"/>
+                        <field name="category"/>
+                    </group>
+                    <group>
+                        <field name="member_price"/>
+                        <field name="membership_id"/>
+                        <field name="account_invoice_id"
+                               context="{'form_view_ref': 'account.invoice_form'}"/>
+                    </group>
+                </group>
+            </form>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="view_res_partner_member_filter">
+    <field name="name">Membership extra info filters</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
+    <field name="arch" type="xml">
+        <filter string="Start Month" position="after">
+            <filter string="Last Start Month"
+                    help="Starting month of last membership period"
+                    domain="[]" context="{'group_by':'membership_last_start'}"/>
+        </filter>
+        <filter string="End Month" position="after">
+            <filter string="Decline Month"
+                    help="Decline month"
+                    domain="[]" context="{'group_by':'membership_last_decline_date'}"/>
+            <filter string="Decline reason"
+                    help="Decline reason"
+                    domain="[]" context="{'group_by':'membership_last_decline_reason'}"/>
+            <filter string="Category" domain="[]"
+                    context="{'group_by':'membership_last_category'}"/>
+        </filter>
+    </field>
+</record>
+
+
+</data>
+</openerp>
