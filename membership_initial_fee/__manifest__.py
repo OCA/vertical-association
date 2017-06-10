@@ -4,7 +4,7 @@
 
 {
     'name': 'Initial fee for memberships',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Association',
     'author': 'Antiun Ingeniería S.L., '
