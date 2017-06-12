@@ -42,7 +42,9 @@ class AccountInvoiceLine(models.Model):
     @api.model
     def create(self, vals):
         invoice_line = super(AccountInvoiceLine, self).create(vals)
-        product = self.env['product.product'].browse(vals['product_id'])
+        product = self.env['product.product'].browse(
+            vals.get('product_id', False)
+        )
         if not product.membership or not product.membership_prorrate:
             return invoice_line
         # Change quantity accordingly the prorrate
