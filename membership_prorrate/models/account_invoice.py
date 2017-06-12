@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-# (c) 2015 Antiun Ingenieria S.L. - Pedro M. Baeza
+# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from openerp import models, api, fields
+from odoo import models, api, fields
 from datetime import timedelta
 
 
@@ -36,14 +37,12 @@ class AccountInvoiceLine(models.Model):
                 'quantity': round(float(real_duration.days) /
                                   theoretical_duration.days, 2),
                 'date_from': date_invoice,
-                'date_to': date_to,
             }
 
     @api.model
     def create(self, vals):
         invoice_line = super(AccountInvoiceLine, self).create(vals)
-        product = self.env['product.product'].browse(
-            vals.get('product_id', []))
+        product = self.env['product.product'].browse(vals['product_id'])
         if not product.membership or not product.membership_prorrate:
             return invoice_line
         # Change quantity accordingly the prorrate
@@ -51,12 +50,10 @@ class AccountInvoiceLine(models.Model):
             invoice_line)
         if invoice_line_vals:
             date_from = invoice_line_vals.pop('date_from')
-            date_to = invoice_line_vals.pop('date_to')
             invoice_line.write(invoice_line_vals)
             # Rectify membership price and start date in this case
             memb_line = self.env['membership.membership_line'].search(
                 [('account_invoice_line', '=', invoice_line.id)], limit=1)
             memb_line.write({'member_price': invoice_line.price_subtotal,
-                             'date_from': date_from,
-                             'date_to': date_to})
+                             'date_from': date_from})
         return invoice_line
