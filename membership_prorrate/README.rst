@@ -17,7 +17,7 @@ invoices that includes a membership product by hand or pressing the button
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/208/8.0
+   :target: https://runbot.odoo-community.org/runbot/208/10.0
 
 
 Bug Tracker
@@ -34,7 +34,8 @@ Credits
 Contributors
 ------------
 
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Pedro M. Baeza <pedro.baeza@tecnativa.com>
+* David Vidal <david.vidal@tecnativa.com>
 
 Icon
 ----
