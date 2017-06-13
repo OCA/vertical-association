@@ -13,13 +13,13 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [membership_initial_fee](membership_initial_fee/) | 10.0.1.0.0 | Initial fee for memberships
+[membership_prorrate](membership_prorrate/) | 10.0.1.0.0 | Prorrate membership fee
 
 
 Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[membership_prorrate](membership_prorrate/) | 8.0.1.0.0 (unported) | Prorrate membership fee
 [membership_variable_period](membership_variable_period/) | 8.0.1.0.0 (unported) | Variable period for memberships
 
 [//]: # (end addons)
