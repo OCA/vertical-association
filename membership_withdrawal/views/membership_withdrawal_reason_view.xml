@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<openerp>
-<data>
+<odoo>
 
 <record id="membership_withdrawal_reason_action" model="ir.actions.act_window">
     <field name="name">Membership withdrawal reasons</field>
@@ -24,9 +23,7 @@
 <menuitem action="membership_withdrawal_reason_action"
           id="menu_membership_withdrawal_reason"
           name="Membership withdrawal reasons"
-          parent="base.menu_marketing_config_association"
+          parent="membership.menu_marketing_config_association"
           sequence="3"/>
 
-
-</data>
-</openerp>
+</odoo>
