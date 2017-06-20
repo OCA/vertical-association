@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
-     Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
-     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<openerp>
-<data>
+<!--    Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
+        Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+        License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html-->
+<odoo>
 
 <record model="ir.ui.view" id="membership_products_form_period">
     <field name="name">Membership Products (variable period)</field>
@@ -43,30 +42,4 @@
     </field>
 </record>
 
-<record model="ir.ui.view" id="product_template_form_view_membership_period">
-    <field name="name">Membership Products (regular - variable period)</field>
-    <field name="model">product.template</field>
-    <field name="inherit_id" ref="membership.product_template_form_view" />
-    <field name="arch" type="xml">
-        <field name="membership_date_from" position="before">
-            <field name="membership_type"/>
-            <field name="membership_interval_qty"
-                   attrs="{'required': [('membership_type', '=', 'variable'), ('membership', '=', True)], 'invisible': [('membership_type', '!=', 'variable')]}"
-                   class="oe_inline"/>
-            <field name="membership_interval_unit"
-                   attrs="{'required': [('membership_type', '=', 'variable'), ('membership', '=', True)], 'invisible': [('membership_type', '!=', 'variable')]}"
-                   class="oe_inline"/>
-        </field>
-        <field name="membership_date_from" position="attributes">
-            <attribute name="attrs">{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)], 'invisible': [('membership_type', '!=', 'fixed')]}</attribute>
-            <attribute name="required">0</attribute>
-        </field>
-        <field name="membership_date_to" position="attributes">
-            <attribute name="attrs">{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)], 'invisible': [('membership_type', '!=', 'fixed')]}</attribute>
-            <attribute name="required">0</attribute>
-        </field>
-    </field>
-</record>
-
-</data>
-</openerp>
+</odoo>
