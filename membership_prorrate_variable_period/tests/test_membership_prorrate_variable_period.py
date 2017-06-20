@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# (c) 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
+# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2015 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import datetime
-from dateutil.relativedelta import relativedelta
-from openerp import exceptions, fields
-import openerp.tests.common as common
+from odoo import exceptions, fields
+import odoo.tests.common as common
 
 
 class TestMembershipProrrateVariablePeriod(common.TransactionCase):
@@ -25,46 +25,62 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_wo_prorrate(self):
         self.product.membership_prorrate = False
-        invoice = self.env['account.invoice'].create(
-            {'partner_id': self.partner.id,
-             'date_invoice': fields.Date.today(),
-             'account_id': self.partner.property_account_receivable.id,
-             'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                      'name': 'Membership w/o prorrate'})]})
-        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 1.0, 2)
+        account = self.partner.property_account_receivable_id.id
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': fields.Date.today(),
+            'account_id': account,
+        })
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'product_id': self.product.id,
+            'price_unit': self.product.list_price,
+            'name': 'Membership w/o prorrate',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 1.0, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
         self.assertEqual(self.partner.membership_state, 'waiting')
 
     def test_create_invoice_membership_product_prorrate_fixed(self):
         self.product.membership_type = 'fixed'
-        self.product.membership_date_from = fields.Date.to_string(
-            datetime.date.today() + relativedelta(month=1, day=1))
-        self.product.membership_date_to = fields.Date.to_string(
-            datetime.date.today() + relativedelta(month=12, months=1, day=1,
-                                                  days=-1))
+        self.product.membership_date_from = '2017-01-01'
+        self.product.membership_date_to = '2017-12-31'
+        account = self.partner.property_account_receivable_id.id
         invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
-            'date_invoice': fields.Date.context_today(self.product),
-            'account_id': self.partner.property_account_receivable.id,
-            'invoice_line': [(0, 0, {
-                'product_id': self.product.id,
-                'name': 'Membership prorrate fixed',
-            })],
+            'date_invoice': '2017-04-01',
+            'account_id': account,
         })
-        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 0.74, 2)
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'product_id': self.product.id,
+            'price_unit': self.product.list_price,
+            'name': 'Membership prorrate fixed',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.75, 2)
         self.assertEqual(self.partner.membership_state, 'waiting')
 
     def test_create_invoice_membership_product_prorrate_week(self):
-        invoice = self.env['account.invoice'].create(
-            {'partner_id': self.partner.id,
-             'date_invoice': '2015-01-01',  # It's thursday
-             'account_id': self.partner.property_account_receivable.id,
-             'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                      'name': 'Membership with prorrate'})]})
-        # Result is rounded to 2 decimals for avoiding the fail in tests
-        # if "Product Unit of Measure" precision changes in the future
-        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 0.43, 2)
+        account = self.partner.property_account_receivable_id.id
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': '2015-01-01',  # It's thursday
+            'account_id': account,
+        })
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'product_id': self.product.id,
+            'price_unit': self.product.list_price,
+            'name': 'Membership with prorrate',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.43, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
         self.assertEqual(self.partner.member_lines[0].date_from, '2015-01-01')
@@ -72,15 +88,21 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_prorrate_month(self):
         self.product.membership_interval_unit = 'months'
-        invoice = self.env['account.invoice'].create(
-            {'partner_id': self.partner.id,
-             'date_invoice': '2015-04-15',
-             'account_id': self.partner.property_account_receivable.id,
-             'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                      'name': 'Membership with prorrate'})]})
-        # Result is rounded to 2 decimals for avoiding the fail in tests
-        # if "Product Unit of Measure" precision changes in the future
-        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 0.5, 2)
+        account = self.partner.property_account_receivable_id.id
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': '2015-04-15',
+            'account_id': account,
+        })
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'product_id': self.product.id,
+            'price_unit': self.product.list_price,
+            'name': 'Membership with prorrate',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
         self.assertEqual(self.partner.member_lines[0].date_from, '2015-04-15')
@@ -88,15 +110,21 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_prorrate_year(self):
         self.product.membership_interval_unit = 'years'
-        invoice = self.env['account.invoice'].create(
-            {'partner_id': self.partner.id,
-             'date_invoice': '2016-07-01',  # It's leap year
-             'account_id': self.partner.property_account_receivable.id,
-             'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                      'name': 'Membership with prorrate'})]})
-        # Result is rounded to 2 decimals for avoiding the fail in tests
-        # if "Product Unit of Measure" precision changes in the future
-        self.assertAlmostEqual(invoice.invoice_line[0].quantity, 0.5, 2)
+        account = self.partner.property_account_receivable_id.id
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': '2016-07-01',  # It's leap year
+            'account_id': account,
+        })
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'product_id': self.product.id,
+            'price_unit': self.product.list_price,
+            'name': 'Membership with prorrate',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
         self.assertEqual(self.partner.member_lines[0].date_from, '2016-07-01')
@@ -153,8 +181,16 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
         with self.assertRaises(exceptions.Warning):
             self.product._get_next_date(fields.Date.from_string('2015-07-01'))
         with self.assertRaises(exceptions.Warning):
-            self.env['account.invoice'].create(
-                {'partner_id': self.partner.id,
-                 'account_id': self.partner.property_account_receivable.id,
-                 'invoice_line': [(0, 0, {'product_id': self.product.id,
-                                          'name': 'Membership error'})]})
+            account = self.partner.property_account_receivable_id.id
+            invoice = self.env['account.invoice'].create({
+                'partner_id': self.partner.id,
+                'account_id': account,
+            })
+            self.env['account.invoice.line'].create({
+                'account_id': account,
+                'product_id': self.product.id,
+                'price_unit': self.product.list_price,
+                'name': 'Membership error',
+                'invoice_id': invoice.id,
+                'quantity': 1.0,
+            })

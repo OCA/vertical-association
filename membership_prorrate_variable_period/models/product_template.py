@@ -6,7 +6,7 @@ import math
 import datetime
 import calendar
 from dateutil.relativedelta import relativedelta
-from openerp import models, exceptions, api, _
+from odoo import _, api, exceptions, models
 
 
 class ProductTemplate(models.Model):
