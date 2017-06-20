@@ -77,21 +77,3 @@ msgstr "semaines"
 #: selection:product.template,membership_interval_unit:0
 msgid "years"
 msgstr "années"
-
-#. module: membership_variable_period
-#: view:product.template:membership_variable_period.membership_products_form_period
-msgid "{'invisible': [('membership_type', '!=', 'fixed')]}"
-msgstr ""
-
-#. module: membership_variable_period
-#: view:product.template:membership_variable_period.product_template_form_view_membership_period
-msgid ""
-"{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)],"
-" 'invisible': [('membership_type', '!=', 'fixed')]}"
-msgstr ""
-
-#. module: membership_variable_period
-#: view:product.template:membership_variable_period.membership_products_form_period
-msgid ""
-"{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}"
-msgstr ""

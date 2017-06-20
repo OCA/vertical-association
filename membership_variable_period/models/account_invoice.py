@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-# Copyright 2015 Antiun Ingeniería S.L. - Pedro M. Baeza
+# Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from openerp import models, api, fields
+from odoo import api, fields, models
 from datetime import timedelta
 import math
 
@@ -12,7 +11,7 @@ class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
     def _prepare_membership_line(self, invoice, product, price_unit, line_id,
-                                 qty=1):
+                                 qty=1.0):
         qty = int(math.ceil(qty))
         date_from = fields.Date.from_string(
             invoice.date_invoice or fields.Date.today())
