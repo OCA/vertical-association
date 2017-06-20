@@ -2,20 +2,20 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
     membership_last_withdrawal_reason_id = fields.Many2one(
-        string="Membership withdrawal reason", store=True, readonly=True,
+        string="Membership withdrawal reason", store=True,
         comodel_name='membership.withdrawal_reason', index=True,
         compute="_compute_last_withdrawal",
         help="Withdrawal reason of current membership period")
 
     membership_last_withdrawal_date = fields.Date(
-        string="Membership withdrawal date", store=True, readonly=True,
+        string="Membership withdrawal date", store=True,
         compute="_compute_last_withdrawal",
         help="Withdrawal date of current membership period")
 
