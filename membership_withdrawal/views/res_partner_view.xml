@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<openerp>
-<data>
+<odoo>
 
 <record model="ir.ui.view" id="view_partner_form">
     <field name="name">Add membership withdrawal fields</field>
@@ -35,17 +34,15 @@
     <field name="model">res.partner</field>
     <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
     <field name="arch" type="xml">
-        <filter string="End Month" position="after">
+        <group position="inside">
             <filter string="Withdrawal Month"
                     help="Withdrawal month"
                     domain="[]" context="{'group_by':'membership_last_withdrawal_date'}"/>
             <filter string="Withdrawal reason"
                     help="Withdrawal reason"
                     domain="[]" context="{'group_by':'membership_last_withdrawal_reason_id'}"/>
-        </filter>
+        </group>
     </field>
 </record>
 
-
-</data>
-</openerp>
+</odoo>
