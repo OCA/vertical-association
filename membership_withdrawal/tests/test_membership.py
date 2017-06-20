@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import timedelta
-from openerp import fields
-from openerp.tests.common import TransactionCase
+from odoo import fields
+from odoo.tests.common import TransactionCase
 
 
 class TestMembership(TransactionCase):
-    def setUp(self, *args, **kwargs):
-        super(TestMembership, self).setUp(*args, **kwargs)
+    def setUp(self):
+        super(TestMembership, self).setUp()
 
         self.next_two_months = fields.Date.to_string(
             fields.Date.from_string(fields.Date.today()) + timedelta(days=60))
