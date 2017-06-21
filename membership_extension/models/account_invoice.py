@@ -67,7 +67,8 @@ class AccountInvoice(models.Model):
                 ('type', '=', 'out_invoice'),
                 ('number', '=', refund.origin),
             ])
-            lines = origin.mapped('invoice_line_ids').mapped('membership_lines')
+            lines = origin.mapped('invoice_line_ids').mapped(
+                'membership_lines')
             if origin and lines:
                 if origin.amount_untaxed == refund.amount_untaxed:
                     lines.write({
