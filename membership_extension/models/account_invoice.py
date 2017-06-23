@@ -11,12 +11,12 @@ class AccountInvoice(models.Model):
     _inherit = "account.invoice"
 
     @api.multi
-    def action_cancel_draft(self):
-        self.mapped('invoice_line_ids').mapped('membership_lines').write({
+    def action_invoice_draft(self):
+        self.mapped('invoice_line_ids.membership_lines').write({
             'date_cancel': False,
             'state': 'waiting',
         })
-        return super(AccountInvoice, self).action_cancel_draft()
+        return super(AccountInvoice, self).action_invoice_draft()
 
     @api.multi
     def action_invoice_cancel(self):
@@ -31,11 +31,12 @@ class AccountInvoice(models.Model):
         })
         refunds = self.filtered(lambda r: (
             r.type == 'out_refund' and
-            (r.origin or getattr(r, 'origin_invoices_ids', False))
+            (r.origin or getattr(r, 'origin_invoice_ids', False))
         ))
         for refund in refunds:
             # Search for the original invoice it modifies
-            if hasattr(refund, 'origin_invoices_ids'):
+            if hasattr(refund, 'origin_invoice_ids'):  # pragma: no cover
+                # If account_invoice_refund_link module is installed
                 origins = refund.origin_invoices_ids
             else:
                 # Try to match by origin string
@@ -59,7 +60,8 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def invoice_validate(self):
-        self.mapped('invoice_line_ids').mapped('membership_lines').write({
+        """Handle validated refunds for cancelling membership lines """
+        self.mapped('invoice_line_ids.membership_lines').write({
             'state': 'invoiced',
         })
         for refund in self.filtered(lambda r: r.type == 'out_refund'):
@@ -67,8 +69,7 @@ class AccountInvoice(models.Model):
                 ('type', '=', 'out_invoice'),
                 ('number', '=', refund.origin),
             ])
-            lines = origin.mapped('invoice_line_ids').mapped(
-                'membership_lines')
+            lines = origin.mapped('invoice_line_ids.membership_lines')
             if origin and lines:
                 if origin.amount_untaxed == refund.amount_untaxed:
                     lines.write({
@@ -83,7 +84,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def action_invoice_paid(self):
-        self.mapped('invoice_line_ids').mapped('membership_lines').write({
+        self.mapped('invoice_line_ids.membership_lines').write({
             'state': 'paid',
         })
         return super(AccountInvoice, self).action_invoice_paid()
