@@ -53,4 +53,4 @@ class MembershipLine(models.Model):
                 _('Can not remove membership line related to an '
                   'invoice. Please, cancel invoice or remove invoice '
                   'line instead'))
-        return super(MembershipLine, self).unlink()
+        return super(MembershipLine, self).unlink()  # pragma: no cover
