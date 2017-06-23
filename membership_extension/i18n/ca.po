@@ -3,15 +3,14 @@
 # * membership_extension
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
-# Carles Antoli <carlesantoli@hotmail.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-14 08:57+0000\n"
-"PO-Revision-Date: 2017-01-14 08:57+0000\n"
-"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>, 2017\n"
+"POT-Creation-Date: 2017-06-24 02:49+0000\n"
+"PO-Revision-Date: 2017-06-24 02:49+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_extension
-#: code:addons/membership_extension/models/membership_line.py:69
+#: code:addons/membership_extension/models/membership_line.py:53
 #, python-format
 msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice"
@@ -28,55 +27,24 @@ msgid ""
 msgstr ""
 
 #. module: membership_extension
-#: field:membership.membership_line,category_id:0
-#: view:product.template:membership_extension.membership_product_search_form_view
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line_category_id
 msgid "Category"
 msgstr "Categoria"
 
 #. module: membership_extension
-#: help:product.product,membership:0
-msgid "Check if the product is eligible for membership."
-msgstr ""
-
-#. module: membership_extension
-#: field:membership.membership_category,create_uid:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_uid
 msgid "Created by"
 msgstr "Creat per"
 
 #. module: membership_extension
-#: field:membership.membership_category,create_date:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_date
 msgid "Created on"
 msgstr "Creat el"
 
 #. module: membership_extension
-#: field:product.product,taxes_id:0
-msgid "Customer Taxes"
-msgstr ""
-
-#. module: membership_extension
-#: help:product.product,membership_date_from:0
-msgid "Date from which membership becomes active."
-msgstr ""
-
-#. module: membership_extension
-#: help:product.product,membership_date_to:0
-msgid "Date until which membership remains active."
-msgstr ""
-
-#. module: membership_extension
-#: field:membership.membership_category,display_name:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_display_name
 msgid "Display Name"
 msgstr "Veure el nom"
-
-#. module: membership_extension
-#: view:res.partner:membership_extension.view_res_partner_member_filter
-msgid "End Month"
-msgstr ""
-
-#. module: membership_extension
-#: field:product.product,property_account_expense:0
-msgid "Expense Account"
-msgstr ""
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
@@ -84,14 +52,9 @@ msgid "Gold"
 msgstr ""
 
 #. module: membership_extension
-#: field:membership.membership_category,id:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_id
 msgid "ID"
 msgstr "ID"
-
-#. module: membership_extension
-#: field:product.product,property_account_income:0
-msgid "Income Account"
-msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice
@@ -104,22 +67,22 @@ msgid "Invoice Line"
 msgstr "Línia factura"
 
 #. module: membership_extension
-#: field:membership.membership_category,__last_update:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category___last_update
 msgid "Last Modified on"
 msgstr "Darrera modificació el"
 
 #. module: membership_extension
-#: view:res.partner:membership_extension.view_res_partner_member_filter
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
 msgstr ""
 
 #. module: membership_extension
-#: field:membership.membership_category,write_uid:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_uid
 msgid "Last Updated by"
 msgstr "Darrera Actualització per"
 
 #. module: membership_extension
-#: field:membership.membership_category,write_date:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_date
 msgid "Last Updated on"
 msgstr "Darrera Actualització el"
 
@@ -129,68 +92,50 @@ msgid "Member"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model,name:membership_extension.model_membership_membership_line
-msgid "Member line"
-msgstr ""
-
-#. module: membership_extension
-#: field:product.product,membership:0
-msgid "Membership"
-msgstr ""
-
-#. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
 msgstr ""
 
 #. module: membership_extension
-#: view:res.partner:membership_extension.view_res_partner_member_filter
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
 msgstr ""
 
 #. module: membership_extension
-#: field:product.product,membership_date_to:0
-msgid "Membership End Date"
-msgstr ""
-
-#. module: membership_extension
-#: field:res.partner,membership_last_start:0
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_last_start
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_last_start
 msgid "Membership Last Start Date"
 msgstr ""
 
 #. module: membership_extension
-#: field:product.product,membership_date_from:0
-msgid "Membership Start Date"
-msgstr ""
-
-#. module: membership_extension
-#: view:membership.membership_category:membership_extension.membership_category_tree_view
-#: field:res.partner,membership_categories:0
-#: field:res.partner,membership_category_ids:0
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_category_ids
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_category_ids
+#: model:ir.ui.view,arch_db:membership_extension.membership_category_tree_view
 msgid "Membership categories"
 msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
-#: field:product.product,membership_category_id:0
-#: view:product.template:membership_extension.membership_product_search_form_view
-#: field:product.template,membership_category_id:0
+#: model:ir.model.fields,field_description:membership_extension.field_product_product_membership_category_id
+#: model:ir.model.fields,field_description:membership_extension.field_product_template_membership_category_id
 msgid "Membership category"
 msgstr ""
 
 #. module: membership_extension
-#: field:account.invoice.line,membership_lines:0
+#: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line_membership_lines
 msgid "Membership lines"
 msgstr ""
 
 #. module: membership_extension
-#: view:res.partner:membership_extension.view_partner_form
+#: model:ir.ui.view,arch_db:membership_extension.view_partner_form
 msgid "Memberships"
 msgstr ""
 
 #. module: membership_extension
-#: field:membership.membership_category,name:0
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_name
 msgid "Name"
 msgstr "Nom"
 
@@ -215,40 +160,17 @@ msgid "Silver"
 msgstr ""
 
 #. module: membership_extension
-#: view:res.partner:membership_extension.view_res_partner_member_filter
-msgid "Start Month"
-msgstr ""
-
-#. module: membership_extension
-#: help:res.partner,membership_last_start:0
+#: model:ir.model.fields,help:membership_extension.field_res_partner_membership_last_start
+#: model:ir.model.fields,help:membership_extension.field_res_users_membership_last_start
 msgid "Start date of last membership period."
 msgstr ""
 
 #. module: membership_extension
-#: view:res.partner:membership_extension.view_res_partner_member_filter
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
 msgstr ""
 
 #. module: membership_extension
-#: field:product.product,supplier_taxes_id:0
-msgid "Supplier Taxes"
-msgstr ""
-
-#. module: membership_extension
-#: help:product.product,property_account_expense:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"expenses for the current product."
-msgstr ""
-
-#. module: membership_extension
-#: help:product.product,property_account_income:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"sales for the current product."
-msgstr ""
-
-#. module: membership_extension
-#: view:res.partner:membership_extension.view_partner_form
-msgid "{'default_date': time.strftime('%Y-%m-%d')}"
+#: model:ir.model,name:membership_extension.model_membership_membership_line
+msgid "membership.membership_line"
 msgstr ""
