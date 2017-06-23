@@ -19,4 +19,4 @@ class ProductTemplate(models.Model):
         if self.membership_date_to:
             date_to = fields.Date.from_string(self.membership_date_to)
             return date_to + timedelta(1)
-        return False
+        return False  # pragma: no cover
