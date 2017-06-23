@@ -14,6 +14,49 @@ class TestMembership(common.SavepointCase):
     def setUpClass(cls):
         super(TestMembership, cls).setUpClass()
         date_today = fields.Date.from_string(fields.Date.today())
+        cls.account_bank_type = cls.env['account.account.type'].create({
+            'name': 'Test bank account type',
+            'type': 'liquidity',
+        })
+        cls.account_bank = cls.env['account.account'].create({
+            'name': 'Test bank account',
+            'code': 'BANK',
+            'user_type_id': cls.account_bank_type.id,
+            'reconcile': True,
+        })
+        cls.journal = cls.env['account.journal'].create({
+            'name': 'Test journal',
+            'code': 'TEST',
+            'type': 'general',
+            'update_posted': True,
+            'default_debit_account_id': cls.account_bank.id,
+            'default_credit_account_id': cls.account_bank.id,
+        })
+        cls.bank_journal = cls.env['account.journal'].create({
+            'name': 'Test bank journal',
+            'code': 'TB',
+            'type': 'bank',
+            'update_posted': True,
+        })
+        cls.account_partner_type = cls.env['account.account.type'].create({
+            'name': 'Test partner account type',
+            'type': 'receivable',
+        })
+        cls.account_partner = cls.env['account.account'].create({
+            'name': 'Test partner account',
+            'code': 'PARTNER',
+            'user_type_id': cls.account_partner_type.id,
+            'reconcile': True,
+        })
+        cls.account_product_type = cls.env['account.account.type'].create({
+            'name': 'Test product account type',
+            'type': 'other',
+        })
+        cls.account_product = cls.env['account.account'].create({
+            'name': 'Test product account',
+            'code': 'PRODUCT',
+            'user_type_id': cls.account_product_type.id,
+        })
         cls.next_two_months = fields.Date.to_string(
             date_today + timedelta(days=60)
         )
@@ -27,6 +70,7 @@ class TestMembership(common.SavepointCase):
         )
         cls.partner = cls.env['res.partner'].create({
             'name': 'Test partner',
+            'property_account_receivable_id': cls.account_partner.id,
         })
         cls.child = cls.env['res.partner'].create({
             'name': 'Test child',
@@ -149,6 +193,8 @@ class TestMembership(common.SavepointCase):
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.next_two_months, self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
+        self.partner.free_member = True
+        self.assertEqual('free', self.child.membership_state)
 
     def test_category(self):
         line_one = self.env['membership.membership_line'].create({
@@ -249,47 +295,83 @@ class TestMembership(common.SavepointCase):
         self.assertEqual(self.next_two_months, line.date_to)
 
     def test_invoice(self):
-        account = self.partner.property_account_receivable_id.id
+        # This record has to be created here, or it will change other tests
         invoice = self.env['account.invoice'].create({
             'partner_id': self.partner.id,
             'date_invoice': fields.Date.today(),
-            'account_id': account,
+            'type': 'out_invoice',
+            'account_id': self.account_partner.id,
+            'journal_id': self.journal.id,
+            'invoice_line_ids': [
+                (0, 0, {
+                    'account_id': self.account_product.id,
+                    'product_id': self.gold_product.id,
+                    'price_unit': 100.0,
+                    'name': self.gold_product.name,
+                    'quantity': 1.0,
+                }),
+            ],
         })
-        self.env['account.invoice.line'].create({
-            'account_id': account,
-            'product_id': self.gold_product.id,
-            'price_unit': 100.0,
-            'name': 'Membership gold',
-            'invoice_id': invoice.id,
-            'quantity': 1.0,
-        })
-        invoice.journal_id.update_posted = True
         line = self.partner.member_lines[0]
         self.assertEqual('waiting', line.state)
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
-        invoice.action_invoice_open()
+        invoice.action_invoice_open()  # validate invoice
         self.assertEqual('invoiced', line.state)
-        invoice.action_invoice_paid()
+        invoice.pay_and_reconcile(self.bank_journal)  # pay invoice
         self.assertEqual('paid', line.state)
-        invoice.action_invoice_draft()
-        self.assertEqual('waiting', line.state)
+        self.env['account.payment'].search([
+            ('partner_id', '=', self.partner.id)
+        ]).cancel()
         invoice.action_invoice_cancel()
         self.assertEqual('canceled', line.state)
-        invoice.action_invoice_open()
-        invoice.action_invoice_paid()
+        invoice.action_invoice_draft()
+        self.assertEqual('waiting', line.state)
+        invoice.state = 'draft'  # HACK: Odoo resets this to open
+        invoice.action_invoice_open()  # validate invoice
+        self.assertEqual('invoiced', line.state)
+        invoice.pay_and_reconcile(
+            self.bank_journal, pay_amount=invoice.amount_total,
+        )  # pay invoice
         self.assertEqual('paid', line.state)
-        refund = invoice.refund()
+        refund = invoice.refund()  # refund invoice
         refund.journal_id.update_posted = True
-        invoice.action_invoice_open()
+        refund.action_invoice_open()  # validate refund
         self.assertEqual('canceled', line.state)
         refund.action_invoice_cancel()
         self.assertEqual('paid', line.state)
         refund.action_invoice_cancel()
+        refund.action_invoice_draft()
+        refund.state = 'draft'  # HACK: Odoo resets this to open
         refund.invoice_line_ids[0].quantity = 0.5
         self.assertNotEqual(invoice.amount_untaxed, refund.amount_untaxed)
         refund.action_invoice_open()
         self.assertEqual('paid', line.state)
 
     def test_check_membership_all(self):
+        self.env['membership.membership_line'].create({
+            'membership_id': self.gold_product.id,
+            'member_price': 100.00,
+            'date': fields.Date.today(),
+            'date_from': fields.Date.today(),
+            'date_to': self.next_month,
+            'partner': self.partner.id,
+            'state': 'waiting',
+        })
+        # Force another state to check if the recomputation is done
+        self.partner.membership_state = 'none'
         self.env['res.partner'].check_membership_all()
+        self.assertEqual(self.partner.membership_state, 'waiting')
+
+    def test_check_membership_expiry(self):
+        self.env['membership.membership_line'].create({
+            'membership_id': self.gold_product.id,
+            'member_price': 100.00,
+            'date': self.yesterday,
+            'date_from': self.yesterday,
+            'date_to': self.yesterday,
+            'partner': self.partner.id,
+            'state': 'waiting',
+        })
+        self.env['res.partner']._cron_update_membership()
+        self.assertEqual(self.partner.membership_state, 'none')
