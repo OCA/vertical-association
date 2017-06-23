@@ -1,0 +1,253 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_extension
+# 
+# Translators:
+# Ozge Altinisik <ozge@altinkaya.com.tr>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-31 10:03+0000\n"
+"PO-Revision-Date: 2016-12-31 10:03+0000\n"
+"Last-Translator: Ozge Altinisik <ozge@altinkaya.com.tr>, 2017\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/oca/teams/23907/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: membership_extension
+#: code:addons/membership_extension/models/membership_line.py:69
+#, python-format
+msgid ""
+"Can not remove membership line related to an invoice. Please, cancel invoice"
+" or remove invoice line instead"
+msgstr ""
+
+#. module: membership_extension
+#: field:membership.membership_line,category_id:0
+#: view:product.template:membership_extension.membership_product_search_form_view
+msgid "Category"
+msgstr ""
+
+#. module: membership_extension
+#: help:product.product,membership:0
+msgid "Check if the product is eligible for membership."
+msgstr ""
+
+#. module: membership_extension
+#: field:membership.membership_category,create_uid:0
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: membership_extension
+#: field:membership.membership_category,create_date:0
+msgid "Created on"
+msgstr "Oluşturulma tarihi"
+
+#. module: membership_extension
+#: field:product.product,taxes_id:0
+msgid "Customer Taxes"
+msgstr ""
+
+#. module: membership_extension
+#: help:product.product,membership_date_from:0
+msgid "Date from which membership becomes active."
+msgstr ""
+
+#. module: membership_extension
+#: help:product.product,membership_date_to:0
+msgid "Date until which membership remains active."
+msgstr ""
+
+#. module: membership_extension
+#: field:membership.membership_category,display_name:0
+msgid "Display Name"
+msgstr "Görünen ad"
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_res_partner_member_filter
+msgid "End Month"
+msgstr ""
+
+#. module: membership_extension
+#: field:product.product,property_account_expense:0
+msgid "Expense Account"
+msgstr ""
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_gold
+msgid "Gold"
+msgstr ""
+
+#. module: membership_extension
+#: field:membership.membership_category,id:0
+msgid "ID"
+msgstr "Kimlik"
+
+#. module: membership_extension
+#: field:product.product,property_account_income:0
+msgid "Income Account"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_invoice
+msgid "Invoice"
+msgstr "Fatura"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Fatura hizası"
+
+#. module: membership_extension
+#: field:membership.membership_category,__last_update:0
+msgid "Last Modified on"
+msgstr "En son güncelleme tarihi"
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_res_partner_member_filter
+msgid "Last Start Month"
+msgstr ""
+
+#. module: membership_extension
+#: field:membership.membership_category,write_uid:0
+msgid "Last Updated by"
+msgstr "En son güncelleyen "
+
+#. module: membership_extension
+#: field:membership.membership_category,write_date:0
+msgid "Last Updated on"
+msgstr "En son güncelleme tarihi"
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_member
+msgid "Member"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_line
+msgid "Member line"
+msgstr ""
+
+#. module: membership_extension
+#: field:product.product,membership:0
+msgid "Membership"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.actions.act_window,name:membership_extension.membership_category_action
+#: model:ir.ui.menu,name:membership_extension.menu_membership_category
+msgid "Membership Categories"
+msgstr ""
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_res_partner_member_filter
+msgid "Membership Category"
+msgstr ""
+
+#. module: membership_extension
+#: field:product.product,membership_date_to:0
+msgid "Membership End Date"
+msgstr ""
+
+#. module: membership_extension
+#: field:res.partner,membership_last_start:0
+msgid "Membership Last Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: field:product.product,membership_date_from:0
+msgid "Membership Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: view:membership.membership_category:membership_extension.membership_category_tree_view
+#: field:res.partner,membership_categories:0
+#: field:res.partner,membership_category_ids:0
+msgid "Membership categories"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_category
+#: field:product.product,membership_category_id:0
+#: view:product.template:membership_extension.membership_product_search_form_view
+#: field:product.template,membership_category_id:0
+msgid "Membership category"
+msgstr ""
+
+#. module: membership_extension
+#: field:account.invoice.line,membership_lines:0
+msgid "Membership lines"
+msgstr ""
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_partner_form
+msgid "Memberships"
+msgstr ""
+
+#. module: membership_extension
+#: field:membership.membership_category,name:0
+msgid "Name"
+msgstr "Ad"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_res_partner
+msgid "Partner"
+msgstr "Ortak"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_product
+msgid "Product"
+msgstr "Ürün"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_template
+msgid "Product Template"
+msgstr "Ürün şablonu"
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_silver
+msgid "Silver"
+msgstr ""
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_res_partner_member_filter
+msgid "Start Month"
+msgstr ""
+
+#. module: membership_extension
+#: help:res.partner,membership_last_start:0
+msgid "Start date of last membership period."
+msgstr ""
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_res_partner_member_filter
+msgid "Starting month of last membership period"
+msgstr ""
+
+#. module: membership_extension
+#: field:product.product,supplier_taxes_id:0
+msgid "Supplier Taxes"
+msgstr ""
+
+#. module: membership_extension
+#: help:product.product,property_account_expense:0
+msgid ""
+"This account will be used for invoices instead of the default one to value "
+"expenses for the current product."
+msgstr ""
+
+#. module: membership_extension
+#: help:product.product,property_account_income:0
+msgid ""
+"This account will be used for invoices instead of the default one to value "
+"sales for the current product."
+msgstr ""
+
+#. module: membership_extension
+#: view:res.partner:membership_extension.view_partner_form
+msgid "{'default_date': time.strftime('%Y-%m-%d')}"
+msgstr ""
