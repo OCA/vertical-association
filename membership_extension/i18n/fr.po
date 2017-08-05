@@ -4,14 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
-# leemannd <denis.leemann@camptocamp.com>, 2017
+# Quentin THEURET <odoo@kerpeo.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 11:03+0000\n"
-"PO-Revision-Date: 2017-07-01 11:03+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
+"POT-Creation-Date: 2017-08-04 02:43+0000\n"
+"PO-Revision-Date: 2017-08-04 02:43+0000\n"
+"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,6 +26,8 @@ msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice"
 " or remove invoice line instead"
 msgstr ""
+"Impossible de supprimer la ligne d'adhésion liée à une facture. Veuillez "
+"annuler la facture ou supprimer la ligne de facture."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line_category_id
@@ -75,7 +77,7 @@ msgstr "Dernière modification le"
 #. module: membership_extension
 #: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
-msgstr ""
+msgstr "Dernier mois de début"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_uid
@@ -107,7 +109,7 @@ msgstr "Catégorie de membre"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_last_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_last_start
 msgid "Membership Last Start Date"
-msgstr ""
+msgstr "Dernière date de début de l'adhésion"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
@@ -116,14 +118,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_category_ids
 #: model:ir.ui.view,arch_db:membership_extension.membership_category_tree_view
 msgid "Membership categories"
-msgstr ""
+msgstr "Catégories d'adhésion"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
 #: model:ir.model.fields,field_description:membership_extension.field_product_product_membership_category_id
 #: model:ir.model.fields,field_description:membership_extension.field_product_template_membership_category_id
 msgid "Membership category"
-msgstr ""
+msgstr "Catégorie de l'adhésion"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line_membership_lines
@@ -164,12 +166,12 @@ msgstr "Argent"
 #: model:ir.model.fields,help:membership_extension.field_res_partner_membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users_membership_last_start
 msgid "Start date of last membership period."
-msgstr ""
+msgstr "Date de début de la dernière période d'adhésion."
 
 #. module: membership_extension
 #: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr ""
+msgstr "Mois de début de la dernière période d'adhésion"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
