@@ -11,27 +11,27 @@ msgstr ""
 "POT-Creation-Date: 2017-08-04 02:43+0000\n"
 "PO-Revision-Date: 2017-08-04 02:43+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language-Team: Dutch (Belgium) (https://www.transifex.com/oca/teams/23907/nl_BE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
+"Language: nl_BE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
-msgstr "Quiebra de la empresa"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr "Gemaakt door"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Gemaakt op"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_membership_membership_line_date_withdrawal
@@ -41,7 +41,7 @@ msgstr ""
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Schermnaam"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_id
@@ -51,94 +51,94 @@ msgstr "ID"
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason___last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr "Laatst Aangepast op"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr "Laatst bijgewerkt door"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Laatst bijgewerkt op"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner_membership_last_withdrawal_date
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_users_membership_last_withdrawal_date
 msgid "Membership withdrawal date"
-msgstr "Fecha de baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner_membership_last_withdrawal_reason_id
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_users_membership_last_withdrawal_reason_id
 msgid "Membership withdrawal reason"
-msgstr "Razón de la baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
 #: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
 #: model:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_tree_view
 msgid "Membership withdrawal reasons"
-msgstr "Razones de baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_name
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam:"
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_other
 msgid "Other"
-msgstr "Otra"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_res_partner
 msgid "Partner"
-msgstr "Empresa"
+msgstr "Relatie"
 
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_withdrawal_reason
 msgid "Reason for withdrawal in membership"
-msgstr "Razón de baja de asociación"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_unsatisfied
 msgid "Unsatisfied"
-msgstr "Insatisfecho"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal Month"
-msgstr "Mes de baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line_date_withdrawal
 msgid "Withdrawal date"
-msgstr "Fecha de baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_res_partner_membership_last_withdrawal_date
 #: model:ir.model.fields,help:membership_withdrawal.field_res_users_membership_last_withdrawal_date
 msgid "Withdrawal date of current membership period"
-msgstr "Fecha de baja del período actual de asociación"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal month"
-msgstr "Mes de baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line_withdrawal_reason_id
 #: model:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal reason"
-msgstr "Razón de la baja"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_res_partner_membership_last_withdrawal_reason_id
 #: model:ir.model.fields,help:membership_withdrawal.field_res_users_membership_last_withdrawal_reason_id
 msgid "Withdrawal reason of current membership period"
-msgstr "Razón de la baja en el período actual de asociación"
+msgstr ""
 
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_membership_line
