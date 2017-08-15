@@ -15,14 +15,8 @@ addon | version | summary
 [membership_extension](membership_extension/) | 10.0.1.0.1 | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 10.0.1.0.0 | Initial fee for memberships
 [membership_prorrate](membership_prorrate/) | 10.0.1.0.0 | Prorrate membership fee
+[membership_variable_period](membership_variable_period/) | 10.0.2.0.0 | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 10.0.1.0.0 | Log membership withdrawal reason and date of request
-
-
-Unported addons
----------------
-addon | version | summary
---- | --- | ---
-[membership_variable_period](membership_variable_period/) | 8.0.1.0.0 (unported) | Variable period for memberships
 
 [//]: # (end addons)
 
