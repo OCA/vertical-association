@@ -11,17 +11,17 @@ msgstr ""
 "POT-Creation-Date: 2017-08-17 03:10+0000\n"
 "PO-Revision-Date: 2017-08-17 03:10+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Romanian (https://www.transifex.com/oca/teams/23907/ro/)\n"
+"Language-Team: Norwegian Bokmål (https://www.transifex.com/oca/teams/23907/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Language: nb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_prorrate_variable_period
 #: model:ir.model,name:membership_prorrate_variable_period.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Linie factura"
+msgstr "Fakturalinje"
 
 #. module: membership_prorrate_variable_period
 #: code:addons/membership_prorrate_variable_period/models/account_invoice.py:25
@@ -33,4 +33,4 @@ msgstr ""
 #. module: membership_prorrate_variable_period
 #: model:ir.model,name:membership_prorrate_variable_period.model_product_template
 msgid "Product Template"
-msgstr "Produs șablon"
+msgstr ""
