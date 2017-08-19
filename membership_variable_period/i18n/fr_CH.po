@@ -3,15 +3,15 @@
 # * membership_variable_period
 # 
 # Translators:
-# leemannd <leemannd@gmail.com>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: vertical-association (8.0)\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 19:10+0000\n"
-"PO-Revision-Date: 2016-12-01 10:24+0000\n"
-"Last-Translator: leemannd <leemannd@gmail.com>\n"
-"Language-Team: French (Switzerland) (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/fr_CH/)\n"
+"POT-Creation-Date: 2017-08-17 03:10+0000\n"
+"PO-Revision-Date: 2017-08-17 03:10+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: French (Switzerland) (https://www.transifex.com/oca/teams/23907/fr_CH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -24,17 +24,19 @@ msgid "Fixed dates"
 msgstr "Dates fixes"
 
 #. module: membership_variable_period
-#: view:product.template:membership_variable_period.membership_products_form_period
+#: model:ir.ui.view,arch_db:membership_variable_period.membership_products_form_period
 msgid "Interval"
 msgstr "Intervalle"
 
 #. module: membership_variable_period
-#: field:product.template,membership_interval_qty:0
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_interval_qty
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_qty
 msgid "Interval quantity"
 msgstr "Quantité d'intervalle"
 
 #. module: membership_variable_period
-#: field:product.template,membership_interval_unit:0
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_interval_unit
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_unit
 msgid "Interval unit"
 msgstr "Unité d'intervalle"
 
@@ -44,7 +46,8 @@ msgid "Invoice Line"
 msgstr "Ligne de facture"
 
 #. module: membership_variable_period
-#: field:product.template,membership_type:0
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_type
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_type
 msgid "Membership type"
 msgstr ""
 
