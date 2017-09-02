@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 09:56+0000\n"
-"PO-Revision-Date: 2017-05-13 09:56+0000\n"
+"POT-Creation-Date: 2017-07-01 11:10+0000\n"
+"PO-Revision-Date: 2017-07-01 11:10+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: membership_extension
 #: field:membership.membership_category,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: membership_extension
 #: field:product.product,taxes_id:0
@@ -96,12 +96,12 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice
 msgid "Invoice"
-msgstr ""
+msgstr "Factuur"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr ""
+msgstr "Factuurregel"
 
 #. module: membership_extension
 #: field:membership.membership_category,__last_update:0
@@ -116,12 +116,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: membership_extension
 #: field:membership.membership_category,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
