@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
@@ -246,3 +247,19 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             template.membership_interval_unit = interval
             template.membership_interval_qty = qty
             self.assertEqual(template._get_next_date(old_date), next_date)
+
+    def test_create_invoice_line_with_no_product(self):
+        account = self.partner.property_account_receivable_id.id
+        invoice = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': '2015-07-01',
+            'account_id': account,
+        })
+        self.env['account.invoice.line'].create({
+            'account_id': account,
+            'price_unit': self.product.list_price,
+            'name': 'No product',
+            'invoice_id': invoice.id,
+            'quantity': 1.0,
+        })
+        self.assertFalse(invoice.invoice_line_ids[0].product_id)

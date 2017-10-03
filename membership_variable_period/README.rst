@@ -13,7 +13,6 @@ when you become a member, you are until the end of that quota cycle.
 But a lot of times, membership quotas express an amount of time that you
 gain the membership. For example, one year since the subscription.
 
-
 This module allows to make it in Odoo, using current membership features,
 and adapting them for this purpose. As now the quota is not attached to a fixed
 period, you can also invoice more than one quantity for being a member for
@@ -30,18 +29,17 @@ Define a member product, and select 'Variable periods' in the field
 *Membership type*. You will be able to select them the period for the
 membership in quantity and interval.
 
-
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/208/10.0
+   :target: https://runbot.odoo-community.org/runbot/208/11.0
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/vertical-association/issues>`_. In case of trouble, please
-check there if your issue has already been reported. If you spotted it first,
-help us smash it by providing detailed and welcomed feedback.
+<https://github.com/OCA/vertical-association/issues>`_. In case of trouble,
+please check there if your issue has already been reported. If you spotted it
+first, help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
