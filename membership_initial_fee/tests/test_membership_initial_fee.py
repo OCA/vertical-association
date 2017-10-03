@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# (c) 2015 Pedro M. Baeza
+# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo.tests import common
@@ -32,6 +33,8 @@ class TestMembershipInitialFee(common.SavepointCase):
             'list_price': 150.0,
             'type': 'service',
             'categ_id': cls.product_category.id,
+            'membership_date_from': '2017-01-01',
+            'membership_date_to': '2017-02-01',
         })
         cls.product_percentage = cls.env['product.product'].create({
             'name': 'Membership product with percentage initial fee',
@@ -42,6 +45,8 @@ class TestMembershipInitialFee(common.SavepointCase):
             'list_price': 150.0,
             'type': 'service',
             'categ_id': cls.product_category.id,
+            'membership_date_from': '2017-01-01',
+            'membership_date_to': '2017-02-01',
         })
         cls.partner = cls.env['res.partner'].create({
             'name': 'Test',
