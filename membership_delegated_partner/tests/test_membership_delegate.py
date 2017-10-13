@@ -19,6 +19,8 @@ class TestMembershipDelegate(common.SavepointCase):
         cls.product = cls.env['product.product'].create({
             'name': 'Test membership product',
             'membership': True,
+            'membership_date_from': '2017-01-01',
+            'membership_date_to': '2017-12-31',
         })
         cls.account_type = cls.env['account.account.type'].create({
             'name': 'Test',
@@ -107,3 +109,24 @@ class TestMembershipDelegate(common.SavepointCase):
             }).invoice_refund()
         refund = invoice.search([('refund_invoice_id', '=', invoice.id)])
         self.assertEqual(refund.delegated_member_id, self.partner2)
+
+    def test_04_get_partner_for_membership(self):
+        """ Auxiliary method to get the member """
+        invoice = self.env['account.invoice'].create({
+            'name': "Test Customer Invoice",
+            'journal_id': self.env['account.journal'].search(
+                [('type', '=', 'sale')])[0].id,
+            'account_id': self.account.id,
+            'partner_id': self.partner1.id,  # Invoicing partner
+            'delegated_member_id': self.partner2.id,  # Delegate membership to
+            'invoice_line_ids': [(0, 0, {
+                'name': 'Membership for delegate member',
+                'account_id': self.account.id,
+                'product_id': self.product.id,
+                'price_unit': 1.0,
+            })],
+        })
+        get_member = invoice.invoice_line_ids[0]._get_partner_for_membership
+        self.assertEqual(get_member(), self.partner2)
+        invoice.delegated_member_id = False
+        self.assertEqual(get_member(), self.partner1)
