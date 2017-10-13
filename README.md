@@ -12,6 +12,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[membership_delegated_partner](membership_delegated_partner/) | 10.0.1.0.0 | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 10.0.1.0.1 | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 10.0.1.0.0 | Initial fee for memberships
 [membership_prorrate](membership_prorrate/) | 10.0.1.0.0 | Prorrate membership fee
