@@ -21,6 +21,10 @@ Usage
 #. In an invoice with membership lines, choose a delegated partner.
 #. The membership line will go to the delegated partner.
 
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/208/11.0
+
 Bug Tracker
 ===========
 
