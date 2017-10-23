@@ -12,6 +12,7 @@ This module extends Odoo's membership management with the following features:
 * Membership lines editable
 * Do not calculate membership state from invoice status
 * Start date of last membership period
+* Partner's with member lines can't be deleted.
 
 Configuration
 =============

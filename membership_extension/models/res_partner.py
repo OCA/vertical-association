@@ -4,7 +4,7 @@
 
 import logging
 from datetime import timedelta
-from odoo import models, fields, api
+from odoo import api, fields, models
 _logger = logging.getLogger(__name__)
 try:
     from odoo.addons.membership.models.membership import STATE
