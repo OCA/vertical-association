@@ -5,7 +5,8 @@
 
 from datetime import timedelta
 from odoo import fields
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
+from psycopg2 import IntegrityError
 from odoo.tests import common
 
 
@@ -375,3 +376,19 @@ class TestMembership(common.SavepointCase):
         })
         self.env['res.partner']._cron_update_membership()
         self.assertEqual(self.partner.membership_state, 'none')
+
+    def test_unlink(self):
+        self.env['membership.membership_line'].create({
+            'membership_id': self.gold_product.id,
+            'member_price': 0,
+            'partner': self.partner.id,
+        })
+        # We can't delete a partner with member lines
+        with self.assertRaises(IntegrityError), self.cr.savepoint():
+            self.partner.unlink()
+        # Create a brand new partner and delete it
+        partner2 = self.env['res.partner'].create({
+            'name': 'no member',
+        })
+        partner2.unlink()
+        self.assertFalse(partner2.exists())
