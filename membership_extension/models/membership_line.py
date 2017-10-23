@@ -18,6 +18,9 @@ class MembershipLine(models.Model):
     date_from = fields.Date(readonly=False)
     date_to = fields.Date(readonly=False)
     state = fields.Selection(compute=False, inverse=False)
+    partner = fields.Many2one(
+        ondelete='restrict',
+    )
 
     @api.onchange('membership_id')
     def _onchange_membership_id(self):
