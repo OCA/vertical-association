@@ -3,13 +3,14 @@
 # * membership_variable_period
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
 # neben <b.brich@humanilog.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-24 11:03+0000\n"
-"PO-Revision-Date: 2017-06-24 11:03+0000\n"
+"POT-Creation-Date: 2017-10-28 12:27+0000\n"
+"PO-Revision-Date: 2017-10-28 12:27+0000\n"
 "Last-Translator: neben <b.brich@humanilog.org>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -41,17 +42,17 @@ msgstr "Intervaleinheit"
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_account_invoice_line
 msgid "Invoice Line"
-msgstr ""
+msgstr "Rechnungszeile"
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_account_invoice_line_membership_lines
 msgid "Membership lines"
-msgstr ""
+msgstr "Mitgliedschaftszeilen"
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_type
 msgid "Membership type"
-msgstr ""
+msgstr "Mitgliedschaftsarten"
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_res_partner
@@ -61,7 +62,7 @@ msgstr "Mitglied"
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produktvorlage"
 
 #. module: membership_variable_period
 #: selection:product.template,membership_type:0
