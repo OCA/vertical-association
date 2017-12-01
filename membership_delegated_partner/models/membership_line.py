@@ -18,3 +18,17 @@ class MembershipLine(models.Model):
         if line.invoice_id.delegated_member_id:
             vals['partner'] = line.invoice_id.delegated_member_id.id
         return super(MembershipLine, self).create(vals)
+
+    def write(self, vals):
+        """If a partner is delegated, avoid reassign"""
+        if 'partner' not in vals:
+            return super(MembershipLine, self).write(vals)
+        if vals.get('account_invoice_line'):
+            inv_line = self.env['account.invoice.line'].browse(
+                vals['account_invoice_line']
+            )
+        else:
+            inv_line = self.account_invoice_line
+        if inv_line and inv_line.invoice_id.delegated_member_id:
+            vals['partner'] = inv_line.invoice_id.delegated_member_id.id
+        return super(MembershipLine, self).write(vals)
