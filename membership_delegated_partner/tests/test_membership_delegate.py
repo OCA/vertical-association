@@ -33,7 +33,7 @@ class TestMembershipDelegate(common.SavepointCase):
 
     def test_01_delegate(self):
         """ Delegates membership to partner 2 """
-        self.env['account.invoice'].create({
+        invoice = self.env['account.invoice'].create({
             'name': "Test Customer Invoice",
             'journal_id': self.env['account.journal'].search(
                 [('type', '=', 'sale')])[0].id,
@@ -51,6 +51,17 @@ class TestMembershipDelegate(common.SavepointCase):
                         'Delegated partner gets the line')
         self.assertFalse(self.partner1.member_lines,
                          'Invoicing partner gets no line')
+        # We try to force reassign member line to another partner
+        self.partner2.member_lines.partner = ({'partner': self.partner1.id})
+        self.assertFalse(self.partner1.member_lines,
+                         "It's going to stand on partner2")
+        # Same test, with account_invoice_line in the write
+        self.partner2.member_lines.write({
+            'partner': self.partner1.id,
+            'account_invoice_line': invoice.invoice_line_ids[0].id,
+        })
+        self.assertFalse(self.partner1.member_lines,
+                         "It's going to stand on partner2")
 
     def test_02_change_delegated_member(self):
         """ Delegated member can be changed later """
