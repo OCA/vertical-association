@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-08 02:41+0000\n"
-"PO-Revision-Date: 2017-06-08 02:41+0000\n"
+"POT-Creation-Date: 2017-12-02 01:54+0000\n"
+"PO-Revision-Date: 2017-12-02 01:54+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/23907/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Porcentagem do preço"
 #. module: membership_initial_fee
 #: model:ir.model,name:membership_initial_fee.model_product_template
 msgid "Product Template"
-msgstr "Modelo do Produto"
+msgstr "Modelo Produto"
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_product_fee

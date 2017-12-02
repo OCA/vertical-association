@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-17 03:10+0000\n"
-"PO-Revision-Date: 2017-08-17 03:10+0000\n"
+"POT-Creation-Date: 2017-12-02 01:54+0000\n"
+"PO-Revision-Date: 2017-12-02 01:54+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgstr "Type d'adhésion"
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
 msgid "Product Template"
-msgstr "Modèle d'article"
+msgstr "Modèle de produit"
 
 #. module: membership_variable_period
 #: selection:product.template,membership_type:0
