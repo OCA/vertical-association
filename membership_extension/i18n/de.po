@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-24 02:49+0000\n"
-"PO-Revision-Date: 2017-06-24 02:49+0000\n"
+"POT-Creation-Date: 2017-12-02 01:54+0000\n"
+"PO-Revision-Date: 2017-12-02 01:54+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_extension
-#: code:addons/membership_extension/models/membership_line.py:53
+#: code:addons/membership_extension/models/membership_line.py:56
 #, python-format
 msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice"
@@ -64,7 +64,7 @@ msgstr "Rechnung"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Rechnungszeile"
+msgstr "Rechnungsposition"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category___last_update
@@ -106,6 +106,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_last_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_last_start
 msgid "Membership Last Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
+msgid "Membership Products"
 msgstr ""
 
 #. module: membership_extension

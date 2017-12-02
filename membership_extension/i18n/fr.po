@@ -5,13 +5,14 @@
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 # Quentin THEURET <odoo@kerpeo.com>, 2017
+# leemannd <denis.leemann@camptocamp.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 02:43+0000\n"
-"PO-Revision-Date: 2017-08-04 02:43+0000\n"
-"Last-Translator: Quentin THEURET <odoo@kerpeo.com>, 2017\n"
+"POT-Creation-Date: 2017-12-02 01:54+0000\n"
+"PO-Revision-Date: 2017-12-02 01:54+0000\n"
+"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: membership_extension
-#: code:addons/membership_extension/models/membership_line.py:53
+#: code:addons/membership_extension/models/membership_line.py:56
 #, python-format
 msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice"
@@ -67,7 +68,7 @@ msgstr "Facture"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Ligne de facuration"
+msgstr "Ligne de facture"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category___last_update
@@ -110,6 +111,11 @@ msgstr "Catégorie de membre"
 #: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_last_start
 msgid "Membership Last Start Date"
 msgstr "Dernière date de début de l'adhésion"
+
+#. module: membership_extension
+#: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
+msgid "Membership Products"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
