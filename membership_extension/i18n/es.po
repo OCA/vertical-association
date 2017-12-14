@@ -113,7 +113,7 @@ msgstr "Fecha de inicio del último período"
 #. module: membership_extension
 #: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
 msgid "Membership Products"
-msgstr ""
+msgstr "Productos de socio"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
@@ -176,6 +176,24 @@ msgstr "Fecha de inicio del último período de asociación"
 #: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
 msgstr "Mes de inicio del último período de asociación"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_is_adhered_member
+#: model:ir.model.fields,help:membership_extension.field_res_users_is_adhered_member
+msgid "A member who is associated to another one, but whose membership are independent."
+msgstr "Un socio asociado a otro pero cuya fecha de inicio es independiente."
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_is_adhered_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_is_adhered_member
+msgid "Adhered member"
+msgstr "Socio adherido"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_membership_start_adhered
+#: model:ir.model.fields,help:membership_extension.field_res_users_membership_start_adhered
+msgid "Date from which partner is adhered."
+msgstr "Fecha desde la cual está adherido."
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
