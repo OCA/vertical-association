@@ -341,7 +341,7 @@ class TestMembership(common.SavepointCase):
         self.assertEqual('canceled', line.state)
         refund.action_invoice_cancel()
         self.assertEqual('paid', line.state)
-        refund.action_invoice_cancel()
+        refund.action_cancel()
         refund.action_invoice_draft()
         refund.state = 'draft'  # HACK: Odoo resets this to open
         refund.invoice_line_ids[0].quantity = 0.5
@@ -392,3 +392,20 @@ class TestMembership(common.SavepointCase):
         })
         partner2.unlink()
         self.assertFalse(partner2.exists())
+
+    def test_adhered_member(self):
+        self.env['membership.membership_line'].create({
+            'membership_id': self.gold_product.id,
+            'member_price': 100.00,
+            'date': fields.Date.today(),
+            'date_from': fields.Date.today(),
+            'date_to': self.next_month,
+            'partner': self.partner.id,
+            'state': 'waiting',
+        })
+        self.child.is_adhered_member = True
+        self.child.membership_start_adhered = '2018-01-26'
+        self.assertEqual(self.child.membership_start, '2018-01-26')
+        self.child.associate_member = False
+        self.child.onchange_associate_member()
+        self.assertFalse(self.child.is_adhered_member)
