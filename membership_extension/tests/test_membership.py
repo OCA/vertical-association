@@ -341,7 +341,7 @@ class TestMembership(common.SavepointCase):
         self.assertEqual('canceled', line.state)
         refund.action_invoice_cancel()
         self.assertEqual('paid', line.state)
-        refund.action_invoice_cancel()
+        refund.action_cancel()
         refund.action_invoice_draft()
         refund.state = 'draft'  # HACK: Odoo resets this to open
         refund.invoice_line_ids[0].quantity = 0.5
