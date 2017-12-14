@@ -22,10 +22,9 @@ class AccountInvoice(models.Model):
     def action_cancel(self):
         """Cancel membership for customer invoices and restore previous
         membership state for customer refunds. Harmless on supplier ones.
-        We detect dynamically if the module account_refund_original is
+        We detect dynamically if the module account_invoice_refund_link is
         installed for accurate source invoice.
         """
-        # TODO: Module in v9 is `account_invoice_refund_link`
         self.mapped('invoice_line_ids.membership_lines').write({
             'state': 'canceled',
         })
