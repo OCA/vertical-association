@@ -13,6 +13,9 @@ This module extends Odoo's membership management with the following features:
 * Do not calculate membership state from invoice status
 * Start date of last membership period
 * Partner's with member lines can't be deleted.
+* When a partner has an associated member there is the option to make member
+  start date independent from the associated member one so joining dates can be
+  tracked for those members.
 
 Configuration
 =============
@@ -39,6 +42,10 @@ not related with it.
 You will see a general membership status at partner level that specifies if
 it's a member of any category or not, and also a detail status per
 membership category.
+
+To make member start date independent from the associated member one, check the
+option *Adhered member* in the membership tab of the partner who is associating.
+A start date will now be available to edit.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -67,6 +74,7 @@ Contributors
 * Antonio Espinosa <antonio.espinosa@tecnativa.com>
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
 * David Vidal <david.vidal@tecnativa.com>
+* Rafael Blasco <rafael.blasco@tecnativa.com>
 
 Maintainer
 ----------

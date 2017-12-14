@@ -9,12 +9,20 @@
     <field name="inherit_id" ref="membership.view_partner_form" />
     <field name="priority" eval="999" />
     <field name="arch" type="xml">
+        <field name="membership_start" position="attributes">
+            <attribute name="attrs">
+                {'invisible':['|',('membership_start','=',False),('is_adhered_member', '=', True)]}
+            </attribute>
+        </field>
         <field name="membership_start" position="after">
+            <field name="membership_start_adhered"
+                   attrs="{'invisible':[('is_adhered_member','=',False)]}"/>
             <field name="membership_last_start"
                    attrs="{'invisible':[('membership_last_start','=',False)]}"/>
         </field>
         <field name="free_member" position="after">
             <field name="membership_category_ids" widget="many2many_tags"/>
+            <field name="is_adhered_member" attrs="{'invisible': [('associate_member', '=', False)]}"/>
         </field>
         <field name="member_lines" position="attributes">
             <attribute name="readonly">0</attribute>

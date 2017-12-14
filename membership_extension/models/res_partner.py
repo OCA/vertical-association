@@ -21,6 +21,16 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     associate_member = fields.Many2one(index=True)
+    is_adhered_member = fields.Boolean(
+        string="Adhered member",
+        help="A member who is associated to another one, but whose membership "
+             "are independent.",
+    )
+    membership_start_adhered = fields.Date(
+        string="Membership Start Date",
+        help="Date from which partner is adhered.",
+        default=fields.Date.today(),
+    )
     membership_start = fields.Date(
         string="Membership Start Date", readonly=True, store=True,
         compute="_compute_membership_date",
@@ -83,6 +93,7 @@ class ResPartner(models.Model):
 
     @api.multi
     @api.depends('membership_state',
+                 'is_adhered_member', 'membership_start_adhered',
                  'member_lines.state', 'member_lines.date_from',
                  'member_lines.date_to', 'member_lines.date_cancel',
                  'associate_member.membership_start',
@@ -94,7 +105,9 @@ class ResPartner(models.Model):
         for partner in self:
             parent = partner.associate_member
             if parent:
-                partner.membership_start = parent.membership_start
+                partner.membership_start = (
+                    partner.membership_start_adhered
+                    if partner.is_adhered_member else parent.membership_start)
                 partner.membership_last_start = parent.membership_last_start
                 partner.membership_stop = parent.membership_stop
                 partner.membership_cancel = parent.membership_cancel
@@ -213,3 +226,9 @@ class ResPartner(models.Model):
     @api.model
     def _cron_update_membership(self):
         return self.check_membership_expiry()
+
+    @api.onchange('associate_member')
+    def onchange_associate_member(self):
+        """Prevents is_adhered_member to stay set when no associated member"""
+        if not self.associate_member:
+            self.is_adhered_member = False
