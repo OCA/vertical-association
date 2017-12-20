@@ -2,12 +2,13 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2017 Luis M. Ontalba <luis.martinez@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     "name": "Membership extension",
     "summary": "Improves user experience of membership addon",
-    "version": "10.0.1.1.3",
+    "version": "10.0.1.1.4",
     "category": "Membership",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
@@ -20,6 +21,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "security/membership_security.xml",
         "views/membership_category_view.xml",
         "views/product_template_view.xml",
         "views/res_partner_view.xml",
