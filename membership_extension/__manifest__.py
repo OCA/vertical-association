@@ -20,9 +20,10 @@
         "membership",
     ],
     "data": [
-        "security/ir.model.access.csv",
         "security/membership_security.xml",
+        "security/ir.model.access.csv",
         "views/membership_category_view.xml",
+        "views/membership_views.xml",
         "views/product_template_view.xml",
         "views/res_partner_view.xml",
         "data/membership_category_data.xml",
