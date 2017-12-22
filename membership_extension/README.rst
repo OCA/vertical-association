@@ -16,6 +16,8 @@ This module extends Odoo's membership management with the following features:
 * When a partner has an associated member there is the option to make member
   start date independent from the associated member one so joining dates can be
   tracked for those members.
+* Adds a category for Membership management security group so a user with only
+  that permission can access to the membership menu.
 
 Configuration
 =============
@@ -75,6 +77,7 @@ Contributors
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
 * David Vidal <david.vidal@tecnativa.com>
 * Rafael Blasco <rafael.blasco@tecnativa.com>
+* Luis M. Ontalba <luis.martinez@tecnativa.com>
 
 Maintainer
 ----------
