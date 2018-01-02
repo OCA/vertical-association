@@ -8,6 +8,7 @@ from odoo import fields
 from odoo.exceptions import UserError
 from psycopg2 import IntegrityError
 from odoo.tests import common
+from odoo.tools import mute_logger
 
 
 class TestMembership(common.SavepointCase):
@@ -377,6 +378,7 @@ class TestMembership(common.SavepointCase):
         self.env['res.partner']._cron_update_membership()
         self.assertEqual(self.partner.membership_state, 'none')
 
+    @mute_logger('odoo.sql_db')
     def test_unlink(self):
         self.env['membership.membership_line'].create({
             'membership_id': self.gold_product.id,
