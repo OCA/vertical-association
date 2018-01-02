@@ -8,6 +8,7 @@
         model="product.template">
     <field name="membership_category_id"
            ref="membership_extension.membership_category_gold"/>
+    <field name="name">Membership Gold</field>
 </record>
 
 
@@ -15,12 +16,14 @@
         model="product.template">
     <field name="membership_category_id"
            ref="membership_extension.membership_category_silver"/>
+    <field name="name">Membership Silver</field>
 </record>
 
 <record id="product.membership_2_product_template"
         model="product.template">
     <field name="membership_category_id"
            ref="membership_extension.membership_category_member"/>
+    <field name="name">Membership Bronze</field>
 </record>
 
 </data>
