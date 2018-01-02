@@ -173,9 +173,9 @@ class ResPartner(models.Model):
                 category_names = []
                 today = fields.Date.today()
                 lines = partner.member_lines.filtered(
-                    lambda r: r.date_from <= today and (
-                        (not r.date_cancel and r.date_to >= today) or
-                        (r.date_cancel >= today))
+                    lambda r: r.date_from and r.date_from <= today and (
+                        (r.date_to and r.date_to >= today) and
+                        (not r.date_cancel or r.date_cancel >= today))
                 )
                 # Use default language for getting category names
                 for line in lines.with_context(lang='en_US'):
