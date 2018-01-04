@@ -1,0 +1,176 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_extension
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-24 02:49+0000\n"
+"PO-Revision-Date: 2017-06-24 02:49+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Spanish (Ecuador) (https://www.transifex.com/oca/teams/23907/es_EC/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es_EC\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_extension
+#: code:addons/membership_extension/models/membership_line.py:53
+#, python-format
+msgid ""
+"Can not remove membership line related to an invoice. Please, cancel invoice"
+" or remove invoice line instead"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line_category_id
+msgid "Category"
+msgstr "Categoría"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_gold
+msgid "Gold"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Detalle de Factura"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Last Start Month"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_member
+msgid "Member"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.actions.act_window,name:membership_extension.membership_category_action
+#: model:ir.ui.menu,name:membership_extension.menu_membership_category
+msgid "Membership Categories"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Membership Category"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_last_start
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_last_start
+msgid "Membership Last Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_category_ids
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_category_ids
+#: model:ir.ui.view,arch_db:membership_extension.membership_category_tree_view
+msgid "Membership categories"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_category
+#: model:ir.model.fields,field_description:membership_extension.field_product_product_membership_category_id
+#: model:ir.model.fields,field_description:membership_extension.field_product_template_membership_category_id
+msgid "Membership category"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line_membership_lines
+msgid "Membership lines"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_partner_form
+msgid "Memberships"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_silver
+msgid "Silver"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_membership_last_start
+#: model:ir.model.fields,help:membership_extension.field_res_users_membership_last_start
+msgid "Start date of last membership period."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Starting month of last membership period"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_line
+msgid "membership.membership_line"
+msgstr ""

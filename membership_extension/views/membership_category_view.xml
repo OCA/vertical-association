@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+<record id="membership_category_action" model="ir.actions.act_window">
+    <field name="name">Membership Categories</field>
+    <field name="res_model">membership.membership_category</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree</field>
+</record>
+
+<record id="membership_category_tree_view" model="ir.ui.view">
+    <field name="name">Membership Categories</field>
+    <field name="model">membership.membership_category</field>
+    <field name="arch" type="xml">
+        <tree string="Membership categories" editable="top">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+<menuitem action="membership_category_action"
+          id="menu_membership_category"
+          name="Membership Categories"
+          parent="membership.menu_marketing_config_association"
+          sequence="2"/>
+<!-- Rename and move to lower level -->
+<menuitem action="membership.action_membership_products"
+          id="menu_marketing_config_association_item"
+          name="Membership Products"
+          parent="membership.menu_marketing_config_association"
+          sequence="100"/>
+
+</odoo>
