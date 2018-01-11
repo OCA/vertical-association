@@ -14,7 +14,9 @@ class AccountInvoice(models.Model):
     )
 
     def write(self, vals):
-        membership_lines = self.invoice_line_ids.filtered(
+        """Change associated membership lines if delegated member is changed.
+        """
+        membership_lines = self.mapped('invoice_line_ids').filtered(
             lambda x: x.product_id.membership)
         if 'delegated_member_id' not in vals or not membership_lines:
             return super(AccountInvoice, self).write(vals)
