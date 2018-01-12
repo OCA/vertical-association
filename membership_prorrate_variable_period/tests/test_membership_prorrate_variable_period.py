@@ -63,7 +63,6 @@ class TestMembershipProrrateVariablePeriod(common.TransactionCase):
             'quantity': 1.0,
         })
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.75, 2)
-        self.assertEqual(self.partner.membership_state, 'waiting')
 
     def test_create_invoice_membership_product_prorrate_week(self):
         account = self.partner.property_account_receivable_id.id
