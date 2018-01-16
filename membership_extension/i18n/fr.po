@@ -3,22 +3,37 @@
 # * membership_extension
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
-# Quentin THEURET <odoo@kerpeo.com>, 2017
-# leemannd <denis.leemann@camptocamp.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2018
+# Nicolas JEUDY <njeudy@panda-chi.io>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-02 01:54+0000\n"
-"PO-Revision-Date: 2017-12-02 01:54+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
+"POT-Creation-Date: 2018-01-16 15:38+0000\n"
+"PO-Revision-Date: 2018-01-16 15:38+0000\n"
+"Last-Translator: Nicolas JEUDY <njeudy@panda-chi.io>, 2018\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_is_adhered_member
+#: model:ir.model.fields,help:membership_extension.field_res_users_is_adhered_member
+msgid ""
+"A member who is associated to another one, but whose membership are "
+"independent."
+msgstr ""
+"Membre qui est associé à un autre membre, mais dont les adhésions sont "
+"indépendantes."
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_is_adhered_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_is_adhered_member
+msgid "Adhered member"
+msgstr "Membre adhérent"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:56
@@ -36,6 +51,11 @@ msgid "Category"
 msgstr "Catégorie"
 
 #. module: membership_extension
+#: model:ir.model,name:membership_extension.model_res_partner
+msgid "Contact"
+msgstr "Contacte"
+
+#. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_uid
 msgid "Created by"
 msgstr "Créer par"
@@ -46,6 +66,12 @@ msgid "Created on"
 msgstr "Créer le"
 
 #. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_membership_start_adhered
+#: model:ir.model.fields,help:membership_extension.field_res_users_membership_start_adhered
+msgid "Date from which partner is adhered."
+msgstr "Date à partir de laquelle le partenaire a adhéré."
+
+#. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_display_name
 msgid "Display Name"
 msgstr "Nom à afficher"
@@ -54,6 +80,11 @@ msgstr "Nom à afficher"
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
 msgstr "Or"
+
+#. module: membership_extension
+#: model:ir.module.category,description:membership_extension.module_category_membership_management
+msgid "Helps you manage operations for managing memberships."
+msgstr "Vous aide à gérer les opérations de gestion des adhésions."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_id
@@ -91,9 +122,19 @@ msgid "Last Updated on"
 msgstr "Mis à jour le"
 
 #. module: membership_extension
+#: model:res.groups,name:membership_extension.group_membership_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
 msgstr "Membre"
+
+#. module: membership_extension
+#: model:ir.module.category,name:membership_extension.module_category_membership_management
+msgid "Membership"
+msgstr "Adhésion"
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
@@ -113,9 +154,20 @@ msgid "Membership Last Start Date"
 msgstr "Dernière date de début de l'adhésion"
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line_membership_lines
+msgid "Membership Lines"
+msgstr "Lignes d'adhésion"
+
+#. module: membership_extension
 #: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
 msgid "Membership Products"
-msgstr ""
+msgstr "Produits d'adhésion"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_start_adhered
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_start_adhered
+msgid "Membership Start Date"
+msgstr "Date de début d'adhésion"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
@@ -134,11 +186,6 @@ msgid "Membership category"
 msgstr "Catégorie de l'adhésion"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line_membership_lines
-msgid "Membership lines"
-msgstr "Lignes concernant l'adhésion"
-
-#. module: membership_extension
 #: model:ir.ui.view,arch_db:membership_extension.view_partner_form
 msgid "Memberships"
 msgstr "Membre"
@@ -147,11 +194,6 @@ msgstr "Membre"
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_name
 msgid "Name"
 msgstr "Nom"
-
-#. module: membership_extension
-#: model:ir.model,name:membership_extension.model_res_partner
-msgid "Partner"
-msgstr "Contact"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
@@ -182,4 +224,4 @@ msgstr "Mois de début de la dernière période d'adhésion"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 msgid "membership.membership_line"
-msgstr ""
+msgstr "membership.membership_line"
