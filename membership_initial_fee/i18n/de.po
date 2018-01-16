@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Rudolf Schnapka <rs@techno-flex.de>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-24 02:49+0000\n"
-"PO-Revision-Date: 2017-06-24 02:49+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-01-12 19:14+0000\n"
+"PO-Revision-Date: 2018-01-12 19:14+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2018\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,20 +22,20 @@ msgstr ""
 #. module: membership_initial_fee
 #: selection:product.template,initial_fee:0
 msgid "Fixed amount"
-msgstr ""
+msgstr "Festbetrag"
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_fixed_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_fixed_fee
 msgid "Fixed fee"
-msgstr ""
+msgstr "Gebühr"
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_initial_fee
 #: model:ir.ui.view,arch_db:membership_initial_fee.membership_products_form_initial_fee
 msgid "Initial fee"
-msgstr ""
+msgstr "Aufnahmegebühr"
 
 #. module: membership_initial_fee
 #: model:ir.model,name:membership_initial_fee.model_account_invoice_line
@@ -45,23 +46,23 @@ msgstr "Rechnungsposition"
 #: code:addons/membership_initial_fee/models/account_invoice.py:22
 #, python-format
 msgid "Membership initial fee"
-msgstr ""
+msgstr "Mitgliedschafts-Aufnahmegebühr"
 
 #. module: membership_initial_fee
 #: selection:product.template,initial_fee:0
 msgid "No initial fee"
-msgstr ""
+msgstr "Keine Aufnahmegebühr"
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_percentage_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_percentage_fee
 msgid "Perc. fee (%)"
-msgstr ""
+msgstr "Gebührrate (%)"
 
 #. module: membership_initial_fee
 #: selection:product.template,initial_fee:0
 msgid "Percentage of the price"
-msgstr ""
+msgstr "Prozentsatz des Preises"
 
 #. module: membership_initial_fee
 #: model:ir.model,name:membership_initial_fee.model_product_template
@@ -72,4 +73,4 @@ msgstr "Produktvorlage"
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_product_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_product_fee
 msgid "Product for initial fee"
-msgstr ""
+msgstr "Produkt für Aufnahmegebühr"
