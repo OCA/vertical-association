@@ -1,5 +1,6 @@
 # Copyright 2015-2020 Tecnativa - Pedro M. Baeza
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2015-2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, models
@@ -51,6 +52,12 @@ class AccountInvoiceLine(models.Model):
         # partner lines
         partner = (
             self.partner_id.associate_member or self.invoice_id.partner_id)
+        # By default, partner to check is the partner of the invoice, but
+        # if a special method is found, overwritten in other modules, then
+        # the partner is got from that method
+        if hasattr(self,
+                   '_get_partner_for_membership'):  # pragma: no cover
+            partner = self._get_partner_for_membership()
         # See if partner has any membership line to decide whether or not
         # to create the initial fee
         return not self.env['membership.membership_line'].search_count([
