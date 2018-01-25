@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
@@ -27,3 +28,15 @@ class AccountInvoice(models.Model):
                 member_line.partner = self.env['res.partner'].browse(
                     vals['delegated_member_id'])
         return super(AccountInvoice, self).write(vals)
+
+
+class AccountInvoiceLine(models.Model):
+    _inherit = "account.invoice.line"
+
+    def _get_partner_for_membership(self):
+        """Auxiliary method for getting the correct membership partner for
+        certain operations like initial fee check.
+        """
+        self.ensure_one()
+        invoice = self.invoice_id
+        return invoice.delegated_member_id or invoice.partner_id
