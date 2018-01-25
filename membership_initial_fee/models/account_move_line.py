@@ -1,5 +1,6 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2015-2018 Tecnativa - Pedro M. Baeza
 # Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 
@@ -43,6 +44,11 @@ class AccountMoveLine(models.Model):
         # If we are associated to another partner membership, evaluate that
         # partner lines
         partner = self.partner_id.associate_member or self.move_id.partner_id
+        # By default, partner to check is the partner of the invoice, but
+        # if a special method is found, overwritten in other modules, then
+        # the partner is got from that method
+        if hasattr(self, "_get_partner_for_membership"):  # pragma: no cover
+            partner = self._get_partner_for_membership()
         # See if partner has any membership line to decide whether or not
         # to create the initial fee
         member_lines = self.env["membership.membership_line"].search(
