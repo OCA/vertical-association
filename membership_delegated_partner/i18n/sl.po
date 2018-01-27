@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-02 01:54+0000\n"
-"PO-Revision-Date: 2017-12-02 01:54+0000\n"
+"POT-Creation-Date: 2018-01-27 02:08+0000\n"
+"PO-Revision-Date: 2018-01-27 02:08+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,11 @@ msgstr ""
 #: model:ir.model,name:membership_delegated_partner.model_account_invoice
 msgid "Invoice"
 msgstr "Račun"
+
+#. module: membership_delegated_partner
+#: model:ir.model,name:membership_delegated_partner.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Postavka računa"
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_membership_membership_line
