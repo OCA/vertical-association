@@ -3,7 +3,7 @@
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class AccountInvoice(models.Model):
@@ -28,6 +28,16 @@ class AccountInvoice(models.Model):
                 member_line.partner = self.env['res.partner'].browse(
                     vals['delegated_member_id'])
         return super(AccountInvoice, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        """Sets the delegated partner in out refunds
+        """
+        if vals.get('type') == 'out_refund' and vals.get('refund_invoice_id'):
+            refund_inv = self.browse(vals['refund_invoice_id'])
+            if refund_inv.delegated_member_id:
+                vals['delegated_member_id'] = refund_inv.delegated_member_id.id
+        return super(AccountInvoice, self).create(vals)
 
 
 class AccountInvoiceLine(models.Model):
