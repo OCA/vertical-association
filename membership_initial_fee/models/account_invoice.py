@@ -39,7 +39,7 @@ class AccountInvoiceLine(models.Model):
         # if a special method is found, overwritten in other modules, then
         # the partner is got from that method
         partner = invoice_line.invoice_id.partner_id
-        if getattr(invoice_line,
+        if hasattr(invoice_line,
                    '_get_partner_for_membership'):  # pragma: no cover
             partner = invoice_line._get_partner_for_membership()
         # See if partner has any membership line
