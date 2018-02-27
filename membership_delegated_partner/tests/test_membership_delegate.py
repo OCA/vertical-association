@@ -82,3 +82,28 @@ class TestMembershipDelegate(common.SavepointCase):
         invoice.delegated_member_id = self.partner2
         self.assertTrue(self.partner2.member_lines, 'Delegate gets the line')
         self.assertFalse(self.partner1.member_lines, 'Partner drops the line')
+
+    def test_03_refund_invoice_delegated_partner(self):
+        """ A refund should inherit the delegated partner in the invoice """
+        invoice = self.env['account.invoice'].create({
+            'name': "Test Customer Invoice",
+            'journal_id': self.env['account.journal'].search(
+                [('type', '=', 'sale')])[0].id,
+            'account_id': self.account.id,
+            'partner_id': self.partner1.id,  # Invoicing partner
+            'delegated_member_id': self.partner2.id,  # Delegate membership to
+            'invoice_line_ids': [(0, 0, {
+                'name': 'Membership for delegate member',
+                'account_id': self.account.id,
+                'product_id': self.product.id,
+                'price_unit': 1.0,
+            })],
+        })
+        invoice.action_invoice_open()
+        self.env['account.invoice.refund'].with_context(
+            active_ids=invoice.ids).create({
+                'filter_refund': 'refund',
+                'description': 'Refund to delegate',
+            }).invoice_refund()
+        refund = invoice.search([('refund_invoice_id', '=', invoice.id)])
+        self.assertEqual(refund.delegated_member_id, self.partner2)
