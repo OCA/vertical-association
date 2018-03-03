@@ -3,19 +3,19 @@
 # * membership_extension
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
+# Carlos Hormigo, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-25 12:58+0000\n"
 "PO-Revision-Date: 2017-11-25 12:58+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Spanish (Peru) (https://www.transifex.com/oca/teams/23907/es_PE/)\n"
+"Last-Translator: Carlos Hormigo, 2018\n"
+"Language-Team: Catalan (Spain) (https://www.transifex.com/oca/teams/23907/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es_PE\n"
+"Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_extension
@@ -30,7 +30,7 @@ msgstr ""
 #: field:membership.membership_line,category_id:0
 #: view:product.template:membership_extension.membership_product_search_form_view
 msgid "Category"
-msgstr "Categoría"
+msgstr ""
 
 #. module: membership_extension
 #: help:product.product,membership:0
@@ -40,12 +40,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,create_uid:0
 msgid "Created by"
-msgstr "Creado por"
+msgstr "Creat per"
 
 #. module: membership_extension
 #: field:membership.membership_category,create_date:0
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creat a"
 
 #. module: membership_extension
 #: field:product.product,taxes_id:0
@@ -65,7 +65,7 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,display_name:0
 msgid "Display Name"
-msgstr "Nombre a Mostrar"
+msgstr "Nom visible"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
@@ -85,7 +85,7 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,property_account_income:0
@@ -95,7 +95,7 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice
 msgid "Invoice"
-msgstr "Factura"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
@@ -105,7 +105,7 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,__last_update:0
 msgid "Last Modified on"
-msgstr "Ultima Modificación en"
+msgstr "Darrera modificació en"
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
@@ -115,12 +115,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,write_uid:0
 msgid "Last Updated by"
-msgstr "Actualizado última vez por"
+msgstr "Darrera actualització per"
 
 #. module: membership_extension
 #: field:membership.membership_category,write_date:0
 msgid "Last Updated on"
-msgstr "Ultima Actualización"
+msgstr "Darrera actualització el"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
@@ -191,7 +191,7 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,name:0
 msgid "Name"
-msgstr "Nombre"
+msgstr "Nom"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
