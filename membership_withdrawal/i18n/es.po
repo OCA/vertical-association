@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# enjolras <yo@miguelrevilla.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-04 02:43+0000\n"
-"PO-Revision-Date: 2017-08-04 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-02-28 01:55+0000\n"
+"PO-Revision-Date: 2018-02-28 01:55+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +37,7 @@ msgstr "Creado en"
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_membership_membership_line_date_withdrawal
 msgid "Date when member requested membership withdrawal"
-msgstr ""
+msgstr "Fecha de solicitud de finalización de la afiliación"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason_display_name
@@ -143,4 +144,4 @@ msgstr "Razón de la baja en el período actual de asociación"
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_membership_line
 msgid "membership.membership_line"
-msgstr ""
+msgstr "membership.membership_line"
