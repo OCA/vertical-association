@@ -9,6 +9,9 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo11-addon-membership_extension',
+        'odoo11-addon-membership_initial_fee',
+        'odoo11-addon-membership_prorate',
+        'odoo11-addon-membership_variable_period',
     ],
     classifiers=[
         'Programming Language :: Python',
