@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-vertical-association Odoo addons",
     version=version,
     install_requires=[
+        'odoo11-addon-membership_delegated_partner',
         'odoo11-addon-membership_extension',
         'odoo11-addon-membership_initial_fee',
         'odoo11-addon-membership_prorate',
