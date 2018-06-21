@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * membership_withdrawal
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
@@ -12,15 +12,20 @@ msgstr ""
 "PO-Revision-Date: 2017-08-04 02:43+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Turkish (https://www.transifex.com/oca/teams/23907/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_res_partner
+msgid "Contact"
 msgstr ""
 
 #. module: membership_withdrawal
@@ -93,11 +98,6 @@ msgid "Other"
 msgstr ""
 
 #. module: membership_withdrawal
-#: model:ir.model,name:membership_withdrawal.model_res_partner
-msgid "Partner"
-msgstr "İş Ortağı"
-
-#. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_withdrawal_reason
 msgid "Reason for withdrawal in membership"
 msgstr ""
@@ -144,3 +144,6 @@ msgstr ""
 #: model:ir.model,name:membership_withdrawal.model_membership_membership_line
 msgid "membership.membership_line"
 msgstr ""
+
+#~ msgid "Partner"
+#~ msgstr "İş Ortağı"
