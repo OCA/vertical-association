@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * membership_initial_fee
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,12 +10,20 @@ msgstr ""
 "POT-Creation-Date: 2016-11-26 04:01+0000\n"
 "PO-Revision-Date: 2016-10-10 07:37+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Croatian (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/hr/)\n"
+"Language-Team: Croatian (http://www.transifex.com/oca/OCA-vertical-"
+"association-8-0/language/hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_fixed_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_fixed_fee
+msgid "Fixed Fee"
+msgstr ""
 
 #. module: membership_initial_fee
 #: selection:product.template,initial_fee:0
@@ -23,13 +31,9 @@ msgid "Fixed amount"
 msgstr ""
 
 #. module: membership_initial_fee
-#: field:product.template,fixed_fee:0
-msgid "Fixed fee"
-msgstr ""
-
-#. module: membership_initial_fee
-#: view:product.template:membership_initial_fee.membership_products_form_initial_fee
-#: field:product.template,initial_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_initial_fee
+#: model:ir.ui.view,arch_db:membership_initial_fee.membership_products_form_initial_fee
 msgid "Initial fee"
 msgstr ""
 
@@ -39,7 +43,7 @@ msgid "Invoice Line"
 msgstr "Stavka računa"
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:29
+#: code:addons/membership_initial_fee/models/account_invoice.py:25
 #, python-format
 msgid "Membership initial fee"
 msgstr ""
@@ -50,7 +54,8 @@ msgid "No initial fee"
 msgstr ""
 
 #. module: membership_initial_fee
-#: field:product.template,percentage_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_percentage_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_percentage_fee
 msgid "Perc. fee (%)"
 msgstr ""
 
@@ -65,6 +70,7 @@ msgid "Product Template"
 msgstr "Predložak proizvoda"
 
 #. module: membership_initial_fee
-#: field:product.template,product_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_product_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_product_fee
 msgid "Product for initial fee"
 msgstr ""
