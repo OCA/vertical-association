@@ -1,37 +1,29 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * membership_extension
+#	* membership_extension
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-26 04:01+0000\n"
-"PO-Revision-Date: 2016-11-26 04:01+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Chinese (Taiwan) (https://www.transifex.com/oca/teams/23907/"
-"zh_TW/)\n"
-"Language: zh_TW\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: \n"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:69
 #, python-format
-msgid ""
-"Can not remove membership line related to an invoice. Please, cancel invoice "
-"or remove invoice line instead"
+msgid "Can not remove membership line related to an invoice. Please, cancel invoice or remove invoice line instead"
 msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_line,category_id:0
 #: view:product.template:membership_extension.membership_product_search_form_view
 msgid "Category"
-msgstr "分類"
+msgstr ""
 
 #. module: membership_extension
 #: help:product.product,membership:0
@@ -41,12 +33,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,create_uid:0
 msgid "Created by"
-msgstr "建立者"
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,create_date:0
 msgid "Created on"
-msgstr "建立於"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,taxes_id:0
@@ -66,7 +58,7 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,display_name:0
 msgid "Display Name"
-msgstr "顯示名稱"
+msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
@@ -86,7 +78,7 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,id:0
 msgid "ID"
-msgstr "編號"
+msgstr ""
 
 #. module: membership_extension
 #: field:product.product,property_account_income:0
@@ -96,17 +88,17 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice
 msgid "Invoice"
-msgstr "發票"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "發票明細"
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,__last_update:0
 msgid "Last Modified on"
-msgstr "最後修改:"
+msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_res_partner_member_filter
@@ -116,12 +108,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,write_uid:0
 msgid "Last Updated by"
-msgstr "最後更新："
+msgstr ""
 
 #. module: membership_extension
 #: field:membership.membership_category,write_date:0
 msgid "Last Updated on"
-msgstr "最後更新於"
+msgstr ""
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
@@ -192,12 +184,12 @@ msgstr ""
 #. module: membership_extension
 #: field:membership.membership_category,name:0
 msgid "Name"
-msgstr "名稱"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Partner"
-msgstr "夥伴"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
@@ -236,19 +228,16 @@ msgstr ""
 
 #. module: membership_extension
 #: help:product.product,property_account_expense:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"expenses for the current product."
+msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
 msgstr ""
 
 #. module: membership_extension
 #: help:product.product,property_account_income:0
-msgid ""
-"This account will be used for invoices instead of the default one to value "
-"sales for the current product."
+msgid "This account will be used for invoices instead of the default one to value sales for the current product."
 msgstr ""
 
 #. module: membership_extension
 #: view:res.partner:membership_extension.view_partner_form
 msgid "{'default_date': time.strftime('%Y-%m-%d')}"
 msgstr ""
+
