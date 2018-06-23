@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * membership_variable_period
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,11 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-12-31 10:04+0000\n"
 "PO-Revision-Date: 2017-01-03 07:48+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-vertical-"
+"association-8-0/language/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: membership_variable_period
@@ -23,17 +24,19 @@ msgid "Fixed dates"
 msgstr ""
 
 #. module: membership_variable_period
-#: view:product.template:membership_variable_period.membership_products_form_period
+#: model:ir.ui.view,arch_db:membership_variable_period.membership_products_form_period
 msgid "Interval"
 msgstr ""
 
 #. module: membership_variable_period
-#: field:product.template,membership_interval_qty:0
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_interval_qty
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_qty
 msgid "Interval quantity"
 msgstr ""
 
 #. module: membership_variable_period
-#: field:product.template,membership_interval_unit:0
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_interval_unit
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_unit
 msgid "Interval unit"
 msgstr ""
 
@@ -43,7 +46,8 @@ msgid "Invoice Line"
 msgstr "Fatura hizası"
 
 #. module: membership_variable_period
-#: field:product.template,membership_type:0
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_type
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_type
 msgid "Membership type"
 msgstr ""
 
