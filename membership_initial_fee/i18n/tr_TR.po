@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * membership_initial_fee
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,11 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-12-31 10:03+0000\n"
 "PO-Revision-Date: 2017-01-03 07:48+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-vertical-association-8-0/language/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-vertical-"
+"association-8-0/language/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: membership_initial_fee
@@ -23,13 +24,15 @@ msgid "Fixed amount"
 msgstr ""
 
 #. module: membership_initial_fee
-#: field:product.template,fixed_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_fixed_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_fixed_fee
 msgid "Fixed fee"
 msgstr ""
 
 #. module: membership_initial_fee
-#: view:product.template:membership_initial_fee.membership_products_form_initial_fee
-#: field:product.template,initial_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_initial_fee
+#: model:ir.ui.view,arch_db:membership_initial_fee.membership_products_form_initial_fee
 msgid "Initial fee"
 msgstr ""
 
@@ -39,7 +42,7 @@ msgid "Invoice Line"
 msgstr "Fatura hizası"
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:29
+#: code:addons/membership_initial_fee/models/account_invoice.py:22
 #, python-format
 msgid "Membership initial fee"
 msgstr ""
@@ -50,7 +53,8 @@ msgid "No initial fee"
 msgstr ""
 
 #. module: membership_initial_fee
-#: field:product.template,percentage_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_percentage_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_percentage_fee
 msgid "Perc. fee (%)"
 msgstr ""
 
@@ -65,6 +69,7 @@ msgid "Product Template"
 msgstr "Ürün şablonu"
 
 #. module: membership_initial_fee
-#: field:product.template,product_fee:0
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_product_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_product_fee
 msgid "Product for initial fee"
 msgstr ""
