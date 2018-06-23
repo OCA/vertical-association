@@ -1,90 +1,85 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * membership_variable_period
+#	* membership_variable_period
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-13 03:12+0000\n"
-"PO-Revision-Date: 2017-06-13 03:12+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
-"Language: sl\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: \n"
 
 #. module: membership_variable_period
 #: selection:product.template,membership_type:0
 msgid "Fixed dates"
-msgstr "Fiksni datumi"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.ui.view,arch_db:membership_variable_period.membership_products_form_period
 msgid "Interval"
-msgstr "Interval"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_qty
 msgid "Interval quantity"
-msgstr "Količina intervala"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_unit
 msgid "Interval unit"
-msgstr "Enota intervala"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Postavka računa"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_account_invoice_line_membership_lines
 msgid "Membership lines"
-msgstr "Postavke članarin"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_type
 msgid "Membership type"
-msgstr "Tip članarine"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_res_partner
 msgid "Partner"
-msgstr "Partner"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
 msgid "Product Template"
-msgstr "Predloga proizvoda"
+msgstr ""
 
 #. module: membership_variable_period
 #: selection:product.template,membership_type:0
 msgid "Variable periods"
-msgstr "Variabilna obdobja"
+msgstr ""
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "days"
-msgstr "dni"
+msgstr ""
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "months"
-msgstr "mesecev"
+msgstr ""
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "weeks"
-msgstr "tednov"
+msgstr ""
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
 msgid "years"
-msgstr "let"
+msgstr ""
+
