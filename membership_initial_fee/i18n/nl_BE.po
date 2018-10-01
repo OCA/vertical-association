@@ -43,7 +43,7 @@ msgid "Invoice Line"
 msgstr "Factuurlijn"
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:25
+#: code:addons/membership_initial_fee/models/account_invoice.py:26
 #, python-format
 msgid "Membership initial fee"
 msgstr ""
