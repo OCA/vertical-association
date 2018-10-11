@@ -3,7 +3,8 @@
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import models, api, _
+from odoo import api, models
+from odoo.tools.translate import _
 
 
 class AccountInvoiceLine(models.Model):
@@ -32,17 +33,24 @@ class AccountInvoiceLine(models.Model):
         return inv_line._convert_to_write(inv_line._cache)
 
     @api.multi
-    def initial_fee_create_check(self, product):
-        """Inherit this method to implement a custom method
-           to decide whether or not to create the initial fee
+    def initial_fee_create_check(self, product=False):
         """
-        if not product.membership or product.initial_fee == 'none':
+        Inherit this method to implement a custom method
+        to decide whether or not to create the initial fee
+
+        :param product:
+        :return:
+        """
+        # TODO: remove product parameter in v12
+        product = product or self.product_id
+        if not product or not product.membership or (
+                product.initial_fee == 'none'):
             return False
         # See if partner has any membership line to decide whether or not
         # to create the initial fee
         member_lines = self.env['membership.membership_line'].search([
             ('partner', '=', self.invoice_id.partner_id.id),
-            ('account_invoice_line', 'not in', (self.id, )),
+            ('account_invoice_line', 'not in', (self.id,)),
             ('state', 'not in', ['none', 'canceled']),
         ])
         return not bool(member_lines)
@@ -50,9 +58,7 @@ class AccountInvoiceLine(models.Model):
     @api.model
     def create(self, vals):
         invoice_line = super(AccountInvoiceLine, self).create(vals)
-        product = self.env['product.product'].browse(
-            vals.get('product_id'))
-        if self.initial_fee_create_check(product):
+        if invoice_line.initial_fee_create_check():
             # Charge initial fee
             self.create(invoice_line._prepare_initial_fee_vals())
         return invoice_line
