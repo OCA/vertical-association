@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 from odoo import fields
 from odoo.exceptions import UserError
 from psycopg2 import IntegrityError
@@ -15,7 +14,7 @@ class TestMembership(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestMembership, cls).setUpClass()
-        date_today = fields.Date.from_string(fields.Date.today())
+        date_today = fields.Date.today()
         cls.account_bank_type = cls.env['account.account.type'].create({
             'name': 'Test bank account type',
             'type': 'liquidity',
@@ -59,11 +58,9 @@ class TestMembership(common.SavepointCase):
             'code': 'PRODUCT',
             'user_type_id': cls.account_product_type.id,
         })
-        cls.next_two_months = fields.Date.to_string(
-            date_today + timedelta(days=60)
-        )
-        cls.next_month = fields.Date.to_string(date_today + timedelta(days=30))
-        cls.yesterday = fields.Date.to_string(date_today - timedelta(days=1))
+        cls.next_two_months = date_today + timedelta(days=60)
+        cls.next_month = date_today + timedelta(days=30)
+        cls.yesterday = date_today - timedelta(days=1)
         cls.category_gold = cls.env.ref(
             'membership_extension.membership_category_gold'
         )
@@ -407,7 +404,8 @@ class TestMembership(common.SavepointCase):
         })
         self.child.is_adhered_member = True
         self.child.membership_start_adhered = '2018-01-26'
-        self.assertEqual(self.child.membership_start, '2018-01-26')
+        self.assertEqual(self.child.membership_start,
+                         datetime(2018, 1, 26).date())
         self.child.associate_member = False
         self.child.onchange_associate_member()
         self.assertFalse(self.child.is_adhered_member)

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -27,7 +26,7 @@ class ResPartner(models.Model):
              "are independent.",
     )
     membership_start_adhered = fields.Date(
-        string="Membership Start Date",
+        string="Membership Adhered Start Date",
         help="Date from which partner is adhered.",
         default=fields.Date.today(),
     )
@@ -52,7 +51,7 @@ class ResPartner(models.Model):
         comodel_name='membership.membership_category',
         compute="_compute_membership_state")
     membership_categories = fields.Char(
-        string="Membership categories", readonly=True, store=True, index=True,
+        string="Membership Categories", readonly=True, store=True, index=True,
         compute='_compute_membership_state')
     membership_state = fields.Selection(
         selection=STATE, store=True, index=True,
@@ -124,12 +123,11 @@ class ResPartner(models.Model):
                             line_date_to = line.date_cancel
                         if not line_date_to:
                             continue
-                        date_to = (fields.Date.from_string(line_date_to) +
-                                   timedelta(days=delta))
-                        date_to_str = fields.Date.to_string(date_to)
+                        date_to = line_date_to + timedelta(days=delta)
                         if not last_from or (
-                                last_from <= date_to_str and
-                                last_from > line.date_from):
+                                last_from <= date_to and
+                                last_from > line.date_from
+                        ):
                             last_from = line.date_from
                         if not date_from or date_from > line.date_from:
                             date_from = line.date_from
