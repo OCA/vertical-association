@@ -34,7 +34,8 @@
             <field name="membership_category_id" />
         </field>
         <xpath expr="//search//group//filter[1]" position="after">
-            <filter name="Membership category" domain="[]"
+            <filter name="membership_category"
+                    string="Membership category" domain="[]"
                     context="{'group_by':'membership_category_id'}"/>
         </xpath>
     </field>

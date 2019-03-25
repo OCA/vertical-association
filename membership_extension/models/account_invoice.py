@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # Copyright 2017-2018 Pedro M. Baeza <pedro.baeza@tecnativa.com>

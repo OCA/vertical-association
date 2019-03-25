@@ -2,9 +2,8 @@
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
-<data>
 
-<record id="product.membership_0_product_template"
+<record id="membership_0_product_template"
         model="product.template">
     <field name="membership_category_id"
            ref="membership_extension.membership_category_gold"/>
@@ -12,19 +11,18 @@
 </record>
 
 
-<record id="product.membership_1_product_template"
+<record id="membership_1_product_template"
         model="product.template">
     <field name="membership_category_id"
            ref="membership_extension.membership_category_silver"/>
     <field name="name">Membership Silver</field>
 </record>
 
-<record id="product.membership_2_product_template"
+<record id="membership_2_product_template"
         model="product.template">
     <field name="membership_category_id"
            ref="membership_extension.membership_category_member"/>
     <field name="name">Membership Bronze</field>
 </record>
 
-</data>
 </odoo>
