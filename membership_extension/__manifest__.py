@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # Copyright 2017 Luis M. Ontalba <luis.martinez@tecnativa.com>
@@ -8,7 +7,7 @@
 {
     "name": "Membership extension",
     "summary": "Improves user experience of membership addon",
-    "version": "11.0.1.1.0",
+    "version": "12.0.1.0.0",
     "category": "Membership",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",

@@ -78,8 +78,10 @@
         <xpath expr="//group" position="inside">
             <filter string="Last Start Month"
                     help="Starting month of last membership period"
+                    name="membership_last_start"
                     domain="[]" context="{'group_by':'membership_last_start'}"/>
-            <filter string="Membership Category" domain="[('membership_state', 'in', ['invoiced', 'paid'])]"
+            <filter string="Membership Category" name="membership_categories"
+                    domain="[('membership_state', 'in', ['invoiced', 'paid'])]"
                     context="{'group_by':'membership_categories'}"/>
         </xpath>
     </field>
