@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
@@ -30,11 +29,10 @@ class MembershipLine(models.Model):
     @api.onchange('date')
     def _onchange_date(self):
         if self.date and self.membership_id:
-            date = fields.Date.from_string(self.date)
             self.date_from = self.date
-            next_date = self.membership_id._get_next_date(date)
+            next_date = self.membership_id._get_next_date(self.date)
             if next_date:
-                date_to = fields.Date.to_string(next_date - timedelta(1))
+                date_to = next_date - timedelta(1)
                 if date_to >= self.date:
                     self.date_to = date_to
 
