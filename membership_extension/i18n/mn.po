@@ -1,0 +1,222 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_extension
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 03:40+0000\n"
+"PO-Revision-Date: 2018-01-05 03:40+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"Language-Team: Mongolian (https://www.transifex.com/oca/teams/23907/mn/)\n"
+"Language: mn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_is_adhered_member
+#: model:ir.model.fields,help:membership_extension.field_res_users_is_adhered_member
+msgid ""
+"A member who is associated to another one, but whose membership are "
+"independent."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_is_adhered_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_is_adhered_member
+msgid "Adhered member"
+msgstr ""
+
+#. module: membership_extension
+#: code:addons/membership_extension/models/membership_line.py:56
+#, python-format
+msgid ""
+"Can not remove membership line related to an invoice. Please, cancel invoice "
+"or remove invoice line instead"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line_category_id
+msgid "Category"
+msgstr "Ангилал"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_uid
+msgid "Created by"
+msgstr "Үүсгэгч"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_create_date
+msgid "Created on"
+msgstr "Үүсгэсэн"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_membership_start_adhered
+#: model:ir.model.fields,help:membership_extension.field_res_users_membership_start_adhered
+msgid "Date from which partner is adhered."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_display_name
+msgid "Display Name"
+msgstr "Дэлгэцийн Нэр"
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_gold
+msgid "Gold"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.module.category,description:membership_extension.module_category_membership_management
+msgid "Helps you manage operations for managing memberships."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_id
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_invoice
+msgid "Invoice"
+msgstr "Нэхэмжлэл"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Нэхэмжлэлийн мөр"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category___last_update
+msgid "Last Modified on"
+msgstr "Сүүлийн засвар хийсэн огноо"
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Last Start Month"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_uid
+msgid "Last Updated by"
+msgstr "Сүүлийн засвар хийсэн"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_write_date
+msgid "Last Updated on"
+msgstr "Сүүлийн засвар хийсэн огноо"
+
+#. module: membership_extension
+#: model:res.groups,name:membership_extension.group_membership_manager
+msgid "Manager"
+msgstr ""
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_member
+msgid "Member"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.module.category,name:membership_extension.module_category_membership_management
+msgid "Membership"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.actions.act_window,name:membership_extension.membership_category_action
+#: model:ir.ui.menu,name:membership_extension.menu_membership_category
+msgid "Membership Categories"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Membership Category"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_last_start
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_last_start
+msgid "Membership Last Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line_membership_lines
+msgid "Membership Lines"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
+msgid "Membership Products"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_start_adhered
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_start_adhered
+msgid "Membership Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner_membership_category_ids
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_users_membership_category_ids
+#: model:ir.ui.view,arch_db:membership_extension.membership_category_tree_view
+msgid "Membership categories"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_category
+#: model:ir.model.fields,field_description:membership_extension.field_product_product_membership_category_id
+#: model:ir.model.fields,field_description:membership_extension.field_product_template_membership_category_id
+msgid "Membership category"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_partner_form
+msgid "Memberships"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_name
+msgid "Name"
+msgstr "Нэр"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_silver
+msgid "Silver"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner_membership_last_start
+#: model:ir.model.fields,help:membership_extension.field_res_users_membership_last_start
+msgid "Start date of last membership period."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Starting month of last membership period"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_line
+msgid "membership.membership_line"
+msgstr ""

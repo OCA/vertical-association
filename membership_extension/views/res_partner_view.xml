@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+<record model="ir.ui.view" id="view_partner_form">
+    <field name="name">Membership extension</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="membership.view_partner_form" />
+    <field name="priority" eval="999" />
+    <field name="arch" type="xml">
+        <field name="membership_start" position="attributes">
+            <attribute name="attrs">
+                {'invisible':['|',('membership_start','=',False),('is_adhered_member', '=', True)]}
+            </attribute>
+        </field>
+        <field name="membership_start" position="after">
+            <field name="membership_start_adhered"
+                   attrs="{'invisible':[('is_adhered_member','=',False)]}"/>
+            <field name="membership_last_start"
+                   attrs="{'invisible':[('membership_last_start','=',False)]}"/>
+        </field>
+        <field name="free_member" position="after">
+            <field name="membership_category_ids" widget="many2many_tags"/>
+            <field name="is_adhered_member" attrs="{'invisible': [('associate_member', '=', False)]}"/>
+        </field>
+        <field name="member_lines" position="attributes">
+            <attribute name="readonly">0</attribute>
+            <attribute name="context">{'default_date': time.strftime('%Y-%m-%d')}</attribute>
+        </field>
+        <xpath expr="//field[@name='member_lines']/tree//field[@name='date']" position="after">
+            <field name="date_from"/>
+            <field name="date_to"/>
+        </xpath>
+        <xpath expr="//field[@name='member_lines']/tree//field[@name='membership_id']" position="after">
+            <field name="category_id"/>
+        </xpath>
+        <xpath expr="//field[@name='member_lines']/tree//field[@name='date_to']" position="after">
+            <field name="date_cancel"/>
+        </xpath>
+        <xpath expr="//field[@name='member_lines']/form" position="replace">
+            <form string="Memberships">
+                <group>
+                    <group>
+                        <field name="date" required="1"/>
+                        <field name="date_from" required="1"/>
+                        <field name="date_to" required="1"/>
+                    </group>
+                    <group>
+                        <field name="date_cancel"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="state"/>
+                        <field name="category_id"/>
+                    </group>
+                    <group>
+                        <field name="member_price"
+                               attrs="{'readonly': [('account_invoice_id', '!=', False)]}"/>
+                        <field name="membership_id"
+                               attrs="{'readonly': [('account_invoice_id', '!=', False)]}"
+                               domain="[('membership', '=', True)]"/>
+                        <field name="account_invoice_id"
+                               context="{'form_view_ref': 'account.invoice_form'}"/>
+                    </group>
+                </group>
+            </form>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="view_res_partner_member_filter">
+    <field name="name">Membership extension filters</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
+    <field name="arch" type="xml">
+        <xpath expr="//group" position="inside">
+            <filter string="Last Start Month"
+                    help="Starting month of last membership period"
+                    name="membership_last_start"
+                    domain="[]" context="{'group_by':'membership_last_start'}"/>
+            <filter string="Membership Category" name="membership_categories"
+                    domain="[('membership_state', 'in', ['invoiced', 'paid'])]"
+                    context="{'group_by':'membership_categories'}"/>
+        </xpath>
+    </field>
+</record>
+
+
+</odoo>
