@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    Copyright 2019 Yu Weng <yweng@elegosoft.com>
+        License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html-->
+<odoo>
+
+<record model="ir.ui.view" id="membership_products_form_set">
+    <field name="name">Membership Product set</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="membership.membership_products_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='active']" position="after">
+            <field name="membership_set"/>
+            <field name="membership_set_products" widget="many2many_tags"
+                   domain="[('membership', '=', True), ('membership_set', '=', False)]"
+                   attrs="{'invisible': [('membership_set', '!=', True)]}"/>
+        </xpath>
+    </field>
+</record>
+
+</odoo>
