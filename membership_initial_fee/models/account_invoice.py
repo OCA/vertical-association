@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
@@ -23,7 +22,8 @@ class AccountInvoiceLine(models.Model):
         }
         inv_line = self.env['account.invoice.line'].new(line_vals)
         inv_line._onchange_product_id()
-        inv_line.name = _('Membership initial fee')
+        inv_line.name = (product_fee.description_sale or
+                         _('Membership initial fee'))
         if product.initial_fee == 'fixed':
             inv_line.price_unit = product.fixed_fee
         elif product.initial_fee == 'percentage':
