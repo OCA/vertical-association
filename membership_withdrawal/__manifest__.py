@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-# Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
-# Copyright 2017-18 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2016 Tecnativa  - Antonio Espinosa
+# Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 {
     "name": "Membership withdrawal",
     "summary": "Log membership withdrawal reason and date of request",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Association",
     "website": "https://github.com/OCA/vertical-association",
     "author": "Tecnativa, "
