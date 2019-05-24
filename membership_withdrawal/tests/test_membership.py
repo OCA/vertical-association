@@ -1,7 +1,6 @@
-# Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
-# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2016 Tecnativa - Antonio Espinosa
+# Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from datetime import timedelta
 from odoo import fields
 from odoo.tests.common import TransactionCase
@@ -11,10 +10,8 @@ class TestMembership(TransactionCase):
     def setUp(self):
         super(TestMembership, self).setUp()
 
-        self.next_two_months = fields.Date.to_string(
-            fields.Date.from_string(fields.Date.today()) + timedelta(days=60))
-        self.next_month = fields.Date.to_string(
-            fields.Date.from_string(fields.Date.today()) + timedelta(days=30))
+        self.next_two_months = fields.Date.today() + timedelta(days=60)
+        self.next_month = fields.Date.today() + timedelta(days=30)
         self.reason = self.env.ref('membership_withdrawal.reason_unsatisfied')
         self.partner = self.env['res.partner'].create({
             'name': 'Test company',
@@ -53,13 +50,13 @@ class TestMembership(TransactionCase):
         })
         self.assertEqual(self.reason.id,
                          self.partner.membership_last_withdrawal_reason_id.id)
-        self.assertEqual('2016-06-07',
+        self.assertEqual(fields.Date.from_string('2016-06-07'),
                          self.partner.membership_last_withdrawal_date)
         self.assertEqual(self.next_month, self.partner.membership_stop)
         self.assertEqual(self.next_month, self.partner.membership_cancel)
         self.assertEqual(self.reason.id,
                          self.child.membership_last_withdrawal_reason_id.id)
-        self.assertEqual('2016-06-07',
+        self.assertEqual(fields.Date.from_string('2016-06-07'),
                          self.child.membership_last_withdrawal_date)
         self.assertEqual(self.next_month, self.child.membership_stop)
         self.assertEqual(self.next_month, self.child.membership_cancel)

@@ -1,2 +1,5 @@
-* Antonio Espinosa <antonio.espinosa@tecnativa.com>
-* David Vidal <david.vidal@tecnativa.com>
+* `Tecnativa <https://www.tecnativa.com>`__:
+
+  * Antonio Espinosa
+  * Rafael Blasco
+  * David Vidal
