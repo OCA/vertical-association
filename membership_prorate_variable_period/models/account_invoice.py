@@ -1,8 +1,8 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2019 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-
-import datetime
 from odoo import _, exceptions, models
+from odoo.tools import date_utils
 
 
 class AccountInvoiceLine(models.Model):
@@ -23,11 +23,10 @@ class AccountInvoiceLine(models.Model):
             raise exceptions.Warning(
                 _("It's not possible to prorate daily periods."))
         if product.membership_interval_unit == 'weeks':
-            weekday = date.weekday()
-            date_from = date - datetime.timedelta(weekday)
+            date_from = date_utils.start_of(date, 'week')
         elif product.membership_interval_unit == 'months':
-            date_from = datetime.date(day=1, month=date.month, year=date.year)
+            date_from = date_utils.start_of(date, 'month')
         elif product.membership_interval_unit == 'years':
-            date_from = datetime.date(day=1, month=1, year=date.year)
-        date_to = product._get_next_date(date) - datetime.timedelta(1)
+            date_from = date_utils.start_of(date, 'year')
+        date_to = date_utils.subtract(product._get_next_date(date), days=1)
         return date_from, date_to

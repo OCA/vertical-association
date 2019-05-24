@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #. module: membership_prorate_variable_period
 #: code:addons/membership_prorate_variable_period/models/account_invoice.py:24
-#: code:addons/membership_prorate_variable_period/models/product_template.py:20
+#: code:addons/membership_prorate_variable_period/models/product_template.py:17
 #, python-format
 msgid "It's not possible to prorate daily periods."
 msgstr ""

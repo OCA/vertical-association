@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2015 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-
 import datetime
 from odoo import exceptions, fields
-import odoo.tests.common as common
+from odoo.tests import common
 
 
 class TestMembershipProrateVariablePeriod(common.TransactionCase):
@@ -82,8 +80,10 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.43, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
-        self.assertEqual(self.partner.member_lines[0].date_from, '2015-01-01')
-        self.assertEqual(self.partner.member_lines[0].date_to, '2015-01-04')
+        self.assertEqual(self.partner.member_lines[0].date_from,
+                         fields.Date.from_string('2015-01-01'))
+        self.assertEqual(self.partner.member_lines[0].date_to,
+                         fields.Date.from_string('2015-01-04'))
 
     def test_create_invoice_membership_product_prorate_month(self):
         self.product.membership_interval_unit = 'months'
@@ -104,8 +104,10 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
-        self.assertEqual(self.partner.member_lines[0].date_from, '2015-04-15')
-        self.assertEqual(self.partner.member_lines[0].date_to, '2015-04-30')
+        self.assertEqual(self.partner.member_lines[0].date_from,
+                         fields.Date.from_string('2015-04-15'))
+        self.assertEqual(self.partner.member_lines[0].date_to,
+                         fields.Date.from_string('2015-04-30'))
 
     def test_create_invoice_membership_product_prorate_year(self):
         self.product.membership_interval_unit = 'years'
@@ -126,8 +128,10 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, 'waiting')
-        self.assertEqual(self.partner.member_lines[0].date_from, '2016-07-01')
-        self.assertEqual(self.partner.member_lines[0].date_to, '2016-12-31')
+        self.assertEqual(self.partner.member_lines[0].date_from,
+                         fields.Date.from_string('2016-07-01'))
+        self.assertEqual(self.partner.member_lines[0].date_to,
+                         fields.Date.from_string('2016-12-31'))
 
     def test_get_next_date(self):
         # Weeks
