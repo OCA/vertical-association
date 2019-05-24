@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-# Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2016 Tecnativa - Antonio Espinosa
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-
 import math
 from odoo import api, fields, models
 from datetime import timedelta
@@ -52,8 +50,7 @@ class ProductTemplate(models.Model):
 
     def _correct_vals_membership_type(self, vals, membership_type):
         if membership_type == 'variable':
-            vals['membership_date_from'] = False
-            vals['membership_date_to'] = False
+            vals['membership_date_from'] = vals['membership_date_to'] = False
         return vals
 
     @api.model
