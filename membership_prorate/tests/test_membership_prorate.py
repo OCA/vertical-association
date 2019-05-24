@@ -1,8 +1,8 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
-# Copyright 2017 Tecnativa - David Vidal
+# Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-
-import odoo.tests.common as common
+from odoo.tests import common
+from odoo import fields
 
 
 class TestMembershipProrate(common.TransactionCase):
@@ -48,7 +48,8 @@ class TestMembershipProrate(common.TransactionCase):
             [('account_invoice_line', '=', invoice.invoice_line_ids[0].id)],
             limit=1)
         self.assertAlmostEqual(memb_line.member_price, 50.00, 2)
-        self.assertEqual(memb_line.date_from, '2017-07-01')
+        self.assertEqual(memb_line.date_from,
+                         fields.Date.from_string('2017-07-01'))
         # Set the date six months before the membership period
         invoice.date_invoice = '2016-07-01'
         self.env['account.invoice.line'].create({
@@ -65,7 +66,8 @@ class TestMembershipProrate(common.TransactionCase):
             [('account_invoice_line', '=', invoice.invoice_line_ids[1].id)],
             limit=1)
         self.assertAlmostEqual(memb_line.member_price, 100.00, 2)
-        self.assertEqual(memb_line.date_from, '2017-01-01')
+        self.assertEqual(memb_line.date_from,
+                         fields.Date.from_string('2017-01-01'))
         # Set the date six months after the membership period
         invoice.date_invoice = '2018-07-01'
         self.env['account.invoice.line'].create({
@@ -82,4 +84,5 @@ class TestMembershipProrate(common.TransactionCase):
             [('account_invoice_line', '=', invoice.invoice_line_ids[2].id)],
             limit=1)
         self.assertAlmostEqual(memb_line.member_price, 0.00, 2)
-        self.assertEqual(memb_line.date_from, '2017-12-31')
+        self.assertEqual(memb_line.date_from,
+                         fields.Date.from_string('2017-12-31'))
