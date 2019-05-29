@@ -8,6 +8,8 @@
     <field name="membership_category_id"
            ref="membership_extension.membership_category_gold"/>
     <field name="name">Membership Gold</field>
+    <field name="membership" eval="True"/>
+    <field name="type">service</field>
 </record>
 
 
@@ -16,6 +18,8 @@
     <field name="membership_category_id"
            ref="membership_extension.membership_category_silver"/>
     <field name="name">Membership Silver</field>
+    <field name="membership" eval="True"/>
+    <field name="type">service</field>
 </record>
 
 <record id="membership_2_product_template"
@@ -23,6 +27,8 @@
     <field name="membership_category_id"
            ref="membership_extension.membership_category_member"/>
     <field name="name">Membership Bronze</field>
+    <field name="membership" eval="True"/>
+    <field name="type">service</field>
 </record>
 
 </odoo>
