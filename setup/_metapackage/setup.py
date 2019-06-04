@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo12-addon-membership_delegated_partner',
         'odoo12-addon-membership_extension',
         'odoo12-addon-membership_prorate',
+        'odoo12-addon-membership_prorate_variable_period',
         'odoo12-addon-membership_variable_period',
     ],
     classifiers=[
