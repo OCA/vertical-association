@@ -78,6 +78,7 @@ Contributors
 
   * Pedro M. Baeza
   * Antonio Espinosa
+  * Rafael Blasco
   * David Vidal
 
 Maintainers
