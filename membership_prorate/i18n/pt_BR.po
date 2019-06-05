@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: membership_prorate
-#: model:ir.model.fields,help:membership_prorate.field_product_product_membership_prorate
-#: model:ir.model.fields,help:membership_prorate.field_product_template_membership_prorate
+#: model:ir.model.fields,help:membership_prorate.field_product_product__membership_prorate
+#: model:ir.model.fields,help:membership_prorate.field_product_template__membership_prorate
 msgid ""
 "If this check is marked, then the fee will be proportionally charged for the "
 "remaining time of the period"
@@ -37,7 +37,7 @@ msgid "Product Template"
 msgstr "Modelo do Produto"
 
 #. module: membership_prorate
-#: model:ir.model.fields,field_description:membership_prorate.field_product_product_membership_prorate
-#: model:ir.model.fields,field_description:membership_prorate.field_product_template_membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_product_product__membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr ""
