@@ -27,7 +27,7 @@ msgstr "Postavka računa"
 
 #. module: membership_prorate_variable_period
 #: code:addons/membership_prorate_variable_period/models/account_invoice.py:24
-#: code:addons/membership_prorate_variable_period/models/product_template.py:20
+#: code:addons/membership_prorate_variable_period/models/product_template.py:17
 #, python-format
 msgid "It's not possible to prorate daily periods."
 msgstr "Proporcionalno porazdeljevanje dnevnih obdobij ni mogoče."

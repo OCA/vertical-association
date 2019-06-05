@@ -1,2 +1,5 @@
-* Pedro M. Baeza <pedro.baeza@tecnativa.com>
-* David Vidal <david.vidal@tecnativa.com>
+* `Tecnativa <https://www.tecnativa.com>`__:
+
+  * Pedro M. Baeza
+  * Rafael Blasco
+  * David Vidal
