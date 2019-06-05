@@ -76,6 +76,7 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`__:
 
   * Pedro M. Baeza
+  * Rafael Blasco
   * David Vidal
 
 Maintainers
