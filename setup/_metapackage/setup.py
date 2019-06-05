@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-membership_prorate',
         'odoo12-addon-membership_prorate_variable_period',
         'odoo12-addon-membership_variable_period',
+        'odoo12-addon-membership_withdrawal',
     ],
     classifiers=[
         'Programming Language :: Python',
