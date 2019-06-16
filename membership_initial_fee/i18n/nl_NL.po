@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_fixed_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_fixed_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__fixed_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__fixed_fee
 #, fuzzy
 msgid "Fixed Fee"
 msgstr "Vaste contributie"
@@ -32,9 +32,9 @@ msgid "Fixed amount"
 msgstr "Vast bedrag"
 
 #. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_initial_fee
-#: model:ir.ui.view,arch_db:membership_initial_fee.membership_products_form_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__initial_fee
+#: model_terms:ir.ui.view,arch_db:membership_initial_fee.membership_products_form_initial_fee
 msgid "Initial fee"
 msgstr "Initiële contributie"
 
@@ -55,8 +55,8 @@ msgid "No initial fee"
 msgstr "Geen initiële contributie"
 
 #. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_percentage_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_percentage_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__percentage_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__percentage_fee
 msgid "Perc. fee (%)"
 msgstr "Perc. contributie (%)"
 
@@ -71,7 +71,7 @@ msgid "Product Template"
 msgstr "Productsjabloon"
 
 #. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product_product_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template_product_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__product_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
 msgid "Product for initial fee"
 msgstr "Product voor Initiële contributie"
