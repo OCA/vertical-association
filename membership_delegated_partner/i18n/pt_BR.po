@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: membership_delegated_partner
-#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_invoice_delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_invoice__delegated_member_id
 msgid "Delegated Member"
 msgstr ""
 
@@ -42,5 +42,5 @@ msgstr "Fatura"
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_membership_membership_line
-msgid "membership.membership_line"
+msgid "Membership Line"
 msgstr ""
