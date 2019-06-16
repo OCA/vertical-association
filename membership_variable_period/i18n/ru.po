@@ -26,19 +26,19 @@ msgid "Fixed dates"
 msgstr ""
 
 #. module: membership_variable_period
-#: model:ir.ui.view,arch_db:membership_variable_period.membership_products_form_period
+#: model_terms:ir.ui.view,arch_db:membership_variable_period.membership_products_form_period
 msgid "Interval"
 msgstr ""
 
 #. module: membership_variable_period
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_interval_qty
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_qty
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_qty
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_qty
 msgid "Interval quantity"
 msgstr ""
 
 #. module: membership_variable_period
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_interval_unit
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_interval_unit
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_unit
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_unit
 msgid "Interval unit"
 msgstr ""
 
@@ -48,8 +48,8 @@ msgid "Invoice Line"
 msgstr "Позиция счета"
 
 #. module: membership_variable_period
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_product_membership_type
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_template_membership_type
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_type
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_type
 msgid "Membership type"
 msgstr ""
 
