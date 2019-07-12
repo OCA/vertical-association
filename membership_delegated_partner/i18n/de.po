@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-02 01:54+0000\n"
-"PO-Revision-Date: 2019-03-08 15:53+0000\n"
+"PO-Revision-Date: 2019-07-12 14:43+0000\n"
 "Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: membership_delegated_partner
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_invoice__delegated_member_id
@@ -27,7 +27,7 @@ msgstr "Delegiertes Mitglied"
 #. module: membership_delegated_partner
 #: model:res.groups,name:membership_delegated_partner.group_delegated_member
 msgid "Delegated partner in membership"
-msgstr ""
+msgstr "Partnerdelegation von Mitgliedschaften"
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_account_invoice
