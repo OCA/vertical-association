@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2019-07-12 14:43+0000\n"
+"PO-Revision-Date: 2019-09-13 16:24+0000\n"
 "Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -44,13 +44,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
 msgid "Adhered member"
-msgstr "Zugehöriges Mitglied"
+msgstr "Unabhängiges Mitglied"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr ""
+msgstr "Übergeordnetes Mitglied"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:54
@@ -67,13 +67,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 msgid "Cancel Membership Date"
-msgstr ""
+msgstr "Datum Kündigung Mitgliedschaft"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Cancelled Member"
-msgstr ""
+msgstr "Ehemaliges Mitglied"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
@@ -83,7 +83,7 @@ msgstr "Kategorie"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_uid
@@ -99,31 +99,31 @@ msgstr "Erstellt am"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 msgid "Current Membership Status"
-msgstr ""
+msgstr "Aktueller Status Mitgliedschaft"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Date from which membership becomes active."
-msgstr ""
+msgstr "Datum ab dem die Mitgliedschaft gültig wird."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr ""
+msgstr "Datum seit dem Anhängigkeit besteht."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Datum an dem die Mitgliedschaft gekündigt wurde."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date until which membership remains active."
-msgstr ""
+msgstr "Datum bis zu welchem die Mitgliedschaft bestehen bleibt."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
@@ -134,12 +134,12 @@ msgstr "Anzeigename"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Free Member"
-msgstr ""
+msgstr "Freies Mitglied"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
 msgid "From"
-msgstr ""
+msgstr "Von"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
@@ -335,7 +335,7 @@ msgstr "Name"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Non Member"
-msgstr ""
+msgstr "Kein Mitglied"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
