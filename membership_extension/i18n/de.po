@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-12 19:14+0000\n"
-"PO-Revision-Date: 2019-07-12 14:43+0000\n"
+"PO-Revision-Date: 2019-09-13 15:23+0000\n"
 "Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner_is_adhered_member
@@ -34,7 +34,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner_is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users_is_adhered_member
 msgid "Adhered member"
-msgstr "Zugehöriges Mitglied"
+msgstr "Unabhängiges Mitglied"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:56
@@ -66,7 +66,7 @@ msgstr "Erstellt am"
 #: model:ir.model.fields,help:membership_extension.field_res_partner_membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users_membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr "Datum, ab dem Anhängigkeit besteht."
+msgstr "Datum seit dem Anhängigkeit besteht."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category_display_name
