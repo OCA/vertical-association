@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/OCA/vertical-association.svg?branch=13.0)](https://travis-ci.org/OCA/vertical-association)
 [![Coverage Status](https://coveralls.io/repos/OCA/vertical-association/badge.svg?branch=13.0)](https://coveralls.io/r/OCA/vertical-association?branch=13.0)
 
-# Vertical Association addons for Odoo 
+# Vertical Association addons for Odoo
 
 Addons for association and membership related tasks.
 
