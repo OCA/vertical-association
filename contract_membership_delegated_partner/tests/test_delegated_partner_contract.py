@@ -11,7 +11,7 @@ class TestMembershipDelegateSetup(TestContractBase):
         cls.partner2 = cls.env['res.partner'].create({
             'name': 'Mrs. Odoo',
         })
-        cls.product.membership = True
+        cls.product_1.membership = True
         cls.contract.delegated_member_id = cls.partner2
 
     def test_01_generate_and_delegate(self):
