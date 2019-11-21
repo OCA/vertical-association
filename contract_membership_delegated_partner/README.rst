@@ -7,9 +7,9 @@ Contract Membership Delegate Partner
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Production/Stable
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
@@ -17,13 +17,13 @@ Contract Membership Delegate Partner
     :target: https://github.com/OCA/vertical-association/tree/12.0/contract_membership_delegated_partner
     :alt: OCA/vertical-association
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/vertical-association-11-0/vertical-association-11-0-contract_membership_delegated_partner
+    :target: https://translation.odoo-community.org/projects/vertical-association-12-0/vertical-association-12-0-contract_membership_delegated_partner
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/208/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module allows to set the delegated membership at the contract so the
 recurring invoices automatically have it set.
