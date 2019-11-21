@@ -78,6 +78,7 @@ Contributors
 * David Vidal <david.vidal@tecnativa.com>
 * Rafael Blasco <rafael.blasco@tecnativa.com>
 * Luis M. Ontalba <luis.martinez@tecnativa.com>
+* Andrea Stirpe <a.stirpe@onestein.nl>
 
 Maintainer
 ----------

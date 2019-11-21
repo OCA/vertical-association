@@ -11,6 +11,7 @@
     "version": "11.0.1.1.1",
     "category": "Membership",
     "author": "Tecnativa, "
+              "Onestein, "
               "Odoo Community Association (OCA)",
     "website": "https://github.com/oca/vertical-association",
     "license": "AGPL-3",
