@@ -1,10 +1,11 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime, timedelta
 from odoo import fields
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 from psycopg2 import IntegrityError
 from odoo.tests import common
 from odoo.tools import mute_logger
@@ -409,3 +410,40 @@ class TestMembership(common.SavepointCase):
         self.child.associate_member = False
         self.child.onchange_associate_member()
         self.assertFalse(self.child.is_adhered_member)
+
+    def test_category_multicompany(self):
+        company_a = self.env['res.company'].create({
+            'name': 'Test company A',
+        })
+        # Gold Membership Category cannot be assigned to Company A
+        with self.assertRaises(ValidationError):
+            self.category_gold.company_id = company_a
+
+        # force Gold Membership Category assignment to Company A
+        self.category_gold\
+            .with_context(bypass_company_validation=True)\
+            .company_id = company_a
+
+        # Company can be removed from any Membership Category
+        self.category_gold.company_id = False
+
+        # set all the product templates for Gold Membership to Company A
+        membership_0_product_template = self.env.ref(
+            'membership_extension.membership_0_product_template')
+        self.assertTrue(membership_0_product_template)
+        membership_0_product_template.company_id = company_a
+
+        product_tmpl_gold = self.gold_product.product_tmpl_id
+        product_tmpl_gold.company_id = company_a
+
+        # Gold Membership Category can now be assigned to Company A
+        self.category_gold.company_id = company_a
+
+        # test onchange
+        company_b = self.env['res.company'].create({
+            'name': 'Test company B',
+        })
+        self.assertTrue(product_tmpl_gold.membership_category_id)
+        product_tmpl_gold.company_id = company_b
+        product_tmpl_gold._onchange_company_id_compute_membership_category_id()
+        self.assertFalse(product_tmpl_gold.membership_category_id)
