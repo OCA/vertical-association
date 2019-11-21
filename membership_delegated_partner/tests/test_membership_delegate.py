@@ -1,4 +1,5 @@
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.tests import common
@@ -83,6 +84,10 @@ class TestMembershipDelegate(common.SavepointCase):
         invoice.delegated_member_id = self.partner2
         self.assertTrue(self.partner2.member_lines, 'Delegate gets the line')
         self.assertFalse(self.partner1.member_lines, 'Partner drops the line')
+
+        invoice.delegated_member_id = False
+        self.assertFalse(self.partner2.member_lines, 'Delegate drops the line')
+        self.assertTrue(self.partner1.member_lines, 'Partner gets the line')
 
     def test_03_refund_invoice_delegated_partner(self):
         """ A refund should inherit the delegated partner in the invoice """
