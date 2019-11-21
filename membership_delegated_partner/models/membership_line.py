@@ -1,4 +1,5 @@
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, models
@@ -29,5 +30,8 @@ class MembershipLine(models.Model):
         else:
             inv_line = self.account_invoice_line
         if inv_line and inv_line.invoice_id.delegated_member_id:
-            vals['partner'] = inv_line.invoice_id.delegated_member_id.id
+            if self.env.context.get('force_reassign_partner'):
+                vals['partner'] = inv_line.invoice_id.partner_id.id
+            else:
+                vals['partner'] = inv_line.invoice_id.delegated_member_id.id
         return super(MembershipLine, self).write(vals)
