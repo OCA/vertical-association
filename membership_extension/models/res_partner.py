@@ -133,7 +133,8 @@ class ResPartner(models.Model):
                             date_from = line.date_from
                         if not last_to or last_to < line_date_to:
                             last_to = line_date_to
-                    if not last_cancel or last_cancel < line.date_cancel:
+                    if not last_cancel or (line.date_cancel
+                                           and last_cancel < line.date_cancel):
                         last_cancel = line.date_cancel
                 partner.membership_start = date_from
                 partner.membership_last_start = last_from
