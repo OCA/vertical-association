@@ -1,5 +1,6 @@
 # Copyright 2017 Tecnativa - David Vidal
 # Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
@@ -24,8 +25,14 @@ class AccountInvoice(models.Model):
             member_line = self.env['membership.membership_line'].search(
                 [('account_invoice_line', '=', line.id)])
             if member_line:
-                member_line.partner = self.env['res.partner'].browse(
-                    vals['delegated_member_id'])
+                if vals['delegated_member_id']:
+                    member_line.partner = self.env['res.partner'].browse(
+                        vals['delegated_member_id'])
+                else:
+                    ctx = self.env.context.copy()
+                    ctx['force_reassign_partner'] = True
+                    partner = line.invoice_id.partner_id
+                    member_line.with_context(ctx).partner = partner
         return super(AccountInvoice, self).write(vals)
 
     @api.model
