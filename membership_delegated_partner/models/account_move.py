@@ -9,7 +9,7 @@ from odoo import fields, models
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    delegated_member_id = fields.Many2one(comodel_name='res.partner')
+    delegated_member_id = fields.Many2one(comodel_name="res.partner")
 
 
 class AccountMoveLine(models.Model):
