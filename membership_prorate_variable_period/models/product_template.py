@@ -1,6 +1,6 @@
 # Copyright 2016 Tecnativa - Antonio Espinosa
 # Copyright 2019 Tecnativa - David Vidal
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 import math
 from odoo import _, api, exceptions, models
 from odoo.tools import date_utils
@@ -9,9 +9,8 @@ from odoo.tools import date_utils
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    @api.multi
     def _get_next_date(self, date, qty=1):
-        next_date = super(ProductTemplate, self)._get_next_date(date)
+        next_date = super()._get_next_date(date)
         if self.membership_interval_unit == 'days':
             raise exceptions.Warning(
                 _("It's not possible to prorate daily periods."))
