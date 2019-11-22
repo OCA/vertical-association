@@ -2,12 +2,12 @@
 <odoo>
 
     <record id="invoice_form_view" model="ir.ui.view">
-        <field name="model">account.invoice</field>
-        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
         <field name="groups_id" eval="[(4, ref('membership_delegated_partner.group_delegated_member'))]"/>
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="delegated_member_id"/>
+                <field name="delegated_member_id" attrs="{'invisible':[('type', 'not in', ('out_invoice', 'out_refund'))]}"/>
             </field>
         </field>
     </record>
