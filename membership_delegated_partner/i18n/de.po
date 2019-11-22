@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 
 #. module: membership_delegated_partner
-#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_invoice__delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move__delegated_member_id
 msgid "Delegated Member"
 msgstr "Delegiertes Mitglied"
 
@@ -30,16 +30,27 @@ msgid "Delegated partner in membership"
 msgstr "Partnerdelegation von Mitgliedschaften"
 
 #. module: membership_delegated_partner
-#: model:ir.model,name:membership_delegated_partner.model_account_invoice
-msgid "Invoice"
-msgstr "Rechnung"
+#: model:ir.model,name:membership_delegated_partner.model_account_move
+msgid "Journal Entries"
+msgstr ""
 
 #. module: membership_delegated_partner
-#: model:ir.model,name:membership_delegated_partner.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Rechnungszeilen"
+#: model:ir.model,name:membership_delegated_partner.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_membership_membership_line
 msgid "Membership Line"
 msgstr ""
+
+#. module: membership_delegated_partner
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__partner
+msgid "Partner"
+msgstr ""
+
+#~ msgid "Invoice"
+#~ msgstr "Rechnung"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Rechnungszeilen"
