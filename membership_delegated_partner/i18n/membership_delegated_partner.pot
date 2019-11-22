@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* membership_delegated_partner
+# 	* membership_delegated_partner
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: membership_delegated_partner
-#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_invoice__delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move__delegated_member_id
 msgid "Delegated Member"
 msgstr ""
 
@@ -24,13 +24,13 @@ msgid "Delegated partner in membership"
 msgstr ""
 
 #. module: membership_delegated_partner
-#: model:ir.model,name:membership_delegated_partner.model_account_invoice
-msgid "Invoice"
+#: model:ir.model,name:membership_delegated_partner.model_account_move
+msgid "Journal Entries"
 msgstr ""
 
 #. module: membership_delegated_partner
-#: model:ir.model,name:membership_delegated_partner.model_account_invoice_line
-msgid "Invoice Line"
+#: model:ir.model,name:membership_delegated_partner.model_account_move_line
+msgid "Journal Item"
 msgstr ""
 
 #. module: membership_delegated_partner
@@ -38,3 +38,7 @@ msgstr ""
 msgid "Membership Line"
 msgstr ""
 
+#. module: membership_delegated_partner
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__partner
+msgid "Partner"
+msgstr ""
