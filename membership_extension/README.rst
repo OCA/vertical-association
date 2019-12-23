@@ -94,6 +94,7 @@ Authors
 ~~~~~~~
 
 * Tecnativa
+* Onestein
 
 Contributors
 ~~~~~~~~~~~~
@@ -104,6 +105,7 @@ Contributors
 * Rafael Blasco <rafael.blasco@tecnativa.com>
 * Luis M. Ontalba <luis.martinez@tecnativa.com>
 * Alberto Martín Cortada <alberto.martin@guadaltech.es>
+* Andrea Stirpe <a.stirpe@onestein.nl>
 
 Maintainers
 ~~~~~~~~~~~
