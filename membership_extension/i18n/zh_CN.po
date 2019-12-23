@@ -73,6 +73,11 @@ msgid "Category"
 msgstr "类别"
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
+msgid "Company"
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -390,6 +395,14 @@ msgstr ""
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Waiting Member"
+msgstr ""
+
+#. module: membership_extension
+#: code:addons/membership_extension/models/membership_category.py:28
+#, python-format
+msgid ""
+"You cannot change the Company, as this Membership Category is used by "
+"Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
 
 #. module: membership_extension
