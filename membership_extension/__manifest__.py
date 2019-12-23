@@ -7,7 +7,7 @@
 {
     "name": "Membership extension",
     "summary": "Improves user experience of membership addon",
-    "version": "12.0.1.0.2",
+    "version": "12.0.1.0.3",
     "category": "Membership",
     "author": "Tecnativa, "
               "Onestein, "
