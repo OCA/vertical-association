@@ -28,11 +28,11 @@ class ResPartner(models.Model):
                     'account_id': account_id,
                     'fiscal_position_id': position_id
                 })
-                for product in product.membership_set_products:
-                    price_dict = product.price_compute('list_price')
-                    amount = price_dict.get(product.id) or 0
+                for p in product.membership_set_products:
+                    price_dict = p.price_compute('list_price')
+                    amount = price_dict.get(p.id) or 0
                     line_values = {
-                        'product_id': product.id,
+                        'product_id': p.id,
                         'price_unit': amount,
                         'invoice_id': invoice.id,
                     }
