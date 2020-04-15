@@ -18,7 +18,3 @@ membership category.
 To make member start date independent from the associated member one, check the
 option *Adhered member* in the membership tab of the partner who is associating.
 A start date will now be available to edit.
-
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/208/10.0
