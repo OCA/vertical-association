@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import timedelta
-from odoo import models, fields, api
+
+from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
@@ -11,7 +12,7 @@ class ProductTemplate(models.Model):
 
     membership_category_id = fields.Many2one(
         string="Membership category",
-        comodel_name='membership.membership_category',
+        comodel_name="membership.membership_category",
         domain="['|',('company_id','=',False),('company_id','=',company_id)]",
     )
 
@@ -23,7 +24,7 @@ class ProductTemplate(models.Model):
             return date_to + timedelta(1)
         return False  # pragma: no cover
 
-    @api.onchange('company_id')
+    @api.onchange("company_id")
     def _onchange_company_id_compute_membership_category_id(self):
         """Reset the Membership Category in case a different Company is set"""
         category_company = self.membership_category_id.company_id
