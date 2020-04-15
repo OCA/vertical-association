@@ -9,16 +9,12 @@
     "summary": "Improves user experience of membership addon",
     "version": "12.0.1.0.2",
     "category": "Membership",
-    "author": "Tecnativa, "
-              "Onestein, "
-              "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Onestein, " "Odoo Community Association (OCA)",
     "website": "https://github.com/oca/vertical-association",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "membership",
-    ],
+    "depends": ["membership",],
     "data": [
         "security/membership_security.xml",
         "security/ir.model.access.csv",
