@@ -1,7 +1,7 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # Copyright 2019 Onestein - Andrea Stirpe
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import datetime, timedelta
 
@@ -16,10 +16,14 @@ from odoo.tools import mute_logger
 class TestMembership(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestMembership, cls).setUpClass()
+        super().setUpClass()
         date_today = fields.Date.today()
         cls.account_bank_type = cls.env["account.account.type"].create(
-            {"name": "Test bank account type", "type": "liquidity",}
+            {
+                "name": "Test bank account type",
+                "type": "liquidity",
+                "internal_group": "asset",
+            }
         )
         cls.account_bank = cls.env["account.account"].create(
             {
@@ -33,22 +37,20 @@ class TestMembership(common.SavepointCase):
             {
                 "name": "Test journal",
                 "code": "TEST",
-                "type": "general",
-                "update_posted": True,
+                "type": "sale",
                 "default_debit_account_id": cls.account_bank.id,
                 "default_credit_account_id": cls.account_bank.id,
             }
         )
         cls.bank_journal = cls.env["account.journal"].create(
-            {
-                "name": "Test bank journal",
-                "code": "TB",
-                "type": "bank",
-                "update_posted": True,
-            }
+            {"name": "Test bank journal", "code": "TB", "type": "bank"}
         )
         cls.account_partner_type = cls.env["account.account.type"].create(
-            {"name": "Test partner account type", "type": "receivable",}
+            {
+                "name": "Test partner account type",
+                "type": "receivable",
+                "internal_group": "asset",
+            }
         )
         cls.account_partner = cls.env["account.account"].create(
             {
@@ -59,7 +61,11 @@ class TestMembership(common.SavepointCase):
             }
         )
         cls.account_product_type = cls.env["account.account.type"].create(
-            {"name": "Test product account type", "type": "other",}
+            {
+                "name": "Test product account type",
+                "type": "other",
+                "internal_group": "asset",
+            }
         )
         cls.account_product = cls.env["account.account"].create(
             {
@@ -82,7 +88,7 @@ class TestMembership(common.SavepointCase):
             }
         )
         cls.child = cls.env["res.partner"].create(
-            {"name": "Test child", "associate_member": cls.partner.id,}
+            {"name": "Test child", "associate_member": cls.partner.id}
         )
         cls.gold_product = cls.env["product.product"].create(
             {
@@ -130,14 +136,10 @@ class TestMembership(common.SavepointCase):
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
         self.assertFalse(self.child.membership_cancel)
-        line.write(
-            {"state": "invoiced",}
-        )
+        line.write({"state": "invoiced"})
         self.assertEqual("invoiced", self.partner.membership_state)
         self.assertEqual(fields.Date.today(), self.partner.membership_start)
-        self.assertEqual(
-            fields.Date.today(), self.partner.membership_last_start,
-        )
+        self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
         self.assertEqual(self.next_month, self.partner.membership_stop)
         self.assertFalse(self.partner.membership_cancel)
         self.assertEqual("invoiced", self.child.membership_state)
@@ -145,14 +147,10 @@ class TestMembership(common.SavepointCase):
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.next_month, self.child.membership_stop)
         self.assertFalse(self.child.membership_cancel)
-        line.write(
-            {"date_cancel": self.yesterday,}
-        )
+        line.write({"date_cancel": self.yesterday})
         self.assertEqual("old", self.partner.membership_state)
         self.assertEqual(fields.Date.today(), self.partner.membership_start)
-        self.assertEqual(
-            fields.Date.today(), self.partner.membership_last_start,
-        )
+        self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
         self.assertEqual(self.yesterday, self.partner.membership_stop)
         self.assertEqual(self.yesterday, self.partner.membership_cancel)
         self.assertEqual("old", self.child.membership_state)
@@ -160,9 +158,7 @@ class TestMembership(common.SavepointCase):
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.yesterday, self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
-        line.write(
-            {"state": "canceled",}
-        )
+        line.write({"state": "canceled"})
         self.assertEqual("none", self.partner.membership_state)
         self.assertFalse(self.partner.membership_start)
         self.assertFalse(self.partner.membership_last_start)
@@ -194,14 +190,10 @@ class TestMembership(common.SavepointCase):
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
-        other_line.write(
-            {"state": "paid",}
-        )
+        other_line.write({"state": "paid"})
         self.assertEqual("paid", self.partner.membership_state)
         self.assertEqual(fields.Date.today(), self.partner.membership_start)
-        self.assertEqual(
-            fields.Date.today(), self.partner.membership_last_start,
-        )
+        self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
         self.assertEqual(self.next_two_months, self.partner.membership_stop)
         self.assertEqual(self.yesterday, self.partner.membership_cancel)
         self.assertEqual("paid", self.child.membership_state)
@@ -224,13 +216,9 @@ class TestMembership(common.SavepointCase):
                 "state": "invoiced",
             }
         )
-        self.assertEqual(
-            self.category_gold, self.partner.membership_category_ids,
-        )
+        self.assertEqual(self.category_gold, self.partner.membership_category_ids)
         self.assertEqual("Gold", self.partner.membership_categories)
-        self.assertEqual(
-            self.category_gold, self.child.membership_category_ids,
-        )
+        self.assertEqual(self.category_gold, self.child.membership_category_ids)
         self.assertEqual("Gold", self.child.membership_categories)
         line_two = self.env["membership.membership_line"].create(
             {
@@ -255,47 +243,32 @@ class TestMembership(common.SavepointCase):
         )
         self.assertTrue("Silver" in self.child.membership_categories)
         self.assertTrue("Gold" in self.child.membership_categories)
-        line_one.write(
-            {"state": "canceled",}
-        )
-        self.assertEqual(
-            self.category_silver, self.partner.membership_category_ids,
-        )
+        line_one.write({"state": "canceled"})
+        self.assertEqual(self.category_silver, self.partner.membership_category_ids)
         self.assertEqual("Silver", self.partner.membership_categories)
-        self.assertEqual(
-            self.category_silver, self.child.membership_category_ids,
-        )
+        self.assertEqual(self.category_silver, self.child.membership_category_ids)
         self.assertEqual("Silver", self.child.membership_categories)
-        line_two.write(
-            {"state": "waiting",}
-        )
+        line_two.write({"state": "waiting"})
         self.assertFalse(self.partner.membership_category_ids.ids)
         self.assertFalse(self.partner.membership_categories)
         self.assertFalse(self.child.membership_category_ids.ids)
         self.assertFalse(self.child.membership_categories)
 
     def test_remove_membership_line_with_invoice(self):
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": fields.Date.today(),
-                "account_id": self.partner.property_account_receivable_id.id,
-            }
+        invoice_form = common.Form(
+            self.env["account.move"].with_context(default_type="out_invoice")
         )
-        self.env["account.invoice.line"].create(
-            {
-                "product_id": self.gold_product.id,
-                "price_unit": 100.0,
-                "name": "Membership gold",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-                "account_id": account,
-            }
-        )
+        invoice_form.invoice_date = fields.Date.today()
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as invoice_line_form:
+            invoice_line_form.name = self.gold_product.name
+            invoice_line_form.product_id = self.gold_product
+            invoice_line_form.price_unit = 100.0
+        invoice = invoice_form.save()
+
         with self.assertRaises(UserError):
             self.partner.member_lines[0].unlink()
-        invoice.invoice_line_ids.unlink()
+        invoice.invoice_line_ids.with_context(check_move_validity=False).unlink()
         self.assertFalse(self.partner.member_lines)
 
     def test_membership_line_onchange(self):
@@ -308,77 +281,110 @@ class TestMembership(common.SavepointCase):
                 "state": "invoiced",
             }
         )
-        line._onchange_date()
+        line._onchange_membership_date()
         self.assertEqual(100.00, line.member_price)
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
-        line.write(
-            {"membership_id": self.silver_product.id,}
-        )
-        line._onchange_membership_id()
+        line.write({"membership_id": self.silver_product.id})
+        line._onchange_membership_date()
         self.assertEqual(50, line.member_price)
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_two_months, line.date_to)
 
     def test_invoice(self):
-        # This record has to be created here, or it will change other tests
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": fields.Date.today(),
-                "type": "out_invoice",
-                "account_id": self.account_partner.id,
-                "journal_id": self.journal.id,
-                "invoice_line_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "account_id": self.account_product.id,
-                            "product_id": self.gold_product.id,
-                            "price_unit": 100.0,
-                            "name": self.gold_product.name,
-                            "quantity": 1.0,
-                        },
-                    ),
-                ],
-            }
+        invoice_form = common.Form(
+            self.env["account.move"].with_context(default_type="out_invoice")
         )
+        invoice_form.invoice_date = fields.Date.today()
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as invoice_line_form:
+            invoice_line_form.name = self.gold_product.name
+            invoice_line_form.product_id = self.gold_product
+            invoice_line_form.price_unit = 100.0
+            invoice_line_form.quantity = 1.0
+        invoice = invoice_form.save()
+
         line = self.partner.member_lines[0]
         self.assertEqual("waiting", line.state)
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
-        invoice.action_invoice_open()  # validate invoice
+        invoice.action_post()  # validate invoice
         self.assertEqual("invoiced", line.state)
-        invoice.pay_and_reconcile(self.bank_journal)  # pay invoice
+
+        # pay invoice
+        payment_register = common.Form(
+            self.env["account.payment"].with_context(
+                active_model="account.move", active_ids=invoice.ids
+            )
+        )
+        payment_register.payment_date = fields.Date.today()
+        payment_register.journal_id = self.bank_journal
+        payment_register.payment_method_id = self.env.ref(
+            "account.account_payment_method_manual_in"
+        )
+        payment_register.amount = invoice.amount_total
+        payment = payment_register.save()
+        payment.post()
+
+        self.assertEqual("paid", invoice.invoice_payment_state)
         self.assertEqual("paid", line.state)
         self.env["account.payment"].search(
             [("partner_id", "=", self.partner.id)]
         ).cancel()
-        invoice.action_invoice_cancel()
+        invoice.button_cancel()
         self.assertEqual("canceled", line.state)
-        invoice.action_invoice_draft()
+        invoice.button_draft()
         self.assertEqual("waiting", line.state)
         invoice.state = "draft"  # HACK: Odoo resets this to open
-        invoice.action_invoice_open()  # validate invoice
+        invoice.action_post()  # validate invoice
         self.assertEqual("invoiced", line.state)
-        invoice.pay_and_reconcile(
-            self.bank_journal, pay_amount=invoice.amount_total,
-        )  # pay invoice
+
+        # pay invoice
+        payment_register = common.Form(
+            self.env["account.payment"].with_context(
+                active_model="account.move", active_ids=invoice.ids
+            )
+        )
+        payment_register.payment_date = fields.Date.today()
+        payment_register.journal_id = self.bank_journal
+        payment_register.payment_method_id = self.env.ref(
+            "account.account_payment_method_manual_in"
+        )
+        payment_register.amount = invoice.amount_total
+        payment = payment_register.save()
+        payment.post()
         self.assertEqual("paid", line.state)
-        refund = invoice.refund()  # refund invoice
+
+        # refund invoice
+        move_reversal = (
+            self.env["account.move.reversal"]
+            .with_context(active_model="account.move", active_ids=invoice.ids)
+            .create(
+                {
+                    "date": fields.Date.today(),
+                    "reason": "no reason",
+                    "refund_method": "refund",
+                }
+            )
+        )
+        reversal = move_reversal.reverse_moves()
+        refund = self.env["account.move"].browse(reversal["res_id"])
         refund.journal_id.update_posted = True
-        refund.action_invoice_open()  # validate refund
+        refund.action_post()  # validate refund
         self.assertEqual("canceled", line.state)
-        refund.action_invoice_cancel()
+        refund.button_cancel()
         self.assertEqual("paid", line.state)
-        refund.action_cancel()
-        refund.action_invoice_draft()
-        refund.state = "draft"  # HACK: Odoo resets this to open
-        refund.invoice_line_ids[0].quantity = 0.5
+        refund.button_draft()
+        self.assertEqual("paid", line.state)
+
+        invoice.button_draft()
+        invoice_form = common.Form(invoice)
+        with invoice_form.invoice_line_ids.edit(0) as invoice_line_form:
+            invoice_line_form.quantity = 0.5
+        invoice = invoice_form.save()
         self.assertNotEqual(invoice.amount_untaxed, refund.amount_untaxed)
-        refund.action_invoice_open()
-        self.assertEqual("paid", line.state)
+        invoice.action_post()
+        self.assertEqual("invoiced", line.state)
 
     def test_check_membership_all(self):
         self.env["membership.membership_line"].create(
@@ -425,7 +431,7 @@ class TestMembership(common.SavepointCase):
         with self.assertRaises(IntegrityError), self.cr.savepoint():
             self.partner.unlink()
         # Create a brand new partner and delete it
-        partner2 = self.env["res.partner"].create({"name": "no member",})
+        partner2 = self.env["res.partner"].create({"name": "no member"})
         partner2.unlink()
         self.assertFalse(partner2.exists())
 
@@ -445,12 +451,23 @@ class TestMembership(common.SavepointCase):
         self.child.membership_start_adhered = "2018-01-26"
         self.assertEqual(self.child.membership_start, datetime(2018, 1, 26).date())
         self.child.associate_member = False
-        self.child.onchange_associate_member()
         self.assertFalse(self.child.is_adhered_member)
 
     def test_category_multicompany(self):
-        company_a = self.env["res.company"].create({"name": "Test company A",})
+        company_a = self.env["res.company"].create({"name": "Test company A"})
+        company_b = self.env["res.company"].create({"name": "Test company B"})
+
+        # set all the product templates for Gold Membership to Company B
+        templates = self.env["product.template"].search(
+            [("membership_category_id", "in", self.category_gold.ids)]
+        )
+        for template in templates:
+            template.company_id = company_b
+
         # Gold Membership Category cannot be assigned to Company A
+        for template in templates:
+            template.membership_category_id = self.category_gold
+            self.assertNotEqual(template.membership_category_id.company_id, company_a)
         with self.assertRaises(ValidationError):
             self.category_gold.company_id = company_a
 
@@ -463,21 +480,18 @@ class TestMembership(common.SavepointCase):
         self.category_gold.company_id = False
 
         # set all the product templates for Gold Membership to Company A
-        membership_0_product_template = self.env.ref(
-            "membership_extension.membership_0_product_template"
+        templates = self.env["product.template"].search(
+            [("membership_category_id", "in", self.category_gold.ids)]
         )
-        self.assertTrue(membership_0_product_template)
-        membership_0_product_template.company_id = company_a
-
-        product_tmpl_gold = self.gold_product.product_tmpl_id
-        product_tmpl_gold.company_id = company_a
+        for template in templates:
+            self.assertTrue(template.membership_category_id)
+            template.company_id = company_a
 
         # Gold Membership Category can now be assigned to Company A
         self.category_gold.company_id = company_a
 
         # test onchange
-        company_b = self.env["res.company"].create({"name": "Test company B",})
-        self.assertTrue(product_tmpl_gold.membership_category_id)
-        product_tmpl_gold.company_id = company_b
-        product_tmpl_gold._onchange_company_id_compute_membership_category_id()
-        self.assertFalse(product_tmpl_gold.membership_category_id)
+        for template in templates:
+            self.assertTrue(template.membership_category_id)
+            template.company_id = company_b
+            self.assertFalse(template.membership_category_id)

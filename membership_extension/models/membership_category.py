@@ -1,6 +1,6 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2019 Onestein - Andrea Stirpe
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -20,14 +20,18 @@ class MembershipCategory(models.Model):
         categories = self.filtered(lambda c: c.company_id)
         templates = (
             self.env["product.template"]
-            .search([("membership_category_id", "in", categories.ids),])
-            .filtered(lambda t: t.company_id != t.membership_category_id.company_id)
+            .search([("membership_category_id", "in", categories.ids)])
+            .filtered(
+                lambda t: t.company_id
+                and t.company_id != t.membership_category_id.company_id
+            )
         )
         if templates:
             raise ValidationError(
                 _(
                     "You cannot change the Company, as this "
-                    "Membership Category is used by Product Template (%s)."
+                    "Membership Category is used by Product Template (%s), "
+                    "which has an incompatible assigned Company."
                 )
                 % fields.first(templates).name
             )

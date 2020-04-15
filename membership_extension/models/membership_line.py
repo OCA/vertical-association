@@ -1,6 +1,7 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2019 Onestein - Andrea Stirpe
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import timedelta
 
@@ -13,23 +14,26 @@ class MembershipLine(models.Model):
     _order = "date_to desc, id desc"
 
     category_id = fields.Many2one(
-        string="Category",
         comodel_name="membership.membership_category",
         related="membership_id.membership_category_id",
-        readonly=True,
     )
     date_from = fields.Date(readonly=False)
     date_to = fields.Date(readonly=False)
-    state = fields.Selection(compute=False, inverse=False)
-    partner = fields.Many2one(ondelete="restrict",)
+    state = fields.Selection(
+        compute="_compute_state", inverse="_inverse_state", store=True, readonly=False
+    )
+    partner = fields.Many2one(ondelete="restrict")
+    member_price = fields.Float(
+        compute="_compute_member_price", readonly=False, store=True
+    )
 
-    @api.onchange("membership_id")
-    def _onchange_membership_id(self):
-        self.member_price = self.membership_id.list_price
-        self._onchange_date()
+    @api.depends("membership_id")
+    def _compute_member_price(self):
+        for partner in self:
+            partner.member_price = partner.membership_id.list_price
 
-    @api.onchange("date")
-    def _onchange_date(self):
+    @api.onchange("date", "membership_id")
+    def _onchange_membership_date(self):
         if self.date and self.membership_id:
             self.date_from = self.date
             next_date = self.membership_id._get_next_date(self.date)
@@ -38,17 +42,18 @@ class MembershipLine(models.Model):
                 if date_to >= self.date:
                     self.date_to = date_to
 
-    # Two empty methods _compute_state and _inverse_state in order
-    # to make state field a regular field (non computed).
-    @api.multi
+    @api.depends("account_invoice_id.invoice_payment_state")
     def _compute_state(self):
-        return True  # pragma: no cover
+        for line in self:
+            if isinstance(line.id, models.NewId):
+                line.state = line.state or "none"
+            if line.account_invoice_id.invoice_payment_state == "paid":
+                line.state = "paid"
 
-    @api.multi
+    # Empty method _inverse_state
     def _inverse_state(self):
         return True  # pragma: no cover
 
-    @api.multi
     def unlink(self):
         allow = self.env.context.get("allow_membership_line_unlink", False)
         if self.filtered("account_invoice_id") and not allow:
@@ -59,4 +64,4 @@ class MembershipLine(models.Model):
                     "line instead"
                 )
             )
-        return super(MembershipLine, self).unlink()  # pragma: no cover
+        return super().unlink()  # pragma: no cover

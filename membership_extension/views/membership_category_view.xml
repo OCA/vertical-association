@@ -5,14 +5,13 @@
     <record id="membership_category_action" model="ir.actions.act_window">
         <field name="name">Membership Categories</field>
         <field name="res_model">membership.membership_category</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree</field>
     </record>
     <record id="membership_category_tree_view" model="ir.ui.view">
         <field name="name">Membership Categories</field>
         <field name="model">membership.membership_category</field>
         <field name="arch" type="xml">
-            <tree string="Membership categories" editable="top">
+            <tree editable="top">
                 <field name="name" />
                 <field name="company_id" groups="base.group_multi_company" />
             </tree>
