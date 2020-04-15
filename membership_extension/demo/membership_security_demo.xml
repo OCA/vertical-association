@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record model="res.users" id="base.user_admin">
+    <record id="base.user_admin" model="res.users">
         <field
             eval="[(4, ref('membership_extension.group_membership_manager'))]"
             name="groups_id"
