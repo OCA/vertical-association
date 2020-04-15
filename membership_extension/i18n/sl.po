@@ -42,13 +42,18 @@ msgid "Adhered member"
 msgstr ""
 
 #. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
+msgid "Amount for the membership"
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
 msgstr ""
 
 #. module: membership_extension
-#: code:addons/membership_extension/models/membership_line.py:54
+#: code:addons/membership_extension/models/membership_line.py:0
 #, python-format
 msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice "
@@ -61,20 +66,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 #, fuzzy
-#| msgid "Membership Category"
 msgid "Cancel Membership Date"
 msgstr "Kategorija članstva"
 
 #. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__canceled
 msgid "Cancelled Member"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
-msgid "Category"
-msgstr "Kategorija"
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
+msgid "Company"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
@@ -95,7 +98,6 @@ msgstr "Ustvarjeno"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 #, fuzzy
-#| msgid "Memberships"
 msgid "Current Membership Status"
 msgstr "Članarine"
 
@@ -129,10 +131,8 @@ msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
 #, fuzzy
-#| msgid "Member"
 msgid "Free Member"
 msgstr "Član"
 
@@ -157,20 +157,8 @@ msgid "ID"
 msgstr "ID"
 
 #. module: membership_extension
-#: model:ir.model,name:membership_extension.model_account_invoice
-msgid "Invoice"
-msgstr "Račun"
-
-#. module: membership_extension
-#: model:ir.model,name:membership_extension.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Postavka računa"
-
-#. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__invoiced
 #, fuzzy
-#| msgid "Invoice Line"
 msgid "Invoiced Member"
 msgstr "Postavka računa"
 
@@ -199,6 +187,16 @@ msgid ""
 "invoice is going to be created.\n"
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paid Member: A member who has paid the membership amount."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_move_line
+msgid "Journal Item"
 msgstr ""
 
 #. module: membership_extension
@@ -240,14 +238,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 #, fuzzy
-#| msgid "Membership Last Start Date"
 msgid "Membership Adhered Start Date"
 msgstr "Začetni končni datum članarine"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Bronze"
 msgstr "Članarine"
 
@@ -268,14 +264,17 @@ msgstr "Kategorija članstva"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
 #, fuzzy
-#| msgid "Membership Category"
 msgid "Membership End Date"
 msgstr "Kategorija članstva"
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__member_price
+msgid "Membership Fee"
+msgstr ""
+
+#. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Gold"
 msgstr "Članarine"
 
@@ -288,12 +287,11 @@ msgstr "Začetni končni datum članarine"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Line"
 msgstr "Članarine"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line__membership_lines
+#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__membership_lines
 msgid "Membership Lines"
 msgstr ""
 
@@ -305,7 +303,6 @@ msgstr ""
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 #, fuzzy
-#| msgid "Membership Category"
 msgid "Membership Silver"
 msgstr "Kategorija članstva"
 
@@ -318,19 +315,18 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Status"
 msgstr "Članarine"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
-#: model_terms:ir.ui.view,arch_db:membership_extension.membership_category_tree_view
 msgid "Membership categories"
 msgstr "Kategorije članstva"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
 #: model:ir.model.fields,field_description:membership_extension.field_product_product__membership_category_id
 #: model:ir.model.fields,field_description:membership_extension.field_product_template__membership_category_id
 #: model_terms:ir.ui.view,arch_db:membership_extension.membership_product_search_form_view
@@ -348,26 +344,20 @@ msgid "Name"
 msgstr "Naziv"
 
 #. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__none
 #, fuzzy
-#| msgid "Member"
 msgid "Non Member"
 msgstr "Član"
 
 #. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__old
 #, fuzzy
-#| msgid "Member"
 msgid "Old Member"
 msgstr "Član"
 
 #. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__paid
 #, fuzzy
-#| msgid "Member"
 msgid "Paid Member"
 msgstr "Član"
 
@@ -411,20 +401,28 @@ msgstr ""
 #: model:product.template,uom_name:membership_extension.membership_0_product_template
 #: model:product.template,uom_name:membership_extension.membership_1_product_template
 #: model:product.template,uom_name:membership_extension.membership_2_product_template
-msgid "Unit(s)"
+msgid "Units"
 msgstr ""
 
 #. module: membership_extension
-#: selection:membership.membership_line,state:0
-#: selection:res.partner,membership_state:0
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
 #, fuzzy
-#| msgid "Member"
 msgid "Waiting Member"
 msgstr "Član"
 
 #. module: membership_extension
-#: model:product.template,weight_uom_name:membership_extension.membership_0_product_template
-#: model:product.template,weight_uom_name:membership_extension.membership_1_product_template
-#: model:product.template,weight_uom_name:membership_extension.membership_2_product_template
-msgid "kg"
+#: code:addons/membership_extension/models/membership_category.py:0
+#, python-format
+msgid ""
+"You cannot change the Company, as this Membership Category is used by "
+"Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+
+#~ msgid "Category"
+#~ msgstr "Kategorija"
+
+#~ msgid "Invoice"
+#~ msgstr "Račun"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Postavka računa"
