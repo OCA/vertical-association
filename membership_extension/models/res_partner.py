@@ -1,5 +1,6 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2019 Onestein - Andrea Stirpe
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import logging
 from datetime import timedelta
@@ -24,6 +25,9 @@ class ResPartner(models.Model):
     associate_member = fields.Many2one(index=True)
     is_adhered_member = fields.Boolean(
         string="Adhered member",
+        compute="_compute_is_adhered_member",
+        store=True,
+        readonly=False,
         help="A member who is associated to another one, but whose membership "
         "are independent.",
     )
@@ -75,7 +79,7 @@ class ResPartner(models.Model):
         compute="_compute_membership_state",
     )
     membership_state = fields.Selection(
-        selection=STATE, store=True, index=True, compute="_compute_membership_state",
+        selection=STATE, store=True, index=True, compute="_compute_membership_state"
     )
 
     @api.model
@@ -110,7 +114,6 @@ class ResPartner(models.Model):
         }
         return state_prior
 
-    @api.multi
     @api.depends(
         "membership_state",
         "is_adhered_member",
@@ -144,6 +147,8 @@ class ResPartner(models.Model):
                 last_cancel = False
                 for line in partner.member_lines:
                     if line.state in member_states:
+                        if not date_from or date_from > line.date_from:
+                            date_from = line.date_from
                         delta = self._last_start_delta_days()
                         line_date_to = line.date_to
                         if line.date_cancel:
@@ -155,8 +160,6 @@ class ResPartner(models.Model):
                             last_from <= date_to and last_from > line.date_from
                         ):
                             last_from = line.date_from
-                        if not date_from or date_from > line.date_from:
-                            date_from = line.date_from
                         if not last_to or last_to < line_date_to:
                             last_to = line_date_to
                     if not last_cancel or (
@@ -167,9 +170,7 @@ class ResPartner(models.Model):
                 partner.membership_last_start = last_from
                 partner.membership_stop = last_to
                 partner.membership_cancel = last_cancel
-        return True
 
-    @api.multi
     @api.depends(
         "free_member",
         "member_lines.state",
@@ -187,7 +188,7 @@ class ResPartner(models.Model):
             if partner.associate_member:
                 partner.membership_state = partner.associate_member.membership_state
                 partner.membership_category_ids = [
-                    (6, False, partner.associate_member.membership_category_ids.ids),
+                    (6, False, partner.associate_member.membership_category_ids.ids)
                 ]
                 partner.membership_categories = (
                     partner.associate_member.membership_categories
@@ -229,7 +230,6 @@ class ResPartner(models.Model):
                 else:
                     partner.membership_category_ids = [(5, False, False)]
                     partner.membership_categories = False
-        return True
 
     @api.model
     def check_membership_expiry(self):
@@ -244,7 +244,6 @@ class ResPartner(models.Model):
             ]
         )
         partners._compute_membership_state()
-        return True
 
     @api.model
     def check_membership_all(self):
@@ -257,14 +256,14 @@ class ResPartner(models.Model):
             ]
         )
         partners._compute_membership_state()
-        return True
 
     @api.model
     def _cron_update_membership(self):
         return self.check_membership_expiry()
 
-    @api.onchange("associate_member")
-    def onchange_associate_member(self):
+    @api.depends("associate_member")
+    def _compute_is_adhered_member(self):
         """Prevents is_adhered_member to stay set when no associated member"""
-        if not self.associate_member:
-            self.is_adhered_member = False
+        for partner in self:
+            if not partner.associate_member:
+                partner.is_adhered_member = False
