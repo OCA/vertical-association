@@ -2,7 +2,7 @@
 <!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
-    <record model="ir.ui.view" id="view_partner_form">
+    <record id="view_partner_form" model="ir.ui.view">
         <field name="name">Membership extension</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="membership.view_partner_form" />
@@ -84,7 +84,7 @@
                             />
                             <field
                                 name="account_invoice_id"
-                                context="{'form_view_ref': 'account.invoice_form'}"
+                                context="{'form_view_ref': 'account.view_move_form'}"
                             />
                         </group>
                     </group>
@@ -92,7 +92,7 @@
             </xpath>
         </field>
     </record>
-    <record model="ir.ui.view" id="view_res_partner_member_filter">
+    <record id="view_res_partner_member_filter" model="ir.ui.view">
         <field name="name">Membership extension filters</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
