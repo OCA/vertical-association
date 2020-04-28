@@ -63,6 +63,11 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def write(self, vals):
-        self._correct_vals_membership_type(
-            vals, vals.get('membership_type', self.membership_type))
-        return super(ProductTemplate, self).write(vals)
+        if not vals.get('membership_type'):
+            return super(ProductTemplate, self).write(vals)
+        for rec in self:
+            vals2 = vals.copy()
+            rec._correct_vals_membership_type(
+                vals2, vals.get('membership_type', rec.membership_type))
+            super(ProductTemplate, rec).write(vals2)
+        return True
