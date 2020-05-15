@@ -102,6 +102,10 @@ class ResPartner(models.Model):
                  'associate_member.membership_cancel')
     def _compute_membership_date(self):
         member_states = self._membership_member_states()
+        mem_lines_count = self.env[
+            'membership.membership_line'].search_count([])
+        if mem_lines_count == 0:
+            return True
         for partner in self:
             parent = partner.associate_member
             if parent:
@@ -153,6 +157,10 @@ class ResPartner(models.Model):
     def _compute_membership_state(self):
         prior = self._membership_state_prior()
         member_states = self._membership_member_states()
+        mem_lines_count = self.env[
+            'membership.membership_line'].search_count([])
+        if mem_lines_count == 0:
+            return True
         for partner in self:
             if partner.associate_member:
                 partner.membership_state = \
