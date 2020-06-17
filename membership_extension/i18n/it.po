@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2020-06-08 22:19+0000\n"
+"PO-Revision-Date: 2020-06-18 00:19+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -150,7 +150,7 @@ msgstr "Oro"
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr ""
+msgstr "Aiuta a organizzare le operazioni di gestione delle iscrizioni."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
@@ -223,12 +223,12 @@ msgstr "Ultimo aggiornamento il"
 #. module: membership_extension
 #: model:res.groups,name:membership_extension.group_membership_manager
 msgid "Manager"
-msgstr ""
+msgstr "Supervisore"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
-msgstr "Iscritto"
+msgstr "Socio"
 
 #. module: membership_extension
 #: model:ir.module.category,name:membership_extension.module_category_membership_management
