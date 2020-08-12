@@ -1,6 +1,7 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2016 Tecnativa - Antonio Espinosa
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Copyright 2019 Onestein - Andrea Stirpe
+# License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0.html
 import math
 from datetime import timedelta
 
@@ -12,7 +13,6 @@ from odoo import api, fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    @api.multi
     def _get_next_date(self, date, qty=1):
         """Get the date that results on incrementing given date an interval of
         time in time unit.
@@ -22,7 +22,7 @@ class ProductTemplate(models.Model):
         @rtype: date
         @return: The date incremented in 'interval' units of 'unit'.
         """
-        res = super(ProductTemplate, self)._get_next_date(date, qty=qty)
+        res = super()._get_next_date(date, qty=qty)
         if self.membership_type == "variable":
             delta = self.membership_interval_qty * int(math.ceil(qty))
             if isinstance(date, str):
@@ -63,11 +63,15 @@ class ProductTemplate(models.Model):
     @api.model
     def create(self, vals):
         self._correct_vals_membership_type(vals, vals.get("membership_type", "fixed"))
-        return super(ProductTemplate, self).create(vals)
+        return super().create(vals)
 
-    @api.multi
     def write(self, vals):
-        self._correct_vals_membership_type(
-            vals, vals.get("membership_type", self.membership_type)
-        )
-        return super(ProductTemplate, self).write(vals)
+        if not vals.get("membership_type"):
+            return super().write(vals)
+        for rec in self:
+            vals2 = vals.copy()
+            rec._correct_vals_membership_type(
+                vals2, vals.get("membership_type", rec.membership_type)
+            )
+            super(ProductTemplate, rec).write(vals2)
+        return True
