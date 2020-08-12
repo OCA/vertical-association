@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-membership_delegated_partner',
+        'odoo13-addon-membership_extension',
     ],
     classifiers=[
         'Programming Language :: Python',
