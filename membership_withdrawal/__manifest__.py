@@ -7,14 +7,11 @@
     "version": "12.0.1.0.0",
     "category": "Association",
     "website": "https://github.com/OCA/vertical-association",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "membership_extension",
-    ],
+    "depends": ["membership_extension",],
     "data": [
         "security/ir.model.access.csv",
         "data/membership_withdrawal_reason_data.xml",
