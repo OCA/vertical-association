@@ -8,7 +8,8 @@ class MembershipLine(models.Model):
 
     date_withdrawal = fields.Date(
         string="Withdrawal date",
-        help="Date when member requested membership withdrawal")
+        help="Date when member requested membership withdrawal",
+    )
     withdrawal_reason_id = fields.Many2one(
-        string="Withdrawal reason",
-        comodel_name='membership.withdrawal_reason')
+        string="Withdrawal reason", comodel_name="membership.withdrawal_reason"
+    )
