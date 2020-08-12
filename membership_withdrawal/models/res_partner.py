@@ -7,28 +7,38 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     membership_last_withdrawal_reason_id = fields.Many2one(
-        string="Membership withdrawal reason", store=True,
-        comodel_name='membership.withdrawal_reason', index=True,
+        string="Membership withdrawal reason",
+        store=True,
+        comodel_name="membership.withdrawal_reason",
+        index=True,
         compute="_compute_last_withdrawal",
-        help="Withdrawal reason of current membership period")
+        help="Withdrawal reason of current membership period",
+    )
 
     membership_last_withdrawal_date = fields.Date(
-        string="Membership withdrawal date", store=True,
+        string="Membership withdrawal date",
+        store=True,
         compute="_compute_last_withdrawal",
-        help="Withdrawal date of current membership period")
+        help="Withdrawal date of current membership period",
+    )
 
-    @api.depends('membership_state', 'member_lines.withdrawal_reason_id',
-                 'member_lines.date_withdrawal',
-                 'associate_member.membership_last_withdrawal_reason_id',
-                 'associate_member.membership_last_withdrawal_date')
+    @api.depends(
+        "membership_state",
+        "member_lines.withdrawal_reason_id",
+        "member_lines.date_withdrawal",
+        "associate_member.membership_last_withdrawal_reason_id",
+        "associate_member.membership_last_withdrawal_date",
+    )
     def _compute_last_withdrawal(self):
         for partner in self:
             parent = partner.associate_member
             if parent:
-                partner.membership_last_withdrawal_reason_id = \
+                partner.membership_last_withdrawal_reason_id = (
                     parent.membership_last_withdrawal_reason_id
-                partner.membership_last_withdrawal_date = \
+                )
+                partner.membership_last_withdrawal_date = (
                     parent.membership_last_withdrawal_date
+                )
             else:
                 withdrawal_reason_id = False
                 date_withdrawal = False
@@ -37,7 +47,8 @@ class ResPartner(models.Model):
                         withdrawal_reason_id = line.withdrawal_reason_id
                         date_withdrawal = line.date_withdrawal
                         break
-                partner.membership_last_withdrawal_reason_id = \
+                partner.membership_last_withdrawal_reason_id = (
                     withdrawal_reason_id.id if withdrawal_reason_id else False
+                )
                 partner.membership_last_withdrawal_date = date_withdrawal
         return True
