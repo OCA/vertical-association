@@ -1,7 +1,8 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2016 Tecnativa - Antonio Espinosa
 # Copyright 2017-19 Tecnativa - David Vidal
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Copyright 2019 Onestein - Andrea Stirpe
+# License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 from datetime import date
 
 from odoo import fields
@@ -10,7 +11,7 @@ from odoo.tests import common
 
 class TestMembershipVariablePeriod(common.TransactionCase):
     def setUp(self):
-        super(TestMembershipVariablePeriod, self).setUp()
+        super().setUp()
         self.product = self.env["product.product"].create(
             {
                 "name": "Membership product with variable period",
@@ -24,27 +25,22 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         )
         self.partner = self.env["res.partner"].create({"name": "Test"})
 
+    def create_invoice(self, invoice_date, quantity=1.0):
+        invoice_form = common.Form(
+            self.env["account.move"].with_context(default_type="out_invoice")
+        )
+        invoice_form.invoice_date = invoice_date
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as invoice_line_form:
+            invoice_line_form.product_id = self.product
+            invoice_line_form.price_unit = self.product.list_price
+            invoice_line_form.quantity = quantity
+        return invoice_form.save()
+
     def test_create_invoice_membership_product_days(self):
         self.product.membership_interval_unit = "days"
         self.product.membership_interval_qty = 20
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership w/o prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-07-01")
         membership_line = invoice.invoice_line_ids[0].membership_lines[0]
         membership_line.write({"state": "invoiced"})
         self.assertEqual(
@@ -59,24 +55,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         )
 
     def test_create_invoice_membership_product_week(self):
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership w/o prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-07-01")
         membership_line = invoice.invoice_line_ids[0].membership_lines[0]
         membership_line.write({"state": "invoiced"})
         self.assertEqual(
@@ -92,24 +71,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_month(self):
         self.product.membership_interval_unit = "months"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-04-15",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership with prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-04-15")
         membership_line = invoice.invoice_line_ids[0].membership_lines[0]
         membership_line.write({"state": "invoiced"})
         self.assertEqual(
@@ -125,24 +87,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_year(self):
         self.product.membership_interval_unit = "years"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2016-07-01",  # It's leap year
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership with prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2016-07-01")  # It's leap year
         membership_line = invoice.invoice_line_ids[0].membership_lines[0]
         membership_line.write({"state": "invoiced"})
         self.assertEqual(
@@ -158,24 +103,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_year_several(self):
         self.product.membership_interval_unit = "years"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership with prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 3.0,
-            }
-        )
+        invoice = self.create_invoice("2015-07-01", quantity=3.0)
         membership_lines = invoice.invoice_line_ids[0].membership_lines
         membership_lines.write({"state": "invoiced"})
         self.assertEqual(len(membership_lines), 1)
@@ -194,25 +122,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def test_modify_invoice_membership_product(self):
         self.product.membership_interval_unit = "years"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership w/o prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
-        invoice.invoice_line_ids[0].quantity = 2.0
+        invoice = self.create_invoice("2015-07-01", quantity=2.0)
         membership_lines = invoice.invoice_line_ids[0].membership_lines
         membership_lines.write({"state": "invoiced"})
         self.assertEqual(len(membership_lines), 1)
@@ -229,7 +139,10 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             self.partner.membership_stop, fields.Date.from_string("2017-06-30")
         )
         # Remove quantity
-        invoice.invoice_line_ids[0].quantity = 1.0
+        invoice_form = common.Form(invoice)
+        with invoice_form.invoice_line_ids.edit(0) as invoice_line_form:
+            invoice_line_form.quantity = 1.0
+        invoice = invoice_form.save()
         membership_lines = invoice.invoice_line_ids[0].membership_lines
         self.assertEqual(len(membership_lines), 1)
         self.assertEqual(
@@ -241,50 +154,16 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def test_modify_invoice_membership_product_type(self):
         self.product.membership = False
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership w/o prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-07-01")
         self.assertFalse(invoice.invoice_line_ids[0].membership_lines)
         self.product.membership = True
         invoice.invoice_line_ids[0].quantity = 1.0
         self.assertEqual(len(invoice.invoice_line_ids[0].membership_lines), 1)
 
     def test_create_and_modify_invoice_line_membership_product(self):
-        account = self.partner.property_account_receivable_id.id
         self.product.membership_interval_qty = 20
         self.product.membership_interval_unit = "days"
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership w/o prorrate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-07-01")
         membership_line = invoice.invoice_line_ids[0].membership_lines[0]
         membership_line.write({"state": "invoiced"})
         self.assertEqual(
@@ -334,21 +213,16 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             self.assertEqual(template._get_next_date(old_date), next_date)
 
     def test_create_invoice_line_with_no_product(self):
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-07-01",
-                "account_id": account,
-            }
+        invoice_form = common.Form(
+            self.env["account.move"].with_context(default_type="out_invoice")
         )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "price_unit": self.product.list_price,
-                "name": "No product",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice_form.invoice_date = "2015-07-01"
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as invoice_line_form:
+            invoice_line_form.name = "No product"
+            invoice_line_form.price_unit = self.product.list_price
+            invoice_line_form.quantity = 1.0
+        invoice = invoice_form.save()
+
         self.assertFalse(invoice.invoice_line_ids[0].product_id)
+        self.assertFalse(invoice.invoice_line_ids[0].membership_lines)
