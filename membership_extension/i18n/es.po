@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2018-01-05 03:40+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2020-08-13 14:59+0000\n"
+"Last-Translator: GorkaMagra <gorka.magra@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -44,7 +45,7 @@ msgstr "Socio adherido"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr ""
+msgstr "Miembro asociado"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:54
@@ -59,18 +60,14 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
-#, fuzzy
-#| msgid "Membership Category"
 msgid "Cancel Membership Date"
-msgstr "Categoría de asociación"
+msgstr "Cancelar fecha de membresía"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
-#, fuzzy
-#| msgid "Adhered member"
 msgid "Cancelled Member"
-msgstr "Socio adherido"
+msgstr "Miembro cancelado"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
@@ -80,12 +77,12 @@ msgstr "Categoría"
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
 msgid "Company"
-msgstr ""
+msgstr "Compañia"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_uid
@@ -123,7 +120,7 @@ msgstr "Fecha desde la cual está adherido."
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Fecha desde la cual la membresía se cancela"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
@@ -139,10 +136,8 @@ msgstr "Nombre mostrado"
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
-#, fuzzy
-#| msgid "Member"
 msgid "Free Member"
-msgstr "Miembro"
+msgstr "Membresía Gratuita"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
