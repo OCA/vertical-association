@@ -61,7 +61,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 #, fuzzy
-#| msgid "Membership Category"
 msgid "Cancel Membership Date"
 msgstr "Kategorija članstva"
 
@@ -100,7 +99,6 @@ msgstr "Ustvarjeno"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 #, fuzzy
-#| msgid "Memberships"
 msgid "Current Membership Status"
 msgstr "Članarine"
 
@@ -137,7 +135,6 @@ msgstr "Prikazni naziv"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Free Member"
 msgstr "Član"
 
@@ -175,7 +172,6 @@ msgstr "Postavka računa"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Invoice Line"
 msgid "Invoiced Member"
 msgstr "Postavka računa"
 
@@ -245,14 +241,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 #, fuzzy
-#| msgid "Membership Last Start Date"
 msgid "Membership Adhered Start Date"
 msgstr "Začetni končni datum članarine"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Bronze"
 msgstr "Članarine"
 
@@ -273,14 +267,12 @@ msgstr "Kategorija članstva"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
 #, fuzzy
-#| msgid "Membership Category"
 msgid "Membership End Date"
 msgstr "Kategorija članstva"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Gold"
 msgstr "Članarine"
 
@@ -293,7 +285,6 @@ msgstr "Začetni končni datum članarine"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Line"
 msgstr "Članarine"
 
@@ -310,7 +301,6 @@ msgstr ""
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 #, fuzzy
-#| msgid "Membership Category"
 msgid "Membership Silver"
 msgstr "Kategorija članstva"
 
@@ -323,7 +313,6 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
 #, fuzzy
-#| msgid "Memberships"
 msgid "Membership Status"
 msgstr "Članarine"
 
@@ -356,7 +345,6 @@ msgstr "Naziv"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Non Member"
 msgstr "Član"
 
@@ -364,7 +352,6 @@ msgstr "Član"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Old Member"
 msgstr "Član"
 
@@ -372,7 +359,6 @@ msgstr "Član"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Paid Member"
 msgstr "Član"
 
@@ -423,7 +409,6 @@ msgstr ""
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Waiting Member"
 msgstr "Član"
 

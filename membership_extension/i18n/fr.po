@@ -63,7 +63,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 #, fuzzy
-#| msgid "Membership Start Date"
 msgid "Cancel Membership Date"
 msgstr "Date de début d'adhésion"
 
@@ -71,7 +70,6 @@ msgstr "Date de début d'adhésion"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Adhered member"
 msgid "Cancelled Member"
 msgstr "Membre adhérent"
 
@@ -104,7 +102,6 @@ msgstr "Créer le"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 #, fuzzy
-#| msgid "Membership Start Date"
 msgid "Current Membership Status"
 msgstr "Date de début d'adhésion"
 
@@ -112,7 +109,6 @@ msgstr "Date de début d'adhésion"
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 #, fuzzy
-#| msgid "Date from which partner is adhered."
 msgid "Date from which membership becomes active."
 msgstr "Date à partir de laquelle le partenaire a adhéré."
 
@@ -143,7 +139,6 @@ msgstr "Nom à afficher"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Free Member"
 msgstr "Membre"
 
@@ -181,7 +176,6 @@ msgstr "Ligne de facture"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Invoice Line"
 msgid "Invoiced Member"
 msgstr "Ligne de facture"
 
@@ -251,14 +245,12 @@ msgstr "Adhésion"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 #, fuzzy
-#| msgid "Membership Start Date"
 msgid "Membership Adhered Start Date"
 msgstr "Date de début d'adhésion"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 #, fuzzy
-#| msgid "Membership Lines"
 msgid "Membership Bronze"
 msgstr "Lignes d'adhésion"
 
@@ -279,14 +271,12 @@ msgstr "Catégorie de membre"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
 #, fuzzy
-#| msgid "Membership Start Date"
 msgid "Membership End Date"
 msgstr "Date de début d'adhésion"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 #, fuzzy
-#| msgid "Membership"
 msgid "Membership Gold"
 msgstr "Adhésion"
 
@@ -299,7 +289,6 @@ msgstr "Dernière date de début de l'adhésion"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 #, fuzzy
-#| msgid "Membership Lines"
 msgid "Membership Line"
 msgstr "Lignes d'adhésion"
 
@@ -316,7 +305,6 @@ msgstr "Produits d'adhésion"
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 #, fuzzy
-#| msgid "Membership Lines"
 msgid "Membership Silver"
 msgstr "Lignes d'adhésion"
 
@@ -329,7 +317,6 @@ msgstr "Date de début d'adhésion"
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
 #, fuzzy
-#| msgid "Membership Start Date"
 msgid "Membership Status"
 msgstr "Date de début d'adhésion"
 
@@ -362,7 +349,6 @@ msgstr "Nom"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Non Member"
 msgstr "Membre"
 
@@ -370,7 +356,6 @@ msgstr "Membre"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Old Member"
 msgstr "Membre"
 
@@ -378,7 +363,6 @@ msgstr "Membre"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Paid Member"
 msgstr "Membre"
 
@@ -429,7 +413,6 @@ msgstr ""
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Waiting Member"
 msgstr "Membre"
 

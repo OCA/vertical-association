@@ -166,7 +166,6 @@ msgstr ""
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Invoice"
 msgid "Invoiced Member"
 msgstr "ใบแจ้งหนี้"
 

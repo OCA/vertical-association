@@ -167,7 +167,6 @@ msgstr "發票明細"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Invoice Line"
 msgid "Invoiced Member"
 msgstr "發票明細"
 

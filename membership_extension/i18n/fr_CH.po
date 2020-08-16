@@ -131,7 +131,6 @@ msgstr "Nom affiché"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Free Member"
 msgstr "Membre"
 
@@ -169,7 +168,6 @@ msgstr "Ligne de facture"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Invoice Line"
 msgid "Invoiced Member"
 msgstr "Ligne de facture"
 
@@ -336,7 +334,6 @@ msgstr ""
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Non Member"
 msgstr "Membre"
 
@@ -344,7 +341,6 @@ msgstr "Membre"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Old Member"
 msgstr "Membre"
 
@@ -352,7 +348,6 @@ msgstr "Membre"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Paid Member"
 msgstr "Membre"
 
@@ -403,7 +398,6 @@ msgstr ""
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 #, fuzzy
-#| msgid "Member"
 msgid "Waiting Member"
 msgstr "Membre"
 
