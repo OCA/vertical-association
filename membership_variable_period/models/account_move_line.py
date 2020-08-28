@@ -28,10 +28,15 @@ class AccountMoveLine(models.Model):
             "account_invoice_line": line_id,
         }
 
+    @api.model
+    def _get_variable_period_product_membership_types(self):
+        return ["variable"]
+
     def write(self, vals):
         """Create before the lines of membership with variable period."""
         memb_line_model = self.env["membership.membership_line"]
         if any(x in vals for x in ["product_id", "quantity", "move_id"]):
+            membership_types = self._get_variable_period_product_membership_types()
             for line in self:
                 product = (
                     self.env["product.product"].browse(vals["product_id"])
@@ -46,7 +51,7 @@ class AccountMoveLine(models.Model):
                 if (
                     move.type == "out_invoice"
                     and product.membership
-                    and product.membership_type == "variable"
+                    and product.membership_type in membership_types
                 ):
                     quantity = float(vals.get("quantity", line.quantity))
                     price_unit = vals.get("price_unit", line.price_unit)
@@ -68,10 +73,11 @@ class AccountMoveLine(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         lines = super().create(vals_list)
+        membership_types = self._get_variable_period_product_membership_types()
         for line in lines.filtered(
             lambda l: l.move_id.type == "out_invoice"
             and l.product_id.membership
-            and l.product_id.membership_type == "variable"
+            and l.product_id.membership_type in membership_types
         ):
             qty = float(line.quantity)
             membership_vals = self._prepare_membership_line(
