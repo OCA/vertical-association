@@ -1,4 +1,4 @@
-# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2015-2020 Tecnativa - Pedro M. Baeza
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
@@ -43,17 +43,17 @@ class AccountInvoiceLine(models.Model):
         """
         # TODO: remove product parameter in v12
         product = product or self.product_id
-        if not product or not product.membership or (
-                product.initial_fee == 'none'):
+        if (not product or not product.membership or
+                product.initial_fee == 'none' or
+                self.invoice_id.type != "out_invoice"):
             return False
         # See if partner has any membership line to decide whether or not
         # to create the initial fee
-        member_lines = self.env['membership.membership_line'].search([
+        return not self.env['membership.membership_line'].search_count([
             ('partner', '=', self.invoice_id.partner_id.id),
             ('account_invoice_line', 'not in', (self.id,)),
             ('state', 'not in', ['none', 'canceled']),
         ])
-        return not bool(member_lines)
 
     @api.model
     def create(self, vals):
