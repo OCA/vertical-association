@@ -2,7 +2,7 @@
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo.tests import common
+from odoo.tests import common, Form
 
 
 class TestMembershipInitialFee(common.SavepointCase):
@@ -106,3 +106,17 @@ class TestMembershipInitialFee(common.SavepointCase):
         membership_product.product_fee = self.product
         membership_product.onchange_product_fee()
         self.assertEqual(membership_product.fixed_fee, self.product.list_price)
+
+    def test_refund_invoice(self):
+        invoice_form = Form(self.env["account.invoice"].with_context(
+            default_type="out_refund"
+        ))
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as line_form:
+            line_form.product_id = self.product_fixed
+            line_form.quantity = 1
+            line_form.price_unit = 10
+        invoice = invoice_form.save()
+        self.assertEqual(
+            len(invoice.invoice_line_ids), 1,
+            "The created invoice should have 1 line")
