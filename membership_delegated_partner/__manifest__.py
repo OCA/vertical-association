@@ -4,6 +4,7 @@
 {
     'name': 'Membership Delegate Partner',
     'version': '12.0.1.1.0',
+    "development_status": "Production/Stable"
     'category': 'Membership',
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
