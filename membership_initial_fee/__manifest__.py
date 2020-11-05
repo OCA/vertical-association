@@ -5,6 +5,7 @@
 {
     'name': 'Initial fee for memberships',
     'version': '12.0.1.0.1',
+    "development_status": "Production/Stable",
     'license': 'AGPL-3',
     'category': 'Association',
     'author': 'Tecnativa, '
