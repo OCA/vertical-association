@@ -72,7 +72,6 @@ msgstr "Última actualización en"
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_membership_line
 #, fuzzy
-#| msgid "Membership withdrawal date"
 msgid "Membership Line"
 msgstr "Fecha de baja"
 
