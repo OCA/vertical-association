@@ -47,10 +47,14 @@ class AccountInvoiceLine(models.Model):
                 product.initial_fee == 'none' or
                 self.invoice_id.type != "out_invoice"):
             return False
+        # If we are associated to another partner membership, evaluate that
+        # partner lines
+        partner = (
+            self.partner_id.associate_member or self.invoice_id.partner_id)
         # See if partner has any membership line to decide whether or not
         # to create the initial fee
         return not self.env['membership.membership_line'].search_count([
-            ('partner', '=', self.invoice_id.partner_id.id),
+            ('partner', '=', partner.id),
             ('account_invoice_line', 'not in', (self.id,)),
             ('state', 'not in', ['none', 'canceled']),
         ])
