@@ -40,11 +40,14 @@ class AccountMoveLine(models.Model):
         product = self.product_id
         if not product or not product.membership or product.initial_fee == "none":
             return False
+        # If we are associated to another partner membership, evaluate that
+        # partner lines
+        partner = self.partner_id.associate_member or self.move_id.partner_id
         # See if partner has any membership line to decide whether or not
         # to create the initial fee
         member_lines = self.env["membership.membership_line"].search(
             [
-                ("partner", "=", self.move_id.partner_id.id),
+                ("partner", "=", partner.id),
                 ("account_invoice_line", "not in", (self.id,)),
                 ("state", "not in", ["none", "canceled"]),
             ]
