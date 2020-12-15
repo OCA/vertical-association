@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-membership_delegated_partner',
         'odoo13-addon-membership_extension',
+        'odoo13-addon-membership_initial_fee',
     ],
     classifiers=[
         'Programming Language :: Python',
