@@ -4,7 +4,7 @@
 
 {
     'name': 'Initial fee for memberships',
-    'version': '12.0.1.0.1',
+    'version': '12.0.1.0.2',
     "development_status": "Production/Stable",
     'license': 'AGPL-3',
     'category': 'Association',
