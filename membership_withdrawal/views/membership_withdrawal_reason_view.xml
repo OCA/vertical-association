@@ -16,7 +16,18 @@
     <field name="arch" type="xml">
         <tree string="Membership withdrawal reasons" editable="top">
             <field name="name"/>
+            <field name="active" readonly="1" />
         </tree>
+    </field>
+</record>
+
+<record id="membership_withdrawal_reason_search_view" model="ir.ui.view">
+    <field name="model">membership.withdrawal_reason</field>
+    <field name="arch" type="xml">
+        <search>
+            <filter string="Active" domain="[('active','=', True)]" name="active_reasons"/>
+            <filter string="Archived" domain="[('active','=', False)]" name="archived_reasons"/>
+        </search>
     </field>
 </record>
 
