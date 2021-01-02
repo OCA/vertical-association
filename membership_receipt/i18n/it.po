@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* membership_receipt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-22 21:11+0000\n"
+"PO-Revision-Date: 2022-01-22 21:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: membership_receipt
+#: model_terms:ir.ui.view,arch_db:membership_receipt.view_account_journal_form
+msgid "Associations"
+msgstr "Associazioni"
+
+#. module: membership_receipt
+#: model:ir.model,name:membership_receipt.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: membership_receipt
+#: model:ir.model.fields,field_description:membership_receipt.field_account_journal__display_name
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move__display_name
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_invoice__display_name
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_membership_line__display_name
+#: model:ir.model.fields,field_description:membership_receipt.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: membership_receipt
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_membership_line__account_invoice_id
+msgid "Document"
+msgstr "Documento"
+
+#. module: membership_receipt
+#: model:ir.model.fields,field_description:membership_receipt.field_account_journal__id
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move__id
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move_line__id
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_invoice__id
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_membership_line__id
+#: model:ir.model.fields,field_description:membership_receipt.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_receipt
+#: model:ir.actions.act_window,name:membership_receipt.action_membership_receipt_view
+msgid "Join Membership"
+msgstr "Effettua iscrizione"
+
+#. module: membership_receipt
+#: model_terms:ir.ui.view,arch_db:membership_receipt.view_membership_receipt_view
+msgid "Join with Receipt"
+msgstr "Iscrivi con ricevuta"
+
+#. module: membership_receipt
+#: model:ir.model,name:membership_receipt.model_account_journal
+#: model:ir.model.fields,field_description:membership_receipt.field_account_bank_statement_line__journal_id
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move__journal_id
+#: model:ir.model.fields,field_description:membership_receipt.field_account_payment__journal_id
+msgid "Journal"
+msgstr "Registro"
+
+#. module: membership_receipt
+#: model:ir.model,name:membership_receipt.model_account_move
+msgid "Journal Entry"
+msgstr "Registrazione contabile"
+
+#. module: membership_receipt
+#: model:ir.model,name:membership_receipt.model_account_move_line
+msgid "Journal Item"
+msgstr "Movimento contabile"
+
+#. module: membership_receipt
+#: model:ir.model.fields,field_description:membership_receipt.field_account_journal____last_update
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move____last_update
+#: model:ir.model.fields,field_description:membership_receipt.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_invoice____last_update
+#: model:ir.model.fields,field_description:membership_receipt.field_membership_membership_line____last_update
+#: model:ir.model.fields,field_description:membership_receipt.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: membership_receipt
+#: model:ir.model,name:membership_receipt.model_membership_membership_line
+msgid "Membership Line"
+msgstr "Riga iscrizione"
+
+#. module: membership_receipt
+#: model:ir.model,name:membership_receipt.model_membership_invoice
+msgid "Membership Receipt"
+msgstr "Ricevuta di iscrizione"
+
+#. module: membership_receipt
+#: code:addons/membership_receipt/models/account_journal.py:0
+#, python-format
+msgid "No journal found for membership receipts"
+msgstr "Nessun registro trovato per le ricevute di iscrizione"
+
+#. module: membership_receipt
+#: code:addons/membership_receipt/models/partner.py:0
+#, python-format
+msgid "Partner doesn't have an address to make the receipt."
+msgstr "Il partner non ha un indirizzo per creare la ricevuta."
+
+#. module: membership_receipt
+#: code:addons/membership_receipt/models/partner.py:0
+#, python-format
+msgid "Partner is a free Member."
+msgstr "Il partner è un iscritto non pagante."
+
+#. module: membership_receipt
+#: model:ir.model.fields,field_description:membership_receipt.field_account_journal__membership_receipts
+msgid "Receipts"
+msgstr "Ricevute"
+
+#. module: membership_receipt
+#: model:ir.model.fields,help:membership_receipt.field_membership_membership_line__account_invoice_id
+msgid "The move of this entry line."
+msgstr "Il movimento per questa riga di registrazione."

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <record id="view_membership_receipt_view" model="ir.ui.view">
+            <field name="name">membership.receipt.view.form</field>
+            <field name="model">membership.invoice</field>
+            <field name="inherit_id" ref="membership.view_membership_invoice_view" />
+            <field name="arch" type="xml">
+                <button name="membership_invoice" position="before">
+                    <button
+                    string="Join with Receipt"
+                    name="membership_receipt"
+                    type="object"
+                    class="btn-primary"
+                    context="{'default_membership_receipt': True}"
+                />
+                </button>
+            </field>
+        </record>
+
+        <record id="action_membership_receipt_view" model="ir.actions.act_window">
+            <field name="name">Join Membership</field>
+            <field name="res_model">membership.invoice</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_membership_receipt_view" />
+            <field name="target">new</field>
+        </record>
+</odoo>
