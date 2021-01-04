@@ -20,6 +20,17 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__active
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Active"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
 msgstr ""
