@@ -4,7 +4,7 @@
 {
     "name": "Membership withdrawal",
     "summary": "Log membership withdrawal reason and date of request",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Association",
     "website": "https://github.com/OCA/vertical-association",
     "author": "Tecnativa, "
