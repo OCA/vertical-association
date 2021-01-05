@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Atonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="membership_withdrawal_reason_action" model="ir.actions.act_window">
+        <field name="name">Membership withdrawal reasons</field>
+        <field name="res_model">membership.withdrawal_reason</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="membership_withdrawal_reason_tree_view" model="ir.ui.view">
+        <field name="name">Membership withdrawal reasons</field>
+        <field name="model">membership.withdrawal_reason</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" />
+                <field name="active" readonly="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="membership_withdrawal_reason_search_view" model="ir.ui.view">
+        <field name="model">membership.withdrawal_reason</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter
+                    string="Active"
+                    domain="[('active','=', True)]"
+                    name="active_reasons"
+                />
+                <filter
+                    string="Archived"
+                    domain="[('active','=', False)]"
+                    name="archived_reasons"
+                />
+            </search>
+        </field>
+    </record>
+    <menuitem
+        action="membership_withdrawal_reason_action"
+        id="menu_membership_withdrawal_reason"
+        name="Membership withdrawal reasons"
+        parent="membership.menu_marketing_config_association"
+        sequence="3"
+    />
+</odoo>

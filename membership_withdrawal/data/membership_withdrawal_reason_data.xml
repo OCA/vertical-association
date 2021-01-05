@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Atonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="reason_unsatisfied" model="membership.withdrawal_reason">
+        <field name="name">Unsatisfied</field>
+    </record>
+    <record id="reason_company_bankrupt" model="membership.withdrawal_reason">
+        <field name="name">Company bankrupt</field>
+    </record>
+    <record id="reason_other" model="membership.withdrawal_reason">
+        <field name="name">Other</field>
+    </record>
+</odoo>
