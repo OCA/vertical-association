@@ -11,6 +11,8 @@ class AccountAnalyticAccount(models.Model):
     )
 
     def _prepare_invoice(self, date_invoice, journal=None):
-        res = super()._prepare_invoice(date_invoice, journal=journal)
-        res["delegated_member_id"] = self.delegated_member_id.id
-        return res
+        invoice_vals, move_form = super()._prepare_invoice(
+            date_invoice, journal=journal
+        )
+        invoice_vals["delegated_member_id"] = self.delegated_member_id.id
+        return invoice_vals, move_form
