@@ -8,9 +8,7 @@ class TestMembershipDelegateSetup(TestContractBase):
     @classmethod
     def setUpClass(cls):
         super(TestMembershipDelegateSetup, cls).setUpClass()
-        cls.partner2 = cls.env['res.partner'].create({
-            'name': 'Mrs. Odoo',
-        })
+        cls.partner2 = cls.env["res.partner"].create({"name": "Mrs. Odoo"})
         cls.product_1.membership = True
         cls.contract.delegated_member_id = cls.partner2
 
