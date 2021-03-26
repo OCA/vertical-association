@@ -48,7 +48,8 @@ class AccountInvoice(models.Model):
         self.mapped('invoice_line_ids.membership_lines').write({
             'state': 'invoiced',
         })
-        for refund in self.filtered(lambda r: r.type == 'out_refund'):
+        for refund in self.filtered(
+                lambda r: r.type == 'out_refund' and r.origin):
             origin = self.search([
                 ('type', '=', 'out_invoice'),
                 ('number', '=', refund.origin),
