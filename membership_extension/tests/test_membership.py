@@ -349,6 +349,68 @@ class TestMembership(common.SavepointCase):
         refund.action_invoice_open()
         self.assertEqual('paid', line.state)
 
+    def test_manual_refund(self):
+        """
+            Create several draft out invoices
+            Create a refund without origin field
+        """
+        self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': fields.Date.today(),
+            'origin': False,
+            'type': 'out_invoice',
+            'account_id': self.account_partner.id,
+            'journal_id': self.journal.id,
+            'invoice_line_ids': [
+                (0, 0, {
+                    'account_id': self.account_product.id,
+                    'product_id': self.gold_product.id,
+                    'price_unit': 100.0,
+                    'name': self.gold_product.name,
+                    'quantity': 1.0,
+                }),
+            ],
+        })
+        self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': fields.Date.today(),
+            'origin': False,
+            'type': 'out_invoice',
+            'account_id': self.account_partner.id,
+            'journal_id': self.journal.id,
+            'invoice_line_ids': [
+                (0, 0, {
+                    'account_id': self.account_product.id,
+                    'product_id': self.gold_product.id,
+                    'price_unit': 100.0,
+                    'name': self.gold_product.name,
+                    'quantity': 1.0,
+                }),
+            ],
+        })
+        refund = self.env['account.invoice'].create({
+            'partner_id': self.partner.id,
+            'date_invoice': fields.Date.today(),
+            'origin': False,
+            'type': 'out_refund',
+            'account_id': self.account_partner.id,
+            'journal_id': self.journal.id,
+            'invoice_line_ids': [
+                (0, 0, {
+                    'account_id': self.account_product.id,
+                    'product_id': self.gold_product.id,
+                    'price_unit': 100.0,
+                    'name': self.gold_product.name,
+                    'quantity': 1.0,
+                }),
+            ],
+        })
+        refund.invoice_validate()
+        self.assertEqual(
+            "paid",
+            refund.state
+        )
+
     def test_check_membership_all(self):
         self.env['membership.membership_line'].create({
             'membership_id': self.gold_product.id,
