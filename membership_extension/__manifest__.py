@@ -8,7 +8,7 @@
 {
     "name": "Membership extension",
     "summary": "Improves user experience of membership addon",
-    "version": "10.0.1.2.1",
+    "version": "10.0.1.2.2",
     "category": "Membership",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
