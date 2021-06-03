@@ -40,7 +40,7 @@ class TestMembershipDelegate(common.SavepointCase):
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
-                "type": "out_invoice",
+                "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
             }
@@ -73,7 +73,7 @@ class TestMembershipDelegate(common.SavepointCase):
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
-                "type": "out_invoice",
+                "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
             }
         )
@@ -100,7 +100,7 @@ class TestMembershipDelegate(common.SavepointCase):
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
-                "type": "out_invoice",
+                "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
             }
@@ -135,7 +135,7 @@ class TestMembershipDelegate(common.SavepointCase):
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
-                "type": "out_invoice",
+                "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
             }
