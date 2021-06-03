@@ -15,8 +15,7 @@ class MembershipLine(models.Model):
         "account_invoice_line.move_id.partner_id",
     )
     def _compute_partner(self):
-        """Change associated membership lines if delegated member is changed.
-        """
+        """Change associated membership lines if delegated member is changed."""
         for membership in self:
             inv_line = membership.account_invoice_line
             if inv_line:
