@@ -48,10 +48,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__partner
 msgid "Partner"
 msgstr ""
-
-#~ msgid "Invoice"
-#~ msgstr "Faktúra"
-
-#, fuzzy
-#~ msgid "Invoice Line"
-#~ msgstr "Faktúra"
