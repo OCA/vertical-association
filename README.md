@@ -15,7 +15,11 @@ TODO: add repo description.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[membership_delegated_partner](membership_delegated_partner/) | 14.0.1.0.0 | Delegate membership on a specific partner
 
 [//]: # (end addons)
 
