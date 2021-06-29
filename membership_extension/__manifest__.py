@@ -7,10 +7,10 @@
 {
     "name": "Membership extension",
     "summary": "Improves user experience of membership addon",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Membership",
     "author": "Tecnativa, Onestein, Odoo Community Association (OCA)",
-    "website": "https://github.com/oca/vertical-association",
+    "website": "https://github.com/OCA/vertical-association",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
