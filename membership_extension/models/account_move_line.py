@@ -16,7 +16,7 @@ class AccountMoveLine(models.Model):
     def create(self, vals_list):
         lines = super().create(vals_list)
         for line in lines:
-            if line.move_id.type == "out_invoice" and line.product_id.membership:
+            if line.move_id.move_type == "out_invoice" and line.product_id.membership:
                 line.membership_lines.write({"state": "waiting"})
         return lines
 

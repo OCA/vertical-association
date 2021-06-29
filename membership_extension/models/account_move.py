@@ -12,7 +12,7 @@ class AccountMove(models.Model):
 
     def button_draft(self):
         res = super().button_draft()
-        self.filtered(lambda m: m.type == "out_invoice").mapped(
+        self.filtered(lambda m: m.move_type == "out_invoice").mapped(
             "invoice_line_ids.membership_lines"
         ).write({"state": "waiting"})
         return res
@@ -22,18 +22,16 @@ class AccountMove(models.Model):
         membership state for customer refunds. Harmless on supplier ones.
         """
         res = super().button_cancel()
-        self.filtered(lambda m: (m.type == "out_invoice")).mapped(
+        self.filtered(lambda m: (m.move_type == "out_invoice")).mapped(
             "invoice_line_ids.membership_lines"
         ).write({"state": "canceled"})
         for refund in self.filtered(
-            lambda r: r.type == "out_refund" and r.reversed_entry_id
+            lambda r: r.move_type == "out_refund" and r.reversed_entry_id
         ):
             origin = refund.reversed_entry_id
             lines = origin.mapped("invoice_line_ids.membership_lines")
             if lines:
-                origin_state = (
-                    "paid" if origin.invoice_payment_state == "paid" else "invoiced"
-                )
+                origin_state = "paid" if origin.payment_state == "paid" else "invoiced"
                 lines.filtered(lambda r: r.state == "canceled").write(
                     {"state": origin_state}
                 )
@@ -43,11 +41,11 @@ class AccountMove(models.Model):
     def post(self):
         """Handle validated refunds for cancelling membership lines """
         res = super().post()
-        self.filtered(lambda m: (m.type == "out_invoice")).mapped(
+        self.filtered(lambda m: (m.move_type == "out_invoice")).mapped(
             "invoice_line_ids.membership_lines"
         ).write({"state": "invoiced"})
         for refund in self.filtered(
-            lambda r: r.type == "out_refund" and r.reversed_entry_id
+            lambda r: r.move_type == "out_refund" and r.reversed_entry_id
         ):
             origin = refund.reversed_entry_id
             lines = origin.mapped("invoice_line_ids.membership_lines")
