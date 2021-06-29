@@ -38,8 +38,7 @@ class TestMembership(common.SavepointCase):
                 "name": "Test journal",
                 "code": "TEST",
                 "type": "sale",
-                "default_debit_account_id": cls.account_bank.id,
-                "default_credit_account_id": cls.account_bank.id,
+                "default_account_id": cls.account_bank.id,
             }
         )
         cls.bank_journal = cls.env["account.journal"].create(
@@ -256,7 +255,7 @@ class TestMembership(common.SavepointCase):
 
     def test_remove_membership_line_with_invoice(self):
         invoice_form = common.Form(
-            self.env["account.move"].with_context(default_type="out_invoice")
+            self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = fields.Date.today()
         invoice_form.partner_id = self.partner
@@ -293,7 +292,7 @@ class TestMembership(common.SavepointCase):
 
     def test_invoice(self):
         invoice_form = common.Form(
-            self.env["account.move"].with_context(default_type="out_invoice")
+            self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = fields.Date.today()
         invoice_form.partner_id = self.partner
@@ -309,28 +308,27 @@ class TestMembership(common.SavepointCase):
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
         invoice.action_post()  # validate invoice
-        self.assertEqual("invoiced", line.state)
+        self.assertEqual(invoice.state, "posted")
+        self.assertEqual(line.state, "invoiced")
 
         # pay invoice
-        payment_register = common.Form(
-            self.env["account.payment"].with_context(
-                active_model="account.move", active_ids=invoice.ids
-            )
-        )
-        payment_register.payment_date = fields.Date.today()
-        payment_register.journal_id = self.bank_journal
-        payment_register.payment_method_id = self.env.ref(
-            "account.account_payment_method_manual_in"
-        )
-        payment_register.amount = invoice.amount_total
-        payment = payment_register.save()
-        payment.post()
+        self.env["account.payment.register"].with_context(
+            active_model="account.move", active_ids=invoice.ids
+        ).create(
+            {
+                "amount": invoice.amount_total,
+                "journal_id": self.bank_journal.id,
+                "payment_method_id": self.env.ref(
+                    "account.account_payment_method_manual_in"
+                ).id,
+            }
+        )._create_payments()
 
-        self.assertEqual("paid", invoice.invoice_payment_state)
+        self.assertEqual("paid", invoice.payment_state)
         self.assertEqual("paid", line.state)
         self.env["account.payment"].search(
             [("partner_id", "=", self.partner.id)]
-        ).cancel()
+        ).action_cancel()
         invoice.button_cancel()
         self.assertEqual("canceled", line.state)
         invoice.button_draft()
@@ -340,19 +338,17 @@ class TestMembership(common.SavepointCase):
         self.assertEqual("invoiced", line.state)
 
         # pay invoice
-        payment_register = common.Form(
-            self.env["account.payment"].with_context(
-                active_model="account.move", active_ids=invoice.ids
-            )
-        )
-        payment_register.payment_date = fields.Date.today()
-        payment_register.journal_id = self.bank_journal
-        payment_register.payment_method_id = self.env.ref(
-            "account.account_payment_method_manual_in"
-        )
-        payment_register.amount = invoice.amount_total
-        payment = payment_register.save()
-        payment.post()
+        self.env["account.payment.register"].with_context(
+            active_model="account.move", active_ids=invoice.ids
+        ).create(
+            {
+                "amount": invoice.amount_total,
+                "journal_id": self.bank_journal.id,
+                "payment_method_id": self.env.ref(
+                    "account.account_payment_method_manual_in"
+                ).id,
+            }
+        )._create_payments()
         self.assertEqual("paid", line.state)
 
         # refund invoice
@@ -363,19 +359,17 @@ class TestMembership(common.SavepointCase):
                 {
                     "date": fields.Date.today(),
                     "reason": "no reason",
-                    "refund_method": "refund",
+                    "refund_method": "cancel",
                 }
             )
         )
         reversal = move_reversal.reverse_moves()
         refund = self.env["account.move"].browse(reversal["res_id"])
-        refund.journal_id.update_posted = True
-        refund.action_post()  # validate refund
         self.assertEqual("canceled", line.state)
         refund.button_cancel()
         self.assertEqual("paid", line.state)
         refund.button_draft()
-        self.assertEqual("paid", line.state)
+        self.assertEqual("invoiced", line.state)
 
         invoice.button_draft()
         invoice_form = common.Form(invoice)
