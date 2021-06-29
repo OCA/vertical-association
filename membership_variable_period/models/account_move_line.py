@@ -49,7 +49,7 @@ class AccountMoveLine(models.Model):
                     else line.move_id
                 )
                 if (
-                    move.type == "out_invoice"
+                    move.move_type == "out_invoice"
                     and product.membership
                     and product.membership_type in membership_types
                 ):
@@ -75,7 +75,7 @@ class AccountMoveLine(models.Model):
         lines = super().create(vals_list)
         membership_types = self._get_variable_period_product_membership_types()
         for line in lines.filtered(
-            lambda l: l.move_id.type == "out_invoice"
+            lambda l: l.move_id.move_type == "out_invoice"
             and l.product_id.membership
             and l.product_id.membership_type in membership_types
         ):
