@@ -27,7 +27,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def create_invoice(self, invoice_date, quantity=1.0):
         invoice_form = common.Form(
-            self.env["account.move"].with_context(default_type="out_invoice")
+            self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = invoice_date
         invoice_form.partner_id = self.partner
@@ -214,7 +214,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_line_with_no_product(self):
         invoice_form = common.Form(
-            self.env["account.move"].with_context(default_type="out_invoice")
+            self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = "2015-07-01"
         invoice_form.partner_id = self.partner
