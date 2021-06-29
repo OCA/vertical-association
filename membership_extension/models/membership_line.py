@@ -42,13 +42,17 @@ class MembershipLine(models.Model):
                 if date_to >= self.date:
                     self.date_to = date_to
 
-    @api.depends("account_invoice_id.invoice_payment_state")
     def _compute_state(self):
         for line in self:
-            if isinstance(line.id, models.NewId):
+            if isinstance(line.id, models.NewId) or not line.account_invoice_id:
                 line.state = line.state or "none"
-            if line.account_invoice_id.invoice_payment_state == "paid":
-                line.state = "paid"
+            elif (
+                line.account_invoice_id.state == "posted"
+                and line.account_invoice_id.payment_state == "reversed"
+            ):
+                line.state = "canceled"
+            else:
+                super(MembershipLine, line)._compute_state()
 
     # Empty method _inverse_state
     def _inverse_state(self):
