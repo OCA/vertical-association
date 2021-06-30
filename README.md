@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[membership_delegated_partner](membership_delegated_partner/) | 14.0.1.0.0 | Delegate membership on a specific partner
+[membership_delegated_partner](membership_delegated_partner/) | 14.0.1.0.1 | Delegate membership on a specific partner
 
 [//]: # (end addons)
 
