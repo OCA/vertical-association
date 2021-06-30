@@ -4,6 +4,7 @@
 
 from odoo import fields
 from odoo.tests import common
+from odoo.tests.common import Form
 
 
 class TestMembershipDelegate(common.SavepointCase):
@@ -97,23 +98,16 @@ class TestMembershipDelegate(common.SavepointCase):
 
     def test_03_refund_invoice_delegated_partner(self):
         """ A refund should inherit the delegated partner in the invoice """
-        invoice = self.env["account.move"].create(
-            {
-                "name": "Test Customer Invoice",
-                "move_type": "out_invoice",
-                "partner_id": self.partner1.id,  # Invoicing partner
-                "delegated_member_id": self.partner2.id,  # Delegate membership to
-            }
+        move_form = Form(
+            self.env["account.move"].with_context(default_move_type="out_invoice")
         )
-        self.env["account.move.line"].create(
-            {
-                "move_id": invoice.id,
-                "name": "Membership for delegate member",
-                "account_id": self.account.id,
-                "product_id": self.product.id,
-                "price_unit": 1.0,
-            }
-        )
+        move_form.partner_id = self.partner1
+        with move_form.invoice_line_ids.new() as line_form:
+            line_form.product_id = self.product
+            line_form.account_id = self.account
+            line_form.price_unit = 1.0
+        invoice = move_form.save()
+        invoice.write({"delegated_member_id": self.partner2.id})
         invoice.action_post()
         move_reversal = (
             self.env["account.move.reversal"]
