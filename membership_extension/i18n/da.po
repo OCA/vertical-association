@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2018-01-05 03:40+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2021-07-02 09:12+0000\n"
+"Last-Translator: Hans Henrik Gabelgaard <hhg@gabelgaard.org>\n"
 "Language-Team: Danish (https://www.transifex.com/oca/teams/23907/da/)\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -25,6 +26,8 @@ msgid ""
 "A member who is associated to another one, but whose membership are "
 "independent."
 msgstr ""
+"Et medlem som er tilknyttet er andet medlem, men hvis medlemskab er "
+"uafhængig."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__associate_member
@@ -33,18 +36,20 @@ msgid ""
 "A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
+"Et medlem du vil tilknytte dit medlemskab med. Det vil medtage medlemskabs "
+"status på det tilknyttede medlem."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
 msgid "Adhered member"
-msgstr ""
+msgstr "Overholdt medlem"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr ""
+msgstr "Tilknyttet medlem"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:54
@@ -53,18 +58,20 @@ msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice "
 "or remove invoice line instead"
 msgstr ""
+"Kan ikke fjerne medlemskabslinie tilknyttet til en faktura. Annuller "
+"fakturaen eller fjern faktualinien"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 msgid "Cancel Membership Date"
-msgstr ""
+msgstr "Annullerringsdato"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Cancelled Member"
-msgstr ""
+msgstr "Annulleret"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
@@ -74,12 +81,12 @@ msgstr "Kategori"
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
 msgid "Company"
-msgstr ""
+msgstr "Virksomhed"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_uid
@@ -95,31 +102,31 @@ msgstr "Oprettet den"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 msgid "Current Membership Status"
-msgstr ""
+msgstr "Aktuel medlemskabs status"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Date from which membership becomes active."
-msgstr ""
+msgstr "Dato fra hvornår medlemskab bliver aktivt."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr ""
+msgstr "Dato for hvornår partner er overholdt."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Dato for annullering af medlemskab."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date until which membership remains active."
-msgstr ""
+msgstr "Dato hvortil medlemskab forbliver aktivt."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
@@ -130,22 +137,23 @@ msgstr "Vist navn"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Free Member"
-msgstr ""
+msgstr "Gratis medlemskab"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
 msgid "From"
-msgstr ""
+msgstr "Fra"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
-msgstr ""
+msgstr "Guld"
 
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
 msgstr ""
+"Hjælper dig med at administrere operationer til styring af medlemskaber."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
@@ -155,18 +163,18 @@ msgstr "Id"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice
 msgid "Invoice"
-msgstr ""
+msgstr "Faktura"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_invoice_line
 msgid "Invoice Line"
-msgstr ""
+msgstr "Fakturalinie"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Invoiced Member"
-msgstr ""
+msgstr "Faktureret medlem"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
@@ -181,6 +189,14 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paying member: A member who has paid the membership fee."
 msgstr ""
+"Det angiver medlemsstatus.\n"
+"-Ikke medlem: En partner, der ikke har ansøgt om noget medlemskab.\n"
+"- Annulleret medlem: Et medlem, der har opsagt sit medlemskab.\n"
+"-Gammelt medlem: Et medlem hvis medlemsskabs dato er udløbet.\n"
+"-Ventende medlem: Et medlem, der har ansøgt om medlemskab, og hvis faktura "
+"skal oprettes.\n"
+"-Faktureret medlem: Et medlem, hvis faktura er oprettet.\n"
+"-Betalende medlem: Et medlem, der har betalt medlemsgebyret."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__state
@@ -194,6 +210,14 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paid Member: A member who has paid the membership amount."
 msgstr ""
+"Det angiver medlemsstatus.\n"
+"-Ikke medlem: En partner, der ikke har ansøgt om noget medlemskab.\n"
+"- Annulleret medlem: Et medlem, der har opsagt sit medlemskab.\n"
+"-Gammelt medlem: Et medlem hvis medlemsskabs dato er udløbet.\n"
+"-Ventende medlem: Et medlem, der har ansøgt om medlemskab, og hvis faktura "
+"skal oprettes.\n"
+"-Faktureret medlem: Et medlem, hvis faktura er oprettet.\n"
+"-Betalende medlem: Et medlem, der har betalt medlemsgebyret."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
@@ -203,7 +227,7 @@ msgstr "Sidst ændret den"
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
-msgstr ""
+msgstr "Sidste start måned"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__write_uid
@@ -218,28 +242,28 @@ msgstr "Sidst opdateret den"
 #. module: membership_extension
 #: model:res.groups,name:membership_extension.group_membership_manager
 msgid "Manager"
-msgstr ""
+msgstr "Leder"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
-msgstr ""
+msgstr "Medlem"
 
 #. module: membership_extension
 #: model:ir.module.category,name:membership_extension.module_category_membership_management
 msgid "Membership"
-msgstr ""
+msgstr "Medlemskab"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 msgid "Membership Adhered Start Date"
-msgstr ""
+msgstr "Medlemskab overholdt start dato"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 msgid "Membership Bronze"
-msgstr ""
+msgstr "Medlemskab Bronce"
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
@@ -247,67 +271,67 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
-msgstr ""
+msgstr "Medlemsskab kategorier"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
-msgstr ""
+msgstr "Medlemskabs kategori"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
 msgid "Membership End Date"
-msgstr ""
+msgstr "Medlemskab slut dato"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 msgid "Membership Gold"
-msgstr ""
+msgstr "Medlemskab Guld"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_last_start
 msgid "Membership Last Start Date"
-msgstr ""
+msgstr "Medlemskab seneste start dato"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 msgid "Membership Line"
-msgstr ""
+msgstr "Medlemskabslinie"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_account_invoice_line__membership_lines
 msgid "Membership Lines"
-msgstr ""
+msgstr "Medlemskabslinier"
 
 #. module: membership_extension
 #: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
 msgid "Membership Products"
-msgstr ""
+msgstr "Medlemskabs produkter"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 msgid "Membership Silver"
-msgstr ""
+msgstr "Medlemskab Sølv"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start
 msgid "Membership Start Date"
-msgstr ""
+msgstr "Medlemskab start dato"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
 msgid "Membership Status"
-msgstr ""
+msgstr "Medlemskab status"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
 #: model_terms:ir.ui.view,arch_db:membership_extension.membership_category_tree_view
 msgid "Membership categories"
-msgstr ""
+msgstr "Medlemskabs kategorier"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
@@ -315,12 +339,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_product_template__membership_category_id
 #: model_terms:ir.ui.view,arch_db:membership_extension.membership_product_search_form_view
 msgid "Membership category"
-msgstr ""
+msgstr "Medlemskabs kategori"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_partner_form
 msgid "Memberships"
-msgstr ""
+msgstr "Medlemskab"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__name
@@ -331,68 +355,68 @@ msgstr "Navn"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Non Member"
-msgstr ""
+msgstr "Ikke medlem"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Old Member"
-msgstr ""
+msgstr "Gammelt medlem"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Paid Member"
-msgstr ""
+msgstr "Betalt medlem"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__partner
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Produkt skabelon"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
 msgid "Silver"
-msgstr ""
+msgstr "Sølv"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
 msgid "Start date of last membership period."
-msgstr ""
+msgstr "Start dato for sidste medlemskabs periode."
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr ""
+msgstr "Start måned for seneste medlemskabs periode"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
 msgid "To"
-msgstr ""
+msgstr "Til"
 
 #. module: membership_extension
 #: model:product.template,uom_name:membership_extension.membership_0_product_template
 #: model:product.template,uom_name:membership_extension.membership_1_product_template
 #: model:product.template,uom_name:membership_extension.membership_2_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "Enhed(er)"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Waiting Member"
-msgstr ""
+msgstr "Ventende medlem"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_category.py:28
@@ -401,10 +425,12 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+"Du kan ikke ændre virksomhed, da denne medlemskabs kategori er anvendt af "
+"produkt skabelon %s, som er tilknyttet en anden virksomhed."
 
 #. module: membership_extension
 #: model:product.template,weight_uom_name:membership_extension.membership_0_product_template
 #: model:product.template,weight_uom_name:membership_extension.membership_1_product_template
 #: model:product.template,weight_uom_name:membership_extension.membership_2_product_template
 msgid "kg"
-msgstr ""
+msgstr "kg"
