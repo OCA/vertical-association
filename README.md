@@ -10,16 +10,16 @@ Addons for association and membership related tasks.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[contract_membership_delegated_partner](contract_membership_delegated_partner/) | 10.0.1.0.0 | Set delegate membership on the contract
-[membership_delegated_partner](membership_delegated_partner/) | 10.0.1.0.4 | Delegate membership on a specific partner
-[membership_extension](membership_extension/) | 10.0.1.2.2 | Improves user experience of membership addon
-[membership_initial_fee](membership_initial_fee/) | 10.0.1.0.2 | Initial fee for memberships
-[membership_prorrate](membership_prorrate/) | 10.0.1.0.0 | Prorrate membership fee
-[membership_prorrate_variable_period](membership_prorrate_variable_period/) | 10.0.1.0.0 | Prorrate membership fee for variable periods
-[membership_variable_period](membership_variable_period/) | 10.0.2.0.1 | Variable period for memberships
-[membership_withdrawal](membership_withdrawal/) | 10.0.1.0.0 | Log membership withdrawal reason and date of request
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[contract_membership_delegated_partner](contract_membership_delegated_partner/) | 10.0.1.0.0 |  | Set delegate membership on the contract
+[membership_delegated_partner](membership_delegated_partner/) | 10.0.1.0.4 |  | Delegate membership on a specific partner
+[membership_extension](membership_extension/) | 10.0.1.2.2 |  | Improves user experience of membership addon
+[membership_initial_fee](membership_initial_fee/) | 10.0.1.0.2 |  | Initial fee for memberships
+[membership_prorrate](membership_prorrate/) | 10.0.1.0.0 |  | Prorrate membership fee
+[membership_prorrate_variable_period](membership_prorrate_variable_period/) | 10.0.1.0.0 |  | Prorrate membership fee for variable periods
+[membership_variable_period](membership_variable_period/) | 10.0.2.0.1 |  | Variable period for memberships
+[membership_withdrawal](membership_withdrawal/) | 10.0.1.0.0 |  | Log membership withdrawal reason and date of request
 
 [//]: # (end addons)
 
