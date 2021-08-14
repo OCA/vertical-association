@@ -10,15 +10,15 @@ Addons for association and membership related tasks.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[membership_autoextend](membership_autoextend/) | 8.0.1.0.0 | Extend variable memberships automatically
-[membership_extension](membership_extension/) | 8.0.1.0.1 | Improves user experience of membership addon
-[membership_initial_fee](membership_initial_fee/) | 8.0.1.0.0 | Initial fee for memberships
-[membership_prorrate](membership_prorrate/) | 8.0.1.0.0 | Prorrate membership fee
-[membership_prorrate_variable_period](membership_prorrate_variable_period/) | 8.0.1.0.0 | Prorrate membership fee for variable periods
-[membership_variable_period](membership_variable_period/) | 8.0.2.0.0 | Variable period for memberships
-[website_membership_contact_visibility](website_membership_contact_visibility/) | 8.0.1.0.0 | Adding functionality to set the visibility of contact information of each member
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[membership_autoextend](membership_autoextend/) | 8.0.1.0.0 |  | Extend variable memberships automatically
+[membership_extension](membership_extension/) | 8.0.1.0.1 |  | Improves user experience of membership addon
+[membership_initial_fee](membership_initial_fee/) | 8.0.1.0.0 |  | Initial fee for memberships
+[membership_prorrate](membership_prorrate/) | 8.0.1.0.0 |  | Prorrate membership fee
+[membership_prorrate_variable_period](membership_prorrate_variable_period/) | 8.0.1.0.0 |  | Prorrate membership fee for variable periods
+[membership_variable_period](membership_variable_period/) | 8.0.2.0.0 |  | Variable period for memberships
+[website_membership_contact_visibility](website_membership_contact_visibility/) | 8.0.1.0.0 |  | Adding functionality to set the visibility of contact information of each member
 
 [//]: # (end addons)
 
