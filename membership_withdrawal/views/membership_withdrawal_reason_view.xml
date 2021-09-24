@@ -21,6 +21,7 @@
         <field name="model">membership.withdrawal_reason</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name" />
                 <filter
                     string="Active"
                     domain="[('active','=', True)]"
