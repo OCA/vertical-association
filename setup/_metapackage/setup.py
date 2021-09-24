@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo13-addon-membership_initial_fee',
         'odoo13-addon-membership_variable_period',
         'odoo13-addon-membership_withdrawal',
+        'odoo13-addon-website_membership_random_order',
     ],
     classifiers=[
         'Programming Language :: Python',
