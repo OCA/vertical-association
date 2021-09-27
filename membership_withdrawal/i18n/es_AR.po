@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_withdrawal
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-04 02:43+0000\n"
+"PO-Revision-Date: 2017-08-04 02:43+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Spanish (Argentina) (https://www.transifex.com/oca/"
+"teams/23907/es_AR/)\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
+msgid "Company bankrupt"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,help:membership_withdrawal.field_membership_membership_line__date_withdrawal
+msgid "Date when member requested membership withdrawal"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__id
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización realizada por"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_membership_membership_line
+msgid "Membership Line"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_users__membership_last_withdrawal_date
+msgid "Membership withdrawal date"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
+msgid "Membership withdrawal reason"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
+#: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_tree_view
+msgid "Membership withdrawal reasons"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_other
+msgid "Other"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_membership_withdrawal_reason
+msgid "Reason for withdrawal in membership"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_unsatisfied
+msgid "Unsatisfied"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal Month"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__date_withdrawal
+msgid "Withdrawal date"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
+#: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_date
+msgid "Withdrawal date of current membership period"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal month"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__withdrawal_reason_id
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal reason"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
+#: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
+msgid "Withdrawal reason of current membership period"
+msgstr ""

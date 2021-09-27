@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Atonio Espinosa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">Add membership withdrawal fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="membership_stop" position="after">
+                <field
+                    name="membership_last_withdrawal_date"
+                    attrs="{'invisible':[('membership_last_withdrawal_date','=',False)]}"
+                />
+                <field
+                    name="membership_last_withdrawal_reason_id"
+                    attrs="{'invisible':[('membership_last_withdrawal_reason_id','=',False)]}"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="extension_view_partner_form" model="ir.ui.view">
+        <field name="name">Add membership withdrawal fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership_extension.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='member_lines']/form//field[@name='date_cancel']"
+                position="after"
+            >
+                <field name="date_withdrawal" />
+                <field name="withdrawal_reason_id" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_partner_member_filter" model="ir.ui.view">
+        <field name="name">Add membership withdrawal filters</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
+        <field name="arch" type="xml">
+            <group position="inside">
+                <filter
+                    name="withdrawal_month"
+                    string="Withdrawal Month"
+                    help="Withdrawal month"
+                    domain="[]"
+                    context="{'group_by':'membership_last_withdrawal_date'}"
+                />
+                <filter
+                    name="withdrawal_reason"
+                    string="Withdrawal reason"
+                    help="Withdrawal reason"
+                    domain="[]"
+                    context="{'group_by':'membership_last_withdrawal_reason_id'}"
+                />
+            </group>
+        </field>
+    </record>
+</odoo>
