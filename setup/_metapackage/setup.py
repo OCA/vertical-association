@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-membership_delegated_partner',
         'odoo14-addon-membership_extension',
+        'odoo14-addon-membership_withdrawal',
     ],
     classifiers=[
         'Programming Language :: Python',
