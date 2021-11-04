@@ -7,7 +7,8 @@ class AccountAnalyticAccount(models.Model):
     _inherit = "contract.contract"
 
     delegated_member_id = fields.Many2one(
-        comodel_name="res.partner", string="Delegated Member",
+        comodel_name="res.partner",
+        string="Delegated Member",
     )
 
     def _prepare_invoice(self, date_invoice, journal=None):
