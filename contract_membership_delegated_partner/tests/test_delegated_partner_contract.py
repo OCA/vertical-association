@@ -13,7 +13,7 @@ class TestMembershipDelegateSetup(TestContractBase):
         cls.contract.delegated_member_id = cls.partner2
 
     def test_01_generate_and_delegate(self):
-        """ Invoices to a partner delegates membership to another one """
+        """Invoices to a partner delegates membership to another one"""
         self.contract.recurring_create_invoice()
         # The contract and invoicing partner has no membership
         self.assertFalse(self.partner.member_lines)
