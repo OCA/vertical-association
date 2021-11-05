@@ -1,2 +1,5 @@
-* David Vidal <david.vidal@tecnativa.com>
-* Rafael Blasco <rafael.blasco@tecnativa.com>
+* `Tecnativa <https://www.tecnativa.com>`__:
+
+   * David Vidal
+   * Rafael Blasco
+   * Ernesto Tejeda
