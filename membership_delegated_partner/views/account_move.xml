@@ -11,7 +11,7 @@
             <field name="partner_id" position="after">
                 <field
                     name="delegated_member_id"
-                    attrs="{'invisible':[('type', 'not in', ('out_invoice', 'out_refund'))]}"
+                    attrs="{'invisible':[('move_type', 'not in', ('out_invoice', 'out_refund'))]}"
                 />
             </field>
         </field>
