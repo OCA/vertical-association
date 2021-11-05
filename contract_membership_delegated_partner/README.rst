@@ -72,7 +72,7 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* * `Tecnativa <https://www.tecnativa.com>`__:
+* `Tecnativa <https://www.tecnativa.com>`__:
 
    * David Vidal
    * Rafael Blasco
