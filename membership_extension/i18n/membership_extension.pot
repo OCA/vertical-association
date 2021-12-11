@@ -295,11 +295,6 @@ msgid "Membership Lines"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
-msgid "Membership Products"
-msgstr ""
-
-#. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 msgid "Membership Silver"
 msgstr ""
