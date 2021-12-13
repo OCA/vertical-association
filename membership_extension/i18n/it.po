@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2021-12-11 02:39+0000\n"
+"PO-Revision-Date: 2021-12-13 11:39+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -144,7 +144,7 @@ msgstr "Dal"
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
-msgstr ""
+msgstr "Oro"
 
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
@@ -258,7 +258,7 @@ msgstr ""
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 msgid "Membership Bronze"
-msgstr ""
+msgstr "Iscrizione bronzo"
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
@@ -287,13 +287,13 @@ msgstr "Quota di iscrizione"
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 msgid "Membership Gold"
-msgstr ""
+msgstr "Iscrizione oro"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_last_start
 msgid "Membership Last Start Date"
-msgstr ""
+msgstr "Data inizio ultima iscrizione"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
@@ -313,7 +313,7 @@ msgstr "Prodotti iscrizione"
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 msgid "Membership Silver"
-msgstr ""
+msgstr "Iscrizione argento"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start
@@ -384,18 +384,18 @@ msgstr "Modello prodotto"
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
 msgid "Silver"
-msgstr ""
+msgstr "Argento"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
 msgid "Start date of last membership period."
-msgstr ""
+msgstr "Data di inizio del periodo dell'ultima iscrizione."
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr ""
+msgstr "Mese di inizio del periodo dell'ultima iscrizione"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
