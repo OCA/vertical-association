@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2021-12-13 11:39+0000\n"
+"PO-Revision-Date: 2021-12-17 17:39+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -149,7 +149,7 @@ msgstr "Oro"
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr ""
+msgstr "Aiuta a organizzare le operazioni di gestione delle iscrizioni."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
@@ -222,7 +222,7 @@ msgstr "Ultima modifica il"
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
-msgstr ""
+msgstr "Mese ultimo inizio"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__write_uid
@@ -237,7 +237,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: membership_extension
 #: model:res.groups,name:membership_extension.group_membership_manager
 msgid "Manager"
-msgstr ""
+msgstr "Supervisore"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
@@ -253,7 +253,7 @@ msgstr "iscrizione"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 msgid "Membership Adhered Start Date"
-msgstr ""
+msgstr "Data inzio adesione associativa"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
@@ -400,14 +400,14 @@ msgstr "Mese di inizio del periodo dell'ultima iscrizione"
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
 msgid "To"
-msgstr ""
+msgstr "Al"
 
 #. module: membership_extension
 #: model:product.template,uom_name:membership_extension.membership_0_product_template
 #: model:product.template,uom_name:membership_extension.membership_1_product_template
 #: model:product.template,uom_name:membership_extension.membership_2_product_template
 msgid "Units"
-msgstr ""
+msgstr "Unità"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
@@ -421,6 +421,8 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+"Impossibile cambiare l'azienda. La categoria di iscrizione è utilizzata dal "
+"modello del prodotto (%s) a cui è stata assegnata un'azienda non compatibile."
 
 #~ msgid "Category"
 #~ msgstr "Categoria"
