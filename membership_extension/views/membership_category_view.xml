@@ -24,12 +24,4 @@
         parent="membership.menu_marketing_config_association"
         sequence="2"
     />
-    <!-- Rename and move to lower level -->
-    <menuitem
-        action="membership.action_membership_products"
-        id="menu_marketing_config_association_item"
-        name="Membership Products"
-        parent="membership.menu_marketing_config_association"
-        sequence="100"
-    />
 </odoo>
