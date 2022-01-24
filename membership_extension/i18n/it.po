@@ -127,7 +127,13 @@ msgid "Date until which membership remains active."
 msgstr "Data di fine validità dell'iscrizione."
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_move__display_name
+#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__display_name
+#: model:ir.model.fields,field_description:membership_extension.field_product_product__display_name
+#: model:ir.model.fields,field_description:membership_extension.field_product_template__display_name
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nome da visualizzare"
 
@@ -152,7 +158,13 @@ msgid "Helps you manage operations for managing memberships."
 msgstr "Aiuta a organizzare le operazioni di gestione delle iscrizioni."
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_move__id
+#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__id
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__id
+#: model:ir.model.fields,field_description:membership_extension.field_product_product__id
+#: model:ir.model.fields,field_description:membership_extension.field_product_template__id
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
@@ -206,8 +218,8 @@ msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_move
-msgid "Journal Entries"
-msgstr "Registrazioni contabili"
+msgid "Journal Entry"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_move_line
@@ -215,7 +227,13 @@ msgid "Journal Item"
 msgstr "Movimento contabile"
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_move____last_update
+#: model:ir.model.fields,field_description:membership_extension.field_account_move_line____last_update
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line____last_update
+#: model:ir.model.fields,field_description:membership_extension.field_product_product____last_update
+#: model:ir.model.fields,field_description:membership_extension.field_product_template____last_update
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
 
@@ -304,11 +322,6 @@ msgstr "Riga iscrizione"
 #: model:ir.model.fields,field_description:membership_extension.field_account_move_line__membership_lines
 msgid "Membership Lines"
 msgstr "Righe iscrizione"
-
-#. module: membership_extension
-#: model:ir.ui.menu,name:membership_extension.menu_marketing_config_association_item
-msgid "Membership Products"
-msgstr "Prodotti iscrizione"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
@@ -423,6 +436,12 @@ msgid ""
 msgstr ""
 "Impossibile cambiare l'azienda. La categoria di iscrizione è utilizzata dal "
 "modello del prodotto (%s) a cui è stata assegnata un'azienda non compatibile."
+
+#~ msgid "Journal Entries"
+#~ msgstr "Registrazioni contabili"
+
+#~ msgid "Membership Products"
+#~ msgstr "Prodotti iscrizione"
 
 #~ msgid "Category"
 #~ msgstr "Categoria"
