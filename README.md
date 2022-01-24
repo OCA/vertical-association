@@ -21,7 +21,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_membership_delegated_partner](contract_membership_delegated_partner/) | 14.0.1.0.0 |  | Set delegate membership on the contract
 [membership_delegated_partner](membership_delegated_partner/) | 14.0.1.1.0 |  | Delegate membership on a specific partner
-[membership_extension](membership_extension/) | 14.0.1.0.0 |  | Improves user experience of membership addon
+[membership_extension](membership_extension/) | 14.0.1.1.0 |  | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 14.0.1.0.0 |  | Initial fee for memberships
 [membership_variable_period](membership_variable_period/) | 14.0.1.0.0 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 14.0.1.0.0 |  | Log membership withdrawal reason and date of request
