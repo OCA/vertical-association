@@ -39,7 +39,7 @@ class AccountMove(models.Model):
         return res
 
     def post(self):
-        """Handle validated refunds for cancelling membership lines """
+        """Handle validated refunds for cancelling membership lines"""
         res = super().post()
         self.filtered(lambda m: (m.move_type == "out_invoice")).mapped(
             "invoice_line_ids.membership_lines"
