@@ -40,20 +40,20 @@
                 expr="//field[@name='member_lines']/tree//field[@name='date']"
                 position="after"
             >
-                <field name="date_from" />
-                <field name="date_to" />
+                <field name="date_from" optional="show" />
+                <field name="date_to" optional="show" />
             </xpath>
             <xpath
                 expr="//field[@name='member_lines']/tree//field[@name='membership_id']"
                 position="after"
             >
-                <field name="category_id" />
+                <field name="category_id" optional="hide" />
             </xpath>
             <xpath
                 expr="//field[@name='member_lines']/tree//field[@name='date_to']"
                 position="after"
             >
-                <field name="date_cancel" />
+                <field name="date_cancel" optional="hide" />
             </xpath>
             <xpath expr="//field[@name='member_lines']/form" position="replace">
                 <form string="Memberships">
