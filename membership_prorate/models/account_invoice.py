@@ -4,10 +4,11 @@
 from datetime import timedelta
 
 from odoo import api, fields, models
+from odoo.tests import Form
 
 
-class AccountInvoiceLine(models.Model):
-    _inherit = "account.invoice.line"
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
 
     def _get_membership_interval(self, product, date):
         """Get the interval to evaluate as the theoretical membership period.
@@ -23,7 +24,7 @@ class AccountInvoiceLine(models.Model):
 
     def _prepare_invoice_line_prorate_vals(self, invoice_line):
         product = invoice_line.product_id
-        date_invoice = invoice_line.invoice_id.date_invoice or fields.Date.today()
+        date_invoice = invoice_line.move_id.invoice_date or fields.Date.today()
         date_from, date_to = self._get_membership_interval(product, date_invoice)
         if date_invoice < date_from:
             date_invoice = date_from
@@ -39,22 +40,40 @@ class AccountInvoiceLine(models.Model):
                 "date_from": date_invoice,
             }
 
-    @api.model
-    def create(self, vals):
-        invoice_line = super(AccountInvoiceLine, self).create(vals)
-        product = self.env["product.product"].browse(vals.get("product_id", False))
-        if not product.membership or not product.membership_prorate:
-            return invoice_line
-        # Change quantity accordingly the prorate
-        invoice_line_vals = self._prepare_invoice_line_prorate_vals(invoice_line)
-        if invoice_line_vals:
-            date_from = invoice_line_vals.pop("date_from")
-            invoice_line.write(invoice_line_vals)
-            # Rectify membership price and start date in this case
-            memb_line = self.env["membership.membership_line"].search(
-                [("account_invoice_line", "=", invoice_line.id)], limit=1
-            )
-            memb_line.write(
-                {"member_price": invoice_line.price_subtotal, "date_from": date_from}
-            )
-        return invoice_line
+    @api.model_create_multi
+    def create(self, vals_list):
+        invoice_lines = super().create(vals_list)
+        for invoice_line in invoice_lines.filtered(
+            lambda r: r.product_id.membership and r.product_id.membership_prorate
+        ):
+            # Change quantity accordingly the prorate
+            invoice_line_vals = self._prepare_invoice_line_prorate_vals(invoice_line)
+            if invoice_line_vals:
+                date_from = invoice_line_vals["date_from"]
+                quantity = invoice_line_vals["quantity"]
+                invoice = invoice_line.move_id
+                with Form(invoice) as invoice_form:
+                    index = next(
+                        (
+                            index
+                            for (index, d) in enumerate(
+                                invoice_form.invoice_line_ids._records
+                            )
+                            if d["id"] == invoice_line.id
+                        ),
+                        None,
+                    )
+                    if index is not None:
+                        with invoice_form.invoice_line_ids.edit(index) as line_form:
+                            line_form.quantity = quantity
+                # Rectify membership price and start date in this case
+                memb_line = self.env["membership.membership_line"].search(
+                    [("account_invoice_line", "=", invoice_line.id)], limit=1
+                )
+                memb_line.write(
+                    {
+                        "member_price": invoice_line.price_subtotal,
+                        "date_from": date_from,
+                    }
+                )
+        return invoice_lines
