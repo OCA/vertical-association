@@ -10,5 +10,4 @@ class ProductTemplate(models.Model):
         string="Prorate",
         help="If this check is marked, then the fee will be proportionally "
         "charged for the remaining time of the period",
-        oldname="membership_prorrate",
     )
