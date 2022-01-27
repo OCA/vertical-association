@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-membership_delegated_partner',
         'odoo14-addon-membership_extension',
         'odoo14-addon-membership_initial_fee',
+        'odoo14-addon-membership_prorate',
         'odoo14-addon-membership_variable_period',
         'odoo14-addon-membership_withdrawal',
     ],
