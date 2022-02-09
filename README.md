@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [membership_extension](membership_extension/) | 14.0.1.2.0 |  | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 14.0.1.0.0 |  | Initial fee for memberships
 [membership_prorate](membership_prorate/) | 14.0.1.0.0 |  | Prorate membership fee
+[membership_prorate_variable_period](membership_prorate_variable_period/) | 14.0.1.0.0 |  | Prorate membership fee for variable periods
 [membership_variable_period](membership_variable_period/) | 14.0.1.0.0 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 14.0.1.0.0 |  | Log membership withdrawal reason and date of request
 
