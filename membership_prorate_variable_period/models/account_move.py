@@ -5,8 +5,8 @@ from odoo import _, exceptions, models
 from odoo.tools import date_utils
 
 
-class AccountInvoiceLine(models.Model):
-    _inherit = "account.invoice.line"
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
 
     def _get_membership_interval(self, product, date):
         """Get the interval to evaluate as the theoretical membership period.
@@ -17,9 +17,7 @@ class AccountInvoiceLine(models.Model):
         end of the period
         """
         if product.membership_type == "fixed":
-            return super(AccountInvoiceLine, self)._get_membership_interval(
-                product, date
-            )
+            return super()._get_membership_interval(product, date)
         if product.membership_interval_unit == "days":
             raise exceptions.Warning(_("It's not possible to prorate daily periods."))
         if product.membership_interval_unit == "weeks":
