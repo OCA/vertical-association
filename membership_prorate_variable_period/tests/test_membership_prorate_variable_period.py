@@ -4,13 +4,14 @@
 import datetime
 
 from odoo import exceptions, fields
-from odoo.tests import common
+from odoo.tests import Form, SavepointCase
 
 
-class TestMembershipProrateVariablePeriod(common.TransactionCase):
-    def setUp(self):
-        super(TestMembershipProrateVariablePeriod, self).setUp()
-        self.product = self.env["product.product"].create(
+class TestMembershipProrateVariablePeriod(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product = cls.env["product.product"].create(
             {
                 "name": "Membership product with prorate",
                 "membership": True,
@@ -20,28 +21,41 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
                 "membership_interval_unit": "weeks",
             }
         )
-        self.partner = self.env["res.partner"].create({"name": "Test"})
+        receivable_type = cls.env["account.account.type"].create(
+            {
+                "name": "Test receivable account",
+                "type": "receivable",
+                "internal_group": "income",
+            }
+        )
+        receivable = cls.env["account.account"].create(
+            {
+                "name": "Test receivable account",
+                "code": "TEST_RA",
+                "user_type_id": receivable_type.id,
+                "reconcile": True,
+            }
+        )
+        cls.partner = cls.env["res.partner"].create(
+            {
+                "name": "Test",
+                "property_account_receivable_id": receivable.id,
+            }
+        )
+
+    def create_invoice(self, invoice_date):
+        invoice_form = Form(
+            self.env["account.move"].with_context(default_move_type="out_invoice")
+        )
+        invoice_form.invoice_date = invoice_date
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as line_form:
+            line_form.product_id = self.product
+        return invoice_form.save()
 
     def test_create_invoice_membership_product_wo_prorate(self):
         self.product.membership_prorate = False
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": fields.Date.today(),
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership w/o prorate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice(datetime.date.today())
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 1.0, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, "waiting")
@@ -51,45 +65,11 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
         self.product.membership_type = "fixed"
         self.product.membership_date_from = "2017-01-01"
         self.product.membership_date_to = "2017-12-31"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2017-04-01",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership prorate fixed",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2017-04-01")
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.75, 2)
 
     def test_create_invoice_membership_product_prorate_week(self):
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-01-01",  # It's thursday
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership with prorate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-01-01")  # It's thursday
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.43, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, "waiting")
@@ -103,24 +83,7 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_prorate_month(self):
         self.product.membership_interval_unit = "months"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2015-04-15",
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership with prorate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2015-04-15")
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, "waiting")
@@ -134,24 +97,7 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
 
     def test_create_invoice_membership_product_prorate_year(self):
         self.product.membership_interval_unit = "years"
-        account = self.partner.property_account_receivable_id.id
-        invoice = self.env["account.invoice"].create(
-            {
-                "partner_id": self.partner.id,
-                "date_invoice": "2016-07-01",  # It's leap year
-                "account_id": account,
-            }
-        )
-        self.env["account.invoice.line"].create(
-            {
-                "account_id": account,
-                "product_id": self.product.id,
-                "price_unit": self.product.list_price,
-                "name": "Membership with prorate",
-                "invoice_id": invoice.id,
-                "quantity": 1.0,
-            }
-        )
+        invoice = self.create_invoice("2016-07-01")
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, "waiting")
@@ -217,23 +163,7 @@ class TestMembershipProrateVariablePeriod(common.TransactionCase):
         # Test daily period
         self.product.membership_interval_qty = 1
         self.product.membership_interval_unit = "days"
-        with self.assertRaises(exceptions.Warning):
+        with self.assertRaises(exceptions.UserError):
             self.product._get_next_date(fields.Date.from_string("2015-07-01"))
-        with self.assertRaises(exceptions.Warning):
-            account = self.partner.property_account_receivable_id.id
-            invoice = self.env["account.invoice"].create(
-                {
-                    "partner_id": self.partner.id,
-                    "account_id": account,
-                }
-            )
-            self.env["account.invoice.line"].create(
-                {
-                    "account_id": account,
-                    "product_id": self.product.id,
-                    "price_unit": self.product.list_price,
-                    "name": "Membership error",
-                    "invoice_id": invoice.id,
-                    "quantity": 1.0,
-                }
-            )
+        with self.assertRaises(exceptions.UserError):
+            self.create_invoice(fields.Date.today())
