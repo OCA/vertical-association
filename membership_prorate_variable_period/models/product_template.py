@@ -3,14 +3,13 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 import math
 
-from odoo import _, api, exceptions, models
+from odoo import _, exceptions, models
 from odoo.tools import date_utils
 
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    @api.multi
     def _get_next_date(self, date, qty=1):
         next_date = super(ProductTemplate, self)._get_next_date(date)
         if self.membership_interval_unit == "days":
