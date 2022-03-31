@@ -37,7 +37,7 @@ class TestMembershipDelegate(common.SavepointCase):
         )
 
     def test_01_delegate(self):
-        """ Delegates membership to partner 2 """
+        """Delegates membership to partner 2"""
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
@@ -70,7 +70,7 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertFalse(self.partner1.member_lines, "It's going to stand on partner2")
 
     def test_02_change_delegated_member(self):
-        """ Delegated member can be changed later """
+        """Delegated member can be changed later"""
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
@@ -97,7 +97,7 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertTrue(self.partner1.member_lines, "Partner gets the line")
 
     def test_03_refund_invoice_delegated_partner(self):
-        """ A refund should inherit the delegated partner in the invoice """
+        """A refund should inherit the delegated partner in the invoice"""
         move_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
@@ -125,7 +125,7 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertEqual(refund.delegated_member_id, self.partner2)
 
     def test_04_get_partner_for_membership(self):
-        """ Auxiliary method to get the member """
+        """Auxiliary method to get the member"""
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
