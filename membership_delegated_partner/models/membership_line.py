@@ -23,7 +23,7 @@ class MembershipLine(models.Model):
 
     @api.model
     def create(self, vals):
-        """ Delegate the member line to the designated partner """
+        """Delegate the member line to the designated partner"""
         if "account_invoice_line" not in vals:
             return super().create(vals)
         line = self.env["account.move.line"].browse(vals["account_invoice_line"])
