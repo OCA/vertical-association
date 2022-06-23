@@ -171,6 +171,15 @@ class ResPartner(models.Model):
                 partner.membership_stop = last_to
                 partner.membership_cancel = last_cancel
 
+    def _state_should_be_old(self, state):
+        self._membership_member_states()
+
+        return state == "none" and bool(
+            self.member_lines.filtered(
+                lambda r: r.state in self._membership_member_states()
+            )
+        )
+
     @api.depends(
         "free_member",
         "member_lines.state",
@@ -217,9 +226,7 @@ class ResPartner(models.Model):
                         category_names.append(line.category_id.name)
                     if prior.get(line.state, 0) > prior.get(state):
                         state = line.state
-                if state == "none" and partner.member_lines.filtered(
-                    lambda r: r.state in member_states
-                ):
+                if partner._state_should_be_old(state):
                     state = "old"
                 partner.membership_state = state
                 if category_ids:
