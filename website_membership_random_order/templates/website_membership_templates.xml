@@ -16,8 +16,9 @@
                     <div class="s_alert_content">
                         <p
                             style="text-align: center"
-                        >This order of appearance is random and changes each time you refresh.<br
-                            /></p>
+                        >This order of appearance is random and changes each time you refresh.
+                        <br />
+                        </p>
                     </div>
                 </div>
             </t>
