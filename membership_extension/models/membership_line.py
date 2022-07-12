@@ -43,6 +43,7 @@ class MembershipLine(models.Model):
                     self.date_to = date_to
 
     def _compute_state(self):
+        # pylint: disable=missing-return
         for line in self:
             if isinstance(line.id, models.NewId) or not line.account_invoice_id:
                 line.state = line.state or "none"

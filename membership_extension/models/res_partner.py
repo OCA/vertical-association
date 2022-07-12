@@ -24,7 +24,6 @@ class ResPartner(models.Model):
 
     associate_member = fields.Many2one(index=True)
     is_adhered_member = fields.Boolean(
-        string="Adhered member",
         compute="_compute_is_adhered_member",
         store=True,
         readonly=False,
@@ -69,7 +68,7 @@ class ResPartner(models.Model):
         recursive=True,
     )
     membership_category_ids = fields.Many2many(
-        string="Membership categories",
+        string="Membership Categories",
         readonly=True,
         store=True,
         comodel_name="membership.membership_category",
