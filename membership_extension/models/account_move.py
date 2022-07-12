@@ -22,16 +22,22 @@ class AccountMove(models.Model):
         membership state for customer refunds. Harmless on supplier ones.
         """
         res = super().button_cancel()
+
         self.filtered(lambda m: (m.move_type == "out_invoice")).mapped(
             "invoice_line_ids.membership_lines"
         ).write({"state": "canceled"})
+
         for refund in self.filtered(
             lambda r: r.move_type == "out_refund" and r.reversed_entry_id
         ):
             origin = refund.reversed_entry_id
             lines = origin.mapped("invoice_line_ids.membership_lines")
             if lines:
-                origin_state = "paid" if origin.payment_state == "paid" else "invoiced"
+                if origin.payment_state == "reversed":
+                    origin_state = "paid"
+                else:
+                    origin_state = "invoiced"
+
                 lines.filtered(lambda r: r.state == "canceled").write(
                     {"state": origin_state}
                 )
