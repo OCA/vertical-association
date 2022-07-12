@@ -13,6 +13,7 @@ class ResPartner(models.Model):
         comodel_name="membership.withdrawal_reason",
         index=True,
         compute="_compute_last_withdrawal",
+        recursive=True,
         help="Withdrawal reason of current membership period",
     )
 
@@ -20,6 +21,7 @@ class ResPartner(models.Model):
         string="Membership withdrawal date",
         store=True,
         compute="_compute_last_withdrawal",
+        recursive=True,
         help="Withdrawal date of current membership period",
     )
 
