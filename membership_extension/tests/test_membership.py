@@ -18,18 +18,12 @@ class TestMembership(common.TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         date_today = fields.Date.today()
-        cls.account_bank_type = cls.env["account.account.type"].create(
-            {
-                "name": "Test bank account type",
-                "type": "liquidity",
-                "internal_group": "asset",
-            }
-        )
+
         cls.account_bank = cls.env["account.account"].create(
             {
                 "name": "Test bank account",
                 "code": "BANK",
-                "user_type_id": cls.account_bank_type.id,
+                "account_type": "asset_cash",
                 "reconcile": True,
             }
         )
@@ -44,33 +38,22 @@ class TestMembership(common.TransactionCase):
         cls.bank_journal = cls.env["account.journal"].create(
             {"name": "Test bank journal", "code": "TB", "type": "bank"}
         )
-        cls.account_partner_type = cls.env["account.account.type"].create(
-            {
-                "name": "Test partner account type",
-                "type": "receivable",
-                "internal_group": "asset",
-            }
+        cls.inbound_payment_method_line = (
+            cls.bank_journal.inbound_payment_method_line_ids[0]
         )
         cls.account_partner = cls.env["account.account"].create(
             {
                 "name": "Test partner account",
                 "code": "PARTNER",
-                "user_type_id": cls.account_partner_type.id,
+                "account_type": "asset_receivable",
                 "reconcile": True,
-            }
-        )
-        cls.account_product_type = cls.env["account.account.type"].create(
-            {
-                "name": "Test product account type",
-                "type": "other",
-                "internal_group": "asset",
             }
         )
         cls.account_product = cls.env["account.account"].create(
             {
                 "name": "Test product account",
                 "code": "PRODUCT",
-                "user_type_id": cls.account_product_type.id,
+                "account_type": "asset_current",
             }
         )
         cls.next_two_months = date_today + timedelta(days=60)
