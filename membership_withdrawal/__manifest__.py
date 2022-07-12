@@ -4,7 +4,7 @@
 {
     "name": "Membership withdrawal",
     "summary": "Log membership withdrawal reason and date of request",
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Association",
     "website": "https://github.com/OCA/vertical-association",
     "author": "Tecnativa, Onestein, Odoo Community Association (OCA)",
