@@ -13,7 +13,7 @@ from odoo.tests import common
 from odoo.tools import mute_logger
 
 
-class TestMembership(common.SavepointCase):
+class TestMembership(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -318,9 +318,6 @@ class TestMembership(common.SavepointCase):
             {
                 "amount": invoice.amount_total,
                 "journal_id": self.bank_journal.id,
-                "payment_method_id": self.env.ref(
-                    "account.account_payment_method_manual_in"
-                ).id,
             }
         )._create_payments()
 
@@ -344,9 +341,6 @@ class TestMembership(common.SavepointCase):
             {
                 "amount": invoice.amount_total,
                 "journal_id": self.bank_journal.id,
-                "payment_method_id": self.env.ref(
-                    "account.account_payment_method_manual_in"
-                ).id,
             }
         )._create_payments()
         self.assertEqual("paid", line.state)
@@ -360,6 +354,7 @@ class TestMembership(common.SavepointCase):
                     "date": fields.Date.today(),
                     "reason": "no reason",
                     "refund_method": "cancel",
+                    "journal_id": invoice.journal_id.id,
                 }
             )
         )
