@@ -72,7 +72,6 @@ class ResPartner(models.Model):
         compute="_compute_membership_state",
     )
     membership_categories = fields.Char(
-        string="Membership Categories",
         readonly=True,
         store=True,
         index=True,
