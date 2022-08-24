@@ -52,7 +52,7 @@ class MembershipLine(models.Model):
             ):
                 line.state = "canceled"
             else:
-                super(MembershipLine, line)._compute_state()
+                return super(MembershipLine, line)._compute_state()
 
     # Empty method _inverse_state
     def _inverse_state(self):
