@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo14-addon-membership_prorate_variable_period',
         'odoo14-addon-membership_variable_period',
         'odoo14-addon-membership_withdrawal',
+        'odoo14-addon-website_membership_random_order',
     ],
     classifiers=[
         'Programming Language :: Python',
