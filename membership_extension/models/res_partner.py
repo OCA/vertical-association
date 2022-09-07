@@ -164,7 +164,7 @@ class ResPartner(models.Model):
                             continue
                         date_to = line_date_to + timedelta(days=delta)
                         if not last_from or (
-                            last_from <= date_to and last_from > line.date_from
+                            last_from <= date_to and last_from < line.date_from
                         ):
                             last_from = line.date_from
                         if not last_to or last_to < line_date_to:
