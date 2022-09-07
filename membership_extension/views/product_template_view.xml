@@ -18,10 +18,13 @@
         <field name="inherit_id" ref="membership.membership_products_form" />
         <field name="arch" type="xml">
             <field name="company_id" position="after">
-                <field
-                    name="membership_category_id"
-                    context="{'default_company_id':company_id}"
-                />
+                <!--
+                    FIXME: Previously this was not 'no_create', but passing
+                    `{'default_company_id': company_id}` in the context is broken
+                    in Odoo 16 because the company_id field has
+                    `groups="base.group_multi_company"`.
+                -->
+                <field name="membership_category_id" options="{'no_create': True}" />
             </field>
         </field>
     </record>
