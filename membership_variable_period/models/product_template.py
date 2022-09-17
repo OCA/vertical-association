@@ -40,7 +40,6 @@ class ProductTemplate(models.Model):
     membership_type = fields.Selection(
         selection=[("fixed", "Fixed dates"), ("variable", "Variable periods")],
         default="fixed",
-        string="Membership type",
         required=True,
     )
     membership_interval_qty = fields.Integer(string="Interval quantity", default=1)

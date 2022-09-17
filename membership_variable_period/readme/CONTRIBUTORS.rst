@@ -8,3 +8,5 @@
 * `Onestein <https://onestein.eu>`__:
 
   * Andrea Stirpe
+
+* Fernando La Chica <fernandolachica@gmail.com>
