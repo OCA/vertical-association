@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_membership_invoice_view" model="ir.ui.view">
+        <field name="name">membership.invoice.view.form</field>
+        <field name="model">membership.invoice</field>
+        <field name="inherit_id" ref="membership.view_membership_invoice_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='member_price']" position="after">
+                <field name="product_id_type" invisible="1" />
+                <field
+                    name="date_from"
+                    attrs="{'invisible': [('product_id_type', '!=', 'custom')]}"
+                />
+                <field
+                    name="date_to"
+                    attrs="{'invisible': [('product_id_type', '!=', 'custom')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
