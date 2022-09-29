@@ -41,12 +41,6 @@ msgstr ""
 "compte de l'état d'adhésion du membre associé."
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
-msgid "Adhered member"
-msgstr "Membre adhérent"
-
-#. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
 msgstr "Montant de l'adhésion"
@@ -58,6 +52,7 @@ msgid "Associate Member"
 msgstr "Membre associé"
 
 #. module: membership_extension
+#. odoo-python
 #: code:addons/membership_extension/models/membership_line.py:0
 #, python-format
 msgid ""
@@ -129,13 +124,7 @@ msgid "Date until which membership remains active."
 msgstr "Date jusqu'à laquelle l'adhésion reste active."
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_move__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_product_product__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_product_template__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Nom à afficher"
 
@@ -160,13 +149,7 @@ msgid "Helps you manage operations for managing memberships."
 msgstr "Vous aide à gérer les opérations de gestion des adhésions."
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_move__id
-#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__id
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__id
-#: model:ir.model.fields,field_description:membership_extension.field_product_product__id
-#: model:ir.model.fields,field_description:membership_extension.field_product_template__id
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
@@ -174,6 +157,12 @@ msgstr "ID"
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__invoiced
 msgid "Invoiced Member"
 msgstr "Membre facturé"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
+msgid "Is Adhered Member"
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
@@ -229,13 +218,7 @@ msgid "Journal Item"
 msgstr "Élément de journal"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_move____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_account_move_line____last_update
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_product_product____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_product_template____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
@@ -283,7 +266,9 @@ msgstr "Adhésion Bronze"
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
 msgstr "Catégories de membre"
@@ -342,12 +327,6 @@ msgid "Membership Status"
 msgstr "Statut d'adhésion"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
-msgid "Membership categories"
-msgstr "Catégories d'adhésion"
-
-#. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
 #: model:ir.model.fields,field_description:membership_extension.field_product_product__membership_category_id
@@ -387,14 +366,14 @@ msgid "Partner"
 msgstr "Partenaire"
 
 #. module: membership_extension
-#: model:ir.model,name:membership_extension.model_product_product
+#: model:ir.model,name:membership_extension.model_product_template
 msgid "Product"
 msgstr "Article"
 
 #. module: membership_extension
-#: model:ir.model,name:membership_extension.model_product_template
-msgid "Product Template"
-msgstr "Modèle de produit"
+#: model:ir.model,name:membership_extension.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
@@ -418,18 +397,12 @@ msgid "To"
 msgstr "À"
 
 #. module: membership_extension
-#: model:product.template,uom_name:membership_extension.membership_0_product_template
-#: model:product.template,uom_name:membership_extension.membership_1_product_template
-#: model:product.template,uom_name:membership_extension.membership_2_product_template
-msgid "Units"
-msgstr "Unités"
-
-#. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
 msgid "Waiting Member"
 msgstr "Membre en attente"
 
 #. module: membership_extension
+#. odoo-python
 #: code:addons/membership_extension/models/membership_category.py:0
 #, python-format
 msgid ""
@@ -438,6 +411,18 @@ msgid ""
 msgstr ""
 "Vous ne pouvez pas modifier la société, car cette catégorie d'adhésion est "
 "utilisée par Product Template(%s), qui a une société attribuée incompatible."
+
+#~ msgid "Adhered member"
+#~ msgstr "Membre adhérent"
+
+#~ msgid "Membership categories"
+#~ msgstr "Catégories d'adhésion"
+
+#~ msgid "Product Template"
+#~ msgstr "Modèle de produit"
+
+#~ msgid "Units"
+#~ msgstr "Unités"
 
 #~ msgid "Membership Products"
 #~ msgstr "Produits d'adhésion"

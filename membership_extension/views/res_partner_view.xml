@@ -62,7 +62,11 @@
                             <field
                                 name="membership_id"
                                 attrs="{'readonly': [('account_invoice_id', '!=', False)]}"
-                                domain="[('membership', '=', True)]"
+                                domain="[('membership', '=', True), ('type', '=', 'service')]"
+                                context="{
+                    'default_membership': True,
+                    'default_detailed_type': 'service',
+                    'form_view_ref': 'membership.membership_products_form'}"
                             />
                             <field
                                 name="member_price"
