@@ -20,7 +20,7 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_type:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__fixed
 msgid "Fixed dates"
 msgstr "Fiksni datumi"
 
@@ -42,15 +42,15 @@ msgid "Interval unit"
 msgstr "Enota intervala"
 
 #. module: membership_variable_period
-#: model:ir.model,name:membership_variable_period.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Postavka računa"
+#: model:ir.model,name:membership_variable_period.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_type
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_type
-msgid "Membership type"
-msgstr "Tip članarine"
+msgid "Membership Type"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
@@ -58,26 +58,32 @@ msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_type:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__variable
 msgid "Variable periods"
 msgstr "Variabilna obdobja"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__days
 msgid "days"
 msgstr "dni"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__months
 msgid "months"
 msgstr "mesecev"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__weeks
 msgid "weeks"
 msgstr "tednov"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__years
 msgid "years"
 msgstr "let"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Postavka računa"
+
+#~ msgid "Membership type"
+#~ msgstr "Tip članarine"
