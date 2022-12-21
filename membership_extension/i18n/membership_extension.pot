@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,12 +30,6 @@ msgid ""
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
-msgid "Adhered member"
-msgstr ""
-
-#. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
 msgstr ""
@@ -47,6 +41,7 @@ msgid "Associate Member"
 msgstr ""
 
 #. module: membership_extension
+#. odoo-python
 #: code:addons/membership_extension/models/membership_line.py:0
 #, python-format
 msgid ""
@@ -151,6 +146,12 @@ msgid "Invoiced Member"
 msgstr ""
 
 #. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
+msgid "Is Adhered Member"
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_state
 msgid ""
@@ -234,7 +235,9 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
 msgstr ""
@@ -293,12 +296,6 @@ msgid "Membership Status"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
-msgid "Membership categories"
-msgstr ""
-
-#. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
 #: model:ir.model.fields,field_description:membership_extension.field_product_product__membership_category_id
@@ -338,13 +335,13 @@ msgid "Partner"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model,name:membership_extension.model_product_product
+#: model:ir.model,name:membership_extension.model_product_template
 msgid "Product"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model,name:membership_extension.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:membership_extension.model_product_product
+msgid "Product Variant"
 msgstr ""
 
 #. module: membership_extension
@@ -369,18 +366,12 @@ msgid "To"
 msgstr ""
 
 #. module: membership_extension
-#: model:product.template,uom_name:membership_extension.membership_0_product_template
-#: model:product.template,uom_name:membership_extension.membership_1_product_template
-#: model:product.template,uom_name:membership_extension.membership_2_product_template
-msgid "Units"
-msgstr ""
-
-#. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
 msgid "Waiting Member"
 msgstr ""
 
 #. module: membership_extension
+#. odoo-python
 #: code:addons/membership_extension/models/membership_category.py:0
 #, python-format
 msgid ""
