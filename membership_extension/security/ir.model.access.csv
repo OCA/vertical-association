@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_membership_membership_category_partner_manager","membership_membership_category group_partner_manager","model_membership_membership_category","base.group_partner_manager",1,1,1,1
+"access_membership_membership_category_membership_manager","membership_membership_category group_partner_manager","model_membership_membership_category","membership_extension.group_membership_manager",1,1,1,1
+"access_membership_membership_category","membership_membership_category group_user","model_membership_membership_category","base.group_user",1,0,0,0
+"access_membership_membership_line_membership_manager",membership.membership_line partner_manager,model_membership_membership_line,membership_extension.group_membership_manager,1,1,1,1
+"access_product_membership_manager",product.template.user,model_product_template,base.group_user,1,1,1,1
