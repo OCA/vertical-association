@@ -27,6 +27,14 @@ class MembershipLine(models.Model):
         compute="_compute_member_price", readonly=False, store=True
     )
 
+    _sql_constraints = [
+        (
+            "start_date_greater",
+            "check(date_to >= date_from)",
+            "Error ! Ending Date cannot be set before Beginning Date.",
+        ),
+    ]
+
     @api.depends("membership_id")
     def _compute_member_price(self):
         for partner in self:
