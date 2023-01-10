@@ -122,6 +122,11 @@ msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: membership_extension
+#: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
+msgid "Error ! Ending Date cannot be set before Beginning Date."
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
 #, fuzzy
 msgid "Free Member"
@@ -244,12 +249,16 @@ msgstr ""
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
+msgid "Membership Categories Labels"
 msgstr ""
 
 #. module: membership_extension
