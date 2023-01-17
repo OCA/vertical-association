@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[membership_extension](membership_extension/) | 16.0.1.0.2 |  | Improves user experience of membership addon
+[membership_extension](membership_extension/) | 16.0.1.1.0 |  | Improves user experience of membership addon
 
 [//]: # (end addons)
 
