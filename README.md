@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [membership_extension](membership_extension/) | 16.0.1.1.0 |  | Improves user experience of membership addon
+[membership_variable_period](membership_variable_period/) | 16.0.1.0.0 |  | Variable period for memberships
 
 [//]: # (end addons)
 
