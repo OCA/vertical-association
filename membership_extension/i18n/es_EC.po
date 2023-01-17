@@ -122,6 +122,11 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: membership_extension
+#: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
+msgid "Error ! Ending Date cannot be set before Beginning Date."
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
 msgid "Free Member"
 msgstr ""
