@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_type:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__fixed
 msgid "Fixed dates"
 msgstr "Date fisse"
 
@@ -29,54 +29,66 @@ msgid "Interval"
 msgstr "Intervallo"
 
 #. module: membership_variable_period
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_unit
+#: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_unit
+msgid "Interval Unit"
+msgstr ""
+
+#. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_qty
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_qty
 msgid "Interval quantity"
 msgstr "Quantità intervallo"
 
 #. module: membership_variable_period
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_unit
-#: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_unit
-msgid "Interval unit"
-msgstr "Unità intervallo"
-
-#. module: membership_variable_period
-#: model:ir.model,name:membership_variable_period.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Riga Fattura"
+#: model:ir.model,name:membership_variable_period.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_type
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_type
-msgid "Membership type"
-msgstr "Tipo Iscrizione"
+msgid "Membership Type"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
-msgid "Product Template"
-msgstr "Template Prodotto"
+msgid "Product"
+msgstr ""
 
 #. module: membership_variable_period
-#: selection:product.template,membership_type:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__variable
 msgid "Variable periods"
 msgstr "Pariodi variabili"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__days
 msgid "days"
 msgstr "giorni"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__months
 msgid "months"
 msgstr "mesi"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__weeks
 msgid "weeks"
 msgstr "settimane"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__years
 msgid "years"
 msgstr "anni"
+
+#~ msgid "Interval unit"
+#~ msgstr "Unità intervallo"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Riga Fattura"
+
+#~ msgid "Membership type"
+#~ msgstr "Tipo Iscrizione"
+
+#~ msgid "Product Template"
+#~ msgstr "Template Prodotto"
