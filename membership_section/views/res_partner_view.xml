@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="inherit_id" ref="membership.view_partner_form" />
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" name="action_open_section_view" type="object" icon="fa-list" attrs="{'invisible': [('section_ids_count','=',0)]}">
+                    <field string="Sections" name="section_ids_count" widget="statinfo" />
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='member_lines']" position="after">
+                <field name="section_membership_ids" nolabel="1" colspan="4">
+                    <tree string="Sections" editable="top">
+                        <field name="section_id"/>
+                        <field name="type"/>
+                        <field name="start_date"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
