@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <menuitem id="membership_section_menu"
+    <menuitem
+        id="membership_section_menu"
         name="Sections"
         action="membership_section_action"
         parent="membership.menu_marketing_config_association"
