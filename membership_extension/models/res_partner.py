@@ -257,6 +257,8 @@ class ResPartner(models.Model):
     @api.model
     def check_membership_expiry(self):
         """Force a recalculation on expired members"""
+        # Start by recalculating expired membership lines
+        self.env["membership.membership_line"]._check_member_line_expiry()
         today = fields.Date.today()
         member_states = self._membership_member_states()
         partners = self.search(

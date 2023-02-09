@@ -78,3 +78,15 @@ class MembershipLine(models.Model):
                 )
             )
         return super().unlink()  # pragma: no cover
+
+    def _check_member_line_expiry(self):
+        today = fields.Date.today()
+        lines = self.search(
+            [
+                ("state", "in", ["paid"]),
+                ("date_to", "<", today),
+            ]
+        )
+        for line in lines:
+            if line.state == "paid" and line.date_to and line.date_to < today:
+                line.state = "old"
