@@ -226,7 +226,7 @@ class ResPartner(models.Model):
                     if prior.get(line.state, 0) > prior.get(state):
                         state = line.state
                 if state == "none" and partner.member_lines.filtered(
-                    lambda r: r.state in member_states
+                    lambda r: r.state not in ["none"]
                 ):
                     state = "old"
                 partner.membership_state = state

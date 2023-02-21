@@ -141,12 +141,12 @@ class TestMembership(common.TransactionCase):
         self.assertEqual(self.yesterday, self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
         line.write({"state": "canceled"})
-        self.assertEqual("none", self.partner.membership_state)
+        self.assertEqual("old", self.partner.membership_state)
         self.assertFalse(self.partner.membership_start)
         self.assertFalse(self.partner.membership_last_start)
         self.assertFalse(self.partner.membership_stop)
         self.assertEqual(self.yesterday, self.partner.membership_cancel)
-        self.assertEqual("none", self.child.membership_state)
+        self.assertEqual("old", self.child.membership_state)
         self.assertFalse(self.child.membership_start)
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
@@ -388,7 +388,7 @@ class TestMembership(common.TransactionCase):
             }
         )
         self.env["res.partner"]._cron_update_membership()
-        self.assertEqual(self.partner.membership_state, "none")
+        self.assertEqual(self.partner.membership_state, "old")
 
     @mute_logger("odoo.sql_db")
     def test_unlink(self):
