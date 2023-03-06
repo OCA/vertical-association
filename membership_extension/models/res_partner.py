@@ -75,13 +75,6 @@ class ResPartner(models.Model):
         compute="_compute_membership_state",
         recursive=True,
     )
-    membership_categories = fields.Char(
-        string="Membership Categories Labels",
-        readonly=True,
-        store=True,
-        index=True,
-        compute="_compute_membership_state",
-    )
     membership_state = fields.Selection(
         selection=STATE,
         store=True,
@@ -198,13 +191,9 @@ class ResPartner(models.Model):
                 partner.membership_category_ids = [
                     (6, False, partner.associate_member.membership_category_ids.ids)
                 ]
-                partner.membership_categories = (
-                    partner.associate_member.membership_categories
-                )
             elif partner.free_member:
                 partner.membership_state = "free"
                 partner.membership_category_ids = [(5, False, False)]
-                partner.membership_categories = False
             else:
                 state = "none"
                 category_ids = []
@@ -234,10 +223,8 @@ class ResPartner(models.Model):
                     category_ids = list(set(category_ids))
                     category_names = list(set(category_names))
                     partner.membership_category_ids = [(6, False, category_ids)]
-                    partner.membership_categories = ", ".join(category_names)
                 else:
                     partner.membership_category_ids = [(5, False, False)]
-                    partner.membership_categories = False
 
     @api.model
     def check_membership_expiry(self):
