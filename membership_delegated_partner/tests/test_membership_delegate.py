@@ -3,11 +3,10 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import fields
-from odoo.tests import common
-from odoo.tests.common import Form
+from odoo.tests import Form, TransactionCase
 
 
-class TestMembershipDelegate(common.SavepointCase):
+class TestMembershipDelegate(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -117,6 +116,7 @@ class TestMembershipDelegate(common.SavepointCase):
                     "date": fields.Date.today(),
                     "reason": "no reason",
                     "refund_method": "refund",
+                    "journal_id": invoice.journal_id.id,
                 }
             )
         )
