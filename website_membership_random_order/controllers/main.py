@@ -1,8 +1,7 @@
 # Copyright 2021 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import http
-from odoo.http import request
+from odoo.http import request, route
 from odoo.tools import frozendict
 
 from odoo.addons.website_membership.controllers.main import WebsiteMembership
@@ -12,28 +11,7 @@ class WebsiteMembership(WebsiteMembership):
     # For avoiding the appearance of the pager in the website page
     _references_per_page = 9999999
 
-    @http.route(
-        [
-            "/members",
-            "/members/page/<int:page>",
-            "/members/association/<membership_id>",
-            "/members/association/<membership_id>/page/<int:page>",
-            "/members/country/<int:country_id>",
-            "/members/country/<country_name>-<int:country_id>",
-            "/members/country/<int:country_id>/page/<int:page>",
-            "/members/country/<country_name>-<int:country_id>/page/<int:page>",
-            "/members/association/<membership_id>/country/<country_name>-"
-            "<int:country_id>",
-            "/members/association/<membership_id>/country/<int:country_id>",
-            "/members/association/<membership_id>/country/<country_name>-"
-            "<int:country_id>/page/<int:page>",
-            "/members/association/<membership_id>/country/<int:country_id>/"
-            "page/<int:page>",
-        ],
-        type="http",
-        auth="public",
-        website=True,
-    )
+    @route()
     def members(
         self, membership_id=None, country_name=None, country_id=0, page=1, **post
     ):
