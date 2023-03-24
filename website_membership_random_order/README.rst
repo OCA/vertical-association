@@ -19,11 +19,11 @@ Online Members Directory - Random order
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/vertical-association-15-0/vertical-association-15-0-website_membership_random_order
     :alt: Translate me on Weblate
-.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/vertical-association&target_branch=15.0
-    :alt: Try me on Runboat
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/208/15.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This modules extends the online members directory for displaying the results
 in a random order, and displays a disclaimer about it at the top of the list.
@@ -86,7 +86,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-pedrobaeza|
+|maintainer-pedrobaeza| 
 
 This module is part of the `OCA/vertical-association <https://github.com/OCA/vertical-association/tree/15.0/website_membership_random_order>`_ project on GitHub.
 
