@@ -24,5 +24,12 @@ msgstr "Línea de membresía"
 
 #. module: website_membership_random_order
 #: model_terms:ir.ui.view,arch_db:website_membership_random_order.index
-msgid "This order of appearance is random and changes each time you refresh."
-msgstr "Este orden de aparición es aleatorio y cambia cada vez que se refresca."
+msgid ""
+"This order of appearance is random and changes each time you refresh.\n"
+"                        <br/>"
+msgstr ""
+
+#~ msgid ""
+#~ "This order of appearance is random and changes each time you refresh."
+#~ msgstr ""
+#~ "Este orden de aparición es aleatorio y cambia cada vez que se refresca."

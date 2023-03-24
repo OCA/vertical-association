@@ -17,21 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: website_membership_random_order
-#: model:ir.model.fields,field_description:website_membership_random_order.field_membership_membership_line__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: website_membership_random_order
-#: model:ir.model.fields,field_description:website_membership_random_order.field_membership_membership_line__id
-msgid "ID"
-msgstr "ID"
-
-#. module: website_membership_random_order
-#: model:ir.model.fields,field_description:website_membership_random_order.field_membership_membership_line____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: website_membership_random_order
 #: model:ir.model,name:website_membership_random_order.model_membership_membership_line
 msgid "Membership Line"
 msgstr "Riga iscrizione"
@@ -42,3 +27,12 @@ msgid ""
 "This order of appearance is random and changes each time you refresh.\n"
 "                        <br/>"
 msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
