@@ -5,6 +5,7 @@
 
 from datetime import datetime, timedelta
 
+from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
 from odoo import fields
@@ -411,6 +412,28 @@ class TestMembership(common.SavepointCase):
         )
         self.env["res.partner"]._cron_update_membership()
         self.assertEqual(self.partner.membership_state, "none")
+
+    def test_check_membership_enablement(self):
+        with freeze_time("2023-04-04"):
+            self.env["membership.membership_line"].create(
+                {
+                    "membership_id": self.gold_product.id,
+                    "member_price": 100.00,
+                    "date": "2023-04-04",
+                    "date_from": "2023-04-05",
+                    "date_to": "2024-04-05",
+                    "partner": self.partner.id,
+                    "state": "paid",
+                }
+            )
+            self.env["res.partner"]._cron_update_membership()
+            self.assertEqual(self.partner.membership_state, "old")
+            # FIXME: If the date_from is in the future the state is "old"
+            # It should probably be "waiting", but it would need a lot of changes
+            # because for now "waiting" refers mostly to the invoicing state
+        with freeze_time("2023-04-05"):
+            self.env["res.partner"]._cron_update_membership()
+            self.assertEqual(self.partner.membership_state, "paid")
 
     @mute_logger("odoo.sql_db")
     def test_unlink(self):
