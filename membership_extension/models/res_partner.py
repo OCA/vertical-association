@@ -269,6 +269,22 @@ class ResPartner(models.Model):
         partners._compute_membership_state()
 
     @api.model
+    def check_membership_enablement(self):
+        """Force a recalculation on not already members"""
+        today = fields.Date.today()
+        non_member_states = list(
+            dict(STATE).keys() - set(self._membership_member_states())
+        )
+        partners = self.search(
+            [
+                ("associate_member", "=", False),
+                ("membership_state", "in", non_member_states),
+                ("membership_start", ">=", today),
+            ]
+        )
+        partners._compute_membership_state()
+
+    @api.model
     def check_membership_all(self):
         """Force a recalculation on partners with member lines"""
         partners = self.search(
@@ -282,7 +298,8 @@ class ResPartner(models.Model):
 
     @api.model
     def _cron_update_membership(self):
-        return self.check_membership_expiry()
+        self.check_membership_expiry()
+        self.check_membership_enablement()
 
     @api.depends("associate_member")
     def _compute_is_adhered_member(self):
