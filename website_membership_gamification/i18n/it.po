@@ -6,30 +6,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-05-12 13:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_badge_user_kanban_view
 msgid "Assigned to"
-msgstr ""
+msgstr "Assegnato a"
 
 #. module: website_membership_gamification
 #: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__badge_url
 msgid "Badge URL"
-msgstr ""
+msgstr "URL tesserino"
 
 #. module: website_membership_gamification
 #: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__gamification_badge_ids
 #: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__gamification_badge_ids
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
 msgid "Badges"
-msgstr ""
+msgstr "Tesserini"
 
 #. module: website_membership_gamification
 #: code:addons/website_membership_gamification/models/res_partner.py:0
@@ -38,66 +40,68 @@ msgid ""
 "Both hr_gamification and website_membership_gamification modules are "
 "installed. You need to install user_hr_gamification in order to use both."
 msgstr ""
+"I moduli hr_gamification e website_membership_gamification sono installati. "
+"Serve installare user_hr_gamification pe usarli entrambi."
 
 #. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: website_membership_gamification
 #: model:ir.model,name:website_membership_gamification.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: website_membership_gamification
 #: model:ir.model,name:website_membership_gamification.model_gamification_badge
 msgid "Gamification Badge"
-msgstr ""
+msgstr "Tesserino gamification"
 
 #. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
 msgid "Grant Badge"
-msgstr ""
+msgstr "Concessione tesserino"
 
 #. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
 msgid "Grant a Badge"
-msgstr ""
+msgstr "Concedi un tesserino"
 
 #. module: website_membership_gamification
 #: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__has_related_users
 #: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__has_related_users
 msgid "Has Related Users"
-msgstr ""
+msgstr "Ha utenti collegati"
 
 #. module: website_membership_gamification
 #: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__new_tab_url
 msgid "Open URL in new tab"
-msgstr ""
+msgstr "Apri URL in nuova scheda"
 
 #. module: website_membership_gamification
 #: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_member_published
 msgid "Published in member directory"
-msgstr ""
+msgstr "Pubblicato nella cartella membri"
 
 #. module: website_membership_gamification
 #: code:addons/website_membership_gamification/models/res_partner.py:0
 #, python-format
 msgid "Reward"
-msgstr ""
+msgstr "Ricompensa"
 
 #. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
 msgid "Reward with"
-msgstr ""
+msgstr "Ricompensa con"
 
 #. module: website_membership_gamification
 #: code:addons/website_membership_gamification/models/res_partner.py:0
 #, python-format
 msgid "The partner has no related users."
-msgstr ""
+msgstr "Il partner non ha un utente collegato."
 
 #. module: website_membership_gamification
 #: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_expiration_date
 msgid "Website Expiration Date"
-msgstr ""
+msgstr "Data scadenza sito web"
