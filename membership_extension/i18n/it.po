@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2023-05-12 14:34+0000\n"
+"PO-Revision-Date: 2023-05-12 17:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -34,20 +34,20 @@ msgid ""
 "A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
-"Iscritto al quale associare l'iscrizione. Viene preso in considerazione lo "
-"stato di iscrizione dell'iscritto associato."
+"Socio al quale collegare la propria iscrizione. Verrà preso in "
+"considerazione lo stato di iscrizione del socio collegato."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
 msgid "Adhered member"
-msgstr "Iscritto che ha aderito"
+msgstr "Socio aderente"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr "Iscritto associato"
+msgstr "Socio collegato"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_line.py:54
@@ -57,7 +57,7 @@ msgid ""
 "or remove invoice line instead"
 msgstr ""
 "Impossibile rimuovere la riga di iscrizione collegata a una fattura. "
-"Annullare invece la fattura o rimuovere la riga della fattura stessa"
+"Annullare la fattura o rimuoverne invece la riga"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
@@ -100,19 +100,19 @@ msgstr "Creato il"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 msgid "Current Membership Status"
-msgstr "Stato corrente iscrizione"
+msgstr "Stato corrente dell'iscrizione"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Date from which membership becomes active."
-msgstr "Data dalla quale l'iscrizione diventa attiva."
+msgstr "Data di attivazione dell'iscrizione."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr "Data dalla quale il partner ha aderito."
+msgstr "Data di adesione del partner."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
@@ -135,7 +135,7 @@ msgstr "Nome visualizzato"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Free Member"
-msgstr "Iscritto gratuito"
+msgstr "Socio non pagante"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
@@ -171,7 +171,7 @@ msgstr "Riga fattura"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Invoiced Member"
-msgstr "Iscritto con fattura"
+msgstr "Socio con fattura"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
@@ -255,7 +255,7 @@ msgstr "Iscrizione"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 msgid "Membership Adhered Start Date"
-msgstr "Data inizio adesione"
+msgstr "Data inizio adesione associativa"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
@@ -358,7 +358,7 @@ msgstr "Non iscritto"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Old Member"
-msgstr "Vecchio iscritto"
+msgstr "Vecchio socio"
 
 #. module: membership_extension
 #: selection:membership.membership_line,state:0
@@ -413,7 +413,7 @@ msgstr "Unità"
 #: selection:membership.membership_line,state:0
 #: selection:res.partner,membership_state:0
 msgid "Waiting Member"
-msgstr "Iscritto in attesa"
+msgstr "Socio in attesa"
 
 #. module: membership_extension
 #: code:addons/membership_extension/models/membership_category.py:28
@@ -422,8 +422,8 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
-"Impossibile cambiare l'azienda. La categoria di iscrizione viene utilizzata "
-"dal modello prodotto (%s), che ha un'azienda assegnata non compatibile."
+"Impossibile cambiare l'azienda. La categoria di iscrizione è utilizzata dal "
+"modello del prodotto (%s) a cui è stata assegnata un'azienda non compatibile."
 
 #. module: membership_extension
 #: model:product.template,weight_uom_name:membership_extension.membership_0_product_template
