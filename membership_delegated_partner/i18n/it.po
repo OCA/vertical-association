@@ -36,9 +36,8 @@ msgstr "Fattura"
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_account_invoice_line
-#, fuzzy
 msgid "Invoice Line"
-msgstr "Fattura"
+msgstr "Riga fattura"
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_membership_membership_line
