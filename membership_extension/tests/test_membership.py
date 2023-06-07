@@ -183,6 +183,20 @@ class TestMembership(common.TransactionCase):
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.next_two_months, self.child.membership_stop)
         self.assertEqual(self.yesterday, self.child.membership_cancel)
+        other_line.unlink()
+        self.assertEqual("old", self.partner.membership_state)
+        self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.silver_product.id,
+                "member_price": 100.00,
+                "date": fields.Date.today(),
+                "date_from": None,
+                "date_to": self.next_two_months,
+                "partner": self.partner.id,
+                "state": "paid",
+            }
+        )
+        self.assertEqual("paid", self.partner.membership_state)
         self.partner.free_member = True
         self.assertEqual("free", self.child.membership_state)
 

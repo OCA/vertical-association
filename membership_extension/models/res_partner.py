@@ -225,10 +225,25 @@ class ResPartner(models.Model):
                         category_names.append(line.category_id.name)
                     if prior.get(line.state, 0) > prior.get(state):
                         state = line.state
-                if state == "none" and partner.member_lines.filtered(
+                if state in ["none", "old"] and partner.member_lines.filtered(
                     lambda r: r.state not in ["none"]
                 ):
-                    state = "old"
+                    if partner.member_lines.filtered(
+                        lambda l: l.state == "paid"
+                        and (not l.date_from or l.date_from <= today)
+                        and (not l.date_to or l.date_to > today)
+                    ):
+                        state = "paid"
+                    elif partner.member_lines.filtered(
+                        lambda l: (l.state == "paid" and l.date_from > today)
+                        or (
+                            l.state == "waiting"
+                            and (not l.date_to or l.date_to > today)
+                        )
+                    ):
+                        state = "waiting"
+                    else:
+                        state = "old"
                 partner.membership_state = state
                 if category_ids:
                     category_ids = list(set(category_ids))
