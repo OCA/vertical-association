@@ -419,10 +419,7 @@ class TestMembership(common.TransactionCase):
                 }
             )
             self.env["res.partner"]._cron_update_membership()
-            self.assertEqual(self.partner.membership_state, "old")
-            # FIXME: If the date_from is in the future the state is "old"
-            # It should probably be "waiting", but it would need a lot of changes
-            # because for now "waiting" refers mostly to the invoicing state
+            self.assertEqual(self.partner.membership_state, "waiting")
         with freeze_time("2023-04-05"):
             self.env["res.partner"]._cron_update_membership()
             self.assertEqual(self.partner.membership_state, "paid")
