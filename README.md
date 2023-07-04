@@ -17,9 +17,9 @@ TODO: add repo description.
 
 [//]: # (addons)
 
-Available addons
-----------------
-addon | version | maintainers | summary
+-Available addons
+-----------------
+-addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_membership_delegated_partner](contract_membership_delegated_partner/) | 14.0.1.0.0 |  | Set delegate membership on the contract
 [membership_delegated_partner](membership_delegated_partner/) | 14.0.1.1.0 |  | Delegate membership on a specific partner
