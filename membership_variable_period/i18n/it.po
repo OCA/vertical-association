@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-26 04:01+0000\n"
-"PO-Revision-Date: 2023-05-12 13:34+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-07-17 17:09+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/"
 "OCA-vertical-association-8-0/language/it/)\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: membership_variable_period
 #: selection:product.template,membership_type:0
@@ -53,12 +53,12 @@ msgstr "Tipo iscrizione"
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
 msgid "Product Template"
-msgstr "Template Prodotto"
+msgstr "Modello prodotto"
 
 #. module: membership_variable_period
 #: selection:product.template,membership_type:0
 msgid "Variable periods"
-msgstr "Pariodi variabili"
+msgstr "Periodi variabili"
 
 #. module: membership_variable_period
 #: selection:product.template,membership_interval_unit:0
