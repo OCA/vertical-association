@@ -13,6 +13,7 @@ class ResPartner(models.Model):
         comodel_name="gamification.badge.user",
         compute="_compute_gamification_badge_ids",
         store=True,
+        recursive=True,
     )
     has_related_users = fields.Boolean(compute="_compute_has_related_users")
 
