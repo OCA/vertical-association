@@ -7,16 +7,22 @@
             <xpath expr="//field[@name='id']" position="after">
                 <field name="is_membership_invoice" invisible="1" />
             </xpath>
-            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="after">
-                <field name="is_membership" invisible="1"/>
+            <xpath
+                expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']"
+                position="after"
+            >
+                <field name="is_membership" invisible="1" />
                 <field
                     name="delegated_member_id"
                     attrs="{'column_invisible':[('parent.is_membership_invoice', '!=', True)], 'invisible':[('is_membership', '!=', True)]}"
                 />
             </xpath>
             <!-- Form view to cover mobile use -->
-            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='analytic_account_id']" position="after">
-                <field name="is_membership" invisible="1"/>
+            <xpath
+                expr="//field[@name='invoice_line_ids']/tree/field[@name='analytic_account_id']"
+                position="after"
+            >
+                <field name="is_membership" invisible="1" />
                 <field
                     name="delegated_member_id"
                     attrs="{'invisible':[('is_membership', '!=', True)]}"
@@ -24,7 +30,7 @@
             </xpath>
             <!-- Just for save -->
             <xpath expr="//field[@name='line_ids']/tree" position="inside">
-                <field name="is_membership" invisible="1"/>
+                <field name="is_membership" invisible="1" />
                 <field name="delegated_member_id" invisible="1" />
             </xpath>
 

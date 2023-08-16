@@ -1,5 +1,3 @@
-[ This file must be max 2-3 paragraphs, and is required. ]
-
 This module allows to delegate a membership line to a partner independently of
 the invoicing partner. This is done at the invoice line level.
 

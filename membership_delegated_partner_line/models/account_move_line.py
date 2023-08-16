@@ -1,7 +1,7 @@
 # Copyright 2023 Graeme Gellatly
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class AccountMoveLine(models.Model):
@@ -23,16 +23,13 @@ class AccountMoveLine(models.Model):
         """If the product is not a membership then we need to set the delegated
         member to False.
         """
-        for rec in self:
-            if not rec.product_id.membership:
-                rec.delegated_member_id = False
+        if not self.product_id.membership:
+            self.delegated_member_id = False
 
     @api.onchange("delegated_member_id")
     def _onchange_delegated_member_id(self):
-        """If the delegated member is changed then we need to set the description.
-        """
-        for rec in self:
-            rec.name = rec._get_computed_name()
+        """If the delegated member is changed then we need to set the description."""
+        self.name = self._get_computed_name()
 
     def _get_computed_name(self):
         name = super()._get_computed_name()

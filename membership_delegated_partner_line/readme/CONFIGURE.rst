@@ -1,6 +1,3 @@
-[ This file is optional, it should explain how to configure
-  the module before using it; it is aimed at advanced users. ]
-
 This module is incompatible with `membership_delegated_partner` and any module that depends
 on it. Prior to installing this module, if you use membership_delegated_partner:
 

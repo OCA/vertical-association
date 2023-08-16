@@ -11,6 +11,7 @@ class TestMembershipDelegate(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.partner1 = cls.env["res.partner"].create({"name": "Mr. Odoo"})
         cls.partner2 = cls.env["res.partner"].create({"name": "Mrs. Odoo"})
         cls.product = cls.env["product.product"].create(
