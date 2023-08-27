@@ -56,23 +56,17 @@ msgid "Date when member requested membership withdrawal"
 msgstr ""
 
 #. module: membership_withdrawal
-#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__display_name
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__display_name
-#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__display_name
 msgid "Display Name"
 msgstr "اسم العرض"
 
 #. module: membership_withdrawal
-#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__id
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__id
-#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__id
 msgid "ID"
 msgstr "المعرف"
 
 #. module: membership_withdrawal
-#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line____last_update
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason____last_update
-#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "آخر تعديل في"
 
