@@ -9,24 +9,25 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-04 02:43+0000\n"
-"PO-Revision-Date: 2017-08-04 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2023-09-20 17:47+0000\n"
+"Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
-msgstr ""
+msgstr "Fallida de l'empresa"
 
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacte"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__create_uid
@@ -41,7 +42,7 @@ msgstr "Creat el"
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_membership_membership_line__date_withdrawal
 msgid "Date when member requested membership withdrawal"
-msgstr ""
+msgstr "Data de la petició de baixa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__display_name
