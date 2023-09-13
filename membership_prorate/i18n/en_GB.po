@@ -20,6 +20,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_account_move_line__id
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: membership_prorate
 #: model:ir.model.fields,help:membership_prorate.field_product_product__membership_prorate
 #: model:ir.model.fields,help:membership_prorate.field_product_template__membership_prorate
 msgid ""
@@ -28,9 +40,15 @@ msgid ""
 msgstr ""
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Invoice Line"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
@@ -42,3 +60,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr ""
+
+#~ msgid "Invoice Line"
+#~ msgstr "Invoice Line"
