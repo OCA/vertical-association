@@ -1,5 +1,6 @@
 # Copyright 2017 Tecnativa - David Vidal
 # Copyright 2019 Onestein - Andrea Stirpe
+# Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import fields
@@ -20,14 +21,11 @@ class TestMembershipDelegate(TransactionCase):
                 "membership_date_to": "2017-12-31",
             }
         )
-        cls.account_type = cls.env["account.account.type"].create(
-            {"name": "Test", "type": "receivable", "internal_group": "asset"}
-        )
         cls.account = cls.env["account.account"].create(
             {
                 "name": "Test account",
                 "code": "TEST",
-                "user_type_id": cls.account_type.id,
+                "account_type": "income",
                 "reconcile": True,
             }
         )
@@ -43,15 +41,19 @@ class TestMembershipDelegate(TransactionCase):
                 "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
-            }
-        )
-        self.env["account.move.line"].create(
-            {
-                "move_id": invoice.id,
-                "name": "Membership for delegate member",
-                "account_id": self.account.id,
-                "product_id": self.product.id,
-                "price_unit": 1.0,
+                "invoice_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "display_type": "product",
+                            "name": "Membership for delegate member",
+                            "account_id": self.account.id,
+                            "product_id": self.product.id,
+                            "price_unit": 1.0,
+                        },
+                    )
+                ],
             }
         )
         self.assertTrue(self.partner2.member_lines, "Delegated partner gets the line")
@@ -75,15 +77,19 @@ class TestMembershipDelegate(TransactionCase):
                 "name": "Test Customer Invoice",
                 "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
-            }
-        )
-        self.env["account.move.line"].create(
-            {
-                "move_id": invoice.id,
-                "name": "Membership classic",
-                "account_id": self.account.id,
-                "product_id": self.product.id,
-                "price_unit": 1.0,
+                "invoice_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "display_type": "product",
+                            "name": "Membership classic",
+                            "account_id": self.account.id,
+                            "product_id": self.product.id,
+                            "price_unit": 1.0,
+                        },
+                    )
+                ],
             }
         )
         self.assertTrue(self.partner1.member_lines, "Partner gets the line")
@@ -103,7 +109,6 @@ class TestMembershipDelegate(TransactionCase):
         move_form.partner_id = self.partner1
         with move_form.invoice_line_ids.new() as line_form:
             line_form.product_id = self.product
-            line_form.account_id = self.account
             line_form.price_unit = 1.0
         invoice = move_form.save()
         invoice.write({"delegated_member_id": self.partner2.id})
@@ -132,15 +137,19 @@ class TestMembershipDelegate(TransactionCase):
                 "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
-            }
-        )
-        self.env["account.move.line"].create(
-            {
-                "move_id": invoice.id,
-                "name": "Membership for delegate member",
-                "account_id": self.account.id,
-                "product_id": self.product.id,
-                "price_unit": 1.0,
+                "invoice_line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "display_type": "product",
+                            "name": "Membership for delegate member",
+                            "account_id": self.account.id,
+                            "product_id": self.product.id,
+                            "price_unit": 1.0,
+                        },
+                    )
+                ],
             }
         )
         get_member = invoice.invoice_line_ids[0]._get_partner_for_membership

@@ -1,9 +1,10 @@
 # Copyright 2017 Tecnativa - David Vidal
 # Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Membership Delegate Partner",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Membership",
     "author": "Tecnativa, Onestein, Odoo Community Association (OCA)",
