@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[membership_delegated_partner](membership_delegated_partner/) | 16.0.1.0.0 |  | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 16.0.2.0.0 |  | Improves user experience of membership addon
 [membership_variable_period](membership_variable_period/) | 16.0.1.0.0 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 16.0.1.0.0 |  | Log membership withdrawal reason and date of request
