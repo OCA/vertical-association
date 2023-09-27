@@ -1,4 +1,5 @@
 # Copyright 2017-19 Tecnativa - David Vidal
+# Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import fields, models
 
@@ -12,8 +13,6 @@ class AccountAnalyticAccount(models.Model):
     )
 
     def _prepare_invoice(self, date_invoice, journal=None):
-        invoice_vals, move_form = super()._prepare_invoice(
-            date_invoice, journal=journal
-        )
+        invoice_vals = super()._prepare_invoice(date_invoice, journal=journal)
         invoice_vals["delegated_member_id"] = self.delegated_member_id.id
-        return invoice_vals, move_form
+        return invoice_vals
