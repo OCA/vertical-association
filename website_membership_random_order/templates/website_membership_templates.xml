@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="index" inherit_id="website_membership.index">
+        <xpath expr="//t[@t-if='not memberships_partner_ids']" position="after">
+            <t t-else="">
+                <div
+                    class="s_alert alert-delta clearfix w-100 s_alert_md"
+                    data-name="Alert"
+                >
+                    <i
+                        class="fa fa-2x fa-info-circle s_alert_icon"
+                        data-original-title=""
+                        title=""
+                        aria-describedby="tooltip715756"
+                    />
+                    <div class="s_alert_content">
+                        <p
+                            style="text-align: center"
+                        >This order of appearance is random and changes each time you refresh.
+                        <br />
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
