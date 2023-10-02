@@ -1,11 +1,12 @@
 # Copyright 2022 Manuel Regidor <manuel.regidor@sygel.es>
 # Copyright 2023 Tecnativa - Pedro M. Baeza
+# Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     "name": "Website Membership Gamification",
     "summary": "Show badges assigned to users on website",
-    "version": "15.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Website",
     "author": "Sygel, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/vertical-association",
