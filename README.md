@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [membership_extension](membership_extension/) | 16.0.2.0.0 |  | Improves user experience of membership addon
 [membership_variable_period](membership_variable_period/) | 16.0.1.0.0 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 16.0.1.0.0 |  | Log membership withdrawal reason and date of request
+[website_membership_gamification](website_membership_gamification/) | 16.0.1.0.0 |  | Show badges assigned to users on website
 [website_membership_random_order](website_membership_random_order/) | 16.0.1.0.0 | [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Online Members Directory - Random order
 
 [//]: # (end addons)

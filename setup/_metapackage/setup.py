@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo-addon-membership_extension>=16.0dev,<16.1dev',
         'odoo-addon-membership_variable_period>=16.0dev,<16.1dev',
         'odoo-addon-membership_withdrawal>=16.0dev,<16.1dev',
+        'odoo-addon-website_membership_gamification>=16.0dev,<16.1dev',
         'odoo-addon-website_membership_random_order>=16.0dev,<16.1dev',
     ],
     classifiers=[
