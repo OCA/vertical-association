@@ -10,6 +10,11 @@
         <field name="name">Membership Gold</field>
         <field name="membership" eval="True" />
         <field name="type">service</field>
+        <field name="membership_date_from" eval="DateTime.today()" />
+        <field
+            name="membership_date_to"
+            eval="DateTime.today() + relativedelta(years=1)"
+        />
     </record>
     <record id="membership_1_product_template" model="product.template">
         <field
@@ -19,6 +24,11 @@
         <field name="name">Membership Silver</field>
         <field name="membership" eval="True" />
         <field name="type">service</field>
+        <field name="membership_date_from" eval="DateTime.today()" />
+        <field
+            name="membership_date_to"
+            eval="DateTime.today() + relativedelta(years=1)"
+        />
     </record>
     <record id="membership_2_product_template" model="product.template">
         <field
@@ -28,5 +38,10 @@
         <field name="name">Membership Bronze</field>
         <field name="membership" eval="True" />
         <field name="type">service</field>
+        <field name="membership_date_from" eval="DateTime.today()" />
+        <field
+            name="membership_date_to"
+            eval="DateTime.today() + relativedelta(years=1)"
+        />
     </record>
 </odoo>
