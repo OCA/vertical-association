@@ -38,6 +38,13 @@ msgstr ""
 "de membresía del miembro asociado."
 
 #. module: membership_extension
+#. odoo-python
+#: code:addons/membership_extension/models/product_template.py:0
+#, python-format
+msgid "A membership product must have a start date and an end date."
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
 msgstr "Importe de la membresía"
@@ -276,12 +283,6 @@ msgid "Membership Categories"
 msgstr "Categorias de asociación"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
-msgid "Membership Categories Labels"
-msgstr "Etiquetas de las categorías de afiliación"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
 msgstr "Categoría de asociación"
@@ -420,6 +421,9 @@ msgstr ""
 "No se puede cambiar la Compañía, ya que esta categoría de miembro es "
 "utilizada por la plantilla de productos (%s), que tiene una Compañía "
 "asignada incompatible."
+
+#~ msgid "Membership Categories Labels"
+#~ msgstr "Etiquetas de las categorías de afiliación"
 
 #~ msgid "Adhered member"
 #~ msgstr "Socio adherido"
