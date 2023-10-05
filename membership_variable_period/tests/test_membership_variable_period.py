@@ -16,8 +16,6 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             {
                 "name": "Membership product with variable period",
                 "membership": True,
-                "membership_date_from": "2015-01-01",
-                "membership_date_to": "2015-12-31",
                 "membership_type": "variable",
                 "membership_interval_qty": 1,
                 "membership_interval_unit": "weeks",
