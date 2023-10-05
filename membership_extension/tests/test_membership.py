@@ -457,3 +457,41 @@ class TestMembership(common.TransactionCase):
             self.assertTrue(template.membership_category_id)
             template.company_id = company_b
             self.assertFalse(template.membership_category_id)
+
+    def test_no_dates(self):
+        with self.assertRaises(ValidationError):
+            self.env["product.template"].create(
+                {
+                    "name": "Test Membership",
+                    "membership": True,
+                    "type": "service",
+                }
+            )
+        with self.assertRaises(ValidationError):
+            self.env["product.template"].create(
+                {
+                    "name": "Test Membership",
+                    "membership": True,
+                    "type": "service",
+                    "membership_date_from": "1970-01-01",
+                }
+            )
+        with self.assertRaises(ValidationError):
+            self.env["product.template"].create(
+                {
+                    "name": "Test Membership",
+                    "membership": True,
+                    "type": "service",
+                    "membership_date_to": "1970-01-01",
+                }
+            )
+        # No error
+        self.env["product.template"].create(
+            {
+                "name": "Test Membership",
+                "membership": True,
+                "type": "service",
+                "membership_date_from": "1970-01-01",
+                "membership_date_to": "1970-01-02",
+            }
+        )
