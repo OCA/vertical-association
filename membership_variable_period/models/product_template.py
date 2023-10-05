@@ -42,7 +42,14 @@ class ProductTemplate(models.Model):
         default="fixed",
         required=True,
     )
-    membership_interval_qty = fields.Integer(string="Interval quantity", default=1)
+    membership_interval_qty = fields.Integer(
+        string="Interval quantity",
+        default=1,
+        # Technically only required if membership_type is variable, but because
+        # there's a default value, this should be fine, and should prevent bad
+        # scenarios where a value is expected but none is available.
+        required=True,
+    )
     membership_interval_unit = fields.Selection(
         string="Interval Unit",
         selection=[
@@ -52,6 +59,8 @@ class ProductTemplate(models.Model):
             ("years", "years"),
         ],
         default="years",
+        # Same comment as on membership_interval_qty in re being required.
+        required=True,
     )
 
     def _correct_vals_membership_type(self, vals, membership_type):
@@ -79,3 +88,15 @@ class ProductTemplate(models.Model):
             )
             super(ProductTemplate, rec).write(vals2)
         return True
+
+    @api.constrains(
+        "membership_date_from",
+        "membership_date_to",
+        "membership",
+        "membership_type",
+    )
+    def _check_membership_dates(self):
+        return super(
+            ProductTemplate,
+            self.filtered(lambda record: record.membership_type == "fixed"),
+        )._check_membership_dates()
