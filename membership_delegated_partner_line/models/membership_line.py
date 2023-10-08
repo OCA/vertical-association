@@ -42,8 +42,9 @@ class MembershipLine(models.Model):
             inv_line = self.env["account.move.line"].browse(
                 vals["account_invoice_line"]
             )
+            if inv_line and inv_line.delegated_member_id:
+                vals["partner"] = inv_line.delegated_member_id.id
         else:
-            inv_line = self.account_invoice_line
-        if inv_line and inv_line.delegated_member_id:
-            vals["partner"] = inv_line.delegated_member_id.id
+            for record in self:
+               record.partner = record.account_invoice_line._get_partner_for_membership()   
         return super().write(vals)
