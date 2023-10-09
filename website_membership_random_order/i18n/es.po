@@ -18,11 +18,33 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 
 #. module: website_membership_random_order
+#: model:ir.model.fields,field_description:website_membership_random_order.field_membership_membership_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: website_membership_random_order
+#: model:ir.model.fields,field_description:website_membership_random_order.field_membership_membership_line__id
+msgid "ID"
+msgstr ""
+
+#. module: website_membership_random_order
+#: model:ir.model.fields,field_description:website_membership_random_order.field_membership_membership_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: website_membership_random_order
 #: model:ir.model,name:website_membership_random_order.model_membership_membership_line
 msgid "Membership Line"
 msgstr "Línea de membresía"
 
 #. module: website_membership_random_order
 #: model_terms:ir.ui.view,arch_db:website_membership_random_order.index
-msgid "This order of appearance is random and changes each time you refresh."
-msgstr "Este orden de aparición es aleatorio y cambia cada vez que se refresca."
+msgid ""
+"This order of appearance is random and changes each time you refresh.\n"
+"                        <br/>"
+msgstr ""
+
+#~ msgid ""
+#~ "This order of appearance is random and changes each time you refresh."
+#~ msgstr ""
+#~ "Este orden de aparición es aleatorio y cambia cada vez que se refresca."
