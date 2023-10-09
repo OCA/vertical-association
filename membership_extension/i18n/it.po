@@ -275,12 +275,6 @@ msgid "Membership Categories"
 msgstr "Categorie iscrizione"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
-msgid "Membership Categories Labels"
-msgstr "Etichetta categorie iscrizione"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
 msgstr "Categoria iscrizione"
@@ -418,6 +412,9 @@ msgid ""
 msgstr ""
 "Impossibile cambiare l'azienda. La categoria di iscrizione è utilizzata dal "
 "modello del prodotto (%s) a cui è stata assegnata un'azienda non compatibile."
+
+#~ msgid "Membership Categories Labels"
+#~ msgstr "Etichetta categorie iscrizione"
 
 #~ msgid "Adhered member"
 #~ msgstr "Socio aderente"
