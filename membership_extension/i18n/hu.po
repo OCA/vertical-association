@@ -121,13 +121,7 @@ msgid "Date until which membership remains active."
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_move__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_product_product__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_product_template__display_name
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Név megjelenítése"
 
@@ -152,13 +146,7 @@ msgid "Helps you manage operations for managing memberships."
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_move__id
-#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__id
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__id
-#: model:ir.model.fields,field_description:membership_extension.field_product_product__id
-#: model:ir.model.fields,field_description:membership_extension.field_product_template__id
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
@@ -206,13 +194,7 @@ msgid "Journal Item"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_account_move____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_account_move_line____last_update
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_product_product____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_product_template____last_update
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Utolsó frissítés dátuma"
 
