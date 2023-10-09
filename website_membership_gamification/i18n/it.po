@@ -34,6 +34,7 @@ msgid "Badges"
 msgstr "Tesserini"
 
 #. module: website_membership_gamification
+#. odoo-python
 #: code:addons/website_membership_gamification/models/res_partner.py:0
 #, python-format
 msgid ""
@@ -85,6 +86,7 @@ msgid "Published in member directory"
 msgstr "Pubblicato nella cartella membri"
 
 #. module: website_membership_gamification
+#. odoo-python
 #: code:addons/website_membership_gamification/models/res_partner.py:0
 #, python-format
 msgid "Reward"
@@ -96,6 +98,7 @@ msgid "Reward with"
 msgstr "Ricompensa con"
 
 #. module: website_membership_gamification
+#. odoo-python
 #: code:addons/website_membership_gamification/models/res_partner.py:0
 #, python-format
 msgid "The partner has no related users."
