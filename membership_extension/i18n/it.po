@@ -25,7 +25,8 @@ msgstr ""
 msgid ""
 "A member who is associated to another one, but whose membership are "
 "independent."
-msgstr "Iscritto associato a un altro iscritto, ma con iscrizione indipendente."
+msgstr ""
+"Iscritto associato a un altro iscritto, ma con iscrizione indipendente."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__associate_member
