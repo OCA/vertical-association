@@ -29,5 +29,20 @@ msgstr "Contrato"
 msgid "Delegated Member"
 msgstr "Miembro delegado"
 
+#. module: contract_membership_delegated_partner
+#: model:ir.model.fields,field_description:contract_membership_delegated_partner.field_contract_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: contract_membership_delegated_partner
+#: model:ir.model.fields,field_description:contract_membership_delegated_partner.field_contract_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: contract_membership_delegated_partner
+#: model:ir.model.fields,field_description:contract_membership_delegated_partner.field_contract_contract____last_update
+msgid "Last Modified on"
+msgstr ""
+
 #~ msgid "Analytic Account"
 #~ msgstr "Cuenta analítica"
