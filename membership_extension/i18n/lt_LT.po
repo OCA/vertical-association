@@ -37,6 +37,13 @@ msgid ""
 msgstr ""
 
 #. module: membership_extension
+#. odoo-python
+#: code:addons/membership_extension/models/product_template.py:0
+#, python-format
+msgid "A membership product must have a start date and an end date."
+msgstr ""
+
+#. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
 msgstr ""
