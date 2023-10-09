@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_variable_period
-#: selection:product.template,membership_type:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__fixed
 msgid "Fixed dates"
 msgstr ""
 
@@ -41,9 +41,9 @@ msgid "Interval unit"
 msgstr ""
 
 #. module: membership_variable_period
-#: model:ir.model,name:membership_variable_period.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Нэхэмжлэлийн мөр"
+#: model:ir.model,name:membership_variable_period.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_type
@@ -57,26 +57,29 @@ msgid "Product Template"
 msgstr ""
 
 #. module: membership_variable_period
-#: selection:product.template,membership_type:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__variable
 msgid "Variable periods"
 msgstr ""
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__days
 msgid "days"
 msgstr ""
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__months
 msgid "months"
 msgstr ""
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__weeks
 msgid "weeks"
 msgstr ""
 
 #. module: membership_variable_period
-#: selection:product.template,membership_interval_unit:0
+#: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__years
 msgid "years"
 msgstr ""
+
+#~ msgid "Invoice Line"
+#~ msgstr "Нэхэмжлэлийн мөр"
