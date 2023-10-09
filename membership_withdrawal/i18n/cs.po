@@ -19,6 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__active
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Active"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
 msgstr ""
@@ -44,17 +55,23 @@ msgid "Date when member requested membership withdrawal"
 msgstr ""
 
 #. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__display_name
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__display_name
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Zobrazovaný název"
 
 #. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__id
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__id
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__id
 msgid "ID"
 msgstr "ID"
 
 #. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line____last_update
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason____last_update
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr "Naposled upraveno"
 
@@ -88,7 +105,6 @@ msgstr ""
 #. module: membership_withdrawal
 #: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
 #: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
-#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_tree_view
 msgid "Membership withdrawal reasons"
 msgstr ""
 
