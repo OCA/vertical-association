@@ -20,7 +20,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: membership_delegated_partner
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_bank_statement_line__delegated_member_id
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move__delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_payment__delegated_member_id
 msgid "Delegated Member"
 msgstr ""
 
@@ -31,7 +33,7 @@ msgstr ""
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_account_move
-msgid "Journal Entries"
+msgid "Journal Entry"
 msgstr ""
 
 #. module: membership_delegated_partner
