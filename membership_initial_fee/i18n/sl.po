@@ -27,7 +27,7 @@ msgid "Fixed Fee"
 msgstr "Fiksna članarina"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__fixed
 msgid "Fixed amount"
 msgstr "Fiksni znesek"
 
@@ -39,18 +39,18 @@ msgid "Initial fee"
 msgstr "Začetna članarina"
 
 #. module: membership_initial_fee
-#: model:ir.model,name:membership_initial_fee.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Postavka računa"
+#: model:ir.model,name:membership_initial_fee.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:26
+#: code:addons/membership_initial_fee/models/account_move_line.py:0
 #, python-format
 msgid "Membership initial fee"
 msgstr "Začetna članarina"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__none
 msgid "No initial fee"
 msgstr "Ni začetne članarine"
 
@@ -61,7 +61,7 @@ msgid "Perc. fee (%)"
 msgstr "Odst. članarin (%)"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__percentage
 msgid "Percentage of the price"
 msgstr "Odstotek cene"
 
@@ -75,3 +75,6 @@ msgstr "Predloga proizvoda"
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
 msgid "Product for initial fee"
 msgstr "Proizvod za začetno članarino"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Postavka računa"

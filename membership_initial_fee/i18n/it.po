@@ -26,7 +26,7 @@ msgid "Fixed Fee"
 msgstr "Quota fissa"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__fixed
 msgid "Fixed amount"
 msgstr "Importo fisso"
 
@@ -38,18 +38,18 @@ msgid "Initial fee"
 msgstr "Quota iniziale"
 
 #. module: membership_initial_fee
-#: model:ir.model,name:membership_initial_fee.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Riga Fattura"
+#: model:ir.model,name:membership_initial_fee.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:26
+#: code:addons/membership_initial_fee/models/account_move_line.py:0
 #, python-format
 msgid "Membership initial fee"
 msgstr "Quota iniziale di iscrizione"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__none
 msgid "No initial fee"
 msgstr "Nessuna quota iniziale"
 
@@ -60,7 +60,7 @@ msgid "Perc. fee (%)"
 msgstr "Quota percentuale (%)"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__percentage
 msgid "Percentage of the price"
 msgstr "Percentuale dell'importo"
 
@@ -74,3 +74,6 @@ msgstr "Modello prodotto"
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
 msgid "Product for initial fee"
 msgstr "Prodotto da utilizzare come quota iniziale"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Riga Fattura"

@@ -26,7 +26,7 @@ msgid "Fixed Fee"
 msgstr "Cotisation"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__fixed
 msgid "Fixed amount"
 msgstr "Somme totale"
 
@@ -38,18 +38,18 @@ msgid "Initial fee"
 msgstr "Cotisation initiale"
 
 #. module: membership_initial_fee
-#: model:ir.model,name:membership_initial_fee.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Ligne de facture"
+#: model:ir.model,name:membership_initial_fee.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:26
+#: code:addons/membership_initial_fee/models/account_move_line.py:0
 #, python-format
 msgid "Membership initial fee"
 msgstr "Adhésion initiale"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__none
 msgid "No initial fee"
 msgstr "Pas de cotisation initiale"
 
@@ -60,7 +60,7 @@ msgid "Perc. fee (%)"
 msgstr "Cotisation en %"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__percentage
 msgid "Percentage of the price"
 msgstr "Pourcentage du prix"
 
@@ -74,3 +74,6 @@ msgstr "Modèle d'article"
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
 msgid "Product for initial fee"
 msgstr "Article associé pour la cotisation initiale"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Ligne de facture"
