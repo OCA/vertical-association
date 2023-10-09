@@ -19,6 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__fixed_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__fixed_fee
 #, fuzzy
@@ -26,9 +32,15 @@ msgid "Fixed Fee"
 msgstr "Cuota fija"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__fixed
 msgid "Fixed amount"
 msgstr "Importe fijo"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_account_move_line__id
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__id
+msgid "ID"
+msgstr ""
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__initial_fee
@@ -38,18 +50,24 @@ msgid "Initial fee"
 msgstr "Cuota inicial"
 
 #. module: membership_initial_fee
-#: model:ir.model,name:membership_initial_fee.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Línea de factura"
+#: model:ir.model,name:membership_initial_fee.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_initial_fee
-#: code:addons/membership_initial_fee/models/account_invoice.py:26
+#: model:ir.model.fields,field_description:membership_initial_fee.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: membership_initial_fee
+#: code:addons/membership_initial_fee/models/account_move_line.py:0
 #, python-format
 msgid "Membership initial fee"
 msgstr "Cuota inicial de miembro"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__none
 msgid "No initial fee"
 msgstr "Sin cuota inicial"
 
@@ -60,7 +78,7 @@ msgid "Perc. fee (%)"
 msgstr "Cuota en porcentaje (%)"
 
 #. module: membership_initial_fee
-#: selection:product.template,initial_fee:0
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__percentage
 msgid "Percentage of the price"
 msgstr "Porcentaje del precio"
 
@@ -74,3 +92,6 @@ msgstr "Plantilla de producto"
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
 msgid "Product for initial fee"
 msgstr "Producto para la cuota inicial"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Línea de factura"
