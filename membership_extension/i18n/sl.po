@@ -262,12 +262,6 @@ msgid "Membership Categories"
 msgstr "Kategorije članstva"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_categories
-#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_categories
-msgid "Membership Categories Labels"
-msgstr ""
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
 msgstr "Kategorija članstva"
