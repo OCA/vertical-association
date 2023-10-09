@@ -21,6 +21,17 @@ msgstr ""
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__active
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Active"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
 msgstr ""
@@ -90,7 +101,6 @@ msgstr ""
 #. module: membership_withdrawal
 #: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
 #: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
-#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_tree_view
 msgid "Membership withdrawal reasons"
 msgstr ""
 
