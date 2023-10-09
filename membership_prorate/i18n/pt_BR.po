@@ -10,14 +10,26 @@ msgstr ""
 "POT-Creation-Date: 2015-10-14 07:14+0000\n"
 "PO-Revision-Date: 2019-08-30 15:23+0000\n"
 "Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/"
-"OCA-vertical-association-8-0/language/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-"
+"vertical-association-8-0/language/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.8\n"
+
+#. module: membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_account_move_line__id
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template__id
+msgid "ID"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model.fields,help:membership_prorate.field_product_product__membership_prorate
@@ -30,9 +42,15 @@ msgstr ""
 "tempo restante do período"
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Linha de faturamento"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: membership_prorate
+#: model:ir.model.fields,field_description:membership_prorate.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:membership_prorate.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
@@ -44,3 +62,6 @@ msgstr "Modelo do Produto"
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr "Prorrata"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Linha de faturamento"
