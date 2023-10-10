@@ -27,6 +27,5 @@
     "demo": [
         "demo/membership_category_demo.xml",
         "demo/product_template_demo.xml",
-        "demo/membership_security_demo.xml",
     ],
 }
