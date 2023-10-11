@@ -43,6 +43,8 @@ class MembershipLine(models.Model):
                     self.date_to = date_to
 
     def _compute_state(self):
+        # Compute methods should not return
+        # pylint: disable=missing-return
         for line in self:
             if isinstance(line.id, models.NewId) or not line.account_invoice_id:
                 line.state = line.state or "none"
@@ -52,7 +54,7 @@ class MembershipLine(models.Model):
             ):
                 line.state = "canceled"
             else:
-                return super(MembershipLine, line)._compute_state()
+                super(MembershipLine, line)._compute_state()
 
     # Empty method _inverse_state
     def _inverse_state(self):
