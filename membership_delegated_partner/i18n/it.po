@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-02 01:54+0000\n"
-"PO-Revision-Date: 2022-10-10 00:44+0000\n"
-"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
+"PO-Revision-Date: 2023-10-13 16:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: membership_delegated_partner
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_bank_statement_line__delegated_member_id
@@ -34,7 +34,7 @@ msgstr "Partner con delega per l'iscrizione"
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "Registrazione contabile"
 
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_account_move_line
