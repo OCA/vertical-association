@@ -1,0 +1,110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_membership_gamification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-10-15 20:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_badge_user_kanban_view
+msgid "Assigned to"
+msgstr "Asignado/a a"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__badge_url
+msgid "Badge URL"
+msgstr "URL del distintivo"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__gamification_badge_ids
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__gamification_badge_ids
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
+msgid "Badges"
+msgstr "Distintivos"
+
+#. module: website_membership_gamification
+#. odoo-python
+#: code:addons/website_membership_gamification/models/res_partner.py:0
+#, python-format
+msgid ""
+"Both hr_gamification and website_membership_gamification modules are "
+"installed. You need to install user_hr_gamification in order to use both."
+msgstr ""
+"Se instalan los módulos hr_gamification y website_membership_gamification. "
+"Necesitas instalar user_hr_gamification para poder usar ambos."
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: website_membership_gamification
+#: model:ir.model,name:website_membership_gamification.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: website_membership_gamification
+#: model:ir.model,name:website_membership_gamification.model_gamification_badge
+msgid "Gamification Badge"
+msgstr "Distintivo de Gamificación"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
+msgid "Grant Badge"
+msgstr "Distintivo de subvención"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
+msgid "Grant a Badge"
+msgstr "Conceder un distintivo"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__has_related_users
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__has_related_users
+msgid "Has Related Users"
+msgstr "Tiene Usuarios Relacionados"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__new_tab_url
+msgid "Open URL in new tab"
+msgstr "Abrir URL en una nueva pestaña"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_member_published
+msgid "Published in member directory"
+msgstr "Publicado en el directorio de miembros"
+
+#. module: website_membership_gamification
+#. odoo-python
+#: code:addons/website_membership_gamification/models/res_partner.py:0
+#, python-format
+msgid "Reward"
+msgstr "Recompensa"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
+msgid "Reward with"
+msgstr "Recompensa con"
+
+#. module: website_membership_gamification
+#. odoo-python
+#: code:addons/website_membership_gamification/models/res_partner.py:0
+#, python-format
+msgid "The partner has no related users."
+msgstr "El socio no tiene usuarios relacionados."
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_expiration_date
+msgid "Website Expiration Date"
+msgstr "Fecha de Caducidad del Sitio Web"
