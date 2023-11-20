@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--    Copyright 2015 Tecnativa - Pedro M. Baeza
+        Copyright 2016 Tecnativa - Antonio Espinosa
+        Copyright 2019 Onestein - Andrea Stirpe
+        Copyright 2023 Coop IT Easy SC
+        License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html-->
+<odoo>
+    <record id="membership_products_form" model="ir.ui.view">
+        <field name="name">Membership Products (type)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="membership.membership_products_form" />
+        <field name="arch" type="xml">
+            <label for="membership_date_from" position="before">
+                <field name="membership_type" />
+            </label>
+        </field>
+    </record>
+</odoo>
