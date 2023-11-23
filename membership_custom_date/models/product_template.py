@@ -14,10 +14,18 @@ class ProductTemplate(models.Model):
         ],
         ondelete={"custom": "set default"},
     )
+    dates_mandatory = fields.Boolean(
+        string="Mandatory dates",
+        default=True,
+        help="Membership lines that use this product must have a start and end date.",
+    )
 
     @api.model
     def _correct_vals_membership_type(self, vals):
         vals = super()._correct_vals_membership_type(vals)
         if vals.get("membership_type") == "custom":
             vals["membership_date_from"] = vals["membership_date_to"] = False
+        # TODO: should we set dates_mandatory back to True if switching away
+        # from custom? At the moment this variable is not used _at all_ for
+        # non-custom memberships.
         return vals

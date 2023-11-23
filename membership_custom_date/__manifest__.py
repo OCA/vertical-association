@@ -20,6 +20,7 @@
     ],
     "excludes": [],
     "data": [
+        "views/product_template_views.xml",
         "wizard/membership_invoice_views.xml",
     ],
     "demo": [],

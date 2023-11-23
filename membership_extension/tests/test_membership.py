@@ -249,6 +249,8 @@ class TestMembership(common.TransactionCase):
                 "membership_id": self.gold_product.id,
                 "member_price": 100.00,
                 "date": fields.Date.today(),
+                "date_from": fields.Date.today(),
+                "date_to": fields.Date.today(),
                 "partner": self.partner.id,
                 "state": "invoiced",
             }
@@ -495,3 +497,27 @@ class TestMembership(common.TransactionCase):
                 "membership_date_to": "1970-01-02",
             }
         )
+
+    def test_membership_line_no_dates(self):
+        with self.assertRaises(ValidationError):
+            self.env["membership.membership_line"].create(
+                {
+                    "membership_id": self.gold_product.id,
+                    "member_price": 100.00,
+                    "date": fields.Date.today(),
+                    "date_from": fields.Date.today(),
+                    "partner": self.partner.id,
+                    "state": "waiting",
+                }
+            )
+        with self.assertRaises(ValidationError):
+            self.env["membership.membership_line"].create(
+                {
+                    "membership_id": self.gold_product.id,
+                    "member_price": 100.00,
+                    "date": fields.Date.today(),
+                    "date_to": fields.Date.today(),
+                    "partner": self.partner.id,
+                    "state": "waiting",
+                }
+            )

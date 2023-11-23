@@ -17,14 +17,23 @@ class ProductTemplate(models.Model):
         required=True,
     )
 
+    @api.model
+    def _is_check_dates_for_type(self, membership_type):
+        # Override this to pass more membership types to _check_membership_dates
+        return membership_type == "fixed"
+
     @api.constrains(
+        "membership_date_from",
+        "membership_date_to",
         "membership",
         "membership_type",
     )
     def _check_membership_dates(self):
         return super(
             ProductTemplate,
-            self.filtered(lambda record: record.membership_type == "fixed"),
+            self.filtered(
+                lambda record: self._is_check_dates_for_type(record.membership_type)
+            ),
         )._check_membership_dates()
 
     @api.model

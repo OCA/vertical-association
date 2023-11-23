@@ -7,13 +7,14 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='member_price']" position="after">
                 <field name="product_id_type" invisible="1" />
+                <field name="dates_mandatory" invisible="1" />
                 <field
                     name="date_from"
-                    attrs="{'invisible': [('product_id_type', '!=', 'custom')]}"
+                    attrs="{'invisible': [('product_id_type', '!=', 'custom')], 'required': [('product_id_type', '=', 'custom'), ('dates_mandatory', '=', True)]}"
                 />
                 <field
                     name="date_to"
-                    attrs="{'invisible': [('product_id_type', '!=', 'custom')]}"
+                    attrs="{'invisible': [('product_id_type', '!=', 'custom')], 'required': [('product_id_type', '=', 'custom'), ('dates_mandatory', '=', True)]}"
                 />
             </xpath>
         </field>

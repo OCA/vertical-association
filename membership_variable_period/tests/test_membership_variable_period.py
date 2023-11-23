@@ -224,3 +224,18 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
         self.assertFalse(invoice.invoice_line_ids[0].product_id)
         self.assertFalse(invoice.invoice_line_ids[0].membership_lines)
+
+    def test_invoice_mandatory_dates_check(self):
+        wizard = self.env["membership.invoice"].create(
+            {
+                "product_id": self.product.id,
+                "member_price": 100,
+            }
+        )
+        wizard = wizard.with_context(
+            default_partner_id=self.partner.id,
+            active_ids=self.partner.id,
+        )
+
+        # Expect no error
+        wizard.membership_invoice()

@@ -15,9 +15,12 @@ class MembershipInvoice(models.TransientModel):
         string="Membership Type",
         related="product_id.membership_type",
     )
+    dates_mandatory = fields.Boolean(related="product_id.dates_mandatory")
 
     def membership_invoice(self):
-        res = super().membership_invoice()
+        res = super(
+            MembershipInvoice, self.with_context(skip_mandatory_dates=True)
+        ).membership_invoice()
 
         account_moves = self.env["account.move"].search(res["domain"])
         membership_lines = account_moves.mapped(

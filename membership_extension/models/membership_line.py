@@ -1,12 +1,13 @@
 # Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # Copyright 2019 Onestein - Andrea Stirpe
+# Copyright 2023 Coop IT Easy SC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import timedelta
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 
 class MembershipLine(models.Model):
@@ -34,6 +35,20 @@ class MembershipLine(models.Model):
             "Error ! Ending Date cannot be set before Beginning Date.",
         ),
     ]
+
+    @api.constrains("date_from", "date_to")
+    def _check_mandatory_dates(self):
+        # This is a rather dirty mechanism to skip this check. It can be used
+        # when creating a membership line and later writing date_from and
+        # date_to to it in the same workflow. It is not used in this module an
+        # sich.
+        if self.env.context.get("skip_mandatory_dates"):
+            return
+        for line in self:
+            if not line.date_from or not line.date_to:
+                raise ValidationError(
+                    _("Error: the start and end dates are mandatory.")
+                )
 
     @api.depends("membership_id")
     def _compute_member_price(self):
