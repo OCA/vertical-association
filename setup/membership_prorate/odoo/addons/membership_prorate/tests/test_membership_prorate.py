@@ -19,11 +19,18 @@ class TestMembershipProrate(common.SavepointCase):
                 "membership_date_to": "2017-12-31",
             }
         )
+        receivable_type = cls.env["account.account.type"].create(
+            {
+                "name": "Test receivable account",
+                "type": "receivable",
+                "internal_group": "income",
+            }
+        )
         receivable = cls.env["account.account"].create(
             {
                 "name": "Test receivable account",
-                "code": "TESTRA",
-                "account_type": "asset_receivable",
+                "code": "TEST_RA",
+                "user_type_id": receivable_type.id,
                 "reconcile": True,
             }
         )
