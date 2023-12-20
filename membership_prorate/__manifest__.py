@@ -3,7 +3,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Prorate membership fee",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "category": "Association",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -14,5 +14,4 @@
     "data": [
         "views/product_template_views.xml",
     ],
-    "installable": True,
 }
