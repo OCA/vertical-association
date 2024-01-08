@@ -43,16 +43,20 @@ class MembershipLine(models.Model):
                     self.date_to = date_to
 
     def _compute_state(self):
-        for line in self:
-            if isinstance(line.id, models.NewId) or not line.account_invoice_id:
-                line.state = line.state or "none"
-            elif (
-                line.account_invoice_id.state == "posted"
-                and line.account_invoice_id.payment_state == "reversed"
-            ):
-                line.state = "canceled"
-            else:
-                return super(MembershipLine, line)._compute_state()
+        no_invoice_lines = self.filtered(
+            lambda line: isinstance(line.id, models.NewId)
+            or not line.account_invoice_id
+        )
+        cancelled_lines = self.filtered(
+            lambda line: line.account_invoice_id.state == "posted"
+            and line.account_invoice_id.payment_state == "reversed"
+        )
+        cancelled_lines.state = "canceled"
+        for line in no_invoice_lines:
+            line.state = line.state or "none"
+        return super(
+            MembershipLine, self - no_invoice_lines - cancelled_lines
+        )._compute_state()
 
     # Empty method _inverse_state
     def _inverse_state(self):
