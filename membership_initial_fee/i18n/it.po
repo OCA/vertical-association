@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-30 00:57+0000\n"
-"PO-Revision-Date: 2023-07-17 17:09+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2024-02-08 10:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/"
 "OCA-vertical-association-8-0/language/it/)\n"
 "Language: it\n"
@@ -39,7 +39,7 @@ msgstr "Quota iniziale"
 #. module: membership_initial_fee
 #: model:ir.model,name:membership_initial_fee.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Riga Fattura"
+msgstr "Riga fattura"
 
 #. module: membership_initial_fee
 #: code:addons/membership_initial_fee/models/account_invoice.py:29
