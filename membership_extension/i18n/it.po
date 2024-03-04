@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2023-10-13 16:36+0000\n"
+"PO-Revision-Date: 2024-03-04 10:39+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -250,7 +250,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: membership_extension
 #: model:res.groups,name:membership_extension.group_membership_manager
 msgid "Manager"
-msgstr "Supervisore"
+msgstr "Responsabile"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
