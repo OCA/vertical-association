@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2023 Coop IT Easy SC
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="membership_products_form_period" model="ir.ui.view">
+        <field name="name">Membership Products (custom type)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="membership_type.membership_products_form" />
+        <field name="arch" type="xml">
+            <field name="membership_type" position="after">
+                <field
+                    name="dates_mandatory"
+                    attrs="{'invisible': [('membership_type', '!=', 'custom')]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

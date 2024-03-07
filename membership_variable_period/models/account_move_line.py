@@ -72,7 +72,9 @@ class AccountMoveLine(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        lines = super().create(vals_list)
+        lines = super(
+            AccountMoveLine, self.with_context(skip_mandatory_dates=True)
+        ).create(vals_list)
         membership_types = self._get_variable_period_product_membership_types()
         for line in lines.filtered(
             lambda l: l.move_id.move_type == "out_invoice"

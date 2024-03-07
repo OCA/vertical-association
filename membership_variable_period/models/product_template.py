@@ -38,9 +38,8 @@ class ProductTemplate(models.Model):
         return res  # pragma: no cover
 
     membership_type = fields.Selection(
-        selection=[("fixed", "Fixed dates"), ("variable", "Variable periods")],
-        default="fixed",
-        required=True,
+        selection_add=[("variable", "Variable periods")],
+        ondelete={"variable": "set default"},
     )
     membership_interval_qty = fields.Integer(
         string="Interval quantity",
@@ -63,40 +62,9 @@ class ProductTemplate(models.Model):
         required=True,
     )
 
-    def _correct_vals_membership_type(self, vals, membership_type):
-        if membership_type == "variable":
+    @api.model
+    def _correct_vals_membership_type(self, vals):
+        vals = super()._correct_vals_membership_type(vals)
+        if vals.get("membership_type") == "variable":
             vals["membership_date_from"] = vals["membership_date_to"] = False
         return vals
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        fixed_vals_list = []
-        for vals in vals_list:
-            fixed_vals = vals.copy()
-            membership_type = fixed_vals.get("membership_type", "fixed")
-            fixed_vals = self._correct_vals_membership_type(fixed_vals, membership_type)
-            fixed_vals_list.append(fixed_vals)
-        return super().create(fixed_vals_list)
-
-    def write(self, vals):
-        if not vals.get("membership_type"):
-            return super().write(vals)
-        for rec in self:
-            vals2 = vals.copy()
-            rec._correct_vals_membership_type(
-                vals2, vals.get("membership_type", rec.membership_type)
-            )
-            super(ProductTemplate, rec).write(vals2)
-        return True
-
-    @api.constrains(
-        "membership_date_from",
-        "membership_date_to",
-        "membership",
-        "membership_type",
-    )
-    def _check_membership_dates(self):
-        return super(
-            ProductTemplate,
-            self.filtered(lambda record: record.membership_type == "fixed"),
-        )._check_membership_dates()

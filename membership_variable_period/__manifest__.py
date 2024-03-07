@@ -9,7 +9,10 @@
     "category": "Association",
     "author": "Tecnativa, Onestein, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/vertical-association",
-    "depends": ["membership_extension"],
+    "depends": [
+        "membership_extension",
+        "membership_type",
+    ],
     "data": ["views/product_template_views.xml"],
     "installable": True,
 }
