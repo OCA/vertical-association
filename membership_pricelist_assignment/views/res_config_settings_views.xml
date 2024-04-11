@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_membership_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.membership</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Membership" string="Membership" data-key="membership" groups="base.group_user">
+                    <h2>Membership Settings</h2>
+                    <div class="row mt16 o_settings_container" name="membership_setting_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="membership_pricelist_setting" title="Membership Pricelist">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Default Membership Pricelist</span>
+                                <div class="content-group" name="membership_pricelist_options">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <field name="default_pricelist_id"/>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="membership_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Membership Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'membership', 'bin_size': False}</field>
+    </record>
+
+    <menuitem id="membership_menu_configuration"
+        name="Membership Settings"
+        parent="base.menu_administration"
+        sequence="0"
+        action="membership_config_settings_action"
+        groups="base.group_user"/>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="membership_products_form_inherit">
+            <field name="name">Membership Product Form Inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="membership.membership_products_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='membership_details']" position="inside">
+                    <field string="Associated pricelist" name="pricelist_id"/>
+                    <!--                    If the current product is already selected in another product_hierarchy disable it-->
+                    <field name="product_hierarchy" widget="many2many_tags"
+                           domain="[('membership', '=', True),('id', '!=', active_id)]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ir_cron_update_membership_pricelist" model="ir.cron">
+        <field name="name">Membership: update membership lines pricelist</field>
+        <field name="model_id" ref="membership.model_membership_membership_line"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_update_membership_lines_pricelist()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 00:00:00')"/>
+    </record>
+</odoo>
