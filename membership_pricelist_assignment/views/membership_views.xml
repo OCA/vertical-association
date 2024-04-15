@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2024 Moka Tourisme (https://www.mokatourisme.fr/).
+    @author Damien Horvat <ultrarushgame@gmail.com>
+    @author Romain Duciel <romain@mokatourisme.fr>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record model="ir.ui.view" id="membership_res_partner_form_inherit">
+        <field name="name">Res Partner Membership view inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="membership_id" position="after">
+                <field name="pricelist_id" widget="many2one" />
+            </field>
+        </field>
+    </record>
+</odoo>

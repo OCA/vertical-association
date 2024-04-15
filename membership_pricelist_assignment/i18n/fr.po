@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* membership_pricelist_assignment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-10 07:25+0000\n"
+"PO-Revision-Date: 2024-04-10 07:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: membership_pricelist_assignment
+#: model_terms:ir.ui.view,arch_db:membership_pricelist_assignment.res_config_settings_view_membership_form
+msgid "<span class=\"o_form_label\">Membership Pricelist</span>"
+msgstr "<span class=\"o_form_label\">Liste de prix Adhésion</span>"
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_product_product__pricelist_id
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_product_template__pricelist_id
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_res_partner__existing_pricelist_id
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_res_users__existing_pricelist_id
+msgid "Associated Pricelist"
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model_terms:ir.ui.view,arch_db:membership_pricelist_assignment.membership_products_form_inherit
+msgid "Associated pricelist"
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model:ir.model,name:membership_pricelist_assignment.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: membership_pricelist_assignment
+#: model:ir.model,name:membership_pricelist_assignment.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model_terms:ir.ui.view,arch_db:membership_pricelist_assignment.res_config_settings_view_membership_form
+msgid "Membership"
+msgstr "Adhésion"
+
+#. module: membership_pricelist_assignment
+#: model:ir.model,name:membership_pricelist_assignment.model_membership_membership_line
+msgid "Membership Line"
+msgstr "Ligne d'adhésion"
+
+#. module: membership_pricelist_assignment
+#: model_terms:ir.ui.view,arch_db:membership_pricelist_assignment.res_config_settings_view_membership_form
+msgid "Membership Pricelist"
+msgstr "Liste de prix d'adhésion"
+
+#. module: membership_pricelist_assignment
+#: model:ir.actions.act_window,name:membership_pricelist_assignment.membership_config_settings_action
+#: model:ir.ui.menu,name:membership_pricelist_assignment.membership_menu_configuration
+#: model_terms:ir.ui.view,arch_db:membership_pricelist_assignment.res_config_settings_view_membership_form
+msgid "Membership Settings"
+msgstr "Paramètres Adhésion"
+
+#. module: membership_pricelist_assignment
+#: model:ir.actions.server,name:membership_pricelist_assignment.ir_cron_update_membership_pricelist_ir_actions_server
+#: model:ir.cron,cron_name:membership_pricelist_assignment.ir_cron_update_membership_pricelist
+#: model:ir.cron,name:membership_pricelist_assignment.ir_cron_update_membership_pricelist
+msgid "Membership: update membership lines pricelist"
+msgstr "Adhésion : Maj des lignes de listes de prix"
+
+#. module: membership_pricelist_assignment
+#: model_terms:ir.ui.view,arch_db:membership_pricelist_assignment.membership_res_partner_form_inherit
+msgid "Memberships"
+msgstr "Adhésions"
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_membership_membership_line__pricelist_id
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_res_config_settings__default_pricelist_id
+msgid "Pricelist"
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_product_product__pricelist_id
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_product_template__pricelist_id
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_res_partner__existing_pricelist_id
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_res_users__existing_pricelist_id
+msgid "Pricelist to add to the member"
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_product_product__product_hierarchy
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_product_template__product_hierarchy
+msgid "Product Hierarchy"
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model:ir.model,name:membership_pricelist_assignment.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_product_product__product_hierarchy
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_product_template__product_hierarchy
+msgid ""
+"Products that will not be considered because current product is better."
+msgstr ""
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,help:membership_pricelist_assignment.field_res_config_settings__default_pricelist_id
+msgid "The default pricelist to be used for membership."
+msgstr "Liste de prix par défaut à utiliser pour l'adhésion."
+
+#. module: membership_pricelist_assignment
+#: model:ir.model.fields,field_description:membership_pricelist_assignment.field_membership_membership_line__user_id
+msgid "Users"
+msgstr ""
