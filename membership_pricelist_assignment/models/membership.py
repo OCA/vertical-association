@@ -102,43 +102,38 @@ class MembershipLineInherit(models.Model):
         """Compute state of the membership line."""
         today = fields.Date.today()
         for line in self:
-            move_state = line.account_invoice_id.state
+            invoice_state = line.account_invoice_id.state
             payment_state = line.account_invoice_id.payment_state
 
-            if line.member_price > 0 and line.state not in ["paid", "old"]:
-                if line.date_from <= today <= line.date_to and payment_state == "paid":
-                    line.state = "paid"
-                elif today > line.date_to:
-                    line.state = "old"
-                elif line.date_from > today:
-                    if line.account_invoice_id.payment_state == "in_payment":
-                        line.state = "waiting"
-                    else:
-                        line.state = "invoiced"
-                elif (
-                    line.date_from <= today <= line.date_to
-                    and payment_state != "in_payment"
-                ):
-                    line.state = ""
-            else:
+            if line.member_price <= 0:
                 line.state = "none"
-                if move_state == "draft":
+                if invoice_state == "draft":
                     line.state = "waiting"
-                elif move_state == "posted":
-                    if payment_state == "paid":
-                        line.state = "paid"
-                    elif payment_state == "in_payment":
+                elif invoice_state == "posted":
+                    if payment_state in ("paid", "in_payment"):
                         line.state = "paid"
                     elif payment_state in ("not_paid", "partial"):
                         line.state = "invoiced"
-                elif move_state == "cancel":
+                elif invoice_state == "cancel":
                     line.state = "canceled"
-            if line.date_to < today:
-                line.state = "old"
-            if line.state == "paid":
-                if line.partner.property_product_pricelist != line.pricelist_id:
+            elif line.state not in ["paid", "old"]:
+                if today > line.date_to:
+                    line.state = "old"
+                elif line.date_from > today:
+                    if payment_state == "in_payment":
+                        line.state = "waiting"
+                    else:
+                        line.state = "invoiced"
+                elif today <= line.date_to and payment_state == "paid":
+                    line.state = "paid"
+                elif today <= line.date_to and payment_state != "in_payment":
+                    line.state = ""
+                if (
+                    line.state == "paid"
+                    and line.partner.property_product_pricelist != line.pricelist_id
+                ):
                     line.partner.property_product_pricelist = line.pricelist_id
-            elif line.partner.existing_pricelist_id and line.state == "old":
+            elif line.state == "old" and line.partner.existing_pricelist_id:
                 line.partner.property_product_pricelist = (
                     line.partner.existing_pricelist_id
                 )
