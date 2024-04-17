@@ -108,16 +108,14 @@ class MembershipLineInherit(models.Model):
         today = fields.Date.today()
         invoice_state = self.account_invoice_id.state
         payment_state = self.account_invoice_id.payment_state
-
-        if self.member_price <= 0:
+        if payment_state == "paid" and today > self.date_to:
+            self.state = "old"
+        elif self.member_price <= 0:
             self._compute_membership_state_free_member(invoice_state, payment_state)
         else:
             self._compute_membership_state_paid_member(
                 invoice_state, payment_state, today
             )
-
-        if payment_state == "paid" and today > self.date_to:
-            self.state = "old"
 
     def _compute_membership_state_free_member(self, invoice_state, payment_state):
         """Compute membership state for free members."""
