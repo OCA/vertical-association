@@ -141,7 +141,7 @@ class MembershipLineInherit(models.Model):
     def create(self, vals):
         """Override create method to set default pricelist."""
         for cell in vals:
-            if cell["membership_id"]:
+            if isinstance(cell, dict) and cell.get("membership_id"):
                 product_pricelist_id = (
                     self.env["product.template"]
                     .search([("product_variant_ids", "=", cell["membership_id"])])
