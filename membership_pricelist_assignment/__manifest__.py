@@ -7,6 +7,7 @@
     "version": "16.0.1.0.1",
     "category": "Membership",
     "author": "Moka, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/vertical-association",
     "summary": "Membership Pricelist Assignment",
     "depends": ["membership", "base_setup"],
     "installable": True,
