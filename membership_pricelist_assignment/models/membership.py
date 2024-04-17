@@ -116,6 +116,9 @@ class MembershipLineInherit(models.Model):
                 invoice_state, payment_state, today
             )
 
+        if payment_state == "paid" and today > self.date_to:
+            self.state = "old"
+
     def _compute_membership_state_free_member(self, invoice_state, payment_state):
         """Compute membership state for free members."""
         if invoice_state == "draft":
