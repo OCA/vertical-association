@@ -100,43 +100,61 @@ class MembershipLineInherit(models.Model):
     )
     def _compute_state(self):
         """Compute state of the membership line."""
-        today = fields.Date.today()
         for line in self:
-            invoice_state = line.account_invoice_id.state
-            payment_state = line.account_invoice_id.payment_state
+            line._compute_membership_state()
 
-            if line.member_price <= 0:
-                line.state = "none"
-                if invoice_state == "draft":
-                    line.state = "waiting"
-                elif invoice_state == "posted":
-                    if payment_state in ("paid", "in_payment"):
-                        line.state = "paid"
-                    elif payment_state in ("not_paid", "partial"):
-                        line.state = "invoiced"
-                elif invoice_state == "cancel":
-                    line.state = "canceled"
-            elif line.state not in ["paid", "old"]:
-                if today > line.date_to:
-                    line.state = "old"
-                elif line.date_from > today:
-                    if payment_state == "in_payment":
-                        line.state = "waiting"
-                    else:
-                        line.state = "invoiced"
-                elif today <= line.date_to and payment_state == "paid":
-                    line.state = "paid"
-                elif today <= line.date_to and payment_state != "in_payment":
-                    line.state = ""
-                if (
-                    line.state == "paid"
-                    and line.partner.property_product_pricelist != line.pricelist_id
-                ):
-                    line.partner.property_product_pricelist = line.pricelist_id
-            elif line.state == "old" and line.partner.existing_pricelist_id:
-                line.partner.property_product_pricelist = (
-                    line.partner.existing_pricelist_id
-                )
+    def _compute_membership_state(self):
+        """Compute membership state based on invoice and payment states."""
+        today = fields.Date.today()
+        invoice_state = self.account_invoice_id.state
+        payment_state = self.account_invoice_id.payment_state
+
+        if self.member_price <= 0:
+            self._compute_membership_state_free_member(invoice_state, payment_state)
+        else:
+            self._compute_membership_state_paid_member(
+                invoice_state, payment_state, today
+            )
+
+    def _compute_membership_state_free_member(self, invoice_state, payment_state):
+        """Compute membership state for free members."""
+        if invoice_state == "draft":
+            self.state = "waiting"
+        elif invoice_state == "posted":
+            if payment_state in ("paid", "in_payment"):
+                self.state = "paid"
+            elif payment_state in ("not_paid", "partial"):
+                self.state = "invoiced"
+        elif invoice_state == "cancel":
+            self.state = "canceled"
+
+    def _compute_membership_state_paid_member(
+        self, invoice_state, payment_state, today
+    ):
+        """Compute membership state for paid members."""
+        if self.state in ["paid", "old"]:
+            return  # Already computed in a previous iteration
+
+        if today > self.date_to:
+            self.state = "old"
+        elif self.date_from > today:
+            if payment_state == "in_payment":
+                self.state = "waiting"
+            else:
+                self.state = "invoiced"
+        elif today <= self.date_to and payment_state == "paid":
+            self.state = "paid"
+        elif today <= self.date_to and payment_state != "in_payment":
+            self.state = ""
+
+        if (
+            self.state == "paid"
+            and self.partner.property_product_pricelist != self.pricelist_id
+        ):
+            self.partner.property_product_pricelist = self.pricelist_id
+
+        if self.state == "old" and self.partner.existing_pricelist_id:
+            self.partner.property_product_pricelist = self.partner.existing_pricelist_id
 
     def create(self, vals):
         """Override create method to set default pricelist."""
