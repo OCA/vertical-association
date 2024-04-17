@@ -133,9 +133,6 @@ class MembershipLineInherit(models.Model):
         self, invoice_state, payment_state, today
     ):
         """Compute membership state for paid members."""
-        if self.state in ["paid", "old"]:
-            return  # Already computed in a previous iteration
-
         if today > self.date_to:
             self.state = "old"
         elif self.date_from > today:
