@@ -80,7 +80,9 @@ class PartnerInherit(models.Model):
             if partner.membership_stop and today > partner.membership_stop:
                 if partner.free_member:
                     partner.membership_state = "free"
-                    continue
+                else:
+                    partner.membership_state = "old"
+                continue
 
             if partner.associate_member:
                 partner.membership_state = partner.associate_member.membership_state
