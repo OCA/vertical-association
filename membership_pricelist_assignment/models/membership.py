@@ -54,6 +54,7 @@ class MembershipLineInherit(models.Model):
             if "state" in vals:
                 partner = record.partner
                 if vals["state"] in ["old", "canceled"]:
+                    partner.membership_state = "old"
                     membership_lines = self.env["membership.membership_line"].search(
                         [
                             ("partner", "=", partner.id),
