@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [contract_membership_delegated_partner](contract_membership_delegated_partner/) | 16.0.1.0.1 |  | Set delegate membership on the contract
 [membership_delegated_partner](membership_delegated_partner/) | 16.0.1.0.0 |  | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 16.0.2.1.0 |  | Improves user experience of membership addon
+[membership_prorate](membership_prorate/) | 16.0.1.0.1 |  | Prorate membership fee
 [membership_variable_period](membership_variable_period/) | 16.0.1.0.1 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 16.0.1.0.0 |  | Log membership withdrawal reason and date of request
 [website_membership_gamification](website_membership_gamification/) | 16.0.1.0.0 |  | Show badges assigned to users on website
