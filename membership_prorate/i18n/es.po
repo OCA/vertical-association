@@ -29,13 +29,14 @@ msgstr ""
 "proporcionalmente para la cantidad restante del periodo"
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Línea de factura"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
-msgid "Product Template"
+#, fuzzy
+msgid "Product"
 msgstr "Plantilla de producto"
 
 #. module: membership_prorate
@@ -43,3 +44,6 @@ msgstr "Plantilla de producto"
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr "Prorrata"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Línea de factura"

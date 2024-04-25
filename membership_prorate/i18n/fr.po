@@ -29,13 +29,14 @@ msgstr ""
 "fonction du temps restant sur la période"
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Ligne de facture"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
-msgid "Product Template"
+#, fuzzy
+msgid "Product"
 msgstr "Modèle d'article"
 
 #. module: membership_prorate
@@ -43,3 +44,6 @@ msgstr "Modèle d'article"
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr "Payer au prorata"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Ligne de facture"

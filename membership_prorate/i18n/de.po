@@ -29,13 +29,14 @@ msgstr ""
 "der Periode berechnet"
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Rechnungsposition"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
-msgid "Product Template"
+#, fuzzy
+msgid "Product"
 msgstr "Produktvorlage"
 
 #. module: membership_prorate
@@ -43,3 +44,6 @@ msgstr "Produktvorlage"
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr "Unterteilung"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Rechnungsposition"

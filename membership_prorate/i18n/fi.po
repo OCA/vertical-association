@@ -27,13 +27,14 @@ msgid ""
 msgstr ""
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
 msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
-msgid "Product Template"
+#, fuzzy
+msgid "Product"
 msgstr "Tuotteen malli"
 
 #. module: membership_prorate
