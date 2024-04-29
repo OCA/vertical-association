@@ -4,11 +4,12 @@
 
 {
     "name": "Initial fee for memberships",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "category": "Association",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/vertical-association",
     "depends": ["membership"],
     "data": ["views/product_template_views.xml"],
+    "maintainers": ["rafaelbn", "edlopen"],
 }
