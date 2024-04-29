@@ -20,7 +20,7 @@ class AccountMoveLine(models.Model):
             "quantity": 1.0,
             "move_id": self.move_id.id,
             "account_id": self.account_id.id,
-            "analytic_account_id": self.analytic_account_id.id,
+            "analytic_line_ids": self.analytic_line_ids.ids,
         }
         inv_line = self.env["account.move.line"].new(line_vals)
         inv_line.name = product_fee.description_sale or _("Membership initial fee")

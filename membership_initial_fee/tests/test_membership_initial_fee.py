@@ -2,10 +2,10 @@
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 
-from odoo.tests import common
+from odoo.tests.common import TransactionCase
 
 
-class TestMembershipInitialFee(common.SavepointCase):
+class TestMembershipInitialFee(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -94,7 +94,6 @@ class TestMembershipInitialFee(common.SavepointCase):
         initial_fee_line = invoice.invoice_line_ids.filtered(
             lambda x: x.product_id == self.product_fee
         )
-        initial_fee_line._onchange_product_id()
         self.assertEqual(initial_fee_line.tax_ids, tax)
 
     def test_onchange_product_fee(self):
