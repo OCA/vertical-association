@@ -20,12 +20,6 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_account_move_line__display_name
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__fixed_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__fixed_fee
 msgid "Fixed Fee"
@@ -35,12 +29,6 @@ msgstr "Quota fissa"
 #: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__fixed
 msgid "Fixed amount"
 msgstr "Importo fisso"
-
-#. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_account_move_line__id
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__id
-msgid "ID"
-msgstr "ID"
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__initial_fee
@@ -55,12 +43,7 @@ msgid "Journal Item"
 msgstr "Movimento contabile"
 
 #. module: membership_initial_fee
-#: model:ir.model.fields,field_description:membership_initial_fee.field_account_move_line____last_update
-#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: membership_initial_fee
+#. odoo-python
 #: code:addons/membership_initial_fee/models/account_move_line.py:0
 #, python-format
 msgid "Membership initial fee"
@@ -84,14 +67,26 @@ msgstr "Percentuale dell'importo"
 
 #. module: membership_initial_fee
 #: model:ir.model,name:membership_initial_fee.model_product_template
-msgid "Product Template"
-msgstr "Modello prodotto"
+msgid "Product"
+msgstr ""
 
 #. module: membership_initial_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__product_fee
 #: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
 msgid "Product for initial fee"
 msgstr "Prodotto da utilizzare come quota iniziale"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
 
 #~ msgid "Invoice Line"
 #~ msgstr "Riga Fattura"
