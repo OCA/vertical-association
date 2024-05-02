@@ -19,7 +19,7 @@ class AccountMoveLine(models.Model):
         if product.membership_type == "fixed":
             return super()._get_membership_interval(product, date)
         if product.membership_interval_unit == "days":
-            raise exceptions.Warning(_("It's not possible to prorate daily periods."))
+            raise exceptions.UserError(_("It's not possible to prorate daily periods."))
         if product.membership_interval_unit == "weeks":
             date_from = date_utils.start_of(date, "week")
         elif product.membership_interval_unit == "months":
