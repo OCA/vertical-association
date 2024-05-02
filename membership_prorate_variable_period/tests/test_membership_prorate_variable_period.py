@@ -4,10 +4,10 @@
 import datetime
 
 from odoo import exceptions, fields
-from odoo.tests import Form, SavepointCase
+from odoo.tests import Form, TransactionCase
 
 
-class TestMembershipProrateVariablePeriod(SavepointCase):
+class TestMembershipProrateVariablePeriod(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,18 +21,11 @@ class TestMembershipProrateVariablePeriod(SavepointCase):
                 "membership_interval_unit": "weeks",
             }
         )
-        receivable_type = cls.env["account.account.type"].create(
-            {
-                "name": "Test receivable account",
-                "type": "receivable",
-                "internal_group": "income",
-            }
-        )
         receivable = cls.env["account.account"].create(
             {
                 "name": "Test receivable account",
-                "code": "TEST_RA",
-                "user_type_id": receivable_type.id,
+                "code": "TEST.RA",
+                "account_type": "asset_receivable",
                 "reconcile": True,
             }
         )
@@ -62,9 +55,9 @@ class TestMembershipProrateVariablePeriod(SavepointCase):
         self.assertEqual(self.partner.membership_state, "waiting")
 
     def test_create_invoice_membership_product_prorate_fixed(self):
-        self.product.membership_type = "fixed"
         self.product.membership_date_from = "2017-01-01"
         self.product.membership_date_to = "2017-12-31"
+        self.product.membership_type = "fixed"
         invoice = self.create_invoice("2017-04-01")
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.75, 2)
 
