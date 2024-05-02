@@ -13,7 +13,7 @@ class ProductTemplate(models.Model):
     def _get_next_date(self, date, qty=1):
         next_date = super(ProductTemplate, self)._get_next_date(date)
         if self.membership_interval_unit == "days":
-            raise exceptions.Warning(_("It's not possible to prorate daily periods."))
+            raise exceptions.UserError(_("It's not possible to prorate daily periods."))
         qty = math.ceil(qty) * self.membership_interval_qty
         if self.membership_interval_unit == "weeks":
             next_date = date_utils.start_of(date, "week")
