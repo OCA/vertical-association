@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* membership_prorate_variable_period
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: membership_prorate_variable_period
+#: model:ir.model.fields,field_description:membership_prorate_variable_period.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:membership_prorate_variable_period.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: membership_prorate_variable_period
+#: model:ir.model.fields,field_description:membership_prorate_variable_period.field_account_move_line__id
+#: model:ir.model.fields,field_description:membership_prorate_variable_period.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: membership_prorate_variable_period
+#: code:addons/membership_prorate_variable_period/models/account_move.py:0
+#: code:addons/membership_prorate_variable_period/models/product_template.py:0
+#, python-format
+msgid "It's not possible to prorate daily periods."
+msgstr ""
+
+#. module: membership_prorate_variable_period
+#: model:ir.model,name:membership_prorate_variable_period.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: membership_prorate_variable_period
+#: model:ir.model.fields,field_description:membership_prorate_variable_period.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:membership_prorate_variable_period.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: membership_prorate_variable_period
+#: model:ir.model,name:membership_prorate_variable_period.model_product_template
+msgid "Product Template"
+msgstr ""
