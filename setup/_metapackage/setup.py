@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo-addon-contract_membership_delegated_partner>=16.0dev,<16.1dev',
         'odoo-addon-membership_delegated_partner>=16.0dev,<16.1dev',
         'odoo-addon-membership_extension>=16.0dev,<16.1dev',
+        'odoo-addon-membership_initial_fee>=16.0dev,<16.1dev',
         'odoo-addon-membership_prorate>=16.0dev,<16.1dev',
         'odoo-addon-membership_prorate_variable_period>=16.0dev,<16.1dev',
         'odoo-addon-membership_variable_period>=16.0dev,<16.1dev',
