@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-05 01:01+0000\n"
-"PO-Revision-Date: 2024-07-29 13:58+0000\n"
+"PO-Revision-Date: 2024-07-29 18:58+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/"
 "OCA-vertical-association-8-0/language/ca/)\n"
@@ -65,17 +65,17 @@ msgstr "Períodes variables"
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__days
 msgid "days"
-msgstr "dies "
+msgstr "dies"
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__months
 msgid "months"
-msgstr "mesos "
+msgstr "mesos"
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__weeks
 msgid "weeks"
-msgstr "setmanes "
+msgstr "setmanes"
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__years
