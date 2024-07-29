@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2024-07-29 13:58+0000\n"
+"PO-Revision-Date: 2024-07-29 18:58+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
@@ -122,13 +122,13 @@ msgstr "Data des de la qual el membre està afiliat."
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Data des de la qual la filiació s'ha cancel·lat."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date until which membership remains active."
-msgstr ""
+msgstr "Data fins la qual la filiació roman activa."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
@@ -139,6 +139,8 @@ msgstr "Veure el nom"
 #: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
 msgid "Error ! Ending Date cannot be set before Beginning Date."
 msgstr ""
+"Configuració errònia! La data de finalització no es pot establir abans de la "
+"data d'inici."
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
@@ -158,7 +160,7 @@ msgstr "Or"
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr ""
+msgstr "Us ajuda gestionar les operacions de filiació."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
@@ -189,6 +191,16 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paying member: A member who has paid the membership fee."
 msgstr ""
+"Indica l'estat de la filiació.\n"
+"-No membre: Un contacte que no has sol·licitat ser admès.\n"
+"-Membre cancel·lat: un soci que ha cancel·lat la filiació.\n"
+"-Antic membre: un soci el que li ha caducat la seva filiació.\n"
+"-membre en espera: és un contacte de què s'ha generat la factura amb el "
+"producte que li dona accés a la filiació, però que encara no ha estat "
+"validada.\n"
+"-Membre facturat: és un soci amb la factura validada, però que està pendent "
+"de pagament.\n"
+"-Membre al dia: és un soci que ha pagat la seva quota vigent."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__state
@@ -202,6 +214,16 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paid Member: A member who has paid the membership amount."
 msgstr ""
+"Indica l'estat de la filiació.\n"
+"-No membre: Un contacte que no has sol·licitat ser admès.\n"
+"-Membre cancel·lat: un soci que ha cancel·lat la filiació.\n"
+"-Antic membre: un soci el que li ha caducat la seva filiació.\n"
+"-membre en espera: és un contacte de què s'ha generat la factura amb el "
+"producte que li dona accés a la filiació, però que encara no ha estat "
+"validada.\n"
+"-Membre facturat: és un soci amb la factura validada, però que està pendent "
+"de pagament.\n"
+"-Membre al dia: és un soci que ha pagat la seva quota vigent."
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_move
@@ -236,28 +258,28 @@ msgstr "Darrera Actualització el"
 #. module: membership_extension
 #: model:res.groups,name:membership_extension.group_membership_manager
 msgid "Manager"
-msgstr ""
+msgstr "Responsable"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
-msgstr ""
+msgstr "Membre"
 
 #. module: membership_extension
 #: model:ir.module.category,name:membership_extension.module_category_membership_management
 msgid "Membership"
-msgstr ""
+msgstr "Filiació"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 msgid "Membership Adhered Start Date"
-msgstr ""
+msgstr "Data d'inici de la filiació"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 msgid "Membership Bronze"
-msgstr ""
+msgstr "Filiació bronze"
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
@@ -265,60 +287,60 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
-msgstr ""
+msgstr "Tipus de soci"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
-msgstr ""
+msgstr "Tipus de soci"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
 msgid "Membership End Date"
-msgstr ""
+msgstr "Data de finalització de la filiació"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__member_price
 msgid "Membership Fee"
-msgstr ""
+msgstr "Quota d'afiliació"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 msgid "Membership Gold"
-msgstr ""
+msgstr "Filiació or"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_last_start
 msgid "Membership Last Start Date"
-msgstr ""
+msgstr "Data d'inici del darrer període d'afiliació"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 msgid "Membership Line"
-msgstr ""
+msgstr "Línia d'afiliació"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_account_move_line__membership_lines
 msgid "Membership Lines"
-msgstr ""
+msgstr "Línies d'afiliació"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 msgid "Membership Silver"
-msgstr ""
+msgstr "Filiació plata"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start
 msgid "Membership Start Date"
-msgstr ""
+msgstr "Data d'inici de la filiació"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
 msgid "Membership Status"
-msgstr ""
+msgstr "Estat de la filiació"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
@@ -327,12 +349,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_product_template__membership_category_id
 #: model_terms:ir.ui.view,arch_db:membership_extension.membership_product_search_form_view
 msgid "Membership category"
-msgstr ""
+msgstr "Tipus de soci"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_partner_form
 msgid "Memberships"
-msgstr ""
+msgstr "Membre"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__name
@@ -342,22 +364,22 @@ msgstr "Nom"
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__none
 msgid "Non Member"
-msgstr ""
+msgstr "No membre"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__old
 msgid "Old Member"
-msgstr ""
+msgstr "Antic membre"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__paid
 msgid "Paid Member"
-msgstr ""
+msgstr "Membre al dia"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__partner
 msgid "Partner"
-msgstr ""
+msgstr "Soci"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_template
@@ -367,33 +389,33 @@ msgstr "Producte"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variant del producte"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
 msgid "Silver"
-msgstr ""
+msgstr "Plata"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
 msgid "Start date of last membership period."
-msgstr ""
+msgstr "Data d'inici del darrer període d'afiliació."
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr ""
+msgstr "Més d'inici del darrer període d'afiliació"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
 msgid "To"
-msgstr ""
+msgstr "Fins"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
 msgid "Waiting Member"
-msgstr ""
+msgstr "Membre en espera"
 
 #. module: membership_extension
 #. odoo-python
@@ -403,6 +425,8 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+"No es pot canviar l'empresa, ja que aquest tipus de soci és utilitzada per "
+"la plantilla de producte (%s), que té una empresa assignada incompatible."
 
 #~ msgid "Product Template"
 #~ msgstr "Plantilla del producte"
