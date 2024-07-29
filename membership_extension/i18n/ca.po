@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2018-01-05 03:40+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2024-07-29 13:58+0000\n"
+"Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -25,6 +26,8 @@ msgid ""
 "A member who is associated to another one, but whose membership are "
 "independent."
 msgstr ""
+"Un soci que està vinculat a un altre, però la data d'inici del qual, és "
+"independent."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__associate_member
@@ -33,24 +36,26 @@ msgid ""
 "A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
+"Un membre amb el qual voleu associar la vostra filiació. Es considerarà "
+"l'estat de filiació del membre associat."
 
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/product_template.py:0
 #, python-format
 msgid "A membership product must have a start date and an end date."
-msgstr ""
+msgstr "Un producte de filiació ha de tenir una data d'inici una data final."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
-msgstr ""
+msgstr "Import de la filiació"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr ""
+msgstr "Membre associat"
 
 #. module: membership_extension
 #. odoo-python
@@ -60,27 +65,30 @@ msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice "
 "or remove invoice line instead"
 msgstr ""
+"No és possible esborrar les línies de filiació relacionades amb una factura. "
+"Si us plau, com a alternativa, cancel·leu la factura o elimineu la línia de "
+"la factura"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 msgid "Cancel Membership Date"
-msgstr ""
+msgstr "Cancel·lar la data d'afiliació"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__canceled
 msgid "Cancelled Member"
-msgstr ""
+msgstr "Membre cancel·lat"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacte"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_uid
@@ -96,19 +104,19 @@ msgstr "Creat el"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 msgid "Current Membership Status"
-msgstr ""
+msgstr "Estat actual de la filiació"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Date from which membership becomes active."
-msgstr ""
+msgstr "Data des de la qual s'ha activat la filiació."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr ""
+msgstr "Data des de la qual el membre està afiliat."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
@@ -135,17 +143,17 @@ msgstr ""
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
 msgid "Free Member"
-msgstr ""
+msgstr "Membre gratuït"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
-msgstr ""
+msgstr "Or"
 
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
@@ -159,15 +167,14 @@ msgstr "ID"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__invoiced
-#, fuzzy
 msgid "Invoiced Member"
-msgstr "Línia factura"
+msgstr "Membre facturat"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
 msgid "Is Adhered Member"
-msgstr ""
+msgstr "És un membre afiliat"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
