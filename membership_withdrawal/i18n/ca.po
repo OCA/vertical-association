@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-04 02:43+0000\n"
-"PO-Revision-Date: 2024-07-29 13:58+0000\n"
+"PO-Revision-Date: 2024-07-29 18:58+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
@@ -137,24 +137,24 @@ msgstr "Data de la baixa"
 #: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
 #: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_date
 msgid "Withdrawal date of current membership period"
-msgstr ""
+msgstr "Data de baixa del període actual de filiació"
 
 #. module: membership_withdrawal
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal month"
-msgstr ""
+msgstr "Més de baixa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__withdrawal_reason_id
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal reason"
-msgstr ""
+msgstr "Motiu de la baixa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
 #: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
 msgid "Withdrawal reason of current membership period"
-msgstr ""
+msgstr "Raó de la baixa en el període actual de filiació"
 
 #~ msgid "Partner"
 #~ msgstr "Empresa"
