@@ -8,58 +8,59 @@ msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-05 01:01+0000\n"
-"PO-Revision-Date: 2017-03-24 18:36+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/oca/OCA-vertical-"
-"association-8-0/language/ca/)\n"
+"PO-Revision-Date: 2024-07-29 13:58+0000\n"
+"Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
+"Language-Team: Catalan (http://www.transifex.com/oca/"
+"OCA-vertical-association-8-0/language/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__fixed
 msgid "Fixed dates"
-msgstr ""
+msgstr "Dates fixes"
 
 #. module: membership_variable_period
 #: model_terms:ir.ui.view,arch_db:membership_variable_period.membership_products_form_period
 msgid "Interval"
-msgstr ""
+msgstr "Període de temps"
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_unit
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_unit
 msgid "Interval Unit"
-msgstr ""
+msgstr "Unitat del període"
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_interval_qty
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_interval_qty
 msgid "Interval quantity"
-msgstr ""
+msgstr "Quantitat pel període"
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "Apunt comptable"
 
 #. module: membership_variable_period
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_product__membership_type
 #: model:ir.model.fields,field_description:membership_variable_period.field_product_template__membership_type
 msgid "Membership Type"
-msgstr ""
+msgstr "Tipus de filiació"
 
 #. module: membership_variable_period
 #: model:ir.model,name:membership_variable_period.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Producte"
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__variable
 msgid "Variable periods"
-msgstr ""
+msgstr "Períodes variables"
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_interval_unit__days
