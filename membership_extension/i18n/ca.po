@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2024-07-29 18:58+0000\n"
+"PO-Revision-Date: 2024-07-31 13:58+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
@@ -128,12 +128,12 @@ msgstr "Data des de la qual la filiació s'ha cancel·lat."
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date until which membership remains active."
-msgstr "Data fins la qual la filiació roman activa."
+msgstr "Data fins a la qual la filiació roman activa."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
 msgid "Display Name"
-msgstr "Veure el nom"
+msgstr "Nom a mostrar"
 
 #. module: membership_extension
 #: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
@@ -160,7 +160,7 @@ msgstr "Or"
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr "Us ajuda gestionar les operacions de filiació."
+msgstr "Us ajuda a gestionar les operacions de filiació."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
