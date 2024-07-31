@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-02 01:54+0000\n"
-"PO-Revision-Date: 2023-09-20 17:47+0000\n"
+"PO-Revision-Date: 2024-07-31 09:51+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: membership_delegated_partner
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_bank_statement_line__delegated_member_id
@@ -36,7 +36,7 @@ msgstr "Contacte delegat en l'afiliació"
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom a mostrar"
 
 #. module: membership_delegated_partner
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move__id
