@@ -4,8 +4,7 @@
 # Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 
-from odoo import api, models
-from odoo.tools.translate import _
+from odoo import _, api, models
 
 
 class AccountMoveLine(models.Model):
@@ -63,8 +62,9 @@ class AccountMoveLine(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         move_lines = super().create(vals_list)
-        for move_line in move_lines:
-            if move_line.move_id.is_invoice() and move_line.initial_fee_create_check():
-                # Charge initial fee
-                self.create([move_line._prepare_initial_fee_vals()])
+        for move_line in move_lines.filtered(
+            lambda line: line.move_id.is_invoice() and line.initial_fee_create_check()
+        ):
+            # Charge initial fee
+            self.create([move_line._prepare_initial_fee_vals()])
         return move_lines

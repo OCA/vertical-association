@@ -88,6 +88,10 @@ Contributors
 
    -  Andrea Stirpe
 
+-  `Sygel <https://www.sygel.es>`__:
+
+   -  Roger Sans
+
 Maintainers
 -----------
 
