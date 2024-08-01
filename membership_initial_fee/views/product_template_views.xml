@@ -12,15 +12,18 @@
                     <field
                         name="product_fee"
                         context="{'default_type': 'service'}"
-                        attrs="{'required': [('initial_fee', '!=', 'none')], 'invisible': [('initial_fee', '=', 'none')]}"
+                        required="initial_fee != 'none'"
+                        invisible="initial_fee == 'none'"
                     />
                     <field
                         name="fixed_fee"
-                        attrs="{'required': [('initial_fee', '=', 'fixed')], 'invisible': [('initial_fee', '!=', 'fixed')]}"
+                        required="initial_fee == 'fixed'"
+                        invisible="initial_fee != 'fixed'"
                     />
                     <field
                         name="percentage_fee"
-                        attrs="{'required': [('initial_fee', '=', 'percentage')], 'invisible': [('initial_fee', '!=', 'percentage')]}"
+                        required="initial_fee == 'percentage'"
+                        invisible="initial_fee != 'percentage'"
                     />
                 </group>
             </xpath>
