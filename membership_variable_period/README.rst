@@ -90,6 +90,11 @@ Contributors
 
    -  Andrea Stirpe
 
+-  `Sygel <https://www.sygel.es>`__:
+
+   -  Valentín Vinagre
+   -  Roger Sans
+
 Maintainers
 -----------
 
