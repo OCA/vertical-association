@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_initial_fee
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: vertical-association (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-14 08:57+0000\n"
+"PO-Revision-Date: 2024-07-29 13:58+0000\n"
+"Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
+"Language-Team: Catalan (http://www.transifex.com/oca/"
+"OCA-vertical-association-8-0/language/ca/)\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__fixed_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__fixed_fee
+msgid "Fixed Fee"
+msgstr "Quota fixa"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__fixed
+msgid "Fixed amount"
+msgstr "Quantitat total"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__initial_fee
+#: model_terms:ir.ui.view,arch_db:membership_initial_fee.membership_products_form_initial_fee
+msgid "Initial fee"
+msgstr "Quota inicial"
+
+#. module: membership_initial_fee
+#: model:ir.model,name:membership_initial_fee.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunt comptable"
+
+#. module: membership_initial_fee
+#. odoo-python
+#: code:addons/membership_initial_fee/models/account_move_line.py:0
+#, python-format
+msgid "Membership initial fee"
+msgstr "Quota d'afiliació inicial"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__none
+msgid "No initial fee"
+msgstr "Sense quota inicial"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__percentage_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__percentage_fee
+msgid "Perc. fee (%)"
+msgstr "Percentatge de la quota (%)"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields.selection,name:membership_initial_fee.selection__product_template__initial_fee__percentage
+msgid "Percentage of the price"
+msgstr "Percentatge del preu"
+
+#. module: membership_initial_fee
+#: model:ir.model,name:membership_initial_fee.model_product_template
+msgid "Product"
+msgstr "Producte"
+
+#. module: membership_initial_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_product__product_fee
+#: model:ir.model.fields,field_description:membership_initial_fee.field_product_template__product_fee
+msgid "Product for initial fee"
+msgstr "Producte associat a la quota inicial"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla del producte"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Línia factura"
