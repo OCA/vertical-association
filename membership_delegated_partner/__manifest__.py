@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Membership Delegate Partner",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "development_status": "Production/Stable",
     "category": "Membership",
     "author": "Tecnativa, Onestein, Odoo Community Association (OCA)",
