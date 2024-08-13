@@ -21,14 +21,15 @@ class MembershipLine(models.Model):
             if inv_line:
                 membership.partner = inv_line._get_partner_for_membership()
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """Delegate the member line to the designated partner"""
-        if "account_invoice_line" not in vals:
-            return super().create(vals)
-        line = self.env["account.move.line"].browse(vals["account_invoice_line"])
-        if line.move_id.delegated_member_id:
-            vals["partner"] = line.move_id.delegated_member_id.id
+        for vals in vals_list:
+            if "account_invoice_line" not in vals:
+                continue
+            line = self.env["account.move.line"].browse(vals["account_invoice_line"])
+            if line.move_id.delegated_member_id:
+                vals["partner"] = line.move_id.delegated_member_id.id
         return super().create(vals)
 
     def write(self, vals):
