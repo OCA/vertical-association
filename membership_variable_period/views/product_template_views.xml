@@ -14,46 +14,42 @@
                 <label
                     for="membership_interval_qty"
                     string="Interval"
-                    attrs="{'invisible': [('membership_type', '!=', 'variable')]}"
+                    invisible="membership_type != 'variable'"
                 />
-                <div attrs="{'invisible': [('membership_type', '!=', 'variable')]}">
+                <div invisible="membership_type != 'variable'">
                     <field
                         name="membership_interval_qty"
-                        attrs="{'required': [('membership_type', '=', 'variable'), ('membership', '=', True)]}"
+                        required="membership_type == 'variable' and membership"
                         class="oe_inline"
                         nolabel="1"
                     />
                     <field
                         name="membership_interval_unit"
-                        attrs="{'required': [('membership_type', '=', 'variable'), ('membership', '=', True)]}"
+                        required="membership_type == 'variable' and membership"
                         class="oe_inline"
                         nolabel="1"
                     />
                 </div>
             </label>
             <label for="membership_date_from" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('membership_type', '!=', 'fixed')]}</attribute>
+                <attribute name="invisible">"membership_type != 'fixed'"</attribute>
             </label>
             <xpath
                 expr="//field[@name='membership_date_from']/.."
                 position="attributes"
             >
-                <attribute
-                    name="attrs"
-                >{'invisible': [('membership_type', '!=', 'fixed')]}</attribute>
+                <attribute name="invisible">"membership_type != 'fixed'"</attribute>
             </xpath>
             <field name="membership_date_from" position="attributes">
                 <attribute
-                    name="attrs"
-                >{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}</attribute>
+                    name="required"
+                >membership_type == 'fixed' and membership</attribute>
                 <attribute name="required">0</attribute>
             </field>
             <field name="membership_date_to" position="attributes">
                 <attribute
-                    name="attrs"
-                >{'required': [('membership_type', '=', 'fixed'), ('membership', '=', True)]}</attribute>
+                    name="required"
+                >membership_type == 'fixed' and membership</attribute>
                 <attribute name="required">0</attribute>
             </field>
         </field>
