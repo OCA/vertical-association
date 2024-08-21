@@ -5,3 +5,6 @@
   - David Vidal
 - [Onestein](https://onestein.eu):
   - Andrea Stirpe
+- [Sygel](https://www.sygel.es):
+  - Valentín Vinagre
+  - Roger Sans

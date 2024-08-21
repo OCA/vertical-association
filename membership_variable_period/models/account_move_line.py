@@ -75,9 +75,9 @@ class AccountMoveLine(models.Model):
         lines = super().create(vals_list)
         membership_types = self._get_variable_period_product_membership_types()
         for line in lines.filtered(
-            lambda l: l.move_id.move_type == "out_invoice"
-            and l.product_id.membership
-            and l.product_id.membership_type in membership_types
+            lambda move_line: move_line.move_id.move_type == "out_invoice"
+            and move_line.product_id.membership
+            and move_line.product_id.membership_type in membership_types
         ):
             qty = float(line.quantity)
             membership_vals = self._prepare_membership_line(
