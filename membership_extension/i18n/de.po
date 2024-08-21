@@ -1,0 +1,427 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_extension
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 03:40+0000\n"
+"PO-Revision-Date: 2019-09-13 16:24+0000\n"
+"Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8\n"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
+#: model:ir.model.fields,help:membership_extension.field_res_users__is_adhered_member
+msgid ""
+"A member who is associated to another one, but whose membership are "
+"independent."
+msgstr ""
+"Ein Mitglied, welches in Beziehung zu einem Anderen steht, die "
+"Mitgliedschaften aber unabhängig voneinander bestehen."
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__associate_member
+#: model:ir.model.fields,help:membership_extension.field_res_users__associate_member
+msgid ""
+"A member with whom you want to associate your membership.It will consider "
+"the membership state of the associated member."
+msgstr ""
+"Das Mitglied mit dem dieses Mitglied verbunden werden soll. Der "
+"Mitgliedschaftsstatus wird aus dem Status des verdundenen Mitglieds "
+"übernommen."
+
+#. module: membership_extension
+#. odoo-python
+#: code:addons/membership_extension/models/product_template.py:0
+#, python-format
+msgid "A membership product must have a start date and an end date."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
+msgid "Amount for the membership"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
+msgid "Associate Member"
+msgstr "Übergeordnetes Mitglied"
+
+#. module: membership_extension
+#. odoo-python
+#: code:addons/membership_extension/models/membership_line.py:0
+#, python-format
+msgid ""
+"Can not remove membership line related to an invoice. Please, cancel invoice "
+"or remove invoice line instead"
+msgstr ""
+"Eine Mitgliedschaft die bereits abgerechnet wurde kann nicht entfert werden. "
+"Bitte stornieren Sie die Rechnung, oder löschen Sie die entsprechende "
+"Rechnungszeile"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
+msgid "Cancel Membership Date"
+msgstr "Datum Kündigung Mitgliedschaft"
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__canceled
+msgid "Cancelled Member"
+msgstr "Ehemaliges Mitglied"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
+msgid "Company"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
+msgid "Current Membership Status"
+msgstr "Aktueller Status Mitgliedschaft"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
+msgid "Date from which membership becomes active."
+msgstr "Datum ab dem die Mitgliedschaft gültig wird."
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
+msgid "Date from which partner is adhered."
+msgstr "Datum seit dem Anhängigkeit besteht."
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
+msgid "Date on which membership has been cancelled."
+msgstr "Datum an dem die Mitgliedschaft gekündigt wurde."
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
+msgid "Date until which membership remains active."
+msgstr "Datum bis zu welchem die Mitgliedschaft bestehen bleibt."
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: membership_extension
+#: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
+msgid "Error ! Ending Date cannot be set before Beginning Date."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
+msgid "Free Member"
+msgstr "Freies Mitglied"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
+msgid "From"
+msgstr "Von"
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_gold
+msgid "Gold"
+msgstr "Gold"
+
+#. module: membership_extension
+#: model:ir.module.category,description:membership_extension.module_category_membership_management
+msgid "Helps you manage operations for managing memberships."
+msgstr "Hilft Ihnen bei Vorgängen zur Verwaltung von Mitgliedschaften."
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__invoiced
+msgid "Invoiced Member"
+msgstr "Abgerechnet"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
+msgid "Is Adhered Member"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_state
+msgid ""
+"It indicates the membership state.\n"
+"-Non Member: A partner who has not applied for any membership.\n"
+"-Cancelled Member: A member who has cancelled his membership.\n"
+"-Old Member: A member whose membership date has expired.\n"
+"-Waiting Member: A member who has applied for the membership and whose "
+"invoice is going to be created.\n"
+"-Invoiced Member: A member whose invoice has been created.\n"
+"-Paying member: A member who has paid the membership fee."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_membership_membership_line__state
+msgid ""
+"It indicates the membership status.\n"
+"-Non Member: A member who has not applied for any membership.\n"
+"-Cancelled Member: A member who has cancelled his membership.\n"
+"-Old Member: A member whose membership date has expired.\n"
+"-Waiting Member: A member who has applied for the membership and whose "
+"invoice is going to be created.\n"
+"-Invoiced Member: A member whose invoice has been created.\n"
+"-Paid Member: A member who has paid the membership amount."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: membership_extension
+#: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Last Start Month"
+msgstr "Letzter Anfangsmonat"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt geändert von"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt geändert am"
+
+#. module: membership_extension
+#: model:res.groups,name:membership_extension.group_membership_manager
+msgid "Manager"
+msgstr ""
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_member
+msgid "Member"
+msgstr "Mitglied"
+
+#. module: membership_extension
+#: model:ir.module.category,name:membership_extension.module_category_membership_management
+msgid "Membership"
+msgstr "Mitgliedschaft"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
+msgid "Membership Adhered Start Date"
+msgstr ""
+
+#. module: membership_extension
+#: model:product.template,name:membership_extension.membership_2_product_template
+msgid "Membership Bronze"
+msgstr "Mitgliedschaft Bronze"
+
+#. module: membership_extension
+#: model:ir.actions.act_window,name:membership_extension.membership_category_action
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_category_ids
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
+#: model:ir.ui.menu,name:membership_extension.menu_membership_category
+msgid "Membership Categories"
+msgstr "Mitgliedschaftskategorien"
+
+#. module: membership_extension
+#: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Membership Category"
+msgstr "Mitgliedschaftskategorie"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
+msgid "Membership End Date"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__member_price
+msgid "Membership Fee"
+msgstr ""
+
+#. module: membership_extension
+#: model:product.template,name:membership_extension.membership_0_product_template
+msgid "Membership Gold"
+msgstr "Mitgliedschaft Gold"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_last_start
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_last_start
+msgid "Membership Last Start Date"
+msgstr "Letztes Mitgliedschafts-Startdatum"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_line
+msgid "Membership Line"
+msgstr "Mitgliedschaftszeile"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_account_move_line__membership_lines
+msgid "Membership Lines"
+msgstr "Mitgliedschaftszeilen"
+
+#. module: membership_extension
+#: model:product.template,name:membership_extension.membership_1_product_template
+msgid "Membership Silver"
+msgstr "Mitgliedschaft Silber"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start
+#: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start
+msgid "Membership Start Date"
+msgstr "Mitgliedschafts-Startdatum"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
+msgid "Membership Status"
+msgstr "Mitgliedschaftsstatus"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_membership_membership_category
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__category_id
+#: model:ir.model.fields,field_description:membership_extension.field_product_product__membership_category_id
+#: model:ir.model.fields,field_description:membership_extension.field_product_template__membership_category_id
+#: model_terms:ir.ui.view,arch_db:membership_extension.membership_product_search_form_view
+msgid "Membership category"
+msgstr "Mitgliedschaftskategorie"
+
+#. module: membership_extension
+#: model_terms:ir.ui.view,arch_db:membership_extension.view_partner_form
+msgid "Memberships"
+msgstr "Mitgliedschaften"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__name
+msgid "Name"
+msgstr "Name"
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__none
+msgid "Non Member"
+msgstr "Kein Mitglied"
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__old
+msgid "Old Member"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__paid
+msgid "Paid Member"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__partner
+msgid "Partner"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_template
+msgid "Product"
+msgstr "Produkt"
+
+#. module: membership_extension
+#: model:ir.model,name:membership_extension.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: membership_extension
+#: model:membership.membership_category,name:membership_extension.membership_category_silver
+msgid "Silver"
+msgstr "Silber"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
+msgid "Start date of last membership period."
+msgstr "Startdatum der letzten Mitgliedschaftsperiode."
+
+#. module: membership_extension
+#: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
+msgid "Starting month of last membership period"
+msgstr "Anfangsmonat der letzten Mitgliedschaftsperiode"
+
+#. module: membership_extension
+#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
+msgid "To"
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
+msgid "Waiting Member"
+msgstr ""
+
+#. module: membership_extension
+#. odoo-python
+#: code:addons/membership_extension/models/membership_category.py:0
+#, python-format
+msgid ""
+"You cannot change the Company, as this Membership Category is used by "
+"Product Template (%s), which has an incompatible assigned Company."
+msgstr ""
+
+#~ msgid "Adhered member"
+#~ msgstr "Unabhängiges Mitglied"
+
+#~ msgid "Membership categories"
+#~ msgstr "Mitgliedschaftskategorien"
+
+#~ msgid "Product Template"
+#~ msgstr "Produktvorlage"
+
+#~ msgid "Membership Products"
+#~ msgstr "Mitgliedschaftsprodukte"
+
+#~ msgid "Category"
+#~ msgstr "Kategorie"
+
+#~ msgid "Invoice"
+#~ msgstr "Rechnung"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Rechnungszeile"
