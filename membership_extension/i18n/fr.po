@@ -230,11 +230,6 @@ msgid "Journal Item"
 msgstr "Ecriture comptable"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
 msgstr "Dernier mois de début"
@@ -421,6 +416,9 @@ msgid ""
 msgstr ""
 "Vous ne pouvez pas modifier la société, car cette catégorie d'adhésion est "
 "utilisée par Product Template(%s), qui a une société attribuée incompatible."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
 
 #~ msgid "Adhered member"
 #~ msgstr "Membre adhérent"

@@ -326,17 +326,19 @@ class TestMembership(common.TransactionCase):
                 {
                     "date": fields.Date.today(),
                     "reason": "no reason",
-                    "refund_method": "cancel",
                     "journal_id": invoice.journal_id.id,
                 }
             )
         )
-        reversal = move_reversal.reverse_moves()
+        reversal = move_reversal.reverse_moves(is_modify=True)
         refund = self.env["account.move"].browse(reversal["res_id"])
         self.assertEqual("canceled", line.state)
+        reversal = move_reversal.reverse_moves(is_modify=False)
+        refund = self.env["account.move"].browse(reversal["res_id"])
         refund.button_cancel()
         self.assertEqual("paid", line.state)
-        refund.button_draft()
+        invoice.button_draft()
+        invoice.action_post()  # validate invoice
         self.assertEqual("invoiced", line.state)
 
         invoice.button_draft()
