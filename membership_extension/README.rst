@@ -107,6 +107,8 @@ Contributors
 -  Luis M. Ontalba <luis.martinez@tecnativa.com>
 -  Alberto Martín Cortada <alberto.martin@guadaltech.es>
 -  Andrea Stirpe <a.stirpe@onestein.nl>
+-  Valentín Vinagre <valentin.vinagre@sygel.es>
+-  Roger Sans <roger.sans@sygel.es>
 
 Maintainers
 -----------
