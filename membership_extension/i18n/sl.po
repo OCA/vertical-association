@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -211,11 +211,6 @@ msgstr ""
 #: model:ir.model,name:membership_extension.model_account_move_line
 msgid "Journal Item"
 msgstr ""
-
-#. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-msgid "Last Modified on"
-msgstr "Zadnjič spremenjeno"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
@@ -413,6 +408,9 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zadnjič spremenjeno"
 
 #~ msgid "Membership categories"
 #~ msgstr "Kategorije članstva"

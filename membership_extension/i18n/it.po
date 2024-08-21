@@ -228,11 +228,6 @@ msgid "Journal Item"
 msgstr "Movimento contabile"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
 msgstr "Mese ultimo inizio"
@@ -419,6 +414,9 @@ msgid ""
 msgstr ""
 "Impossibile cambiare l'azienda. La categoria di iscrizione è utilizzata dal "
 "modello del prodotto (%s) a cui è stata assegnata un'azienda non compatibile."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
 
 #~ msgid "Membership Categories Labels"
 #~ msgstr "Etichetta categorie iscrizione"

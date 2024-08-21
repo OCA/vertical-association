@@ -231,11 +231,6 @@ msgid "Journal Item"
 msgstr "Artículo Diario"
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-msgid "Last Modified on"
-msgstr "Última modificación en"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
 msgstr "Mes del último inicio"
@@ -423,6 +418,9 @@ msgstr ""
 "No se puede cambiar la Compañía, ya que esta categoría de miembro es "
 "utilizada por la plantilla de productos (%s), que tiene una Compañía "
 "asignada incompatible."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación en"
 
 #~ msgid "Membership Categories Labels"
 #~ msgstr "Etiquetas de las categorías de afiliación"

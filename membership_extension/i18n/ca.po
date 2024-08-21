@@ -236,11 +236,6 @@ msgid "Journal Item"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-msgid "Last Modified on"
-msgstr "Darrera modificació el"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
 msgstr ""
@@ -427,6 +422,9 @@ msgid ""
 msgstr ""
 "No es pot canviar l'empresa, ja que aquest tipus de soci és utilitzada per "
 "la plantilla de producte (%s), que té una empresa assignada incompatible."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Darrera modificació el"
 
 #~ msgid "Product Template"
 #~ msgstr "Plantilla del producte"
