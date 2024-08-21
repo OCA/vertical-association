@@ -206,11 +206,6 @@ msgid "Journal Item"
 msgstr ""
 
 #. module: membership_extension
-#: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category____last_update
-msgid "Last Modified on"
-msgstr "תאריך שינוי אחרון"
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
 msgstr ""
@@ -395,6 +390,9 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "תאריך שינוי אחרון"
 
 #~ msgid "Category"
 #~ msgstr "קטגוריה"

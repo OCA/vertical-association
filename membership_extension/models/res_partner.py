@@ -200,7 +200,7 @@ class ResPartner(models.Model):
                 category_names = []
                 today = fields.Date.today()
                 lines = partner.member_lines.filtered(
-                    lambda r: r.date_from
+                    lambda r, today=today: r.date_from
                     and r.date_from <= today
                     and (
                         (r.date_to and r.date_to >= today)
