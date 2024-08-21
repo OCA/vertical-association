@@ -1,0 +1,7 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - Antonio Espinosa
+  - Rafael Blasco
+  - David Vidal
+- [Onestein](https://onestein.eu):
+  - Andrea Stirpe
