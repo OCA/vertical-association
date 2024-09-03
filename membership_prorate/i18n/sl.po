@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
 #. module: membership_prorate
 #: model:ir.model.fields,help:membership_prorate.field_product_product__membership_prorate
@@ -29,9 +29,9 @@ msgstr ""
 "Če označeno, se prijavnina proporcionalno zaračuna za preostali čas v obdobju"
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Postavka računa"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
@@ -43,3 +43,6 @@ msgstr "Predloga proizvoda"
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr "prorate"
+
+#~ msgid "Invoice Line"
+#~ msgstr "Postavka računa"

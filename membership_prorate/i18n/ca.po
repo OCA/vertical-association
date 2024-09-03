@@ -27,9 +27,9 @@ msgid ""
 msgstr ""
 
 #. module: membership_prorate
-#: model:ir.model,name:membership_prorate.model_account_invoice_line
-msgid "Invoice Line"
-msgstr "Línia factura"
+#: model:ir.model,name:membership_prorate.model_account_move_line
+msgid "Journal Item"
+msgstr ""
 
 #. module: membership_prorate
 #: model:ir.model,name:membership_prorate.model_product_template
@@ -41,3 +41,6 @@ msgstr "Plantilla del producte"
 #: model:ir.model.fields,field_description:membership_prorate.field_product_template__membership_prorate
 msgid "Prorate"
 msgstr ""
+
+#~ msgid "Invoice Line"
+#~ msgstr "Línia factura"
