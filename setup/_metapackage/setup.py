@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo-addon-contract_membership_delegated_partner>=15.0dev,<15.1dev',
         'odoo-addon-membership_delegated_partner>=15.0dev,<15.1dev',
         'odoo-addon-membership_extension>=15.0dev,<15.1dev',
+        'odoo-addon-membership_prorate>=15.0dev,<15.1dev',
         'odoo-addon-membership_variable_period>=15.0dev,<15.1dev',
         'odoo-addon-website_membership_gamification>=15.0dev,<15.1dev',
         'odoo-addon-website_membership_random_order>=15.0dev,<15.1dev',
