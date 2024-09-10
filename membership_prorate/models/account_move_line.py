@@ -31,7 +31,7 @@ class AccountMoveLine(models.Model):
         if date_invoice > date_to:
             date_invoice = date_to
         theoretical_duration = date_to - date_from + timedelta(1)
-        real_duration = date_to - date_invoice
+        real_duration = date_to - date_invoice + timedelta(1)
         if theoretical_duration != real_duration:
             return {
                 "quantity": round(
