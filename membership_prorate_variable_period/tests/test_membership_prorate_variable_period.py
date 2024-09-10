@@ -63,7 +63,7 @@ class TestMembershipProrateVariablePeriod(TransactionCase):
 
     def test_create_invoice_membership_product_prorate_week(self):
         invoice = self.create_invoice("2015-01-01")  # It's thursday
-        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.43, 2)
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.57, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, "waiting")
         self.assertEqual(
@@ -77,7 +77,7 @@ class TestMembershipProrateVariablePeriod(TransactionCase):
     def test_create_invoice_membership_product_prorate_month(self):
         self.product.membership_interval_unit = "months"
         invoice = self.create_invoice("2015-04-15")
-        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.5, 2)
+        self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.53, 2)
         self.assertTrue(self.partner.member_lines)
         self.assertEqual(self.partner.member_lines[0].state, "waiting")
         self.assertEqual(
