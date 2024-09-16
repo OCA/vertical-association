@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+        id="membership_activities_menu"
+        parent="membership.menu_association"
+        action="membership_activity_action"
+        sequence="90"
+        name="Activities"
+    />
+
+    <menuitem
+        id="membership_activity_type_menu"
+        parent="membership.menu_marketing_config_association"
+        action="membership_activity_type_action"
+        name="Activity Types"
+    />
+</odoo>
