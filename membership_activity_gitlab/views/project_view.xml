@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="edit_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="gitlab_id" />
+                <field
+                    name="gitlab_full_name"
+                    attrs="{'required': [('gitlab_id', '!=', False)], 'invisible': [('gitlab_id', '=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="gitlab"
+                    string="Gitlab"
+                    attrs="{'invisible': ['|', ('gitlab_id', '=', False), ('gitlab_full_name', '=', False)]}"
+                    groups="base.group_system"
+                >
+                    <button
+                        name="get_gitlab_commits"
+                        type="object"
+                        string="Get Commits"
+                    />
+                    <button
+                        name="get_gitlab_merge_requests"
+                        type="object"
+                        string="Get Merge Requests"
+                    />
+                    <button
+                        name="get_gitlab_issues"
+                        type="object"
+                        string="Get Issues"
+                    />
+                    <button name="get_gitlab_notes" type="object" string="Get Notes" />
+                    <button
+                        name="get_gitlab_approvals"
+                        type="object"
+                        string="Get Approvals"
+                    />
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
