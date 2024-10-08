@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="membership_activity_type_tree" model="ir.ui.view">
+        <field name="model">membership.activity.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="parent_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="membership_activity_type_form" model="ir.ui.view">
+        <field name="model">membership.activity.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="parent_id" />
+                        <field name="child_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="membership_activity_type_action" model="ir.actions.act_window">
+        <field name="name">Activity Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">membership.activity.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

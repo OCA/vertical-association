@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="membership_activity_tree" model="ir.ui.view">
+        <field name="model">membership.activity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date" />
+                <field name="partner_id" />
+                <field name="project_id" />
+                <field name="type_id" />
+                <field name="url" widget="url" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="membership_activity_form" model="ir.ui.view">
+        <field name="model">membership.activity</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date" />
+                        <field name="partner_id" />
+                        <field name="project_id" />
+                        <field name="type_id" />
+                        <field name="url" widget="url" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="membership_activity_pivot" model="ir.ui.view">
+        <field name="model">membership.activity</field>
+        <field name="arch" type="xml">
+            <pivot>
+                 <field name="date" interval="month" type="col" />
+                 <field name="type_id" type="row" />
+             </pivot>
+        </field>
+    </record>
+
+    <record id="membership_activity_graph" model="ir.ui.view">
+        <field name="model">membership.activity</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="date" interval="month" type="col" />
+                <field name="type_id" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="membership_activity_search" model="ir.ui.view">
+        <field name="model">membership.activity</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id" />
+                <field name="project_id" />
+
+                <group name="group_by" string="Group By" expand="1">
+                    <filter
+                        name="partner_group_by"
+                        string="Member"
+                        context="{'group_by':'partner_id'}"
+                    />
+                    <filter
+                        name="project_group_by"
+                        string="Project"
+                        context="{'group_by':'project_id'}"
+                    />
+                    <filter
+                        name="type_group_by"
+                        string="Activity Type"
+                        context="{'group_by':'type_id'}"
+                    />
+                    <filter
+                        name="date_group_by"
+                        string="Date"
+                        context="{'group_by':'date'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="membership_activity_action" model="ir.actions.act_window">
+        <field name="name">Activities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">membership.activity</field>
+        <field name="view_mode">graph,pivot,tree,form</field>
+    </record>
+
+
+    <record id="membership_activity_reconcile_partner_action" model="ir.actions.server">
+        <field name="name">Reconcile Activity with Members</field>
+        <field name="model_id" ref="model_membership_activity" />
+        <field name="binding_model_id" ref="model_membership_activity" />
+        <field name="state">code</field>
+        <field name="code">
+            records.reconcile_partner()
+        </field>
+    </record>
+</odoo>

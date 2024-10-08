@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="membership_activity_access" model="ir.model.access">
+        <field name="name">membership_activity_access</field>
+        <field name="model_id" ref="model_membership_activity" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+    <record id="membership_activity_type_access" model="ir.model.access">
+        <field name="name">membership_activity_type_access</field>
+        <field name="model_id" ref="model_membership_activity_type" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+</odoo>
