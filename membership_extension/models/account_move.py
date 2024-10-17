@@ -44,9 +44,9 @@ class AccountMove(models.Model):
                 lines.write({"date_cancel": False})
         return res
 
-    def post(self):
+    def action_post(self):
         """Handle validated refunds for cancelling membership lines"""
-        res = super().post()
+        res = super().action_post()
         self.filtered(lambda m: (m.move_type == "out_invoice")).mapped(
             "invoice_line_ids.membership_lines"
         ).write({"state": "invoiced"})
