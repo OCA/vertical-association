@@ -2,8 +2,11 @@
 # Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from datetime import date
+from unittest.mock import patch
 
 from odoo.tests import Form, common
+
+from odoo.addons.membership_prorate.models.account_move_line import AccountMoveLine
 
 
 class TestMembershipProrate(common.SavepointCase):
@@ -86,3 +89,18 @@ class TestMembershipProrate(common.SavepointCase):
         )
         self.assertAlmostEqual(memb_line.member_price, 0.00, 2)
         self.assertEqual(memb_line.date_from, date(2017, 12, 31))
+
+    def test_create_invoice_membership_product_prorate_variable_period(self):
+        """It is a test for case where membership type is set to variable
+        on product with membership_prorate_variable_period not installed"""
+
+        def _get_membership_interval(self, product, date):
+            return False, False
+
+        with patch.object(
+            AccountMoveLine,
+            "_get_membership_interval",
+            _get_membership_interval,
+        ):
+            invoice = self.partner.create_membership_invoice(self.product, 1.0)
+            self.assertEqual(invoice.invoice_line_ids[0].quantity, 1.0)
