@@ -27,6 +27,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:contract_membership_delegated_partner.field_contract_contract__delegated_member_id
 msgid "Delegated Member"
 msgstr "Delegationsmitglied"
-
-#~ msgid "Analytic Account"
-#~ msgstr "Vertragskonto"
