@@ -7,7 +7,7 @@ from odoo.addons.contract.tests.test_contract import TestContractBase
 class TestMembershipDelegateSetup(TestContractBase):
     @classmethod
     def setUpClass(cls):
-        super(TestMembershipDelegateSetup, cls).setUpClass()
+        super().setUpClass()
         cls.partner2 = cls.env["res.partner"].create({"name": "Mrs. Odoo"})
         cls.product_1.write(
             {
