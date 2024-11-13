@@ -50,6 +50,3 @@ msgstr "Riga iscrizione"
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__partner
 msgid "Partner"
 msgstr "Partner"
-
-#~ msgid "Journal Entries"
-#~ msgstr "Registrazioni contabili"

@@ -4,11 +4,11 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form" />
         <field name="arch" type="xml">
-            <field name="partner_id" position="after">
+            <field name="partner_shipping_id" position="before">
                 <field name="delegated_member_id" invisible="1" />
                 <field
                     name="delegated_member_id"
-                    attrs="{'invisible':[('move_type', 'not in', ('out_invoice', 'out_refund'))]}"
+                    invisible="move_type not in ('out_invoice', 'out_refund')"
                     groups="membership_delegated_partner.group_delegated_member"
                 />
             </field>

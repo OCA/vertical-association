@@ -50,6 +50,3 @@ msgstr "Ligne d'adhésion"
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__partner
 msgid "Partner"
 msgstr "Partenaire"
-
-#~ msgid "Journal Entries"
-#~ msgstr "Entrées de journal"
