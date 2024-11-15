@@ -30,12 +30,3 @@ msgstr ""
 "L'ordinei di visualizzazione è causale e cambia e cambia ad ogni "
 "aggiornamento.\n"
 "                        <br/>"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"
