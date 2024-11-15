@@ -26,5 +26,5 @@ class WebsiteMembership(WebsiteMembership):
             country_name=country_name,
             country_id=country_id,
             page=page,
-            **post
+            **post,
         )
