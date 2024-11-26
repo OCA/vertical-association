@@ -9,8 +9,20 @@
             <form string="Reward with">
                 <group>
                     <field name="user_id" invisible="1" />
-                    <field name="badge_id" nolabel="1" colspan="4" />
-                    <field name="comment" nolabel="1" colspan="4" />
+                    <label for="badge_id" />
+                    <field
+                        name="badge_id"
+                        class="border-bottom"
+                        nolabel="1"
+                        colspan="2"
+                    />
+                    <label for="comment" />
+                    <field
+                        name="comment"
+                        class="border-bottom"
+                        nolabel="1"
+                        colspan="2"
+                    />
                 </group>
                 <footer>
                     <button
