@@ -33,6 +33,7 @@
                     <button
                         string="Grant a Badge"
                         type="object"
+                        class="btn btn-secondary"
                         name="action_grant_badge_wizard"
                     />
                     <field name="gamification_badge_ids" mode="kanban" />
