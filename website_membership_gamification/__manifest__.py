@@ -6,7 +6,7 @@
 {
     "name": "Website Membership Gamification",
     "summary": "Show badges assigned to users on website",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Website",
     "author": "Sygel, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/vertical-association",
