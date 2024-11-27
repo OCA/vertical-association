@@ -34,8 +34,8 @@
         id="website_membership_gamification_partner_detail"
         inherit_id="website_partner.partner_detail"
     >
-        <xpath expr="//address" position="after">
-            <div class="text-center" t-if="partner.gamification_badge_ids">
+        <xpath expr="//div" position="after">
+            <div class="row text-center" t-if="partner.gamification_badge_ids">
                 <t
                     t-foreach="partner.gamification_badge_ids.badge_id.filtered(lambda a: a.website_member_published and (not a.website_expiration_date or a.website_expiration_date >= datetime.date.today()))"
                     t-as="badge"
