@@ -97,7 +97,7 @@ class ResPartner(models.Model):
 
         List of membership line states that define a partner as member
         """
-        return ("invoiced", "paid")
+        return ("invoiced", "free", "paid")
 
     def _membership_state_prior(self):
         """Inherit this method to define membership state precedence
@@ -167,6 +167,9 @@ class ResPartner(models.Model):
                         line.date_cancel and last_cancel < line.date_cancel
                     ):
                         last_cancel = line.date_cancel
+                    if last_cancel and last_from and last_cancel < last_from:
+                        # Membership was restarted after a cancellation
+                        last_cancel = False
                 partner.membership_start = date_from
                 partner.membership_last_start = last_from
                 partner.membership_stop = last_to
