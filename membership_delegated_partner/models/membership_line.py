@@ -30,7 +30,7 @@ class MembershipLine(models.Model):
             line = self.env["account.move.line"].browse(vals["account_invoice_line"])
             if line.move_id.delegated_member_id:
                 vals["partner"] = line.move_id.delegated_member_id.id
-        return super().create(vals)
+        return super().create(vals_list)
 
     def write(self, vals):
         """If a partner is delegated, avoid reassign"""
