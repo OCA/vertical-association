@@ -547,7 +547,7 @@ class TestMembership(common.TransactionCase):
             [
                 {
                     "membership_start": date(2022, 1, 1),
-                    "membership_last_start": date(2025, 1, 1),
+                    "membership_last_start": date(2024, 1, 1),
                     "membership_stop": date(2025, 12, 31),
                     "membership_cancel": False,
                     "membership_state": "free",

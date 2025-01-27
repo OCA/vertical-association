@@ -40,7 +40,7 @@ class ResPartner(models.Model):
         readonly=True,
         store=True,
         compute="_compute_membership_date",
-        help="Date from which membership becomes active.",
+        help="Earliest historical date this partner ever became a member.",
         recursive=True,
     )
     membership_last_start = fields.Date(
@@ -48,7 +48,7 @@ class ResPartner(models.Model):
         readonly=True,
         store=True,
         compute="_compute_membership_date",
-        help="Start date of last membership period.",
+        help="Date when the partner became a member for the last time.",
         recursive=True,
     )
     membership_stop = fields.Date(
@@ -56,7 +56,7 @@ class ResPartner(models.Model):
         readonly=True,
         store=True,
         compute="_compute_membership_date",
-        help="Date until which membership remains active.",
+        help="Date when the latest partner's membership ends.",
         recursive=True,
     )
     membership_cancel = fields.Date(
@@ -158,7 +158,7 @@ class ResPartner(models.Model):
                             continue
                         date_to = line_date_to + timedelta(days=delta)
                         if not last_from or (
-                            last_from <= date_to and last_from < line.date_from
+                            last_from <= date_to and last_from > line.date_from
                         ):
                             last_from = line.date_from
                         if not last_to or last_to < line_date_to:
