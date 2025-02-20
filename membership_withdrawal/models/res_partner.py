@@ -44,7 +44,7 @@ class ResPartner(models.Model):
                 )
             else:
                 lines = partner.member_lines.filtered(
-                    lambda l: l.withdrawal_reason_id and l.date_withdrawal
+                    lambda line: line.withdrawal_reason_id and line.date_withdrawal
                 ).sorted("date_withdrawal", reverse=True)
                 line = fields.first(lines)
                 partner.membership_last_withdrawal_reason_id = line.withdrawal_reason_id
