@@ -9,7 +9,7 @@ from psycopg2 import IntegrityError
 
 from odoo import fields
 from odoo.exceptions import UserError, ValidationError
-from odoo.tests import common
+from odoo.tests import Form, common
 from odoo.tools import mute_logger
 
 
@@ -227,7 +227,7 @@ class TestMembership(common.TransactionCase):
         self.assertFalse(self.child.membership_category_ids.ids)
 
     def test_remove_membership_line_with_invoice(self):
-        invoice_form = common.Form(
+        invoice_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = fields.Date.today()
@@ -264,7 +264,7 @@ class TestMembership(common.TransactionCase):
         self.assertEqual(self.next_two_months, line.date_to)
 
     def test_invoice(self):
-        invoice_form = common.Form(
+        invoice_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = fields.Date.today()
@@ -342,7 +342,7 @@ class TestMembership(common.TransactionCase):
         self.assertEqual("invoiced", line.state)
 
         invoice.button_draft()
-        invoice_form = common.Form(invoice)
+        invoice_form = Form(invoice)
         with invoice_form.invoice_line_ids.edit(0) as invoice_line_form:
             invoice_line_form.quantity = 0.5
         invoice = invoice_form.save()

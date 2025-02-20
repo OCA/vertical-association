@@ -5,7 +5,7 @@
 
 from datetime import timedelta
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -74,7 +74,7 @@ class MembershipLine(models.Model):
         allow = self.env.context.get("allow_membership_line_unlink", False)
         if self.filtered("account_invoice_id") and not allow:
             raise UserError(
-                _(
+                self.env._(
                     "Can not remove membership line related to an "
                     "invoice. Please, cancel invoice or remove invoice "
                     "line instead"
