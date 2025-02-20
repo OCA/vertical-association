@@ -4,7 +4,6 @@
 from datetime import timedelta
 
 from odoo import api, fields, models
-from odoo.tests import Form
 
 
 class AccountMoveLine(models.Model):
@@ -26,6 +25,11 @@ class AccountMoveLine(models.Model):
         product = invoice_line.product_id
         date_invoice = invoice_line.move_id.invoice_date or fields.Date.today()
         date_from, date_to = self._get_membership_interval(product, date_invoice)
+        if not date_from:
+            return {
+                "quantity": 1.0,
+                "date_from": date_invoice,
+            }
         if date_invoice < date_from:
             date_invoice = date_from
         if date_invoice > date_to:
@@ -51,22 +55,11 @@ class AccountMoveLine(models.Model):
             if invoice_line_vals:
                 date_from = invoice_line_vals["date_from"]
                 quantity = invoice_line_vals["quantity"]
-                invoice = invoice_line.move_id
-                with Form(invoice) as invoice_form:
-                    index = next(
-                        (
-                            index
-                            for (index, d) in enumerate(
-                                invoice_form.invoice_line_ids._records
-                            )
-                            if d["id"] == invoice_line.id
-                        ),
-                        None,
-                    )
-                    if index is not None:
-                        with invoice_form.invoice_line_ids.edit(index) as line_form:
-                            line_form.quantity = quantity
-                # Rectify membership price and start date in this case
+
+                # Update the invoice line directly instead of using Form
+                invoice_line.write({"quantity": quantity})
+
+                # Rectify membership price and start date
                 memb_line = self.env["membership.membership_line"].search(
                     [("account_invoice_line", "=", invoice_line.id)], limit=1
                 )
