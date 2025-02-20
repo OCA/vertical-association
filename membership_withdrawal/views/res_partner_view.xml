@@ -10,11 +10,11 @@
             <field name="membership_stop" position="after">
                 <field
                     name="membership_last_withdrawal_date"
-                    attrs="{'invisible':[('membership_last_withdrawal_date','=',False)]}"
+                    invisible="not membership_last_withdrawal_date"
                 />
                 <field
                     name="membership_last_withdrawal_reason_id"
-                    attrs="{'invisible':[('membership_last_withdrawal_reason_id','=',False)]}"
+                    invisible="not membership_last_withdrawal_reason_id"
                 />
             </field>
         </field>
