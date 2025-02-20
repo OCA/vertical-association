@@ -6,3 +6,5 @@
   - Andrea Stirpe
 - [Sygel](https://www.sygel.es):
   - Roger Sans
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
