@@ -26,6 +26,11 @@ class AccountMoveLine(models.Model):
         product = invoice_line.product_id
         date_invoice = invoice_line.move_id.invoice_date or fields.Date.today()
         date_from, date_to = self._get_membership_interval(product, date_invoice)
+        if not date_from:
+            return {
+                "quantity": 1.0,
+                "date_from": date_invoice,
+            }
         if date_invoice < date_from:
             date_invoice = date_from
         if date_invoice > date_to:
