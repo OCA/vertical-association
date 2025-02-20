@@ -6,7 +6,7 @@
 from datetime import date
 
 from odoo import fields
-from odoo.tests import common
+from odoo.tests import Form, common
 
 
 class TestMembershipVariablePeriod(common.TransactionCase):
@@ -24,7 +24,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
         self.partner = self.env["res.partner"].create({"name": "Test"})
 
     def create_invoice(self, invoice_date, quantity=1.0):
-        invoice_form = common.Form(
+        invoice_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = invoice_date
@@ -137,7 +137,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             self.partner.membership_stop, fields.Date.from_string("2017-06-30")
         )
         # Remove quantity
-        invoice_form = common.Form(invoice)
+        invoice_form = Form(invoice)
         with invoice_form.invoice_line_ids.edit(0) as invoice_line_form:
             invoice_line_form.quantity = 1.0
         invoice = invoice_form.save()
@@ -211,7 +211,7 @@ class TestMembershipVariablePeriod(common.TransactionCase):
             self.assertEqual(template._get_next_date(old_date), next_date)
 
     def test_create_invoice_line_with_no_product(self):
-        invoice_form = common.Form(
+        invoice_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = "2015-07-01"
