@@ -1,1 +1,2 @@
 odoo-addon-membership_prorate @ git+https://github.com/OCA/vertical-association.git@refs/pull/194/head#subdirectory=membership_prorate
+odoo-addon-membership_variable_period @ git+https://github.com/OCA/vertical-association.git@refs/pull/171/head#subdirectory=membership_variable_period
