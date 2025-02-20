@@ -34,20 +34,20 @@
                 >{'default_date': time.strftime('%Y-%m-%d')}</attribute>
             </field>
             <xpath
-                expr="//field[@name='member_lines']/tree//field[@name='date']"
+                expr="//field[@name='member_lines']/list//field[@name='date']"
                 position="after"
             >
                 <field name="date_from" optional="show" />
                 <field name="date_to" optional="show" />
             </xpath>
             <xpath
-                expr="//field[@name='member_lines']/tree//field[@name='membership_id']"
+                expr="//field[@name='member_lines']/list//field[@name='membership_id']"
                 position="after"
             >
                 <field name="category_id" optional="hide" />
             </xpath>
             <xpath
-                expr="//field[@name='member_lines']/tree//field[@name='date_to']"
+                expr="//field[@name='member_lines']/list//field[@name='date_to']"
                 position="after"
             >
                 <field name="date_cancel" optional="hide" />

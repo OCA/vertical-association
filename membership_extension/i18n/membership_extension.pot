@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -32,7 +32,6 @@ msgstr ""
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/product_template.py:0
-#, python-format
 msgid "A membership product must have a start date and an end date."
 msgstr ""
 
@@ -50,7 +49,6 @@ msgstr ""
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/membership_line.py:0
-#, python-format
 msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice"
 " or remove invoice line instead"
@@ -378,7 +376,6 @@ msgstr ""
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/membership_category.py:0
-#, python-format
 msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."

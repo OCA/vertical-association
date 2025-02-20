@@ -2,7 +2,7 @@
 # Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -28,7 +28,7 @@ class MembershipCategory(models.Model):
         )
         if templates:
             raise ValidationError(
-                _(
+                self.env._(
                     "You cannot change the Company, as this "
                     "Membership Category is used by Product Template (%s), "
                     "which has an incompatible assigned Company."

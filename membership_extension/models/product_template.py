@@ -4,7 +4,7 @@
 
 from datetime import timedelta
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -41,5 +41,7 @@ class ProductTemplate(models.Model):
             and (not record.membership_date_from or not record.membership_date_to)
         ):
             raise ValidationError(
-                _("A membership product must have a start date and an end date.")
+                self.env._(
+                    "A membership product must have a start date and an end date."
+                )
             )
