@@ -17,13 +17,13 @@ Prorate membership fee for variable periods
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fvertical--association-lightgray.png?logo=github
-    :target: https://github.com/OCA/vertical-association/tree/16.0/membership_prorate_variable_period
+    :target: https://github.com/OCA/vertical-association/tree/18.0/membership_prorate_variable_period
     :alt: OCA/vertical-association
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/vertical-association-16-0/vertical-association-16-0-membership_prorate_variable_period
+    :target: https://translation.odoo-community.org/projects/vertical-association-18-0/vertical-association-18-0-membership_prorate_variable_period
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/vertical-association&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/vertical-association&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -40,27 +40,28 @@ the module *membership_variable_period*.
 Installation
 ============
 
-This module is auto-installed if you have *membership_variable_period* and
-*membership_prorate* modules installed.
+This module is auto-installed if you have *membership_variable_period*
+and *membership_prorate* modules installed.
 
 Usage
 =====
 
-For leading with variable periods and prorate, only weekly, monthly or yearly
-periods are allowed. When you create an invoice with a membership product
-with variable period, the theoretical period is calculated from the invoice
-date (or today if empty) as the natural period of the selected unit that
-includes that date. For example, if the invoice is on the 15th of January
-and the unit is month, the theoretical period to invoice will be all the month
-of January.
+For leading with variable periods and prorate, only weekly, monthly or
+yearly periods are allowed. When you create an invoice with a membership
+product with variable period, the theoretical period is calculated from
+the invoice date (or today if empty) as the natural period of the
+selected unit that includes that date. For example, if the invoice is on
+the 15th of January and the unit is month, the theoretical period to
+invoice will be all the month of January.
 
 Known issues / Roadmap
 ======================
 
-* Allow to handle periods of months that make the year divisible: 2 months
-  (two-monthly), 3 months (quartely), 4 months (four-monthly) or 6 months
-  (biannual).
-* On weekly memberships, consider the duality sunday/monday start of the week.
+- Allow to handle periods of months that make the year divisible: 2
+  months (two-monthly), 3 months (quartely), 4 months (four-monthly) or
+  6 months (biannual).
+- On weekly memberships, consider the duality sunday/monday start of the
+  week.
 
 Bug Tracker
 ===========
@@ -68,7 +69,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/vertical-association/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/vertical-association/issues/new?body=module:%20membership_prorate_variable_period%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/vertical-association/issues/new?body=module:%20membership_prorate_variable_period%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -76,22 +77,22 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`__:
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Rafael Blasco
-  * David Vidal
-  * Ernesto Tejeda
+  - Pedro M. Baeza
+  - Rafael Blasco
+  - David Vidal
+  - Ernesto Tejeda
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -114,6 +115,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-rafaelbn| |maintainer-edlopen| 
 
-This module is part of the `OCA/vertical-association <https://github.com/OCA/vertical-association/tree/16.0/membership_prorate_variable_period>`_ project on GitHub.
+This module is part of the `OCA/vertical-association <https://github.com/OCA/vertical-association/tree/18.0/membership_prorate_variable_period>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
