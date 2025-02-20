@@ -3,7 +3,7 @@
 # Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields
+from odoo import Command, fields
 from odoo.tests import Form
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -44,9 +44,7 @@ class TestMembershipDelegate(BaseCommon):
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
                 "invoice_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "display_type": "product",
                             "name": "Membership for delegate member",
@@ -80,9 +78,7 @@ class TestMembershipDelegate(BaseCommon):
                 "move_type": "out_invoice",
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "invoice_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "display_type": "product",
                             "name": "Membership classic",
@@ -139,9 +135,7 @@ class TestMembershipDelegate(BaseCommon):
                 "partner_id": self.partner1.id,  # Invoicing partner
                 "delegated_member_id": self.partner2.id,  # Delegate membership to
                 "invoice_line_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "display_type": "product",
                             "name": "Membership for delegate member",
