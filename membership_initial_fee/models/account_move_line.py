@@ -4,7 +4,7 @@
 # Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 
-from odoo import _, api, models
+from odoo import api, models
 
 
 class AccountMoveLine(models.Model):
@@ -22,7 +22,9 @@ class AccountMoveLine(models.Model):
             "analytic_line_ids": self.analytic_line_ids.ids,
         }
         inv_line = self.env["account.move.line"].new(line_vals)
-        inv_line.name = product_fee.description_sale or _("Membership initial fee")
+        inv_line.name = product_fee.description_sale or self.env._(
+            "Membership initial fee"
+        )
         if product.initial_fee == "fixed":
             inv_line.price_unit = product.fixed_fee
         elif product.initial_fee == "percentage":
