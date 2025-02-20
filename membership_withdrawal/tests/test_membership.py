@@ -8,8 +8,9 @@ from odoo.tests.common import TransactionCase
 
 
 class TestMembership(TransactionCase):
-    def setUp(self):
-        super().setUp()
+    @classmethod
+    def setUpClass(self):
+        super().setUpClass()
 
         self.next_two_months = fields.Date.today() + timedelta(days=60)
         self.next_month = fields.Date.today() + timedelta(days=30)
