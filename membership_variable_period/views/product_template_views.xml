@@ -32,25 +32,23 @@
                 </div>
             </label>
             <label for="membership_date_from" position="attributes">
-                <attribute name="invisible">"membership_type != 'fixed'"</attribute>
+                <attribute name="invisible">membership_type != 'fixed'</attribute>
             </label>
             <xpath
                 expr="//field[@name='membership_date_from']/.."
                 position="attributes"
             >
-                <attribute name="invisible">"membership_type != 'fixed'"</attribute>
+                <attribute name="invisible">membership_type != 'fixed'</attribute>
             </xpath>
             <field name="membership_date_from" position="attributes">
                 <attribute
                     name="required"
                 >membership_type == 'fixed' and membership</attribute>
-                <attribute name="required">0</attribute>
             </field>
             <field name="membership_date_to" position="attributes">
                 <attribute
                     name="required"
                 >membership_type == 'fixed' and membership</attribute>
-                <attribute name="required">0</attribute>
             </field>
         </field>
     </record>

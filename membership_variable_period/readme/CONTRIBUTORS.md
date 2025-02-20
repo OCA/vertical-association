@@ -8,3 +8,5 @@
 - [Sygel](https://www.sygel.es):
   - Valentín Vinagre
   - Roger Sans
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
