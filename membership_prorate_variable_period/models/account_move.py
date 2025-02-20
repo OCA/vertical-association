@@ -1,7 +1,7 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2019 Tecnativa - David Vidal
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from odoo import _, exceptions, models
+from odoo import exceptions, models
 from odoo.tools import date_utils
 
 
@@ -19,7 +19,9 @@ class AccountMoveLine(models.Model):
         if product.membership_type == "fixed":
             return super()._get_membership_interval(product, date)
         if product.membership_interval_unit == "days":
-            raise exceptions.UserError(_("It's not possible to prorate daily periods."))
+            raise exceptions.UserError(
+                self.env._("It's not possible to prorate daily periods.")
+            )
         if product.membership_interval_unit == "weeks":
             date_from = date_utils.start_of(date, "week")
         elif product.membership_interval_unit == "months":
