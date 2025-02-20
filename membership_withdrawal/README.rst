@@ -39,7 +39,7 @@ request.
 Configuration
 =============
 
-Users can define membership withdrawal reasons in *Association >
+Users can define membership withdrawal reasons in *Members >
 Configuration > Membership withdrawal reasons*
 
 Usage
@@ -82,6 +82,10 @@ Contributors
 - `Onestein <https://onestein.eu>`__:
 
   - Andrea Stirpe
+
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
