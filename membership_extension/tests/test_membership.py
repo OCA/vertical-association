@@ -10,16 +10,25 @@ from psycopg2 import IntegrityError
 
 from odoo import fields
 from odoo.exceptions import UserError, ValidationError
-from odoo.tests import common
+from odoo.tests import common, tagged
 from odoo.tools import mute_logger
 
 
-@freeze_time("2025-01-01")
+@tagged("-at_install", "post_install")
 class TestMembership(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        date_today = fields.Date.today()
+        if not cls.env.company.chart_template_id:
+            # Load a CoA if there's none in current company
+            coa = cls.env.ref("l10n_generic_coa.configurable_chart_template", False)
+            if not coa:
+                # Load the first available CoA
+                coa = cls.env["account.chart.template"].search(
+                    [("visible", "=", True)], limit=1
+                )
+            coa.try_loading(company=cls.env.company, install_demo=False)
+        date_today = fields.Date.from_string("2025-01-01")
 
         cls.account_bank = cls.env["account.account"].create(
             {
@@ -79,7 +88,7 @@ class TestMembership(common.TransactionCase):
                 "type": "service",
                 "name": "Membership Gold",
                 "membership": True,
-                "membership_date_from": fields.Date.today(),
+                "membership_date_from": date_today,
                 "membership_date_to": cls.next_month,
                 "membership_category_id": cls.category_gold.id,
                 "list_price": 100.00,
@@ -90,7 +99,7 @@ class TestMembership(common.TransactionCase):
                 "type": "service",
                 "name": "Membership Silver",
                 "membership": True,
-                "membership_date_from": fields.Date.today(),
+                "membership_date_from": date_today,
                 "membership_date_to": cls.next_two_months,
                 "membership_category_id": cls.category_silver.id,
                 "list_price": 50.00,
@@ -98,6 +107,7 @@ class TestMembership(common.TransactionCase):
         )
         cls.current_year = date_today.year
 
+    @freeze_time("2025-01-01")
     def test_compute_membership(self):
         line = self.env["membership.membership_line"].create(
             {
@@ -188,6 +198,7 @@ class TestMembership(common.TransactionCase):
         self.partner.free_member = True
         self.assertEqual("free", self.child.membership_state)
 
+    @freeze_time("2025-01-01")
     def test_category(self):
         line_one = self.env["membership.membership_line"].create(
             {
@@ -245,6 +256,7 @@ class TestMembership(common.TransactionCase):
         invoice.invoice_line_ids.with_context(check_move_validity=False).unlink()
         self.assertFalse(self.partner.member_lines)
 
+    @freeze_time("2025-01-01")
     def test_membership_line_onchange(self):
         line = self.env["membership.membership_line"].create(
             {
@@ -265,6 +277,7 @@ class TestMembership(common.TransactionCase):
         self.assertEqual(fields.Date.today(), line.date_from)
         self.assertEqual(self.next_two_months, line.date_to)
 
+    @freeze_time("2025-01-01")
     def test_invoice(self):
         invoice_form = common.Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
@@ -350,6 +363,7 @@ class TestMembership(common.TransactionCase):
         invoice.action_post()
         self.assertEqual("invoiced", line.state)
 
+    @freeze_time("2025-01-01")
     def test_check_membership_all(self):
         self.env["membership.membership_line"].create(
             {
@@ -399,6 +413,7 @@ class TestMembership(common.TransactionCase):
         partner2.unlink()
         self.assertFalse(partner2.exists())
 
+    @freeze_time("2025-01-01")
     def test_adhered_member(self):
         self.env["membership.membership_line"].create(
             {
