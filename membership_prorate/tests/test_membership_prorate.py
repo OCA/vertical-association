@@ -6,7 +6,7 @@ from datetime import date
 from odoo.tests import Form, common
 
 
-class TestMembershipProrate(common.SavepointCase):
+class TestMembershipProrate(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
