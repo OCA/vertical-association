@@ -11,6 +11,9 @@ class TestMembershipProrateVariablePeriod(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(
+            context=dict(cls.env.context, test_membership_prorate_variable_period=True)
+        )
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Membership product with prorate",
