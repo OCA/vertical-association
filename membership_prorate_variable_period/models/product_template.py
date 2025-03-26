@@ -4,14 +4,19 @@
 import math
 
 from odoo import _, exceptions, models
-from odoo.tools import date_utils
+from odoo.tools import config, date_utils
 
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     def _get_next_date(self, date, qty=1):
-        next_date = super(ProductTemplate, self)._get_next_date(date)
+        next_date = super()._get_next_date(date, qty=qty)
+        testing_other_modules = config["test_enable"] and not self.env.context.get(
+            "test_membership_prorate_variable_period"
+        )
+        if testing_other_modules:
+            return next_date
         if self.membership_interval_unit == "days":
             raise exceptions.UserError(_("It's not possible to prorate daily periods."))
         qty = math.ceil(qty) * self.membership_interval_qty
