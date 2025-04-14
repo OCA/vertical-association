@@ -12,7 +12,6 @@ class TestMembershipDelegate(common.SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.partner1 = cls.env["res.partner"].create({"name": "Mr. Odoo"})
         cls.partner2 = cls.env["res.partner"].create({"name": "Mrs. Odoo"})
         cls.product = cls.env["product.product"].create(
@@ -21,6 +20,12 @@ class TestMembershipDelegate(common.SavepointCase):
                 "membership": True,
                 "membership_date_from": "2017-01-01",
                 "membership_date_to": "2017-12-31",
+            }
+        )
+        cls.non_membership_product = cls.env["product.product"].create(
+            {
+                "name": "Test other product",
+                "membership": False,
             }
         )
         cls.account_type = cls.env["account.account.type"].create(
@@ -149,3 +154,67 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertEqual(get_member(), self.partner2)
         invoice.invoice_line_ids[0].delegated_member_id = False
         self.assertEqual(get_member(), self.partner1)
+
+    def test_is_membership_invoice(self):
+
+        invoice = self.env["account.move"].create(
+            {
+                "name": "Test Customer Invoice",
+                "move_type": "out_invoice",
+                "partner_id": self.partner1.id,  # Invoicing partner
+            }
+        )
+        self.env["account.move.line"].create(
+            [
+                {
+                    "move_id": invoice.id,
+                    "name": "Non membership",
+                    "account_id": self.account.id,
+                    "product_id": self.non_membership_product.id,
+                    "price_unit": 1.0,
+                },
+                {
+                    "move_id": invoice.id,
+                    "name": "Membership for delegate member",
+                    "account_id": self.account.id,
+                    "product_id": self.product.id,
+                    "price_unit": 1.0,
+                },
+            ]
+        )
+        self.assertTrue(invoice.is_membership_invoice)
+
+    def test_not_is_membership_invoice(self):
+
+        invoice = self.env["account.move"].create(
+            {
+                "name": "Test Customer Invoice",
+                "move_type": "out_invoice",
+                "partner_id": self.partner1.id,  # Invoicing partner
+            }
+        )
+        self.env["account.move.line"].create(
+            [
+                {
+                    "move_id": invoice.id,
+                    "name": "Non membership",
+                    "account_id": self.account.id,
+                    "product_id": self.non_membership_product.id,
+                    "price_unit": 1.0,
+                },
+            ]
+        )
+        self.assertFalse(invoice.is_membership_invoice)
+
+    def test_membership_without_account_move_line(self):
+        membership = self.env["membership.membership_line"].create(
+            {
+                "partner": self.partner1.id,
+                "membership_id": self.product.id,
+                "member_price": 60,
+            }
+        )
+        self.assertEqual(membership.partner, self.partner1)
+        membership.write({"partner": self.partner2.id})
+
+        self.assertEqual(membership.partner, self.partner2)

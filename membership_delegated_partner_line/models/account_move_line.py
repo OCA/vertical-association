@@ -20,15 +20,13 @@ class AccountMoveLine(models.Model):
 
     @api.onchange("product_id")
     def _onchange_product_id_membership(self):
-        """If the product is not a membership then we need to set the delegated
-        member to False.
-        """
+        """Drop delegated member if not a membership line."""
         if not self.product_id.membership:
             self.delegated_member_id = False
 
     @api.onchange("delegated_member_id")
     def _onchange_delegated_member_id(self):
-        """If the delegated member is changed then we need to set the description."""
+        """Set description on delegated member change."""
         self.name = self._get_computed_name()
 
     def _get_computed_name(self):
