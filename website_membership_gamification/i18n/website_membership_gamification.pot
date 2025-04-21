@@ -24,10 +24,14 @@ msgid "Badge URL"
 msgstr ""
 
 #. module: website_membership_gamification
-#: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__gamification_badge_ids
-#: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__gamification_badge_ids
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
 msgid "Badges"
+msgstr ""
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__gamification_badge_ids
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__gamification_badge_ids
+msgid "Badges (recursive)"
 msgstr ""
 
 #. module: website_membership_gamification
