@@ -9,7 +9,7 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     gamification_badge_ids = fields.Many2many(
-        string="Badges",
+        string="Badges (recursive)",
         comodel_name="gamification.badge.user",
         compute="_compute_gamification_badge_ids",
         store=True,
