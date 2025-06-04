@@ -29,7 +29,7 @@ addon | version | maintainers | summary
 [membership_prorate_variable_period](membership_prorate_variable_period/) | 14.0.1.0.0 |  | Prorate membership fee for variable periods
 [membership_variable_period](membership_variable_period/) | 14.0.1.0.0 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 14.0.1.0.0 |  | Log membership withdrawal reason and date of request
-[website_membership_random_order](website_membership_random_order/) | 14.0.1.0.0 | [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Online Members Directory - Random order
+[website_membership_random_order](website_membership_random_order/) | 14.0.1.0.0 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Online Members Directory - Random order
 
 [//]: # (end addons)
 
