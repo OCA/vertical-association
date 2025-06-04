@@ -24,10 +24,10 @@ addon | version | maintainers | summary
 [contract_membership_delegated_partner](contract_membership_delegated_partner/) | 17.0.1.0.0 |  | Set delegate membership on the contract
 [membership_delegated_partner](membership_delegated_partner/) | 17.0.1.0.0 |  | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 17.0.1.0.3 |  | Improves user experience of membership addon
-[membership_initial_fee](membership_initial_fee/) | 17.0.1.0.0 | [![rafaelbn](https://github.com/rafaelbn.png?size=30px)](https://github.com/rafaelbn) [![edlopen](https://github.com/edlopen.png?size=30px)](https://github.com/edlopen) | Initial fee for memberships
+[membership_initial_fee](membership_initial_fee/) | 17.0.1.0.0 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Initial fee for memberships
 [membership_variable_period](membership_variable_period/) | 17.0.1.0.1 |  | Variable period for memberships
 [website_membership_gamification](website_membership_gamification/) | 17.0.1.0.0 |  | Show badges assigned to users on website
-[website_membership_random_order](website_membership_random_order/) | 17.0.1.0.0 | [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Online Members Directory - Random order
+[website_membership_random_order](website_membership_random_order/) | 17.0.1.0.0 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Online Members Directory - Random order
 
 [//]: # (end addons)
 
