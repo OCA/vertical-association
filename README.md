@@ -27,7 +27,7 @@ addon | version | maintainers | summary
 [membership_prorate](membership_prorate/) | 15.0.1.0.1 |  | Prorate membership fee
 [membership_variable_period](membership_variable_period/) | 15.0.1.0.1 |  | Variable period for memberships
 [website_membership_gamification](website_membership_gamification/) | 15.0.1.0.1 |  | Show badges assigned to users on website
-[website_membership_random_order](website_membership_random_order/) | 15.0.1.0.0 | [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Online Members Directory - Random order
+[website_membership_random_order](website_membership_random_order/) | 15.0.1.0.0 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Online Members Directory - Random order
 
 [//]: # (end addons)
 
