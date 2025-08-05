@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-vertical-association"
+version = "18.0.20250805.0"
+dependencies = [
+    "odoo-addon-membership_extension==18.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 18.0",
+]
