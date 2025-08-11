@@ -101,13 +101,10 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
         <field name="arch" type="xml">
-            <xpath expr="//filter[@name='all_members']" position="replace">
-                <filter
-                    name="all_members"
-                    string="Members"
-                    domain="[('membership_state', 'in', ['invoiced', 'paid', 'free', 'waiting'])]"
-                    help="Invoiced/Paid/Free/Waiting"
-                />
+            <xpath expr="//filter[@name='all_members']" position="attributes">
+                <attribute name="domain">[('membership_state', 'in', ['invoiced', 'paid', 'free', 'waiting'])]</attribute>
+                <attribute name="help">Invoiced/Paid/Free/Waiting</attribute>
+                <attribute name="string">Members</attribute>
             </xpath>
             <xpath expr="//group" position="inside">
                 <filter
