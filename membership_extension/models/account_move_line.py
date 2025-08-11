@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
@@ -18,6 +19,10 @@ class AccountMoveLine(models.Model):
         for line in lines:
             if line.move_id.move_type == "out_invoice" and line.product_id.membership:
                 line.membership_lines.write({"state": "waiting"})
+                #line.membership_lines.mapped("partner").write({"free_member": False})
+                for partner in line.membership_lines.mapped("partner"):
+                    _logger.info("Atualizando parceiro: %s", partner.id)
+                    partner.write({"free_member": False})
         return lines
 
     def unlink(self):
