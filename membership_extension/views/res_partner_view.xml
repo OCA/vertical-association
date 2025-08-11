@@ -102,7 +102,6 @@
         <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='all_members']" position="attributes">
-                <attribute name="domain">[('membership_state', 'in', ['invoiced', 'paid', 'free', 'waiting'])]</attribute>
                 <attribute
                     name="domain"
                 >[('membership_state', 'in', ['invoiced', 'paid', 'free', 'waiting'])]</attribute>
