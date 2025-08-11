@@ -17,7 +17,6 @@ class AccountMoveLine(models.Model):
         for line in lines:
             if line.move_id.move_type == "out_invoice" and line.product_id.membership:
                 line.membership_lines.write({"state": "waiting"})
-                #line.membership_lines.mapped("partner").write({"free_member": False})
                 for partner in line.membership_lines.mapped("partner"):
                     partner.write({"free_member": False})
         return lines
