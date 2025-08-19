@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [membership_delegated_partner](membership_delegated_partner/) | 18.0.1.0.0 |  | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 18.0.1.0.0 |  | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 18.0.1.0.0 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Initial fee for memberships
+[membership_prorate](membership_prorate/) | 18.0.1.0.0 |  | Prorate membership fee
 [membership_variable_period](membership_variable_period/) | 18.0.1.0.0 |  | Variable period for memberships
 
 [//]: # (end addons)
