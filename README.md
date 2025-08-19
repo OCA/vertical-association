@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[membership_delegated_partner](membership_delegated_partner/) | 18.0.1.0.0 |  | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 18.0.1.0.0 |  | Improves user experience of membership addon
 
 [//]: # (end addons)
