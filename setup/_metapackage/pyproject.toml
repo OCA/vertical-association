@@ -1,12 +1,13 @@
 [project]
 name = "odoo-addons-oca-vertical-association"
-version = "18.0.20250821.0"
+version = "18.0.20250821.1"
 dependencies = [
     "odoo-addon-contract_membership_delegated_partner==18.0.*",
     "odoo-addon-membership_delegated_partner==18.0.*",
     "odoo-addon-membership_extension==18.0.*",
     "odoo-addon-membership_initial_fee==18.0.*",
     "odoo-addon-membership_prorate==18.0.*",
+    "odoo-addon-membership_prorate_variable_period==18.0.*",
     "odoo-addon-membership_variable_period==18.0.*",
     "odoo-addon-membership_withdrawal==18.0.*",
 ]
