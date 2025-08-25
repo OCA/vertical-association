@@ -10,6 +10,10 @@ and adapting them for this purpose. As now the quota is not attached to a fixed
 period, you can also invoice more than one quantity for being a member for
 the corresponding number of periods.
 
+A member's membership is renewed when a new variable period membership product
+of the same category is purchased. The new period will begin the day after the
+end of the last period.
+
 Finally, a cron has been included that triggers the recalculation of the
 membership state, allowing to have "old members", which doesn't work well
 on standard.

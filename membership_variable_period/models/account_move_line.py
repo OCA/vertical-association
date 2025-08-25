@@ -13,19 +13,29 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     def _prepare_membership_line(self, move, product, price_unit, line_id, qty=1.0):
+        line = self.browse(line_id)
         qty = int(math.ceil(qty))
-        date_from = move.invoice_date or fields.Date.today()
+        partner = (
+            line._get_partner_for_membership()
+            if hasattr(line, "_get_partner_for_membership")
+            else move.partner_id
+        )
+        date_from = (
+            partner.get_membership_renewal_date(product)
+            or move.invoice_date
+            or fields.Date.today()
+        )
         date_to = product.product_tmpl_id._get_next_date(date_from, qty=qty)
         date_to = date_to and (date_to - timedelta(days=1)) or False
         return {
-            "partner": move.partner_id.id,
+            "partner": partner.id,
             "membership_id": product.id,
             "member_price": price_unit,
             "date": move.invoice_date or fields.Date.today(),
             "date_from": date_from,
             "date_to": date_to,
             "state": "waiting",
-            "account_invoice_line": line_id,
+            "account_invoice_line": line.id,
         }
 
     @api.model

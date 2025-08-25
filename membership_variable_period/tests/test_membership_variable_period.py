@@ -5,6 +5,8 @@
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 from datetime import date
 
+from freezegun import freeze_time
+
 from odoo import fields
 from odoo.tests import common, tagged
 
@@ -23,6 +25,10 @@ class TestMembershipVariablePeriod(common.TransactionCase):
                     [("visible", "=", True)], limit=1
                 )
             coa.try_loading(company=cls.env.company, install_demo=False)
+        cls.category_gold = cls.env.ref("membership_extension.membership_category_gold")
+        cls.category_silver = cls.env.ref(
+            "membership_extension.membership_category_silver"
+        )
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Membership product with variable period",
@@ -32,17 +38,28 @@ class TestMembershipVariablePeriod(common.TransactionCase):
                 "membership_interval_unit": "weeks",
             }
         )
+        cls.product_silver = cls.env["product.product"].create(
+            {
+                "name": "Silver membership product with variable period",
+                "membership": True,
+                "membership_type": "variable",
+                "membership_interval_qty": 1,
+                "membership_interval_unit": "weeks",
+                "membership_category_id": cls.category_silver.id,
+            }
+        )
         cls.partner = cls.env["res.partner"].create({"name": "Test"})
 
-    def create_invoice(self, invoice_date, quantity=1.0):
+    def create_invoice(self, invoice_date, quantity=1.0, product=None):
+        product = product or self.product
         invoice_form = common.Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
         invoice_form.invoice_date = invoice_date
         invoice_form.partner_id = self.partner
         with invoice_form.invoice_line_ids.new() as invoice_line_form:
-            invoice_line_form.product_id = self.product
-            invoice_line_form.price_unit = self.product.list_price
+            invoice_line_form.product_id = product
+            invoice_line_form.price_unit = product.list_price
             invoice_line_form.quantity = quantity
         return invoice_form.save()
 
@@ -235,3 +252,55 @@ class TestMembershipVariablePeriod(common.TransactionCase):
 
         self.assertFalse(invoice.invoice_line_ids[0].product_id)
         self.assertFalse(invoice.invoice_line_ids[0].membership_lines)
+
+    @freeze_time("2025-01-01")
+    def test_create_membership_renewal(self):
+        self.product.membership_category_id = self.category_gold
+        for _ in range(2):
+            invoice = self.create_invoice("2025-01-01")
+            membership_line = invoice.invoice_line_ids[0].membership_lines[0]
+            membership_line.write({"state": "invoiced"})
+        self.assertEqual(
+            membership_line.date_from, fields.Date.from_string("2025-01-08")
+        )
+        self.assertEqual(membership_line.date_to, fields.Date.from_string("2025-01-14"))
+        self.assertEqual(
+            self.partner.membership_start, fields.Date.from_string("2025-01-01")
+        )
+        self.assertEqual(
+            self.partner.membership_stop, fields.Date.from_string("2025-01-14")
+        )
+
+    @freeze_time("2025-01-01")
+    def test_check_membership_non_renewal(self):
+        self.product.membership_category_id = self.category_gold
+        invoice = self.create_invoice("2024-12-01")
+        membership_line = invoice.invoice_line_ids[0].membership_lines[0]
+        membership_line.write({"state": "invoiced"})
+        self.assertEqual(membership_line.date_to, fields.Date.from_string("2024-12-07"))
+
+        # The previous membership has expired
+        invoice = self.create_invoice("2025-01-01")
+        membership_line = invoice.invoice_line_ids[0].membership_lines[0]
+        self.assertEqual(
+            membership_line.date_from, fields.Date.from_string("2025-01-01")
+        )
+        self.assertEqual(membership_line.state, "waiting")
+
+        # The state of the previous membership is still waiting
+        invoice = self.create_invoice("2025-01-01")
+        membership_line = invoice.invoice_line_ids[0].membership_lines[0]
+        membership_line.write({"state": "invoiced"})
+        self.assertEqual(
+            membership_line.date_from, fields.Date.from_string("2025-01-01")
+        )
+        self.assertEqual(self.partner.membership_category_ids, self.category_gold)
+
+        # The previous membership has a different category
+        invoice = self.create_invoice("2025-01-01", product=self.product_silver)
+        membership_line = invoice.invoice_line_ids[0].membership_lines[0]
+        membership_line.write({"state": "invoiced"})
+        self.assertEqual(
+            membership_line.date_from, fields.Date.from_string("2025-01-01")
+        )
+        self.assertTrue(self.category_silver in self.partner.membership_category_ids)
