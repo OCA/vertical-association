@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_membership_delegated_partner](contract_membership_delegated_partner/) | 14.0.1.0.0 |  | Set delegate membership on the contract
 [membership_delegated_partner](membership_delegated_partner/) | 14.0.1.1.1 |  | Delegate membership on a specific partner
+[membership_delegated_partner_line](membership_delegated_partner_line/) | 14.0.1.0.0 |  | Adds ability to specify member at invoice line level
 [membership_extension](membership_extension/) | 14.0.1.2.0 |  | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 14.0.1.0.0 |  | Initial fee for memberships
 [membership_prorate](membership_prorate/) | 14.0.1.0.0 |  | Prorate membership fee

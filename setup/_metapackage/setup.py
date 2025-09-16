@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-contract_membership_delegated_partner',
         'odoo14-addon-membership_delegated_partner',
+        'odoo14-addon-membership_delegated_partner_line',
         'odoo14-addon-membership_extension',
         'odoo14-addon-membership_initial_fee',
         'odoo14-addon-membership_prorate',
