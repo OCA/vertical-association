@@ -1,7 +1,7 @@
 # Copyright 2022 Manuel Regidor <manuel.regidor@sygel.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -40,20 +40,20 @@ class ResPartner(models.Model):
             or user_hr_gamification_module.state != "installed"
         ) and "employee_id" in self.env["gamification.badge.user.wizard"]._fields:
             raise ValidationError(
-                _(
+                self.env._(
                     "Both hr_gamification and website_membership_gamification "
                     "modules are installed. You need to install "
                     "user_hr_gamification in order to use both."
                 )
             )
         if not self.has_related_users:
-            raise ValidationError(_("The partner has no related users."))
+            raise ValidationError(self.env._("The partner has no related users."))
         user_id = self.user_ids.filtered(lambda a: a.active)[0]
         view_id = self.env.ref(
             "website_membership_gamification.partner_view_badge_wizard_reward"
         )
         return {
-            "name": _("Reward"),
+            "name": self.env._("Reward"),
             "view_mode": "form",
             "res_model": "gamification.badge.user.wizard",
             "view_id": view_id.id,
