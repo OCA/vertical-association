@@ -12,10 +12,8 @@
         <field name="model">gamification.badge.user</field>
         <field name="inherit_id" ref="gamification.badge_user_kanban_view" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('oe_kanban_details')]" position="inside">
-                <div>
-                    <p>Assigned to <t t-esc="record.user_id.value" /></p>
-                </div>
+            <xpath expr="//main" position="inside">
+                <p>Assigned to <field name="user_id" /></p>
             </xpath>
         </field>
     </record>
