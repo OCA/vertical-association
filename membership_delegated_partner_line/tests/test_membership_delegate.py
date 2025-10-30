@@ -3,11 +3,11 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import fields
-from odoo.tests import common
-from odoo.tests.common import Form
+from odoo.tests import Form
+from odoo.tests.common import TransactionCase
 
 
-class TestMembershipDelegate(common.SavepointCase):
+class TestMembershipDelegate(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -28,14 +28,11 @@ class TestMembershipDelegate(common.SavepointCase):
                 "membership": False,
             }
         )
-        cls.account_type = cls.env["account.account.type"].create(
-            {"name": "Test", "type": "receivable", "internal_group": "asset"}
-        )
         cls.account = cls.env["account.account"].create(
             {
                 "name": "Test account",
                 "code": "TEST",
-                "user_type_id": cls.account_type.id,
+                "account_type": "asset_cash",
                 "reconcile": True,
             }
         )
@@ -111,7 +108,6 @@ class TestMembershipDelegate(common.SavepointCase):
         move_form.partner_id = self.partner1
         with move_form.invoice_line_ids.new() as line_form:
             line_form.product_id = self.product
-            line_form.account_id = self.account
             line_form.price_unit = 1.0
             line_form.delegated_member_id = self.partner2
         invoice = move_form.save()
@@ -123,7 +119,7 @@ class TestMembershipDelegate(common.SavepointCase):
                 {
                     "date": fields.Date.today(),
                     "reason": "no reason",
-                    "refund_method": "refund",
+                    "journal_id": self.journal_sale.id,
                 }
             )
         )
@@ -156,7 +152,6 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertEqual(get_member(), self.partner1)
 
     def test_is_membership_invoice(self):
-
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
@@ -185,7 +180,6 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertTrue(invoice.is_membership_invoice)
 
     def test_not_is_membership_invoice(self):
-
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",

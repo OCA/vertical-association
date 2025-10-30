@@ -17,23 +17,26 @@ Membership Delegated Partner Line
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fvertical--association-lightgray.png?logo=github
-    :target: https://github.com/OCA/vertical-association/tree/14.0/membership_delegated_partner_line
+    :target: https://github.com/OCA/vertical-association/tree/18.0/membership_delegated_partner_line
     :alt: OCA/vertical-association
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/vertical-association-14-0/vertical-association-14-0-membership_delegated_partner_line
+    :target: https://translation.odoo-community.org/projects/vertical-association-18-0/vertical-association-18-0-membership_delegated_partner_line
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/vertical-association&target_branch=14.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/vertical-association&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to delegate a membership line to a partner independently of
-the invoicing partner. This is done at the invoice line level.
+This module allows to delegate a membership line to a partner
+independently of the invoicing partner. This is done at the invoice line
+level.
 
-It will also update the description on the invoice line to include the member's name.
+It will also update the description on the invoice line to include the
+member's name.
 
-If a delegated partner is not provided, the membership will assign to the invoice partner.
+If a delegated partner is not provided, the membership will assign to
+the invoice partner.
 
 **Table of contents**
 
@@ -43,18 +46,21 @@ If a delegated partner is not provided, the membership will assign to the invoic
 Configuration
 =============
 
-This module is incompatible with `membership_delegated_partner` and any module that depends
-on it. Prior to installing this module, if you use membership_delegated_partner:
+This module is incompatible with membership_delegated_partner and any
+module that depends on it. Prior to installing this module, if you use
+membership_delegated_partner:
 
-1.  Prior to uninstalling `membership_delegated_partner` and installing this one, run `replace_membership_delegated_partner.sql`.
-1.  Uninstall `membership_delegated_partner`.
-1.  Install this module.
+1. Prior to uninstalling membership_delegated_partner and installing
+   this one, run replace_membership_delegated_partner.sql.
+2. Uninstall membership_delegated_partner.
+3. Install this module.
 
 Usage
 =====
 
-#. In an invoice with membership lines, choose a delegated partner for each line.
-#. The membership line will go to the delegated partner.
+1. In an invoice with membership lines, choose a delegated partner for
+   each line.
+2. The membership line will go to the delegated partner.
 
 Bug Tracker
 ===========
@@ -62,7 +68,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/vertical-association/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/vertical-association/issues/new?body=module:%20membership_delegated_partner_line%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/vertical-association/issues/new?body=module:%20membership_delegated_partner_line%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -70,34 +76,35 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Graeme Gellatly
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Graeme Gellatly <graeme@o4sb.com> (https://o4sb.com)
+-  Graeme Gellatly <graeme@o4sb.com> (https://o4sb.com)
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
-The development of this module was heavily based on membership_delegated_partner:
+The development of this module was heavily based on
+membership_delegated_partner:
 
 Thanks to all the below for their prior work on this module
 
-* `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Rafael Blasco
-  * David Vidal
+   -  Pedro M. Baeza
+   -  Rafael Blasco
+   -  David Vidal
 
-* `Onestein <https://onestein.eu>`__:
+-  `Onestein <https://onestein.eu>`__:
 
-  * Andrea Stirpe
+   -  Andrea Stirpe
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -109,6 +116,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/vertical-association <https://github.com/OCA/vertical-association/tree/14.0/membership_delegated_partner_line>`_ project on GitHub.
+This module is part of the `OCA/vertical-association <https://github.com/OCA/vertical-association/tree/18.0/membership_delegated_partner_line>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

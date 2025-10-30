@@ -8,6 +8,8 @@
 
 -- This request add and set delegated member on account.move.lines from account.move.
 
+
+
 ALTER TABLE account_move_line ADD COLUMN IF NOT EXISTS delegated_member_id int4;
 UPDATE account_move_line SET delegated_member_id = am.delegated_member_id
     FROM account_move am, product_product p, product_template pt
@@ -17,4 +19,9 @@ UPDATE account_move_line SET delegated_member_id = am.delegated_member_id
       AND p.id=account_move_line.product_id
       AND p.product_tmpl_id = pt.id
       AND pt.membership = TRUE
-      AND account_move_line.exclude_from_invoice_tab = FALSE;
+
+--    TODO
+--    exclude_from_invoice_line_tab field was dropped in  v16
+--    https://github.com/OCA/OpenUpgrade/blob/16.0/openupgrade_scripts/scripts/account/16.0.1.2/upgrade_analysis.txt#L140
+--   must check module to see if display_type is now important to add in this query
+--     (on account_move_line)
