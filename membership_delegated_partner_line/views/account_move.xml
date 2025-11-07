@@ -10,7 +10,8 @@
             >
                 <field
                     name="delegated_member_id"
-                    attrs="{'column_invisible':[('parent.is_membership_invoice', '!=', True)], 'invisible':[('is_membership', '!=', True)]}"
+                    column_invisible="parent.is_membership_invoice != True"
+                    invisible="is_membership != True"
                 />
             </xpath>
         </field>
