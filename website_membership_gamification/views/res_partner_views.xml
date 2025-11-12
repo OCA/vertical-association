@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Manuel Regidor <manuel.regidor@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record
+        id="website_membership_gamification_badge_user_kanban_view"
+        model="ir.ui.view"
+    >
+        <field
+            name="name"
+        >website.membership.gamification.badge.user.kanban.view</field>
+        <field name="model">gamification.badge.user</field>
+        <field name="inherit_id" ref="gamification.badge_user_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//main" position="inside">
+                <p>Assigned to <field name="user_id" /></p>
+            </xpath>
+        </field>
+    </record>
+    <record id="website_membership_gamification_view_partner_form" model="ir.ui.view">
+        <field name="name">website.membership.gamification.view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Badges" invisible="not has_related_users">
+                    <field name="has_related_users" invisible="1" />
+                    <button
+                        string="Grant a Badge"
+                        type="object"
+                        class="btn btn-secondary mb-4"
+                        name="action_grant_badge_wizard"
+                    />
+                    <field name="gamification_badge_ids" mode="kanban" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
