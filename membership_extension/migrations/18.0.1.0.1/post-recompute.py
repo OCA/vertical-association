@@ -6,5 +6,11 @@ from openupgradelib import openupgrade
 @openupgrade.migrate()
 def migrate(env, version):
     env["res.partner"].search(
-        [("membership_last_start", "!=", False)]
+        [
+            "|",
+            "|",
+            ("membership_cancel", "!=", False),
+            ("membership_state", "=", "free"),
+            ("membership_last_start", "!=", False),
+        ]
     )._compute_membership_date()
