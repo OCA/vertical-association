@@ -3,8 +3,9 @@
 # Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
+from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
 from odoo import fields
@@ -13,6 +14,7 @@ from odoo.tests import Form, common
 from odoo.tools import mute_logger
 
 
+@freeze_time("2025-01-01")
 class TestMembership(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
@@ -129,28 +131,28 @@ class TestMembership(common.TransactionCase):
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.next_month, self.child.membership_stop)
         self.assertFalse(self.child.membership_cancel)
-        line.write({"date_cancel": self.yesterday})
-        self.assertEqual("old", self.partner.membership_state)
+        line.write({"date_cancel": fields.Date.today()})
+        self.assertEqual("invoiced", self.partner.membership_state)
         self.assertEqual(fields.Date.today(), self.partner.membership_start)
         self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
-        self.assertEqual(self.yesterday, self.partner.membership_stop)
-        self.assertEqual(self.yesterday, self.partner.membership_cancel)
-        self.assertEqual("old", self.child.membership_state)
+        self.assertEqual(fields.Date.today(), self.partner.membership_stop)
+        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
+        self.assertEqual("invoiced", self.child.membership_state)
         self.assertEqual(fields.Date.today(), self.child.membership_start)
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
-        self.assertEqual(self.yesterday, self.child.membership_stop)
-        self.assertEqual(self.yesterday, self.child.membership_cancel)
+        self.assertEqual(fields.Date.today(), self.child.membership_stop)
+        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
         line.write({"state": "canceled"})
-        self.assertEqual("none", self.partner.membership_state)
+        self.assertEqual("canceled", self.partner.membership_state)
         self.assertFalse(self.partner.membership_start)
         self.assertFalse(self.partner.membership_last_start)
         self.assertFalse(self.partner.membership_stop)
-        self.assertEqual(self.yesterday, self.partner.membership_cancel)
-        self.assertEqual("none", self.child.membership_state)
+        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
+        self.assertEqual("canceled", self.child.membership_state)
         self.assertFalse(self.child.membership_start)
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
-        self.assertEqual(self.yesterday, self.child.membership_cancel)
+        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
         other_line = self.env["membership.membership_line"].create(
             {
                 "membership_id": self.silver_product.id,
@@ -166,23 +168,23 @@ class TestMembership(common.TransactionCase):
         self.assertFalse(self.partner.membership_start)
         self.assertFalse(self.partner.membership_last_start)
         self.assertFalse(self.partner.membership_stop)
-        self.assertEqual(self.yesterday, self.partner.membership_cancel)
+        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
         self.assertEqual("waiting", self.child.membership_state)
         self.assertFalse(self.child.membership_start)
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
-        self.assertEqual(self.yesterday, self.child.membership_cancel)
+        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
         other_line.write({"state": "paid"})
         self.assertEqual("paid", self.partner.membership_state)
         self.assertEqual(fields.Date.today(), self.partner.membership_start)
         self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
         self.assertEqual(self.next_two_months, self.partner.membership_stop)
-        self.assertEqual(self.yesterday, self.partner.membership_cancel)
+        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
         self.assertEqual("paid", self.child.membership_state)
         self.assertEqual(fields.Date.today(), self.child.membership_start)
         self.assertEqual(fields.Date.today(), self.child.membership_last_start)
         self.assertEqual(self.next_two_months, self.child.membership_stop)
-        self.assertEqual(self.yesterday, self.child.membership_cancel)
+        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
         self.partner.free_member = True
         self.assertEqual("free", self.child.membership_state)
 
@@ -496,4 +498,59 @@ class TestMembership(common.TransactionCase):
                 "membership_date_from": "1970-01-01",
                 "membership_date_to": "1970-01-02",
             }
+        )
+
+    def test_restore_after_cancel(self):
+        """Membership is cancelled and, later, restarted."""
+        self.partner.write(
+            {
+                "member_lines": [
+                    # Was member in 2022 but cancelled
+                    fields.Command.create(
+                        {
+                            "membership_id": self.gold_product.id,
+                            "member_price": 100.00,
+                            "date": "2022-01-01",
+                            "date_from": "2022-01-01",
+                            "date_to": "2022-12-31",
+                            "date_cancel": "2022-06-01",
+                            "state": "free",
+                        }
+                    ),
+                    # Started again being member in 2024
+                    fields.Command.create(
+                        {
+                            "membership_id": self.gold_product.id,
+                            "member_price": 100.00,
+                            "date": "2024-01-01",
+                            "date_from": "2024-01-01",
+                            "date_to": "2024-12-31",
+                            "state": "free",
+                        }
+                    ),
+                    # In 2025 is still member
+                    fields.Command.create(
+                        {
+                            "membership_id": self.gold_product.id,
+                            "member_price": 100.00,
+                            "date": "2025-01-01",
+                            "date_from": "2025-01-01",
+                            "date_to": "2025-12-31",
+                            "state": "free",
+                        }
+                    ),
+                ]
+            }
+        )
+        self.assertRecordValues(
+            self.partner,
+            [
+                {
+                    "membership_start": date(2022, 1, 1),
+                    "membership_last_start": date(2024, 1, 1),
+                    "membership_stop": date(2025, 12, 31),
+                    "membership_cancel": False,
+                    "membership_state": "free",
+                }
+            ],
         )

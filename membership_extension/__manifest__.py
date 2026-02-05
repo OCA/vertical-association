@@ -15,6 +15,7 @@
     "application": False,
     "installable": True,
     "depends": ["membership"],
+    "maintainers": ["rafaelbn", "yajo"],
     "data": [
         "security/membership_security.xml",
         "security/ir.model.access.csv",

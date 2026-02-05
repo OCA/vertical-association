@@ -19,9 +19,7 @@ class MembershipLine(models.Model):
     )
     date_from = fields.Date(readonly=False)
     date_to = fields.Date(readonly=False)
-    state = fields.Selection(
-        compute="_compute_state", inverse="_inverse_state", store=True, readonly=False
-    )
+    state = fields.Selection(compute="_compute_state", readonly=False)
     partner = fields.Many2one(ondelete="restrict")
     member_price = fields.Float(
         compute="_compute_member_price", readonly=False, store=True
@@ -65,10 +63,6 @@ class MembershipLine(models.Model):
         return super(
             MembershipLine, self - no_invoice_lines - cancelled_lines
         )._compute_state()
-
-    # Empty method _inverse_state
-    def _inverse_state(self):
-        return True  # pragma: no cover
 
     def unlink(self):
         allow = self.env.context.get("allow_membership_line_unlink", False)
