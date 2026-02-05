@@ -40,7 +40,6 @@ msgstr ""
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/product_template.py:0
-#, python-format
 msgid "A membership product must have a start date and an end date."
 msgstr ""
 "Un producto de afiliación debe tener una fecha de inicio y una fecha de "
@@ -60,7 +59,6 @@ msgstr "Miembro Asociado"
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/membership_line.py:0
-#, python-format
 msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice "
 "or remove invoice line instead"
@@ -106,12 +104,6 @@ msgid "Current Membership Status"
 msgstr "Estado actual de la membresía"
 
 #. module: membership_extension
-#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
-#: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
-msgid "Date from which membership becomes active."
-msgstr "Fecha desde la cual se activa la membresía."
-
-#. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
@@ -126,13 +118,25 @@ msgstr "Fecha desde la cual la membresía se cancela."
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
-msgid "Date until which membership remains active."
-msgstr "Fecha hasta la cual la membresía permanece activa."
+msgid "Date when the latest partner's membership ends."
+msgstr ""
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
+msgid "Date when the partner became a member for the last time."
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: membership_extension
+#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
+#: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
+msgid "Earliest historical date this partner ever became a member."
+msgstr ""
 
 #. module: membership_extension
 #: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
@@ -387,12 +391,6 @@ msgid "Silver"
 msgstr "Plata"
 
 #. module: membership_extension
-#: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
-#: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
-msgid "Start date of last membership period."
-msgstr "Fecha de inicio del último período de asociación."
-
-#. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
 msgstr "Mes de inicio del último período de asociación"
@@ -410,7 +408,6 @@ msgstr "Miembro en espera"
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/membership_category.py:0
-#, python-format
 msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
@@ -418,6 +415,15 @@ msgstr ""
 "No se puede cambiar la Compañía, ya que esta categoría de miembro es "
 "utilizada por la plantilla de productos (%s), que tiene una Compañía "
 "asignada incompatible."
+
+#~ msgid "Date from which membership becomes active."
+#~ msgstr "Fecha desde la cual se activa la membresía."
+
+#~ msgid "Date until which membership remains active."
+#~ msgstr "Fecha hasta la cual la membresía permanece activa."
+
+#~ msgid "Start date of last membership period."
+#~ msgstr "Fecha de inicio del último período de asociación."
 
 #~ msgid "Last Modified on"
 #~ msgstr "Última modificación en"
