@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2024-03-04 10:39+0000\n"
+"PO-Revision-Date: 2026-02-10 15:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -118,13 +118,13 @@ msgstr "Data nella quale l'iscrizione è stata annullata."
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date when the latest partner's membership ends."
-msgstr ""
+msgstr "Data di scadenza dell'ultimo abbonamento del partner."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
 msgid "Date when the partner became a member for the last time."
-msgstr ""
+msgstr "Data in cui il partner è diventato membro per l'ultima volta."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
@@ -135,7 +135,7 @@ msgstr "Nome visualizzato"
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Earliest historical date this partner ever became a member."
-msgstr ""
+msgstr "Data storica più antica in cui questo partner è diventato membro."
 
 #. module: membership_extension
 #: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
