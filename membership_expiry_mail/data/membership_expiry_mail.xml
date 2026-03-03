@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="mail_template_membership_expiry" model="mail.template">
+        <field name="name">Membership Expiry Reminder</field>
+        <field name="model_id" ref="base.model_res_partner" />
+        <field name="subject">Your membership expires in one month</field>
+        <field name="email_from">{{ (object.company_id.email or user.email) }}</field>
+        <field name="email_to">{{ object.email }}</field>
+        <field name="lang">{{ object.lang }}</field>
+        <field name="auto_delete" eval="True" />
+    <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Dear <t t-out="object.name or ''" />
+        <t t-if="object.parent_id">
+            (<t t-out="object.parent_id.name or ''" />)
+        </t>
+        <br /><br />
+        Your membership will expire in one month, the
+        <span style="font-weight:bold;" t-out="object.membership_stop or ''" />.
+        <br /><br />
+        <t t-out="object.company_id.website" />
+        <br /><br />
+    </p>
+</div></field>
+    </record>
+
+</odoo>
