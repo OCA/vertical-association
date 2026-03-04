@@ -513,6 +513,7 @@ class TestMembership(common.TransactionCase):
             }
         )
 
+    @freeze_time("2025-01-01")
     def test_restore_after_cancel(self):
         """Membership is cancelled and, later, restarted."""
         self.partner.write(
