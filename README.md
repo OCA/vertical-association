@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_membership_delegated_partner](contract_membership_delegated_partner/) | 18.0.1.0.1 |  | Set delegate membership on the contract
+[crm_membership](crm_membership/) | 18.0.1.0.0 | <a href='https://github.com/SirPyTech'><img src='https://github.com/SirPyTech.png' width='32' height='32' style='border-radius:50%;' alt='SirPyTech'/></a> | Shows membership data in CRM
 [membership_delegated_partner](membership_delegated_partner/) | 18.0.1.1.0 |  | Delegate membership on a specific partner
 [membership_extension](membership_extension/) | 18.0.1.1.0 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/yajo'><img src='https://github.com/yajo.png' width='32' height='32' style='border-radius:50%;' alt='yajo'/></a> | Improves user experience of membership addon
 [membership_initial_fee](membership_initial_fee/) | 18.0.1.0.0 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Initial fee for memberships
