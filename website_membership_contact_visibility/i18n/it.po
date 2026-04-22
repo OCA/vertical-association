@@ -9,20 +9,21 @@ msgstr ""
 "Project-Id-Version: vertical-association (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-30 00:57+0000\n"
-"PO-Revision-Date: 2016-07-19 15:52+0000\n"
-"Last-Translator: Marius Marolla <mariusmarolla@gmail.com>\n"
+"PO-Revision-Date: 2026-04-22 11:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-vertical-"
 "association-8-0/language/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: website_membership_contact_visibility
 #: view:res.partner:website_membership_contact_visibility.membership_contact_visibility_form_view
 msgid "Membership"
-msgstr "Membri"
+msgstr "Iscrizione"
 
 #. module: website_membership_contact_visibility
 #: model:ir.model,name:website_membership_contact_visibility.model_res_partner
