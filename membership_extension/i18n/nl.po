@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2018-01-05 03:40+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2026-05-12 10:45+0000\n"
+"Last-Translator: \"Jan Tapper [Onestein]\" <j.tapper@onestein.nl>\n"
 "Language-Team: Dutch (https://www.transifex.com/oca/teams/23907/nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__is_adhered_member
@@ -25,6 +26,8 @@ msgid ""
 "A member who is associated to another one, but whose membership are "
 "independent."
 msgstr ""
+"Een lid dat verbonden is met een ander lid, maar waarvan het lidmaatschap "
+"onafhankelijk is."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__associate_member
@@ -33,23 +36,25 @@ msgid ""
 "A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
+"Een lid waaraan u uw lidmaatschap wilt koppelen. Hierbij wordt rekening "
+"gehouden met de lidmaatschapsstatus van het gekoppelde lid."
 
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/product_template.py:0
 msgid "A membership product must have a start date and an end date."
-msgstr ""
+msgstr "Een lidmaatschap moet een startdatum en een einddatum hebben."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
-msgstr ""
+msgstr "Bedrag voor het lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr ""
+msgstr "Geassocieerd lid"
 
 #. module: membership_extension
 #. odoo-python
@@ -58,22 +63,25 @@ msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice "
 "or remove invoice line instead"
 msgstr ""
+"De regel in het lidmaatschap die bij een factuur hoort, kan niet worden "
+"verwijderd. Annuleer de factuur of verwijder in plaats daarvan de "
+"factuurregel"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
 msgid "Cancel Membership Date"
-msgstr ""
+msgstr "Datum van beëindiging lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__canceled
 msgid "Cancelled Member"
-msgstr ""
+msgstr "Geannuleerd lid"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
 msgid "Company"
-msgstr ""
+msgstr "Bedrijf"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
@@ -94,31 +102,31 @@ msgstr "Aangemaakt op"
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
 msgid "Current Membership Status"
-msgstr ""
+msgstr "Huidige lidmaatschapsstatus"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr ""
+msgstr "Datum vanaf wanneer het lid is aangesloten."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Datum waarop het lidmaatschap is beëindigd."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date when the latest partner's membership ends."
-msgstr ""
+msgstr "Datum waarop het lidmaatschap van het laatste lid afloopt."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
 msgid "Date when the partner became a member for the last time."
-msgstr ""
+msgstr "Datum waarop het lid voor het laatst lid is geworden."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
@@ -129,32 +137,32 @@ msgstr "Te tonen naam"
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Earliest historical date this partner ever became a member."
-msgstr ""
+msgstr "De vroegste datum waarop dit lid ooit lid is geworden."
 
 #. module: membership_extension
 #: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
 msgid "Error ! Ending Date cannot be set before Beginning Date."
-msgstr ""
+msgstr "Fout! De einddatum mag niet vóór de begindatum liggen."
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
 msgid "Free Member"
-msgstr ""
+msgstr "Gratis lid"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
 msgid "From"
-msgstr ""
+msgstr "Van"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
 msgid "Gold"
-msgstr ""
+msgstr "Goud"
 
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr ""
+msgstr "Helpt je bij het beheren van de administratie rondom lidmaatschappen."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
@@ -163,15 +171,14 @@ msgstr "ID"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__invoiced
-#, fuzzy
 msgid "Invoiced Member"
-msgstr "Factuurregel"
+msgstr "Geregistreerd lid"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
 msgid "Is Adhered Member"
-msgstr ""
+msgstr "Is aangesloten lid"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
@@ -186,6 +193,14 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paying member: A member who has paid the membership fee."
 msgstr ""
+"Dit geeft de lidmaatschapsstatus aan.\n"
+"-Niet-lid: Een partner die geen lidmaatschap heeft aangevraagd.\n"
+"-Opgezegd lid: Een lid dat zijn lidmaatschap heeft opgezegd.\n"
+"-Voormalig lid: Een lid wiens lidmaatschap is verlopen.\n"
+"-Lid in afwachting: Een lid dat zich heeft aangemeld voor het lidmaatschap "
+"en voor wie een factuur wordt aangemaakt.\n"
+"-Gefactureerd lid: Een lid voor wie een factuur is aangemaakt.\n"
+"-Betalend lid: Een lid dat de lidmaatschapskosten heeft betaald."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__state
@@ -199,6 +214,14 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paid Member: A member who has paid the membership amount."
 msgstr ""
+"Dit geeft de lidmaatschapsstatus aan.\n"
+"-Niet-lid: Een lid dat geen lidmaatschap heeft aangevraagd.\n"
+"-Opgezegd lid: Een lid dat zijn lidmaatschap heeft opgezegd.\n"
+"-Voormalig lid: Een lid wiens lidmaatschap is verlopen.\n"
+"-Lid in afwachting: Een lid dat zich heeft aangemeld en voor wie een factuur "
+"wordt aangemaakt.\n"
+"-Gefactureerd lid: Een lid voor wie een factuur is aangemaakt.\n"
+"-Betaald lid: Een lid dat het lidmaatschapsbedrag heeft betaald."
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_move
@@ -213,7 +236,7 @@ msgstr ""
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Last Start Month"
-msgstr ""
+msgstr "Vorige startmaand"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__write_uid
@@ -233,23 +256,23 @@ msgstr ""
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
 msgid "Member"
-msgstr ""
+msgstr "Lid"
 
 #. module: membership_extension
 #: model:ir.module.category,name:membership_extension.module_category_membership_management
 msgid "Membership"
-msgstr ""
+msgstr "Lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
 msgid "Membership Adhered Start Date"
-msgstr ""
+msgstr "Lidmaatschap Ingangsdatum"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
 msgid "Membership Bronze"
-msgstr ""
+msgstr "Bronzen lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
@@ -257,60 +280,60 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_category_ids
 #: model:ir.ui.menu,name:membership_extension.menu_membership_category
 msgid "Membership Categories"
-msgstr ""
+msgstr "Lidmaatschapscategorieën"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Membership Category"
-msgstr ""
+msgstr "Lidmaatschapscategorie"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
 msgid "Membership End Date"
-msgstr ""
+msgstr "Einddatum lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__member_price
 msgid "Membership Fee"
-msgstr ""
+msgstr "Lidmaatschapskosten"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
 msgid "Membership Gold"
-msgstr ""
+msgstr "Gouden lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_last_start
 msgid "Membership Last Start Date"
-msgstr ""
+msgstr "Vorige startdatum lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
 msgid "Membership Line"
-msgstr ""
+msgstr "Lidmaatschap regel"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_account_move_line__membership_lines
 msgid "Membership Lines"
-msgstr ""
+msgstr "Lidmaatschap regels"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
 msgid "Membership Silver"
-msgstr ""
+msgstr "Zilveren lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start
 msgid "Membership Start Date"
-msgstr ""
+msgstr "Startdatum lidmaatschap"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
 msgid "Membership Status"
-msgstr ""
+msgstr "Lidmaatschapsstatus"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
@@ -319,12 +342,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_extension.field_product_template__membership_category_id
 #: model_terms:ir.ui.view,arch_db:membership_extension.membership_product_search_form_view
 msgid "Membership category"
-msgstr ""
+msgstr "Lidmaatschapscategorie"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_partner_form
 msgid "Memberships"
-msgstr ""
+msgstr "Lidmaatschappen"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__name
@@ -334,22 +357,22 @@ msgstr "Naam"
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__none
 msgid "Non Member"
-msgstr ""
+msgstr "Geen lid"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__old
 msgid "Old Member"
-msgstr ""
+msgstr "Oud lid"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__paid
 msgid "Paid Member"
-msgstr ""
+msgstr "Betaalend lid"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__partner
 msgid "Partner"
-msgstr ""
+msgstr "Lid"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_template
@@ -359,27 +382,27 @@ msgstr "Product"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Productvariant"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
 msgid "Silver"
-msgstr ""
+msgstr "Zilver"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr ""
+msgstr "Beginmaand van de vorige lidmaatschapsperiode"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
 msgid "To"
-msgstr ""
+msgstr "Aan"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
 msgid "Waiting Member"
-msgstr ""
+msgstr "Lid in afwachting"
 
 #. module: membership_extension
 #. odoo-python
@@ -388,6 +411,9 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+"Je kunt het bedrijf niet wijzigen, aangezien deze lidmaatschapscategorie "
+"wordt gebruikt door productsjabloon (%s), waaraan een onverenigbaar bedrijf "
+"is toegewezen."
 
 #~ msgid "Last Modified on"
 #~ msgstr "Laatst bijgewerkt op"
