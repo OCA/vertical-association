@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-04 02:43+0000\n"
-"PO-Revision-Date: 2026-05-11 17:45+0000\n"
+"PO-Revision-Date: 2026-05-12 10:45+0000\n"
 "Last-Translator: \"Jan Tapper [Onestein]\" <j.tapper@onestein.nl>\n"
 "Language-Team: Dutch (https://www.transifex.com/oca/teams/23907/nl/)\n"
 "Language: nl\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__active
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #. module: membership_withdrawal
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
@@ -83,7 +83,7 @@ msgstr "Laatst bijgewerkt op"
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_membership_line
 msgid "Membership Line"
-msgstr ""
+msgstr "Lidmaatschap regel"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
