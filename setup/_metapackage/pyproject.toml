@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-vertical-association"
-version = "18.0.20260420.0"
+version = "18.0.20260605.0"
 dependencies = [
     "odoo-addon-contract_membership_delegated_partner==18.0.*",
     "odoo-addon-crm_membership==18.0.*",
@@ -12,6 +12,7 @@ dependencies = [
     "odoo-addon-membership_variable_period==18.0.*",
     "odoo-addon-membership_withdrawal==18.0.*",
     "odoo-addon-website_membership_gamification==18.0.*",
+    "odoo-addon-website_membership_non_paid_member==18.0.*",
     "odoo-addon-website_membership_random_order==18.0.*",
 ]
 classifiers=[
