@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 AKRETION
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">membership.line.account.cutoff.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership_extension.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='member_lines']//form//field[@name='date_from']"
+                position="attributes"
+            >
+                <attribute name="readonly">move_state == "posted"</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='member_lines']//form//field[@name='date_to']"
+                position="attributes"
+            >
+                <attribute name="readonly">move_state == "posted"</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
