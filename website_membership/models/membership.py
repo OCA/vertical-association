@@ -9,12 +9,12 @@ class MembershipLine(models.Model):
     def _get_published_companies(self, limit=None):
         if not self.ids:
             return []
-        limit_clause = "" if limit is None else " LIMIT %d" % limit
+        limit_clause = f" LIMIT {limit}" if limit else ""
         self.env.cr.execute(
             """
             SELECT DISTINCT p.id
-            FROM res_partner p INNER JOIN membership_membership_line m
-            ON  p.id = m.partner
+            FROM res_partner p
+            INNER JOIN membership_membership_line m ON  p.id = m.partner_id
             WHERE is_published AND is_company AND m.id IN %s """
             + limit_clause,
             (tuple(self.ids),),

@@ -11,7 +11,6 @@
             </field>
         </field>
     </record>
-
     <record id="product_template_view_tree" model="ir.ui.view">
         <field name="name">product.template.view.list.inherit.website_membership</field>
         <field name="model">product.template</field>

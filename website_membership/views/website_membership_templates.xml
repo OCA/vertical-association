@@ -4,7 +4,7 @@
         <t t-call="website.layout">
             <t t-set="additional_title">Members</t>
             <div id="wrap">
-                <div class="oe_structure">
+                <div id="oe_structure_membership_content" class="oe_structure">
                     <section>
                         <div class="container">
                             <div class="row">
@@ -37,7 +37,7 @@
                                             t-attf-href="/members/association/#{ membership_data['id'] }#{current_country and '/country/%s' % slug(current_country) or ''}#{ search }"
                                             t-attf-class="nav-link#{membership_id and membership_data['id'] == membership_id and ' active' or ''}"
                                         >
-                                            <t t-esc="membership_data['name']" />
+                                            <t t-out="membership_data['name']" />
                                         </a>
                                     </li>
                                 </t>
@@ -70,7 +70,7 @@
                                         t-if="memberships_partner_ids.get(membership_data['id'])"
                                     >
                                         <h3 class="text-center">
-                                            <span t-esc="membership_data['name']" />
+                                            <span t-out="membership_data['name']" />
                                         </h3>
                                         <t
                                             t-foreach="memberships_partner_ids[membership_data['id']]"
@@ -80,7 +80,7 @@
                                                 t-set="partner"
                                                 t-value="partners[partner_id]"
                                             />
-                                            <div class="d-flex mt-3">
+                                            <div class="d-flex my-3">
                                                 <a
                                                     t-attf-href="/members/#{slug(partner)}"
                                                     t-field="partner.avatar_128"
@@ -116,7 +116,6 @@
             </div>
         </t>
     </template>
-
     <template
         id="opt_index_country"
         name="Location"
@@ -133,9 +132,9 @@
                             t-attf-href="/members#{ membership_id and '/association/%s' % membership_id or '' }#{ country['country_id'][0] and '/country/%s' % slug(country['country_id']) or '' }#{ search }"
                             t-attf-class="nav-link#{country['country_id'] and country['country_id'][0] == current_country_id and ' active' or ''}"
                         >
-                            <t t-esc="country['country_id'][1]" />
+                            <t t-out="country['country_id'][1]" />
                             <span class="badge float-end">
-                                <t t-esc="country['country_id_count'] or '0'" />
+                                <t t-out="country['country_id_count'] or '0'" />
                             </span>
                         </a>
                     </li>
@@ -143,7 +142,6 @@
             </ul>
         </xpath>
     </template>
-
     <!-- Option: index: Left Google Map -->
     <template
         id="opt_index_google_map"
@@ -194,7 +192,6 @@
             </t>
         </xpath>
     </template>
-
     <template id="partner" name="Members">
         <t t-call="website.layout">
             <div id="wrap">

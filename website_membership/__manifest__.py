@@ -2,12 +2,11 @@
 
 {
     "name": "Online Members Directory",
-    "category": "Website/Website",
     "summary": "Publish your members directory",
-    "version": "1.0",
-    "description": """
-Publish your members/association directory publicly.
-    """,
+    "version": "19.0.1.0.0",
+    "category": "Membership",
+    "author": "Odoo, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/vertical-association",
     "depends": ["website_partner", "website_google_map", "membership", "website_sale"],
     "data": [
         "views/product_template_views.xml",
@@ -16,7 +15,7 @@ Publish your members/association directory publicly.
         "security/website_membership.xml",
         "views/snippets.xml",
     ],
-    "demo": ["data/membership_demo.xml"],
+    "demo": ["demo/membership_demo.xml"],
     "installable": True,
     "license": "LGPL-3",
 }

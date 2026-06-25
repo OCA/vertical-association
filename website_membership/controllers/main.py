@@ -4,7 +4,6 @@ import werkzeug.urls
 
 from odoo import fields, http
 from odoo.http import request
-from odoo.tools.translate import _
 
 
 class WebsiteMembership(http.Controller):
@@ -30,6 +29,7 @@ class WebsiteMembership(http.Controller):
         website=True,
         sitemap=True,
     )
+    # flake8: noqa: C901
     def members(
         self, membership_id=None, country_name=None, country_id=0, page=1, **post
     ):
@@ -37,14 +37,12 @@ class WebsiteMembership(http.Controller):
         Country = request.env["res.country"]
         MembershipLine = request.env["membership.membership_line"]
         Partner = request.env["res.partner"]
-
         post_name = post.get("search") or post.get("name", "")
         current_country = None
         today = fields.Date.today()
-
         # base domain for groupby / searches
         base_line_domain = [
-            ("partner.website_published", "=", True),
+            ("partner_id.website_published", "=", True),
             ("state", "=", "paid"),
             ("date_to", ">=", today),
             ("date_from", "<=", today),
@@ -52,18 +50,16 @@ class WebsiteMembership(http.Controller):
         if membership_id and membership_id != "free":
             membership_id = int(membership_id)
             base_line_domain.append(("membership_id", "=", membership_id))
-
         if post_name:
             base_line_domain += [
                 "|",
-                ("partner.name", "ilike", post_name),
-                ("partner.website_description", "ilike", post_name),
+                ("partner_id.name", "ilike", post_name),
+                ("partner_id.website_description", "ilike", post_name),
             ]
-
         # group by country, based on all customers (base domain)
         if membership_id != "free":
             membership_lines = MembershipLine.sudo().search(base_line_domain)
-            country_domain = [("member_lines", "in", membership_lines.ids)]
+            country_domain = [("member_line_ids", "in", membership_lines.ids)]
             if not membership_id:
                 country_domain = [
                     "|",
@@ -78,19 +74,22 @@ class WebsiteMembership(http.Controller):
                 ("name", "ilike", post_name),
                 ("website_description", "ilike", post_name),
             ]
-
-        countries = Partner.sudo().read_group(
+        countries_data = Partner.sudo()._read_group(
             country_domain + [("website_published", "=", True)],
-            ["__count"],
-            groupby="country_id",
+            groupby=["country_id"],
+            aggregates=["__count"],
         )
-        countries_total = sum(
-            country_dict["country_id_count"] for country_dict in countries
-        )
-
+        countries = [
+            {
+                "country_id_count": count,
+                "country_id": (country.id, country.name),
+            }
+            for country, count in countries_data
+        ]
+        countries_total = sum(count for _, count in countries_data)
         line_domain = list(base_line_domain)
         if country_id:
-            line_domain.append(("partner.country_id", "=", country_id))
+            line_domain.append(("partner_id.country_id", "=", country_id))
             current_country = Country.browse(country_id).read(["id", "name"])[0]
             if not any(
                 x["country_id"][0] == country_id for x in countries if x["country_id"]
@@ -103,26 +102,21 @@ class WebsiteMembership(http.Controller):
                 )
                 countries = [d for d in countries if d["country_id"]]
                 countries.sort(key=lambda d: d["country_id"][1])
-
         countries.insert(
             0,
             {
                 "country_id_count": countries_total,
-                "country_id": (0, _("All Countries")),
+                "country_id": (0, request.env._("All Countries")),
             },
         )
-
         # format domain for group_by and memberships
         memberships = Product.search(
             [("membership", "=", True)], order="website_sequence"
         )
-
         # make sure we don't access to lines with unpublished membershipts
         line_domain.append(("membership_id", "in", memberships.ids))
-
         limit = self._references_per_page
         offset = limit * (page - 1)
-
         count_members = 0
         membership_lines = MembershipLine.sudo()
         # displayed non-free membership lines
@@ -132,15 +126,13 @@ class WebsiteMembership(http.Controller):
                 membership_lines = MembershipLine.sudo().search(
                     line_domain, offset, limit
                 )
-        page_partner_ids = set(m.partner.id for m in membership_lines)
-
+        page_partner_ids = set(m.partner_id.id for m in membership_lines)
         # get google maps localization of partners
         google_map_partner_ids = []
         if request.website.is_view_active("website_membership.opt_index_google_map"):
             google_map_partner_ids = MembershipLine.search(
                 line_domain
             )._get_published_companies(limit=2000)
-
         search_domain = [
             ("membership_state", "=", "free"),
             ("website_published", "=", True),
@@ -154,21 +146,20 @@ class WebsiteMembership(http.Controller):
         if country_id:
             search_domain += [("country_id", "=", country_id)]
         free_partners = Partner.sudo().search(search_domain)
-
         memberships_data = []
         for membership_record in memberships:
             memberships_data.append(
                 {"id": membership_record.id, "name": membership_record.name}
             )
-
         memberships_partner_ids = {}
         for line in membership_lines:
             memberships_partner_ids.setdefault(line.membership_id.id, []).append(
-                line.partner.id
+                line.partner_id.id
             )
-
         if free_partners:
-            memberships_data.append({"id": "free", "name": _("Free Members")})
+            memberships_data.append(
+                {"id": "free", "name": request.env._("Free Members")}
+            )
             if not membership_id or membership_id == "free":
                 if count_members < offset + limit:
                     free_start = max(offset - count_members, 0)
@@ -181,17 +172,13 @@ class WebsiteMembership(http.Controller):
                     : 2000 - len(google_map_partner_ids)
                 ]
                 count_members += len(free_partners)
-
         google_map_partner_ids = ",".join(str(it) for it in google_map_partner_ids)
         google_maps_api_key = request.website.google_maps_api_key
-
         partners = {p.id: p for p in Partner.sudo().browse(list(page_partner_ids))}
-
-        base_url = "/members%s%s" % (
-            "/association/%s" % membership_id if membership_id else "",
-            "/country/%s" % country_id if country_id else "",
+        base_url = "/members{}{}".format(
+            f"/association/{membership_id}" if membership_id else "",
+            f"/country/{country_id}" if country_id else "",
         )
-
         # request pager for lines
         pager = request.website.pager(
             url=base_url,
@@ -201,7 +188,6 @@ class WebsiteMembership(http.Controller):
             scope=7,
             url_args=post,
         )
-
         values = {
             "partners": partners,
             "memberships_data": memberships_data,
@@ -215,7 +201,7 @@ class WebsiteMembership(http.Controller):
             "google_map_partner_ids": google_map_partner_ids,
             "pager": pager,
             "post": post,
-            "search": "?%s" % werkzeug.urls.url_encode(post),
+            "search": f"?{werkzeug.urls.url_encode(post)}",
             "search_count": count_members,
             "google_maps_api_key": google_maps_api_key,
         }
@@ -233,7 +219,7 @@ class WebsiteMembership(http.Controller):
             ):  # TODO should be done with access rules
                 if request.env["ir.http"]._slug(partner) != current_slug:
                     return request.redirect(
-                        "/members/%s" % request.env["ir.http"]._slug(partner)
+                        f"/members/{request.env['ir.http']._slug(partner)}"
                     )
                 values = {}
                 values["main_object"] = values["partner"] = partner
