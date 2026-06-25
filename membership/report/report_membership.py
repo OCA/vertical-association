@@ -1,16 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, tools
 
-STATE = [
-    ("none", "Non Member"),
-    ("canceled", "Cancelled Member"),
-    ("old", "Old Member"),
-    ("waiting", "Waiting Member"),
-    ("invoiced", "Invoiced Member"),
-    ("free", "Free Member"),
-    ("paid", "Paid Member"),
-]
+from odoo import fields, models, tools
 
 
 class ReportMembership(models.Model):
@@ -21,7 +12,7 @@ class ReportMembership(models.Model):
     _auto = False
     _rec_name = "start_date"
 
-    start_date = fields.Date(string="Start Date", readonly=True)
+    start_date = fields.Date(readonly=True)
     date_to = fields.Date(string="End Date", readonly=True)
     num_waiting = fields.Integer(string="# Waiting", readonly=True)
     num_invoiced = fields.Integer(string="# Invoiced", readonly=True)
@@ -36,7 +27,11 @@ class ReportMembership(models.Model):
         "product.product", string="Membership Product", readonly=True
     )
     membership_state = fields.Selection(
-        STATE, string="Current Membership State", readonly=True
+        selection=lambda self: self.env["membership.membership_line"]
+        ._fields["state"]
+        .selection,
+        string="Current Membership State",
+        readonly=True,
     )
     user_id = fields.Many2one("res.users", string="Salesperson", readonly=True)
     company_id = fields.Many2one("res.company", string="Company", readonly=True)
@@ -44,10 +39,10 @@ class ReportMembership(models.Model):
 
     def init(self):
         """Create the view"""
-        tools.drop_view_if_exists(self._cr, self._table)
-        self._cr.execute(
-            """
-        CREATE OR REPLACE VIEW %s AS (
+        tools.drop_view_if_exists(self.env.cr, self._table)
+        self.env.cr.execute(
+            f"""
+        CREATE OR REPLACE VIEW {self._table} AS (
         SELECT
         MIN(id) AS id,
         partner_id,
@@ -71,27 +66,33 @@ class ReportMembership(models.Model):
             p.id AS partner_id,
             p.user_id AS user_id,
             p.membership_state AS membership_state,
-            p.associate_member AS associate_member_id,
+            p.associate_member_id AS associate_member_id,
             p.membership_amount AS membership_amount,
             p.membership_stop AS date_to,
             p.membership_start AS start_date,
             CASE WHEN ml.state = 'waiting'  THEN ml.id END AS num_waiting,
             CASE WHEN ml.state = 'invoiced' THEN ml.id END AS num_invoiced,
             CASE WHEN ml.state = 'paid'     THEN ml.id END AS num_paid,
-            CASE WHEN ml.state IN ('waiting', 'invoiced') THEN SUM(aml.price_subtotal) ELSE 0 END AS tot_pending,
-            CASE WHEN ml.state = 'paid' OR p.membership_state = 'old' THEN SUM(aml.price_subtotal) ELSE 0 END AS tot_earned,
+            CASE
+                WHEN ml.state IN ('waiting', 'invoiced')
+                THEN SUM(aml.price_subtotal) ELSE 0
+            END AS tot_pending,
+            CASE
+                WHEN ml.state = 'paid' OR p.membership_state = 'old'
+                THEN SUM(aml.price_subtotal) ELSE 0
+            END AS tot_earned,
             ml.membership_id AS membership_id,
             p.company_id AS company_id
             FROM res_partner p
-            LEFT JOIN membership_membership_line ml ON (ml.partner = p.id)
-            LEFT JOIN account_move_line aml ON (ml.account_invoice_line = aml.id)
+            LEFT JOIN membership_membership_line ml ON (ml.partner_id = p.id)
+            LEFT JOIN account_move_line aml ON (ml.account_invoice_line_id = aml.id)
             LEFT JOIN account_move am ON (aml.move_id = am.id)
             WHERE p.membership_state != 'none' and p.active = 'true'
             GROUP BY
               p.id,
               p.user_id,
               p.membership_state,
-              p.associate_member,
+              p.associate_member_id,
               p.membership_amount,
               p.membership_start,
               ml.membership_id,
@@ -109,6 +110,6 @@ class ReportMembership(models.Model):
             membership_state,
             associate_member_id,
             membership_amount
-        )"""
-            % (self._table,)
+        )
+        """
         )

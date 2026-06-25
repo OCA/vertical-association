@@ -8,27 +8,25 @@ class MembershipInvoice(models.TransientModel):
     _description = "Membership Invoice"
 
     product_id = fields.Many2one("product.product", string="Membership", required=True)
-    member_price = fields.Float(
-        string="Member Price", min_display_digits="Product Price", required=True
-    )
+    member_price = fields.Float(min_display_digits="Product Price", required=True)
 
     @api.onchange("product_id")
-    def onchange_product(self):
-        """This function returns value of  product's member price based on product id."""
+    def _onchange_product_id(self):
+        """This function returns value of  product's member price based on
+        product id.
+        """
         price_dict = self.product_id._price_compute("list_price")
         self.member_price = price_dict.get(self.product_id.id) or False
 
     def membership_invoice(self):
         invoice_list = (
             self.env["res.partner"]
-            .browse(self._context.get("active_ids"))
+            .browse(self.env.context.get("active_ids"))
             .create_membership_invoice(self.product_id, self.member_price)
         )
-
         search_view_ref = self.env.ref("account.view_account_invoice_filter", False)
         form_view_ref = self.env.ref("account.view_move_form", False)
         list_view_ref = self.env.ref("account.view_move_tree", False)
-
         return {
             "domain": [("id", "in", invoice_list.ids)],
             "name": "Membership Invoices",

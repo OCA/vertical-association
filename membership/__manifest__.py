@@ -3,31 +3,19 @@
 
 {
     "name": "Members",
-    "version": "1.0",
-    "category": "Sales/Sales",
-    "description": """
-This module allows you to manage all operations for managing memberships.
-=========================================================================
-
-It supports different kind of members:
---------------------------------------
-    * Free member
-    * Associated member (e.g.: a group subscribes to a membership for all subsidiaries)
-    * Paid members
-    * Special member prices
-
-It is integrated with sales and accounting to allow you to automatically
-invoice and send propositions for membership renewal.
-    """,
+    "version": "19.0.1.1.0",
+    "category": "Membership",
+    "development_status": "Mature",
+    "author": "Odoo, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/vertical-association",
     "depends": ["account"],
     "data": [
         "security/ir.model.access.csv",
         "wizard/membership_invoice_views.xml",
         "data/membership_data.xml",
-        "views/product_views.xml",
-        "views/partner_views.xml",
+        "views/product_template_views.xml",
+        "views/res_partner_views.xml",
         "report/report_membership_views.xml",
     ],
-    "website": "https://github.com/OCA/vertical-association",
     "license": "LGPL-3",
 }

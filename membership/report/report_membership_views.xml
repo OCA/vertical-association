@@ -23,7 +23,7 @@
                 <field name="partner_id" />
                 <field name="membership_id" />
                 <field name="user_id" />
-                <group expand="1" string="Group By">
+                <group>
                     <filter
                         string="Salesperson"
                         name="salesman"
@@ -59,7 +59,6 @@
             </search>
         </field>
     </record>
-
     <record model="ir.ui.view" id="view_report_membership_pivot">
         <field name="name">report.membership.pivot</field>
         <field name="model">report.membership</field>
@@ -74,7 +73,6 @@
             </pivot>
         </field>
     </record>
-
     <record model="ir.ui.view" id="view_report_membership_graph1">
         <field name="name">report.membership.graph1</field>
         <field name="model">report.membership</field>
@@ -86,7 +84,6 @@
             </graph>
         </field>
     </record>
-
     <record id="report_membership_view_tree" model="ir.ui.view">
         <field name="name">report.membership.view.list</field>
         <field name="model">report.membership</field>
@@ -110,7 +107,6 @@
             </list>
         </field>
     </record>
-
     <record model="ir.actions.act_window" id="action_report_membership_tree">
         <field name="name">Members Analysis</field>
         <field name="res_model">report.membership</field>
@@ -125,7 +121,6 @@
                 </p>
         </field>
     </record>
-
     <menuitem
         name="Reporting"
         parent="menu_association"

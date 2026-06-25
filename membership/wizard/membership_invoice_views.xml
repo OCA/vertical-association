@@ -31,7 +31,6 @@
             </form>
         </field>
     </record>
-
     <record id="action_membership_invoice_view" model="ir.actions.act_window">
         <field name="name">Join Membership</field>
         <field name="res_model">membership.invoice</field>

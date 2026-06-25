@@ -3,7 +3,7 @@
 from odoo import fields, models
 
 
-class Product(models.Model):
+class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     membership = fields.Boolean(help="Check if the product is eligible for membership.")
@@ -15,10 +15,7 @@ class Product(models.Model):
         string="Membership End Date", help="Date until which membership remains active."
     )
 
-    _sql_constraints = [
-        (
-            "membership_date_greater",
-            "check(membership_date_to >= membership_date_from)",
-            "Error! Ending Date cannot be set before Beginning Date.",
-        )
-    ]
+    _membership_date_greater = models.Constraint(
+        "check(membership_date_to >= membership_date_from)",
+        "Error! Ending Date cannot be set before Beginning Date.",
+    )
