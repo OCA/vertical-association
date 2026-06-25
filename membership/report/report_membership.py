@@ -1,46 +1,52 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools
+from odoo import fields, models, tools
 
 STATE = [
-    ('none', 'Non Member'),
-    ('canceled', 'Cancelled Member'),
-    ('old', 'Old Member'),
-    ('waiting', 'Waiting Member'),
-    ('invoiced', 'Invoiced Member'),
-    ('free', 'Free Member'),
-    ('paid', 'Paid Member'),
+    ("none", "Non Member"),
+    ("canceled", "Cancelled Member"),
+    ("old", "Old Member"),
+    ("waiting", "Waiting Member"),
+    ("invoiced", "Invoiced Member"),
+    ("free", "Free Member"),
+    ("paid", "Paid Member"),
 ]
 
 
 class ReportMembership(models.Model):
-    '''Membership Analysis'''
+    """Membership Analysis"""
 
-    _name = 'report.membership'
-    _description = 'Membership Analysis'
+    _name = "report.membership"
+    _description = "Membership Analysis"
     _auto = False
-    _rec_name = 'start_date'
+    _rec_name = "start_date"
 
-    start_date = fields.Date(string='Start Date', readonly=True)
-    date_to = fields.Date(string='End Date', readonly=True)
-    num_waiting = fields.Integer(string='# Waiting', readonly=True)
-    num_invoiced = fields.Integer(string='# Invoiced', readonly=True)
-    num_paid = fields.Integer(string='# Paid', readonly=True)
-    tot_pending = fields.Float(string='Pending Amount', digits=0, readonly=True)
-    tot_earned = fields.Float(string='Earned Amount', digits=0, readonly=True)
-    partner_id = fields.Many2one('res.partner', string='Member', readonly=True)
-    associate_member_id = fields.Many2one('res.partner', string='Associate Member', readonly=True)
-    membership_id = fields.Many2one('product.product', string='Membership Product', readonly=True)
-    membership_state = fields.Selection(STATE, string='Current Membership State', readonly=True)
-    user_id = fields.Many2one('res.users', string='Salesperson', readonly=True)
-    company_id = fields.Many2one('res.company', string='Company', readonly=True)
+    start_date = fields.Date(string="Start Date", readonly=True)
+    date_to = fields.Date(string="End Date", readonly=True)
+    num_waiting = fields.Integer(string="# Waiting", readonly=True)
+    num_invoiced = fields.Integer(string="# Invoiced", readonly=True)
+    num_paid = fields.Integer(string="# Paid", readonly=True)
+    tot_pending = fields.Float(string="Pending Amount", digits=0, readonly=True)
+    tot_earned = fields.Float(string="Earned Amount", digits=0, readonly=True)
+    partner_id = fields.Many2one("res.partner", string="Member", readonly=True)
+    associate_member_id = fields.Many2one(
+        "res.partner", string="Associate Member", readonly=True
+    )
+    membership_id = fields.Many2one(
+        "product.product", string="Membership Product", readonly=True
+    )
+    membership_state = fields.Selection(
+        STATE, string="Current Membership State", readonly=True
+    )
+    user_id = fields.Many2one("res.users", string="Salesperson", readonly=True)
+    company_id = fields.Many2one("res.company", string="Company", readonly=True)
     quantity = fields.Integer(readonly=True)
 
     def init(self):
-        '''Create the view'''
+        """Create the view"""
         tools.drop_view_if_exists(self._cr, self._table)
-        self._cr.execute("""
+        self._cr.execute(
+            """
         CREATE OR REPLACE VIEW %s AS (
         SELECT
         MIN(id) AS id,
@@ -103,4 +109,6 @@ class ReportMembership(models.Model):
             membership_state,
             associate_member_id,
             membership_amount
-        )""" % (self._table,))
+        )"""
+            % (self._table,)
+        )
