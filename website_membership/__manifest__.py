@@ -13,9 +13,13 @@
         "views/website_membership_templates.xml",
         "security/ir.model.access.csv",
         "security/website_membership.xml",
-        "views/snippets.xml",
     ],
     "demo": ["demo/membership_demo.xml"],
     "installable": True,
     "license": "LGPL-3",
+    "assets": {
+        "website.website_builder_assets": [
+            "website_membership/static/src/website_builder/**/*",
+        ],
+    },
 }
