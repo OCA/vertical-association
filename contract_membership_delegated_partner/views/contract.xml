@@ -5,7 +5,6 @@
         <field name="inherit_id" ref="contract.contract_contract_form_view" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="delegated_member_id" invisible="1" />
                 <field
                     name="delegated_member_id"
                     groups="membership_delegated_partner.group_delegated_member"

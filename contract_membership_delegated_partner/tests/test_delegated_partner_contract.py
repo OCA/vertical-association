@@ -22,6 +22,6 @@ class TestMembershipDelegateSetup(TestContractBase):
         """Invoices to a partner delegates membership to another one"""
         self.contract.recurring_create_invoice()
         # The contract and invoicing partner has no membership
-        self.assertFalse(self.partner.member_lines)
+        self.assertFalse(self.partner.member_line_ids)
         # It goes to the delegated partner
-        self.assertTrue(self.partner2.member_lines)
+        self.assertTrue(self.partner2.member_line_ids)
