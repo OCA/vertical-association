@@ -6,7 +6,7 @@
     "version": "18.0.1.0.1",
     "development_status": "Production/Stable",
     "category": "Membership",
-    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/vertical-association",
     "license": "AGPL-3",
     "summary": "Set delegate membership on the contract",
