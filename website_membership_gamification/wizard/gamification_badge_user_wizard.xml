@@ -5,35 +5,15 @@
     <record id="partner_view_badge_wizard_reward" model="ir.ui.view">
         <field name="name">partner.gamification.badge.user.wizard.form</field>
         <field name="model">gamification.badge.user.wizard</field>
+        <field name="inherit_id" ref="gamification.view_badge_wizard_grant" />
+        <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <form string="Reward with">
-                <group>
-                    <field name="user_id" invisible="1" />
-                    <label for="badge_id" />
-                    <field
-                        name="badge_id"
-                        class="border-bottom"
-                        nolabel="1"
-                        colspan="2"
-                    />
-                    <label for="comment" />
-                    <field
-                        name="comment"
-                        class="border-bottom"
-                        nolabel="1"
-                        colspan="2"
-                    />
-                </group>
-                <footer>
-                    <button
-                        string="Grant Badge"
-                        type="object"
-                        name="action_grant_badge"
-                        class="btn-primary"
-                    />
-                    <button string="Cancel" special="cancel" class="btn-secondary" />
-                </footer>
-            </form>
+            <field name="user_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </field>
+            <field name="user_id" position="after">
+                <field name="badge_id" />
+            </field>
         </field>
     </record>
 </odoo>

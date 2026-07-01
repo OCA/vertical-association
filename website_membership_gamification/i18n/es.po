@@ -99,12 +99,3 @@ msgstr "El socio no tiene usuarios relacionados."
 #: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_expiration_date
 msgid "Website Expiration Date"
 msgstr "Fecha de Caducidad del Sitio Web"
-
-#, python-format
-#~ msgid ""
-#~ "Both hr_gamification and website_membership_gamification modules are "
-#~ "installed. You need to install user_hr_gamification in order to use both."
-#~ msgstr ""
-#~ "Se instalan los módulos hr_gamification y "
-#~ "website_membership_gamification. Necesitas instalar user_hr_gamification "
-#~ "para poder usar ambos."

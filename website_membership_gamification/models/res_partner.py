@@ -1,7 +1,7 @@
 # Copyright 2022 Manuel Regidor <manuel.regidor@sygel.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import Command, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -24,9 +24,13 @@ class ResPartner(models.Model):
                 sel.user_ids.mapped("badge_ids") if sel.user_ids else False
             )
             if sel.user_ids and sel != sel.commercial_partner_id:
-                badges = [(4, badge) for badge in sel.user_ids.mapped("badge_ids").ids]
+                badges = [
+                    Command.link(badge)
+                    for badge in sel.user_ids.mapped("badge_ids").ids
+                ]
                 sel.commercial_partner_id.gamification_badge_ids = badges
 
+    @api.depends("user_ids")
     def _compute_has_related_users(self):
         for sel in self:
             sel.has_related_users = any(a.active for a in sel.user_ids)
