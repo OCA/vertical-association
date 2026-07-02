@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-05 03:40+0000\n"
-"PO-Revision-Date: 2026-06-07 11:46+0000\n"
+"PO-Revision-Date: 2026-07-02 06:27+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -27,6 +27,7 @@ msgid ""
 "A member who is associated to another one, but whose membership are "
 "independent."
 msgstr ""
+"Član, ki je povezan z drugim članom, vendar je njegovo članstvo neodvisno."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__associate_member
@@ -35,23 +36,25 @@ msgid ""
 "A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
+"Član, s katerim želite povezati svoje članstvo. Upošteval bo stanje članstva "
+"pridruženega člana."
 
 #. module: membership_extension
 #. odoo-python
 #: code:addons/membership_extension/models/product_template.py:0
 msgid "A membership product must have a start date and an end date."
-msgstr ""
+msgstr "Proizvod za članarino mora imeti začetni in končni datum."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__member_price
 msgid "Amount for the membership"
-msgstr ""
+msgstr "Znesek za članarino"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__associate_member
 msgid "Associate Member"
-msgstr ""
+msgstr "Pridruženi član"
 
 #. module: membership_extension
 #. odoo-python
@@ -61,29 +64,28 @@ msgid ""
 "or remove invoice line instead"
 msgstr ""
 "Postavke članarine povezane z računom ne morete odstraniti. Najprej "
-"prekličite ali odstranite postavko računa."
+"prekličite ali odstranite postavko računa"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_cancel
-#, fuzzy
 msgid "Cancel Membership Date"
-msgstr "Kategorija članstva"
+msgstr "Datum preklica članarine"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__canceled
 msgid "Cancelled Member"
-msgstr ""
+msgstr "Preklicani član"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__company_id
 msgid "Company"
-msgstr ""
+msgstr "Družba"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Stik"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__create_uid
@@ -98,33 +100,32 @@ msgstr "Ustvarjeno"
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_state
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_state
-#, fuzzy
 msgid "Current Membership Status"
-msgstr "Članarine"
+msgstr "Trenutni status članarine"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr ""
+msgstr "Datum, od katerega se partner pridružuje."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Datum, ko je bilo članstvo preklicano."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_stop
 msgid "Date when the latest partner's membership ends."
-msgstr ""
+msgstr "Datum, ko se članstvo zadnjega partnerja konča."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_last_start
 msgid "Date when the partner became a member for the last time."
-msgstr ""
+msgstr "Datum, ko je partner nazadnje postal član."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__display_name
@@ -135,23 +136,22 @@ msgstr "Prikazani naziv"
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership_extension.field_res_users__membership_start
 msgid "Earliest historical date this partner ever became a member."
-msgstr ""
+msgstr "Najzgodnejši zgodovinski datum, ko je ta partner postal član."
 
 #. module: membership_extension
 #: model:ir.model.constraint,message:membership_extension.constraint_membership_membership_line_start_date_greater
 msgid "Error ! Ending Date cannot be set before Beginning Date."
-msgstr ""
+msgstr "Napaka! Končnega datuma ni mogoče nastaviti pred začetnim datumom."
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__free
-#, fuzzy
 msgid "Free Member"
-msgstr "Član"
+msgstr "Brezplačni član"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_from
 msgid "From"
-msgstr ""
+msgstr "Od"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_gold
@@ -161,7 +161,7 @@ msgstr "Zlati"
 #. module: membership_extension
 #: model:ir.module.category,description:membership_extension.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr ""
+msgstr "Pomaga vam pri upravljanju operacij za upravljanje članarin."
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_category__id
@@ -170,15 +170,14 @@ msgstr "ID"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__invoiced
-#, fuzzy
 msgid "Invoiced Member"
-msgstr "Postavka računa"
+msgstr "Zaračunani član"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__is_adhered_member
 msgid "Is Adhered Member"
-msgstr ""
+msgstr "Je pridruženi član"
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_res_partner__membership_state
@@ -193,6 +192,14 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paying member: A member who has paid the membership fee."
 msgstr ""
+"Označuje stanje članstva.\n"
+"-Nečlan: Partner, ki ni zaprosil za nobeno članstvo.\n"
+"-Preklican član: Član, ki je preklical svoje članstvo.\n"
+"-Stari član: Član, katerega datum članstva je potekel.\n"
+"-Čakajoči član: Član, ki je zaprosil za članstvo in čigar račun bo "
+"ustvarjen.\n"
+"-Član z izstavljenim računom: Član, katerega račun je bil ustvarjen.\n"
+"-Član plačnik: Član, ki je plačal članarino."
 
 #. module: membership_extension
 #: model:ir.model.fields,help:membership_extension.field_membership_membership_line__state
@@ -206,16 +213,24 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paid Member: A member who has paid the membership amount."
 msgstr ""
+"Označuje status članstva.\n"
+"-Nečlan: Član, ki ni zaprosil za članstvo.\n"
+"-Preklican član: Član, ki je preklical članstvo.\n"
+"-Stari član: Član, katerega datum članstva je potekel.\n"
+"-Čakajoči član: Član, ki je zaprosil za članstvo in čigar račun bo "
+"ustvarjen.\n"
+"-Član z izstavljenim računom: Član, katerega račun je bil ustvarjen.\n"
+"-Plačani član: Član, ki je plačal članarino."
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "Temeljnica"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "Dnevniška postavka"
 
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
@@ -235,7 +250,7 @@ msgstr "Zadnjič posodobljeno"
 #. module: membership_extension
 #: model:res.groups,name:membership_extension.group_membership_manager
 msgid "Manager"
-msgstr ""
+msgstr "Upravitelj"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_member
@@ -245,20 +260,18 @@ msgstr "Član"
 #. module: membership_extension
 #: model:ir.module.category,name:membership_extension.module_category_membership_management
 msgid "Membership"
-msgstr ""
+msgstr "Članarina"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start_adhered
-#, fuzzy
 msgid "Membership Adhered Start Date"
-msgstr "Začetni končni datum članarine"
+msgstr "Datum začetka članstva"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_2_product_template
-#, fuzzy
 msgid "Membership Bronze"
-msgstr "Članarine"
+msgstr "Bronasto članstvo"
 
 #. module: membership_extension
 #: model:ir.actions.act_window,name:membership_extension.membership_category_action
@@ -276,20 +289,18 @@ msgstr "Kategorija članstva"
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_stop
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_stop
-#, fuzzy
 msgid "Membership End Date"
-msgstr "Kategorija članstva"
+msgstr "Datum konca članstva"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__member_price
 msgid "Membership Fee"
-msgstr ""
+msgstr "Članarina"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_0_product_template
-#, fuzzy
 msgid "Membership Gold"
-msgstr "Članarine"
+msgstr "Zlato članstvo"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_last_start
@@ -299,32 +310,29 @@ msgstr "Začetni končni datum članarine"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_line
-#, fuzzy
 msgid "Membership Line"
-msgstr "Članarine"
+msgstr "Postavka članarine"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_account_move_line__membership_lines
 msgid "Membership Lines"
-msgstr ""
+msgstr "Postavke članarin"
 
 #. module: membership_extension
 #: model:product.template,name:membership_extension.membership_1_product_template
-#, fuzzy
 msgid "Membership Silver"
-msgstr "Kategorija članstva"
+msgstr "Srebrno članstvo"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_res_partner__membership_start
 #: model:ir.model.fields,field_description:membership_extension.field_res_users__membership_start
 msgid "Membership Start Date"
-msgstr ""
+msgstr "Datum začetka članstva"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__state
-#, fuzzy
 msgid "Membership Status"
-msgstr "Članarine"
+msgstr "Status članstva"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_membership_membership_category
@@ -347,26 +355,23 @@ msgstr "Naziv"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__none
-#, fuzzy
 msgid "Non Member"
-msgstr "Član"
+msgstr "Nečlan"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__old
-#, fuzzy
 msgid "Old Member"
-msgstr "Član"
+msgstr "Stari član"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__paid
-#, fuzzy
 msgid "Paid Member"
-msgstr "Član"
+msgstr "Plačani član"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__partner
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_template
@@ -376,7 +381,7 @@ msgstr "Proizvod"
 #. module: membership_extension
 #: model:ir.model,name:membership_extension.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Različica proizvoda"
 
 #. module: membership_extension
 #: model:membership.membership_category,name:membership_extension.membership_category_silver
@@ -386,18 +391,17 @@ msgstr "Srebrni"
 #. module: membership_extension
 #: model_terms:ir.ui.view,arch_db:membership_extension.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr "Začetni mesec zadnjega obdobja članstva."
+msgstr "Začetni mesec zadnjega obdobja članstva"
 
 #. module: membership_extension
 #: model:ir.model.fields,field_description:membership_extension.field_membership_membership_line__date_to
 msgid "To"
-msgstr ""
+msgstr "Do"
 
 #. module: membership_extension
 #: model:ir.model.fields.selection,name:membership_extension.selection__res_partner__membership_state__waiting
-#, fuzzy
 msgid "Waiting Member"
-msgstr "Član"
+msgstr "Čakajoči član"
 
 #. module: membership_extension
 #. odoo-python
@@ -406,6 +410,8 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+"Podjetja ne morete spremeniti, ker to kategorijo članstva uporablja predloga "
+"proizvoda (%s), ki ima dodeljeno nezdružljivo družbo."
 
 #~ msgid "Start date of last membership period."
 #~ msgstr "Začetni datum zadnjega obdobja članstva."
