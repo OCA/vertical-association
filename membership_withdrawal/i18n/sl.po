@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-04 02:43+0000\n"
-"PO-Revision-Date: 2026-06-07 11:46+0000\n"
+"PO-Revision-Date: 2026-07-02 06:26+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
@@ -24,22 +24,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__active
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: membership_withdrawal
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
 msgid "Company bankrupt"
-msgstr ""
+msgstr "Stečaj družbe"
 
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Stik"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__create_uid
@@ -54,7 +54,7 @@ msgstr "Ustvarjeno"
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_membership_membership_line__date_withdrawal
 msgid "Date when member requested membership withdrawal"
-msgstr ""
+msgstr "Datum, ko je član zahteval odstop od članstva"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__display_name
@@ -84,25 +84,25 @@ msgstr "Zadnjič posodobljeno"
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_membership_line
 msgid "Membership Line"
-msgstr ""
+msgstr "Postavka članarine"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_users__membership_last_withdrawal_date
 msgid "Membership withdrawal date"
-msgstr ""
+msgstr "Datum preklica članstva"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
 #: model:ir.model.fields,field_description:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
 msgid "Membership withdrawal reason"
-msgstr ""
+msgstr "Razlog za preklic članstva"
 
 #. module: membership_withdrawal
 #: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
 #: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
 msgid "Membership withdrawal reasons"
-msgstr ""
+msgstr "Razlogi za preklic članstva"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__name
@@ -112,50 +112,50 @@ msgstr "Naziv"
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_other
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #. module: membership_withdrawal
 #: model:ir.model,name:membership_withdrawal.model_membership_withdrawal_reason
 msgid "Reason for withdrawal in membership"
-msgstr ""
+msgstr "Razlog za izstop iz članstva"
 
 #. module: membership_withdrawal
 #: model:membership.withdrawal_reason,name:membership_withdrawal.reason_unsatisfied
 msgid "Unsatisfied"
-msgstr ""
+msgstr "Nezadovoljen"
 
 #. module: membership_withdrawal
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal Month"
-msgstr ""
+msgstr "Mesec izstopa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__date_withdrawal
 msgid "Withdrawal date"
-msgstr ""
+msgstr "Datum izstopa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
 #: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_date
 msgid "Withdrawal date of current membership period"
-msgstr ""
+msgstr "Datum izstopa iz trenutnega obdobja članstva"
 
 #. module: membership_withdrawal
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal month"
-msgstr ""
+msgstr "Mesec izstopa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__withdrawal_reason_id
 #: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
 msgid "Withdrawal reason"
-msgstr ""
+msgstr "Razlog izstopa"
 
 #. module: membership_withdrawal
 #: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
 #: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
 msgid "Withdrawal reason of current membership period"
-msgstr ""
+msgstr "Razlog izstopa iz trenutnega članskega obdobja"
 
 #~ msgid "Partner"
 #~ msgstr "Partner"
