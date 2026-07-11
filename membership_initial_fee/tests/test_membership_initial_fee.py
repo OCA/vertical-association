@@ -2,12 +2,18 @@
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0
 
-from odoo.tests.common import TransactionCase
+from odoo.tests import tagged
+
+from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 
 
-class TestMembershipInitialFee(TransactionCase):
+@tagged("post_install", "-at_install")
+class TestMembershipInitialFee(AccountTestInvoicingCommon):
     @classmethod
     def setUpClass(cls):
+        # AccountTestInvoicingCommon installs a generic chart of accounts:
+        # invoice creation needs a sale journal and default accounts, which
+        # a bare test database no longer provides in Odoo 19.
         super().setUpClass()
         cls.product_category = cls.env["product.category"].create({"name": "test_cat"})
         cls.product = cls.env["product.product"].create(
@@ -84,8 +90,21 @@ class TestMembershipInitialFee(TransactionCase):
         self.check_membership_invoice(invoice, 15.0)
 
     def test_create_invoice_initial_fee_taxes(self):
+        # In Odoo 19 account.tax requires an explicit tax group and
+        # country when no localized chart of accounts is installed.
+        country = self.env.company.country_id or self.env.ref("base.us")
+        self.env.company.country_id = country
+        tax_group = self.env["account.tax.group"].create(
+            {"name": "Test Taxes", "country_id": country.id}
+        )
         tax = self.env["account.tax"].create(
-            {"name": "Tax", "amount_type": "percent", "amount": 0.10}
+            {
+                "name": "Tax",
+                "amount_type": "percent",
+                "amount": 0.10,
+                "tax_group_id": tax_group.id,
+                "country_id": country.id,
+            }
         )
         self.product_fixed.product_fee.taxes_id = tax
         invoice = self.partner.with_context(

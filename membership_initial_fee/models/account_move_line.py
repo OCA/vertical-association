@@ -54,8 +54,8 @@ class AccountMoveLine(models.Model):
         # to create the initial fee
         member_lines = self.env["membership.membership_line"].search(
             [
-                ("partner", "=", partner.id),
-                ("account_invoice_line", "not in", (self.id,)),
+                ("partner_id", "=", partner.id),
+                ("account_invoice_line_id", "not in", (self.id,)),
                 ("state", "not in", ["none", "canceled"]),
             ]
         )
