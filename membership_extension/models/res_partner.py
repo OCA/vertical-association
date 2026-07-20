@@ -2,17 +2,9 @@
 # Copyright 2019 Onestein - Andrea Stirpe
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import logging
 from datetime import timedelta
 
 from odoo import api, fields, models
-
-_logger = logging.getLogger(__name__)
-try:
-    from odoo.addons.membership.models.membership import STATE
-except ImportError:
-    _logger.warning("Cannot import 'membership' addon.")
-    _logger.debug("Details", exc_info=True)
 
 # Max number of days between date_from and date_to of two consecutive
 # membership lines to consider a different membership period
@@ -22,7 +14,6 @@ LAST_START_DELTA_DAYS = 3
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    associate_member = fields.Many2one(index=True)
     is_adhered_member = fields.Boolean(
         compute="_compute_is_adhered_member",
         store=True,
@@ -75,13 +66,6 @@ class ResPartner(models.Model):
         compute="_compute_membership_state",
         recursive=True,
     )
-    membership_state = fields.Selection(
-        selection=STATE,
-        store=True,
-        index=True,
-        compute="_compute_membership_state",
-        recursive=True,
-    )
 
     @api.model
     def _last_start_delta_days(self):
@@ -119,10 +103,10 @@ class ResPartner(models.Model):
         "membership_state",
         "is_adhered_member",
         "membership_start_adhered",
-        "member_lines.state",
-        "member_lines.date_from",
-        "member_lines.date_to",
-        "member_lines.date_cancel",
+        "member_line_ids.state",
+        "member_line_ids.date_from",
+        "member_line_ids.date_to",
+        "member_line_ids.date_cancel",
         "associate_member.membership_start",
         "associate_member.membership_last_start",
         "associate_member.membership_stop",
@@ -146,7 +130,7 @@ class ResPartner(models.Model):
                 last_from = False
                 last_to = False
                 last_cancel = False
-                for line in partner.member_lines:
+                for line in partner.member_line_ids:
                     if line.state in member_states:
                         if not date_from or date_from > line.date_from:
                             date_from = line.date_from
@@ -177,11 +161,11 @@ class ResPartner(models.Model):
 
     @api.depends(
         "free_member",
-        "member_lines.state",
-        "member_lines.category_id",
-        "member_lines.date_from",
-        "member_lines.date_to",
-        "member_lines.date_cancel",
+        "member_line_ids.state",
+        "member_line_ids.category_id",
+        "member_line_ids.date_from",
+        "member_line_ids.date_to",
+        "member_line_ids.date_cancel",
         "associate_member.membership_state",
         "associate_member.membership_category_ids",
     )
@@ -202,7 +186,7 @@ class ResPartner(models.Model):
                 category_ids = []
                 category_names = []
                 today = fields.Date.today()
-                lines = partner.member_lines.filtered(
+                lines = partner.member_line_ids.filtered(
                     lambda r, today=today: r.date_from
                     and r.date_from <= today
                     and (
@@ -217,7 +201,7 @@ class ResPartner(models.Model):
                         category_names.append(line.category_id.name)
                     if prior.get(line.state, 0) > prior.get(state):
                         state = line.state
-                if state == "none" and partner.member_lines.filtered(
+                if state == "none" and partner.member_line_ids.filtered(
                     lambda r: r.state in member_states
                 ):
                     state = "old"
@@ -239,18 +223,6 @@ class ResPartner(models.Model):
                 ("associate_member", "=", False),
                 ("membership_state", "in", member_states),
                 ("membership_stop", "<", today),
-            ]
-        )
-        partners._compute_membership_state()
-
-    @api.model
-    def check_membership_all(self):
-        """Force a recalculation on partners with member lines"""
-        partners = self.search(
-            [
-                ("associate_member", "=", False),
-                ("free_member", "=", False),
-                ("member_lines", "!=", False),
             ]
         )
         partners._compute_membership_state()

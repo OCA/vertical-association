@@ -27,32 +27,32 @@
                 <field name="membership_category_ids" widget="many2many_tags" />
                 <field name="is_adhered_member" invisible="not associate_member" />
             </field>
-            <field name="member_lines" position="attributes">
+            <field name="member_line_ids" position="attributes">
                 <attribute name="readonly">0</attribute>
                 <attribute
                     name="context"
                 >{'default_date': time.strftime('%Y-%m-%d')}</attribute>
             </field>
             <xpath
-                expr="//field[@name='member_lines']/list//field[@name='date']"
+                expr="//field[@name='member_line_ids']/list//field[@name='date']"
                 position="after"
             >
                 <field name="date_from" optional="show" />
                 <field name="date_to" optional="show" />
             </xpath>
             <xpath
-                expr="//field[@name='member_lines']/list//field[@name='membership_id']"
+                expr="//field[@name='member_line_ids']/list//field[@name='membership_id']"
                 position="after"
             >
                 <field name="category_id" optional="hide" />
             </xpath>
             <xpath
-                expr="//field[@name='member_lines']/list//field[@name='date_to']"
+                expr="//field[@name='member_line_ids']/list//field[@name='date_to']"
                 position="after"
             >
                 <field name="date_cancel" optional="hide" />
             </xpath>
-            <xpath expr="//field[@name='member_lines']/form" position="replace">
+            <xpath expr="//field[@name='member_line_ids']/form" position="replace">
                 <form string="Memberships">
                     <group>
                         <group>

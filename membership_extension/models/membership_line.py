@@ -6,6 +6,7 @@
 from datetime import timedelta
 
 from odoo import api, fields, models
+from odoo.api import NewId
 from odoo.exceptions import UserError
 
 
@@ -17,10 +18,6 @@ class MembershipLine(models.Model):
         comodel_name="membership.membership_category",
         related="membership_id.membership_category_id",
     )
-    date_from = fields.Date(readonly=False)
-    date_to = fields.Date(readonly=False)
-    state = fields.Selection(compute="_compute_state", readonly=False)
-    partner = fields.Many2one(ondelete="restrict")
     member_price = fields.Float(
         compute="_compute_member_price", readonly=False, store=True
     )
@@ -50,8 +47,7 @@ class MembershipLine(models.Model):
 
     def _compute_state(self):
         no_invoice_lines = self.filtered(
-            lambda line: isinstance(line.id, models.NewId)
-            or not line.account_invoice_id
+            lambda line: isinstance(line.id, NewId) or not line.account_invoice_id
         )
         cancelled_lines = self.filtered(
             lambda line: line.account_invoice_id.state == "posted"
@@ -64,7 +60,8 @@ class MembershipLine(models.Model):
             MembershipLine, self - no_invoice_lines - cancelled_lines
         )._compute_state()
 
-    def unlink(self):
+    @api.ondelete(at_uninstall=False)
+    def _unlink_membership_line_except_invoiced(self):
         allow = self.env.context.get("allow_membership_line_unlink", False)
         if self.filtered("account_invoice_id") and not allow:
             raise UserError(
@@ -74,4 +71,3 @@ class MembershipLine(models.Model):
                     "line instead"
                 )
             )
-        return super().unlink()  # pragma: no cover

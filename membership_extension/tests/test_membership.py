@@ -10,17 +10,18 @@ from psycopg2 import IntegrityError
 
 from odoo import fields
 from odoo.exceptions import UserError, ValidationError
-from odoo.tests import Form, common
+from odoo.tests import Form
 from odoo.tools import mute_logger
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
 @freeze_time("2025-01-01")
-class TestMembership(common.TransactionCase):
+class TestMembership(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        date_today = fields.Date.today()
-
+        date_today = fields.Date.context_today(cls.env.user)
         cls.account_bank = cls.env["account.account"].create(
             {
                 "name": "Test bank account",
@@ -79,7 +80,7 @@ class TestMembership(common.TransactionCase):
                 "type": "service",
                 "name": "Membership Gold",
                 "membership": True,
-                "membership_date_from": fields.Date.today(),
+                "membership_date_from": fields.Date.context_today(cls.env.user),
                 "membership_date_to": cls.next_month,
                 "membership_category_id": cls.category_gold.id,
                 "list_price": 100.00,
@@ -90,7 +91,7 @@ class TestMembership(common.TransactionCase):
                 "type": "service",
                 "name": "Membership Silver",
                 "membership": True,
-                "membership_date_from": fields.Date.today(),
+                "membership_date_from": fields.Date.context_today(cls.env.user),
                 "membership_date_to": cls.next_two_months,
                 "membership_category_id": cls.category_silver.id,
                 "list_price": 50.00,
@@ -103,10 +104,10 @@ class TestMembership(common.TransactionCase):
             {
                 "membership_id": self.gold_product.id,
                 "member_price": 100.00,
-                "date": fields.Date.today(),
-                "date_from": fields.Date.today(),
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
                 "date_to": self.next_month,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "waiting",
             }
         )
@@ -122,45 +123,73 @@ class TestMembership(common.TransactionCase):
         self.assertFalse(self.child.membership_cancel)
         line.write({"state": "invoiced"})
         self.assertEqual("invoiced", self.partner.membership_state)
-        self.assertEqual(fields.Date.today(), self.partner.membership_start)
-        self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_last_start
+        )
         self.assertEqual(self.next_month, self.partner.membership_stop)
         self.assertFalse(self.partner.membership_cancel)
         self.assertEqual("invoiced", self.child.membership_state)
-        self.assertEqual(fields.Date.today(), self.child.membership_start)
-        self.assertEqual(fields.Date.today(), self.child.membership_last_start)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_last_start
+        )
         self.assertEqual(self.next_month, self.child.membership_stop)
         self.assertFalse(self.child.membership_cancel)
-        line.write({"date_cancel": fields.Date.today()})
+        line.write({"date_cancel": fields.Date.context_today(self.env.user)})
         self.assertEqual("invoiced", self.partner.membership_state)
-        self.assertEqual(fields.Date.today(), self.partner.membership_start)
-        self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
-        self.assertEqual(fields.Date.today(), self.partner.membership_stop)
-        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_last_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_stop
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
         self.assertEqual("invoiced", self.child.membership_state)
-        self.assertEqual(fields.Date.today(), self.child.membership_start)
-        self.assertEqual(fields.Date.today(), self.child.membership_last_start)
-        self.assertEqual(fields.Date.today(), self.child.membership_stop)
-        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_last_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_stop
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
         line.write({"state": "canceled"})
         self.assertEqual("canceled", self.partner.membership_state)
         self.assertFalse(self.partner.membership_start)
         self.assertFalse(self.partner.membership_last_start)
         self.assertFalse(self.partner.membership_stop)
-        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
         self.assertEqual("canceled", self.child.membership_state)
         self.assertFalse(self.child.membership_start)
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
-        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
         other_line = self.env["membership.membership_line"].create(
             {
                 "membership_id": self.silver_product.id,
                 "member_price": 100.00,
-                "date": fields.Date.today(),
-                "date_from": fields.Date.today(),
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
                 "date_to": self.next_two_months,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "waiting",
             }
         )
@@ -168,23 +197,39 @@ class TestMembership(common.TransactionCase):
         self.assertFalse(self.partner.membership_start)
         self.assertFalse(self.partner.membership_last_start)
         self.assertFalse(self.partner.membership_stop)
-        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
         self.assertEqual("waiting", self.child.membership_state)
         self.assertFalse(self.child.membership_start)
         self.assertFalse(self.child.membership_last_start)
         self.assertFalse(self.child.membership_stop)
-        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
         other_line.write({"state": "paid"})
         self.assertEqual("paid", self.partner.membership_state)
-        self.assertEqual(fields.Date.today(), self.partner.membership_start)
-        self.assertEqual(fields.Date.today(), self.partner.membership_last_start)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_last_start
+        )
         self.assertEqual(self.next_two_months, self.partner.membership_stop)
-        self.assertEqual(fields.Date.today(), self.partner.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
         self.assertEqual("paid", self.child.membership_state)
-        self.assertEqual(fields.Date.today(), self.child.membership_start)
-        self.assertEqual(fields.Date.today(), self.child.membership_last_start)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_last_start
+        )
         self.assertEqual(self.next_two_months, self.child.membership_stop)
-        self.assertEqual(fields.Date.today(), self.child.membership_cancel)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
         self.partner.free_member = True
         self.assertEqual("free", self.child.membership_state)
 
@@ -193,10 +238,10 @@ class TestMembership(common.TransactionCase):
             {
                 "membership_id": self.gold_product.id,
                 "member_price": 100.00,
-                "date": fields.Date.today(),
-                "date_from": fields.Date.today(),
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
                 "date_to": self.next_month,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "invoiced",
             }
         )
@@ -206,10 +251,10 @@ class TestMembership(common.TransactionCase):
             {
                 "membership_id": self.silver_product.id,
                 "member_price": 50.00,
-                "date": fields.Date.today(),
-                "date_from": fields.Date.today(),
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
                 "date_to": self.next_two_months,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "paid",
             }
         )
@@ -232,7 +277,7 @@ class TestMembership(common.TransactionCase):
         invoice_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
-        invoice_form.invoice_date = fields.Date.today()
+        invoice_form.invoice_date = fields.Date.context_today(self.env.user)
         invoice_form.partner_id = self.partner
         with invoice_form.invoice_line_ids.new() as invoice_line_form:
             invoice_line_form.name = self.gold_product.name
@@ -241,35 +286,35 @@ class TestMembership(common.TransactionCase):
         invoice = invoice_form.save()
 
         with self.assertRaises(UserError):
-            self.partner.member_lines[0].unlink()
+            self.partner.member_line_ids[0].unlink()
         invoice.invoice_line_ids.with_context(check_move_validity=False).unlink()
-        self.assertFalse(self.partner.member_lines)
+        self.assertFalse(self.partner.member_line_ids)
 
     def test_membership_line_onchange(self):
         line = self.env["membership.membership_line"].create(
             {
                 "membership_id": self.gold_product.id,
                 "member_price": 100.00,
-                "date": fields.Date.today(),
-                "partner": self.partner.id,
+                "date": fields.Date.context_today(self.env.user),
+                "partner_id": self.partner.id,
                 "state": "invoiced",
             }
         )
         line._onchange_membership_date()
         self.assertEqual(100.00, line.member_price)
-        self.assertEqual(fields.Date.today(), line.date_from)
+        self.assertEqual(fields.Date.context_today(self.env.user), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
         line.write({"membership_id": self.silver_product.id})
         line._onchange_membership_date()
         self.assertEqual(50, line.member_price)
-        self.assertEqual(fields.Date.today(), line.date_from)
+        self.assertEqual(fields.Date.context_today(self.env.user), line.date_from)
         self.assertEqual(self.next_two_months, line.date_to)
 
     def test_invoice(self):
         invoice_form = Form(
             self.env["account.move"].with_context(default_move_type="out_invoice")
         )
-        invoice_form.invoice_date = fields.Date.today()
+        invoice_form.invoice_date = fields.Date.context_today(self.env.user)
         invoice_form.partner_id = self.partner
         with invoice_form.invoice_line_ids.new() as invoice_line_form:
             invoice_line_form.name = self.gold_product.name
@@ -278,9 +323,9 @@ class TestMembership(common.TransactionCase):
             invoice_line_form.quantity = 1.0
         invoice = invoice_form.save()
 
-        line = self.partner.member_lines[0]
+        line = self.partner.member_line_ids[0]
         self.assertEqual("waiting", line.state)
-        self.assertEqual(fields.Date.today(), line.date_from)
+        self.assertEqual(fields.Date.context_today(self.env.user), line.date_from)
         self.assertEqual(self.next_month, line.date_to)
         invoice.action_post()  # validate invoice
         self.assertEqual(invoice.state, "posted")
@@ -326,7 +371,7 @@ class TestMembership(common.TransactionCase):
             .with_context(active_model="account.move", active_ids=invoice.ids)
             .create(
                 {
-                    "date": fields.Date.today(),
+                    "date": fields.Date.context_today(self.env.user),
                     "reason": "no reason",
                     "journal_id": invoice.journal_id.id,
                 }
@@ -352,23 +397,6 @@ class TestMembership(common.TransactionCase):
         invoice.action_post()
         self.assertEqual("invoiced", line.state)
 
-    def test_check_membership_all(self):
-        self.env["membership.membership_line"].create(
-            {
-                "membership_id": self.gold_product.id,
-                "member_price": 100.00,
-                "date": fields.Date.today(),
-                "date_from": fields.Date.today(),
-                "date_to": self.next_month,
-                "partner": self.partner.id,
-                "state": "waiting",
-            }
-        )
-        # Force another state to check if the recomputation is done
-        self.partner.membership_state = "none"
-        self.env["res.partner"].check_membership_all()
-        self.assertEqual(self.partner.membership_state, "waiting")
-
     def test_check_membership_expiry(self):
         self.env["membership.membership_line"].create(
             {
@@ -377,7 +405,7 @@ class TestMembership(common.TransactionCase):
                 "date": self.yesterday,
                 "date_from": self.yesterday,
                 "date_to": self.yesterday,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "waiting",
             }
         )
@@ -390,7 +418,7 @@ class TestMembership(common.TransactionCase):
             {
                 "membership_id": self.gold_product.id,
                 "member_price": 0,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
             }
         )
         # We can't delete a partner with member lines
@@ -406,10 +434,10 @@ class TestMembership(common.TransactionCase):
             {
                 "membership_id": self.gold_product.id,
                 "member_price": 100.00,
-                "date": fields.Date.today(),
-                "date_from": fields.Date.today(),
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
                 "date_to": self.next_month,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "waiting",
             }
         )
@@ -504,7 +532,7 @@ class TestMembership(common.TransactionCase):
         """Membership is cancelled and, later, restarted."""
         self.partner.write(
             {
-                "member_lines": [
+                "member_line_ids": [
                     # Was member in 2022 but cancelled
                     fields.Command.create(
                         {

@@ -17,7 +17,7 @@ class MembershipCategory(models.Model):
     def _check_company_id(self):
         if self.env.context.get("bypass_company_validation"):
             return
-        categories = self.filtered(lambda c: c.company_id)
+        categories = self.filtered("company_id")
         templates = (
             self.env["product.template"]
             .search([("membership_category_id", "in", categories.ids)])
@@ -31,7 +31,7 @@ class MembershipCategory(models.Model):
                 self.env._(
                     "You cannot change the Company, as this "
                     "Membership Category is used by Product Template (%s), "
-                    "which has an incompatible assigned Company."
+                    "which has an incompatible assigned Company.",
+                    templates[0].name,
                 )
-                % fields.first(templates).name
             )

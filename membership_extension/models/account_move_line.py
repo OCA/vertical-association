@@ -9,7 +9,8 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     membership_lines = fields.One2many(
-        comodel_name="membership.membership_line", inverse_name="account_invoice_line"
+        comodel_name="membership.membership_line",
+        inverse_name="account_invoice_line_id",
     )
 
     @api.model_create_multi
