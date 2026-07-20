@@ -35,6 +35,17 @@ Members
 This module allows you to manage all operations for managing
 memberships.
 
+- Membership category
+- Membership lines editable
+- Do not calculate membership state from invoice status
+- Start date of last membership period
+- Partner's with member lines can't be deleted.
+- When a partner has an associated member there is the option to make
+  member start date independent from the associated member one so
+  joining dates can be tracked for those members.
+- Adds a category for Membership management security group so a user
+  with only that permission can access to the membership menu.
+
 It supports different kind of members:
 
 - Free member
@@ -66,6 +77,37 @@ https://www.odoo.com/partners
 
 Issue: https://github.com/OCA/vertical-association/issues/216
 
+Configuration
+=============
+
+Users can define membership categories in Association > Configuration >
+Membership Categories Then go to membership products and set a category
+to each one.
+
+Usage
+=====
+
+Membership categories allow to classify memberships by types, allowing a
+partner to be member or not of the different categories. For example, if
+you have several levels of partnership (Starter, Silver, Gold) and one
+product for each one, then partners who buy Silver product will have
+Silver membership category. Afterwords, you can filter Silver members.
+
+Membership lines are created when a membership product is invoiced, like
+in Odoo standard version. But now users can create a new membership line
+without creating an invoice.
+
+Also, users can edit membership line dates and state even if an invoice
+is not related with it.
+
+You will see a general membership status at partner level that specifies
+if it's a member of any category or not, and also a detail status per
+membership category.
+
+To make member start date independent from the associated member one,
+check the option *Adhered member* in the membership tab of the partner
+who is associating. A start date will now be available to edit.
+
 Bug Tracker
 ===========
 
@@ -84,6 +126,22 @@ Authors
 
 * Odoo
 
+Contributors
+------------
+
+- Antonio Espinosa <antonio.espinosa@tecnativa.com>
+- Pedro M. Baeza <pedro.baeza@tecnativa.com>
+- David Vidal <david.vidal@tecnativa.com>
+- Rafael Blasco <rafael.blasco@tecnativa.com>
+- Luis M. Ontalba <luis.martinez@tecnativa.com>
+- Alberto Martín Cortada <alberto.martin@guadaltech.es>
+- Andrea Stirpe <a.stirpe@onestein.nl>
+- Valentín Vinagre <valentin.vinagre@sygel.es>
+- Roger Sans <roger.sans@sygel.es>
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
+
 Maintainers
 -----------
 
@@ -96,6 +154,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-rafaelbn| image:: https://github.com/rafaelbn.png?size=40px
+    :target: https://github.com/rafaelbn
+    :alt: rafaelbn
+.. |maintainer-yajo| image:: https://github.com/yajo.png?size=40px
+    :target: https://github.com/yajo
+    :alt: yajo
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-rafaelbn| |maintainer-yajo| 
 
 This module is part of the `OCA/vertical-association <https://github.com/OCA/vertical-association/tree/19.0/membership>`_ project on GitHub.
 

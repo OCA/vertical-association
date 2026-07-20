@@ -72,7 +72,7 @@ class TestMembership(TestMembershipCommon):
         invoice.action_post()
         self.assertEqual(
             self.partner_1.membership_state,
-            "none",
+            "old",
             "membership: after opening the invoice for old membership, it should "
             "remain in non paid status",
         )

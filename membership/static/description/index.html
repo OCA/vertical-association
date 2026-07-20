@@ -377,6 +377,18 @@ ul.auto-toc {
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Mature" src="https://img.shields.io/badge/maturity-Mature-brightgreen.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/vertical-association/tree/19.0/membership"><img alt="OCA/vertical-association" src="https://img.shields.io/badge/github-OCA%2Fvertical--association-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/vertical-association-19-0/vertical-association-19-0-membership"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/vertical-association&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module allows you to manage all operations for managing
 memberships.</p>
+<ul class="simple">
+<li>Membership category</li>
+<li>Membership lines editable</li>
+<li>Do not calculate membership state from invoice status</li>
+<li>Start date of last membership period</li>
+<li>Partner’s with member lines can’t be deleted.</li>
+<li>When a partner has an associated member there is the option to make
+member start date independent from the associated member one so
+joining dates can be tracked for those members.</li>
+<li>Adds a category for Membership management security group so a user
+with only that permission can access to the membership menu.</li>
+</ul>
 <p>It supports different kind of members:</p>
 <ul class="simple">
 <li>Free member</li>
@@ -394,10 +406,13 @@ like all other OCA modules.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#use-cases-context" id="toc-entry-1">Use Cases / Context</a></li>
-<li><a class="reference internal" href="#bug-tracker" id="toc-entry-2">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="toc-entry-3">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="toc-entry-4">Authors</a></li>
-<li><a class="reference internal" href="#maintainers" id="toc-entry-5">Maintainers</a></li>
+<li><a class="reference internal" href="#configuration" id="toc-entry-2">Configuration</a></li>
+<li><a class="reference internal" href="#usage" id="toc-entry-3">Usage</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-4">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-5">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-6">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-7">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-8">Maintainers</a></li>
 </ul>
 </li>
 </ul>
@@ -410,8 +425,33 @@ replacement, is rather a module to manage corporate partners like
 <a class="reference external" href="https://www.odoo.com/partners">https://www.odoo.com/partners</a></p>
 <p>Issue: <a class="reference external" href="https://github.com/OCA/vertical-association/issues/216">https://github.com/OCA/vertical-association/issues/216</a></p>
 </div>
+<div class="section" id="configuration">
+<h2><a class="toc-backref" href="#toc-entry-2">Configuration</a></h2>
+<p>Users can define membership categories in Association &gt; Configuration &gt;
+Membership Categories Then go to membership products and set a category
+to each one.</p>
+</div>
+<div class="section" id="usage">
+<h2><a class="toc-backref" href="#toc-entry-3">Usage</a></h2>
+<p>Membership categories allow to classify memberships by types, allowing a
+partner to be member or not of the different categories. For example, if
+you have several levels of partnership (Starter, Silver, Gold) and one
+product for each one, then partners who buy Silver product will have
+Silver membership category. Afterwords, you can filter Silver members.</p>
+<p>Membership lines are created when a membership product is invoiced, like
+in Odoo standard version. But now users can create a new membership line
+without creating an invoice.</p>
+<p>Also, users can edit membership line dates and state even if an invoice
+is not related with it.</p>
+<p>You will see a general membership status at partner level that specifies
+if it’s a member of any category or not, and also a detail status per
+membership category.</p>
+<p>To make member start date independent from the associated member one,
+check the option <em>Adhered member</em> in the membership tab of the partner
+who is associating. A start date will now be available to edit.</p>
+</div>
 <div class="section" id="bug-tracker">
-<h2><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-4">Bug Tracker</a></h2>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/vertical-association/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
@@ -419,15 +459,33 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h2><a class="toc-backref" href="#toc-entry-3">Credits</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-5">Credits</a></h2>
 <div class="section" id="authors">
-<h3><a class="toc-backref" href="#toc-entry-4">Authors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-6">Authors</a></h3>
 <ul class="simple">
 <li>Odoo</li>
 </ul>
 </div>
+<div class="section" id="contributors">
+<h3><a class="toc-backref" href="#toc-entry-7">Contributors</a></h3>
+<ul class="simple">
+<li>Antonio Espinosa &lt;<a class="reference external" href="mailto:antonio.espinosa&#64;tecnativa.com">antonio.espinosa&#64;tecnativa.com</a>&gt;</li>
+<li>Pedro M. Baeza &lt;<a class="reference external" href="mailto:pedro.baeza&#64;tecnativa.com">pedro.baeza&#64;tecnativa.com</a>&gt;</li>
+<li>David Vidal &lt;<a class="reference external" href="mailto:david.vidal&#64;tecnativa.com">david.vidal&#64;tecnativa.com</a>&gt;</li>
+<li>Rafael Blasco &lt;<a class="reference external" href="mailto:rafael.blasco&#64;tecnativa.com">rafael.blasco&#64;tecnativa.com</a>&gt;</li>
+<li>Luis M. Ontalba &lt;<a class="reference external" href="mailto:luis.martinez&#64;tecnativa.com">luis.martinez&#64;tecnativa.com</a>&gt;</li>
+<li>Alberto Martín Cortada &lt;<a class="reference external" href="mailto:alberto.martin&#64;guadaltech.es">alberto.martin&#64;guadaltech.es</a>&gt;</li>
+<li>Andrea Stirpe &lt;<a class="reference external" href="mailto:a.stirpe&#64;onestein.nl">a.stirpe&#64;onestein.nl</a>&gt;</li>
+<li>Valentín Vinagre &lt;<a class="reference external" href="mailto:valentin.vinagre&#64;sygel.es">valentin.vinagre&#64;sygel.es</a>&gt;</li>
+<li>Roger Sans &lt;<a class="reference external" href="mailto:roger.sans&#64;sygel.es">roger.sans&#64;sygel.es</a>&gt;</li>
+<li><a class="reference external" href="https://www.heliconia.io">Heliconia Solutions Pvt. Ltd.</a><ul>
+<li>Bhavesh Heliconia</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="maintainers">
-<h3><a class="toc-backref" href="#toc-entry-5">Maintainers</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-8">Maintainers</a></h3>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org">
 <img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
@@ -435,6 +493,8 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainers</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/rafaelbn"><img alt="rafaelbn" src="https://github.com/rafaelbn.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/yajo"><img alt="yajo" src="https://github.com/yajo.png?size=40px" /></a></p>
 <p>This module is part of the <a class="reference external" href="https://github.com/OCA/vertical-association/tree/19.0/membership">OCA/vertical-association</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>

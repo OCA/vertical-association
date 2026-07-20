@@ -3,10 +3,7 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
     <record id="membership_0_product_template" model="product.template">
-        <field
-            name="membership_category_id"
-            ref="membership_extension.membership_category_gold"
-        />
+        <field name="membership_category_id" ref="membership_category_gold" />
         <field name="name">Membership Gold</field>
         <field name="membership" eval="True" />
         <field name="type">service</field>
@@ -17,10 +14,7 @@
         />
     </record>
     <record id="membership_1_product_template" model="product.template">
-        <field
-            name="membership_category_id"
-            ref="membership_extension.membership_category_silver"
-        />
+        <field name="membership_category_id" ref="membership_category_silver" />
         <field name="name">Membership Silver</field>
         <field name="membership" eval="True" />
         <field name="type">service</field>
@@ -31,10 +25,7 @@
         />
     </record>
     <record id="membership_2_product_template" model="product.template">
-        <field
-            name="membership_category_id"
-            ref="membership_extension.membership_category_member"
-        />
+        <field name="membership_category_id" ref="membership_category_member" />
         <field name="name">Membership Bronze</field>
         <field name="membership" eval="True" />
         <field name="type">service</field>

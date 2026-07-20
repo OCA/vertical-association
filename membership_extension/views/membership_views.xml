@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <record id="membership.menu_association" model="ir.ui.menu">
-        <field
-            name="group_ids"
-            eval="[Command.link(ref('membership_extension.group_membership_manager'))]"
-        />
-    </record>
-</odoo>

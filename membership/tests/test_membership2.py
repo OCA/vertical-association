@@ -62,10 +62,9 @@ class TestMembership(BaseCommon):
         cls.next_two_months = date_today + timedelta(days=60)
         cls.next_month = date_today + timedelta(days=30)
         cls.yesterday = date_today - timedelta(days=1)
-        cls.category_gold = cls.env.ref("membership_extension.membership_category_gold")
-        cls.category_silver = cls.env.ref(
-            "membership_extension.membership_category_silver"
-        )
+        MembershipCategory = cls.env["membership.membership_category"]
+        cls.category_gold = MembershipCategory.create({"name": "Gold"})
+        cls.category_silver = MembershipCategory.create({"name": "Silver"})
         cls.partner = cls.env["res.partner"].create(
             {
                 "name": "Test partner",
@@ -73,7 +72,7 @@ class TestMembership(BaseCommon):
             }
         )
         cls.child = cls.env["res.partner"].create(
-            {"name": "Test child", "associate_member": cls.partner.id}
+            {"name": "Test child", "associate_member_id": cls.partner.id}
         )
         cls.gold_product = cls.env["product.product"].create(
             {
@@ -444,7 +443,7 @@ class TestMembership(BaseCommon):
         self.child.is_adhered_member = True
         self.child.membership_start_adhered = "2018-01-26"
         self.assertEqual(self.child.membership_start, datetime(2018, 1, 26).date())
-        self.child.associate_member = False
+        self.child.associate_member_id = False
         self.assertFalse(self.child.is_adhered_member)
 
     def test_category_multicompany(self):
