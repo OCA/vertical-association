@@ -2,7 +2,6 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo.http import request, route
-from odoo.tools import frozendict
 
 from odoo.addons.website_membership.controllers.main import WebsiteMembership
 
@@ -18,9 +17,7 @@ class WebsiteMembership(WebsiteMembership):
         """Inject a context for being queried later on the search of the membership
         lines for randomizing the returned order.
         """
-        request.env.context = frozendict(
-            request.env.context, random_membership_line_order=True
-        )
+        request.update_context(random_membership_line_order=True)
         return super().members(
             membership_id=membership_id,
             country_name=country_name,
