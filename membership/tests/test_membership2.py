@@ -1,0 +1,583 @@
+# Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2019 Onestein - Andrea Stirpe
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from datetime import date, datetime, timedelta
+
+from freezegun import freeze_time
+from psycopg2 import IntegrityError
+
+from odoo import fields
+from odoo.exceptions import UserError, ValidationError
+from odoo.tests import Form
+from odoo.tools import mute_logger
+
+from odoo.addons.base.tests.common import BaseCommon
+
+
+@freeze_time("2025-01-01")
+class TestMembership(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        date_today = fields.Date.context_today(cls.env.user)
+        cls.account_bank = cls.env["account.account"].create(
+            {
+                "name": "Test bank account",
+                "code": "BANK",
+                "account_type": "asset_cash",
+                "reconcile": True,
+            }
+        )
+        cls.journal = cls.env["account.journal"].create(
+            {
+                "name": "Test journal",
+                "code": "TEST",
+                "type": "sale",
+                "default_account_id": cls.account_bank.id,
+            }
+        )
+        cls.bank_journal = cls.env["account.journal"].create(
+            {"name": "Test bank journal", "code": "TB", "type": "bank"}
+        )
+        cls.inbound_payment_method_line = (
+            cls.bank_journal.inbound_payment_method_line_ids[0]
+        )
+        cls.account_partner = cls.env["account.account"].create(
+            {
+                "name": "Test partner account",
+                "code": "PARTNER",
+                "account_type": "asset_receivable",
+                "reconcile": True,
+            }
+        )
+        cls.account_product = cls.env["account.account"].create(
+            {
+                "name": "Test product account",
+                "code": "PRODUCT",
+                "account_type": "asset_current",
+            }
+        )
+        cls.next_two_months = date_today + timedelta(days=60)
+        cls.next_month = date_today + timedelta(days=30)
+        cls.yesterday = date_today - timedelta(days=1)
+        MembershipCategory = cls.env["membership.membership_category"]
+        cls.category_gold = MembershipCategory.create({"name": "Gold"})
+        cls.category_silver = MembershipCategory.create({"name": "Silver"})
+        cls.partner = cls.env["res.partner"].create(
+            {
+                "name": "Test partner",
+                "property_account_receivable_id": cls.account_partner.id,
+            }
+        )
+        cls.child = cls.env["res.partner"].create(
+            {"name": "Test child", "associate_member_id": cls.partner.id}
+        )
+        cls.gold_product = cls.env["product.product"].create(
+            {
+                "type": "service",
+                "name": "Membership Gold",
+                "membership": True,
+                "membership_date_from": fields.Date.context_today(cls.env.user),
+                "membership_date_to": cls.next_month,
+                "membership_category_id": cls.category_gold.id,
+                "list_price": 100.00,
+            }
+        )
+        cls.silver_product = cls.env["product.product"].create(
+            {
+                "type": "service",
+                "name": "Membership Silver",
+                "membership": True,
+                "membership_date_from": fields.Date.context_today(cls.env.user),
+                "membership_date_to": cls.next_two_months,
+                "membership_category_id": cls.category_silver.id,
+                "list_price": 50.00,
+            }
+        )
+        cls.current_year = date_today.year
+
+    def test_compute_membership(self):
+        line = self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.gold_product.id,
+                "member_price": 100.00,
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
+                "date_to": self.next_month,
+                "partner_id": self.partner.id,
+                "state": "waiting",
+            }
+        )
+        self.assertEqual("waiting", self.partner.membership_state)
+        self.assertFalse(self.partner.membership_start)
+        self.assertFalse(self.partner.membership_last_start)
+        self.assertFalse(self.partner.membership_stop)
+        self.assertFalse(self.partner.membership_cancel)
+        self.assertEqual("waiting", self.child.membership_state)
+        self.assertFalse(self.child.membership_start)
+        self.assertFalse(self.child.membership_last_start)
+        self.assertFalse(self.child.membership_stop)
+        self.assertFalse(self.child.membership_cancel)
+        line.write({"state": "invoiced"})
+        self.assertEqual("invoiced", self.partner.membership_state)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_last_start
+        )
+        self.assertEqual(self.next_month, self.partner.membership_stop)
+        self.assertFalse(self.partner.membership_cancel)
+        self.assertEqual("invoiced", self.child.membership_state)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_last_start
+        )
+        self.assertEqual(self.next_month, self.child.membership_stop)
+        self.assertFalse(self.child.membership_cancel)
+        line.write({"date_cancel": fields.Date.context_today(self.env.user)})
+        self.assertEqual("invoiced", self.partner.membership_state)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_last_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_stop
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
+        self.assertEqual("invoiced", self.child.membership_state)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_last_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_stop
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
+        line.write({"state": "canceled"})
+        self.assertEqual("canceled", self.partner.membership_state)
+        self.assertFalse(self.partner.membership_start)
+        self.assertFalse(self.partner.membership_last_start)
+        self.assertFalse(self.partner.membership_stop)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
+        self.assertEqual("canceled", self.child.membership_state)
+        self.assertFalse(self.child.membership_start)
+        self.assertFalse(self.child.membership_last_start)
+        self.assertFalse(self.child.membership_stop)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
+        other_line = self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.silver_product.id,
+                "member_price": 100.00,
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
+                "date_to": self.next_two_months,
+                "partner_id": self.partner.id,
+                "state": "waiting",
+            }
+        )
+        self.assertEqual("waiting", self.partner.membership_state)
+        self.assertFalse(self.partner.membership_start)
+        self.assertFalse(self.partner.membership_last_start)
+        self.assertFalse(self.partner.membership_stop)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
+        self.assertEqual("waiting", self.child.membership_state)
+        self.assertFalse(self.child.membership_start)
+        self.assertFalse(self.child.membership_last_start)
+        self.assertFalse(self.child.membership_stop)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
+        other_line.write({"state": "paid"})
+        self.assertEqual("paid", self.partner.membership_state)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_last_start
+        )
+        self.assertEqual(self.next_two_months, self.partner.membership_stop)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.partner.membership_cancel
+        )
+        self.assertEqual("paid", self.child.membership_state)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_start
+        )
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_last_start
+        )
+        self.assertEqual(self.next_two_months, self.child.membership_stop)
+        self.assertEqual(
+            fields.Date.context_today(self.env.user), self.child.membership_cancel
+        )
+        self.partner.free_member = True
+        self.assertEqual("free", self.child.membership_state)
+
+    def test_category(self):
+        line_one = self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.gold_product.id,
+                "member_price": 100.00,
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
+                "date_to": self.next_month,
+                "partner_id": self.partner.id,
+                "state": "invoiced",
+            }
+        )
+        self.assertEqual(self.category_gold, self.partner.membership_category_ids)
+        self.assertEqual(self.category_gold, self.child.membership_category_ids)
+        line_two = self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.silver_product.id,
+                "member_price": 50.00,
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
+                "date_to": self.next_two_months,
+                "partner_id": self.partner.id,
+                "state": "paid",
+            }
+        )
+        self.assertEqual(
+            self.category_gold + self.category_silver,
+            self.partner.membership_category_ids,
+        )
+        self.assertEqual(
+            self.category_gold + self.category_silver,
+            self.child.membership_category_ids,
+        )
+        line_one.write({"state": "canceled"})
+        self.assertEqual(self.category_silver, self.partner.membership_category_ids)
+        self.assertEqual(self.category_silver, self.child.membership_category_ids)
+        line_two.write({"state": "waiting"})
+        self.assertFalse(self.partner.membership_category_ids.ids)
+        self.assertFalse(self.child.membership_category_ids.ids)
+
+    def test_remove_membership_line_with_invoice(self):
+        invoice_form = Form(
+            self.env["account.move"].with_context(default_move_type="out_invoice")
+        )
+        invoice_form.invoice_date = fields.Date.context_today(self.env.user)
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as invoice_line_form:
+            invoice_line_form.name = self.gold_product.name
+            invoice_line_form.product_id = self.gold_product
+            invoice_line_form.price_unit = 100.0
+        invoice = invoice_form.save()
+
+        with self.assertRaises(UserError):
+            self.partner.member_line_ids[0].unlink()
+        invoice.invoice_line_ids.with_context(check_move_validity=False).unlink()
+        self.assertFalse(self.partner.member_line_ids)
+
+    def test_membership_line_onchange(self):
+        line = self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.gold_product.id,
+                "member_price": 100.00,
+                "date": fields.Date.context_today(self.env.user),
+                "partner_id": self.partner.id,
+                "state": "invoiced",
+            }
+        )
+        line._onchange_membership_date()
+        self.assertEqual(100.00, line.member_price)
+        self.assertEqual(fields.Date.context_today(self.env.user), line.date_from)
+        self.assertEqual(self.next_month, line.date_to)
+        line.write({"membership_id": self.silver_product.id})
+        line._onchange_membership_date()
+        self.assertEqual(50, line.member_price)
+        self.assertEqual(fields.Date.context_today(self.env.user), line.date_from)
+        self.assertEqual(self.next_two_months, line.date_to)
+
+    def test_invoice(self):
+        invoice_form = Form(
+            self.env["account.move"].with_context(default_move_type="out_invoice")
+        )
+        invoice_form.invoice_date = fields.Date.context_today(self.env.user)
+        invoice_form.partner_id = self.partner
+        with invoice_form.invoice_line_ids.new() as invoice_line_form:
+            invoice_line_form.name = self.gold_product.name
+            invoice_line_form.product_id = self.gold_product
+            invoice_line_form.price_unit = 100.0
+            invoice_line_form.quantity = 1.0
+        invoice = invoice_form.save()
+
+        line = self.partner.member_line_ids[0]
+        self.assertEqual("waiting", line.state)
+        self.assertEqual(fields.Date.context_today(self.env.user), line.date_from)
+        self.assertEqual(self.next_month, line.date_to)
+        invoice.action_post()  # validate invoice
+        self.assertEqual(invoice.state, "posted")
+        self.assertEqual(line.state, "invoiced")
+
+        # pay invoice
+        self.env["account.payment.register"].with_context(
+            active_model="account.move", active_ids=invoice.ids
+        ).create(
+            {
+                "amount": invoice.amount_total,
+                "journal_id": self.bank_journal.id,
+            }
+        )._create_payments()
+
+        self.assertEqual("paid", invoice.payment_state)
+        self.assertEqual("paid", line.state)
+        self.env["account.payment"].search(
+            [("partner_id", "=", self.partner.id)]
+        ).action_cancel()
+        invoice.button_cancel()
+        self.assertEqual("canceled", line.state)
+        invoice.button_draft()
+        self.assertEqual("waiting", line.state)
+        invoice.state = "draft"  # HACK: Odoo resets this to open
+        invoice.action_post()  # validate invoice
+        self.assertEqual("invoiced", line.state)
+
+        # pay invoice
+        self.env["account.payment.register"].with_context(
+            active_model="account.move", active_ids=invoice.ids
+        ).create(
+            {
+                "amount": invoice.amount_total,
+                "journal_id": self.bank_journal.id,
+            }
+        )._create_payments()
+        self.assertEqual("paid", line.state)
+
+        # refund invoice
+        move_reversal = (
+            self.env["account.move.reversal"]
+            .with_context(active_model="account.move", active_ids=invoice.ids)
+            .create(
+                {
+                    "date": fields.Date.context_today(self.env.user),
+                    "reason": "no reason",
+                    "journal_id": invoice.journal_id.id,
+                }
+            )
+        )
+        reversal = move_reversal.reverse_moves(is_modify=True)
+        refund = self.env["account.move"].browse(reversal["res_id"])
+        self.assertEqual("canceled", line.state)
+        reversal = move_reversal.reverse_moves(is_modify=False)
+        refund = self.env["account.move"].browse(reversal["res_id"])
+        refund.button_cancel()
+        self.assertEqual("paid", line.state)
+        invoice.button_draft()
+        invoice.action_post()  # validate invoice
+        self.assertEqual("invoiced", line.state)
+
+        invoice.button_draft()
+        invoice_form = Form(invoice)
+        with invoice_form.invoice_line_ids.edit(0) as invoice_line_form:
+            invoice_line_form.quantity = 0.5
+        invoice = invoice_form.save()
+        self.assertNotEqual(invoice.amount_untaxed, refund.amount_untaxed)
+        invoice.action_post()
+        self.assertEqual("invoiced", line.state)
+
+    def test_check_membership_expiry(self):
+        self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.gold_product.id,
+                "member_price": 100.00,
+                "date": self.yesterday,
+                "date_from": self.yesterday,
+                "date_to": self.yesterday,
+                "partner_id": self.partner.id,
+                "state": "waiting",
+            }
+        )
+        self.env["res.partner"]._cron_update_membership()
+        self.assertEqual(self.partner.membership_state, "none")
+
+    @mute_logger("odoo.sql_db")
+    def test_unlink(self):
+        self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.gold_product.id,
+                "member_price": 0,
+                "partner_id": self.partner.id,
+            }
+        )
+        # We can't delete a partner with member lines
+        with self.assertRaises(IntegrityError), self.cr.savepoint():
+            self.partner.unlink()
+        # Create a brand new partner and delete it
+        partner2 = self.env["res.partner"].create({"name": "no member"})
+        partner2.unlink()
+        self.assertFalse(partner2.exists())
+
+    def test_adhered_member(self):
+        self.env["membership.membership_line"].create(
+            {
+                "membership_id": self.gold_product.id,
+                "member_price": 100.00,
+                "date": fields.Date.context_today(self.env.user),
+                "date_from": fields.Date.context_today(self.env.user),
+                "date_to": self.next_month,
+                "partner_id": self.partner.id,
+                "state": "waiting",
+            }
+        )
+        self.child.is_adhered_member = True
+        self.child.membership_start_adhered = "2018-01-26"
+        self.assertEqual(self.child.membership_start, datetime(2018, 1, 26).date())
+        self.child.associate_member_id = False
+        self.assertFalse(self.child.is_adhered_member)
+
+    def test_category_multicompany(self):
+        company_a = self.env["res.company"].create({"name": "Test company A"})
+        company_b = self.env["res.company"].create({"name": "Test company B"})
+
+        # set all the product templates for Gold Membership to Company B
+        templates = self.env["product.template"].search(
+            [("membership_category_id", "in", self.category_gold.ids)]
+        )
+        for template in templates:
+            template.company_id = company_b
+
+        # Gold Membership Category cannot be assigned to Company A
+        for template in templates:
+            template.membership_category_id = self.category_gold
+            self.assertNotEqual(template.membership_category_id.company_id, company_a)
+        with self.assertRaises(ValidationError):
+            self.category_gold.company_id = company_a
+
+        # force Gold Membership Category assignment to Company A
+        self.category_gold.with_context(
+            bypass_company_validation=True
+        ).company_id = company_a
+
+        # Company can be removed from any Membership Category
+        self.category_gold.company_id = False
+
+        # set all the product templates for Gold Membership to Company A
+        templates = self.env["product.template"].search(
+            [("membership_category_id", "in", self.category_gold.ids)]
+        )
+        for template in templates:
+            self.assertTrue(template.membership_category_id)
+            template.company_id = company_a
+
+        # Gold Membership Category can now be assigned to Company A
+        self.category_gold.company_id = company_a
+
+        # test onchange
+        for template in templates:
+            self.assertTrue(template.membership_category_id)
+            template.company_id = company_b
+            self.assertFalse(template.membership_category_id)
+
+    def test_no_dates(self):
+        with self.assertRaises(ValidationError):
+            self.env["product.template"].create(
+                {
+                    "name": "Test Membership",
+                    "membership": True,
+                    "type": "service",
+                }
+            )
+        with self.assertRaises(ValidationError):
+            self.env["product.template"].create(
+                {
+                    "name": "Test Membership",
+                    "membership": True,
+                    "type": "service",
+                    "membership_date_from": "1970-01-01",
+                }
+            )
+        with self.assertRaises(ValidationError):
+            self.env["product.template"].create(
+                {
+                    "name": "Test Membership",
+                    "membership": True,
+                    "type": "service",
+                    "membership_date_to": "1970-01-01",
+                }
+            )
+        # No error
+        self.env["product.template"].create(
+            {
+                "name": "Test Membership",
+                "membership": True,
+                "type": "service",
+                "membership_date_from": "1970-01-01",
+                "membership_date_to": "1970-01-02",
+            }
+        )
+
+    def test_restore_after_cancel(self):
+        """Membership is cancelled and, later, restarted."""
+        self.partner.write(
+            {
+                "member_line_ids": [
+                    # Was member in 2022 but cancelled
+                    fields.Command.create(
+                        {
+                            "membership_id": self.gold_product.id,
+                            "member_price": 100.00,
+                            "date": "2022-01-01",
+                            "date_from": "2022-01-01",
+                            "date_to": "2022-12-31",
+                            "date_cancel": "2022-06-01",
+                            "state": "free",
+                        }
+                    ),
+                    # Started again being member in 2024
+                    fields.Command.create(
+                        {
+                            "membership_id": self.gold_product.id,
+                            "member_price": 100.00,
+                            "date": "2024-01-01",
+                            "date_from": "2024-01-01",
+                            "date_to": "2024-12-31",
+                            "state": "free",
+                        }
+                    ),
+                    # In 2025 is still member
+                    fields.Command.create(
+                        {
+                            "membership_id": self.gold_product.id,
+                            "member_price": 100.00,
+                            "date": "2025-01-01",
+                            "date_from": "2025-01-01",
+                            "date_to": "2025-12-31",
+                            "state": "free",
+                        }
+                    ),
+                ]
+            }
+        )
+        self.assertRecordValues(
+            self.partner,
+            [
+                {
+                    "membership_start": date(2022, 1, 1),
+                    "membership_last_start": date(2024, 1, 1),
+                    "membership_stop": date(2025, 12, 31),
+                    "membership_cancel": False,
+                    "membership_state": "free",
+                }
+            ],
+        )
