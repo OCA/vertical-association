@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_delegated_partner
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-02 01:54+0000\n"
+"PO-Revision-Date: 2017-12-02 01:54+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Bulgarian (https://www.transifex.com/oca/teams/23907/bg/)\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: membership_delegated_partner
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_bank_statement_line__delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move__delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_payment__delegated_member_id
+msgid "Delegated Member"
+msgstr ""
+
+#. module: membership_delegated_partner
+#: model:res.groups,name:membership_delegated_partner.group_delegated_member
+msgid "Delegated partner in membership"
+msgstr ""
+
+#. module: membership_delegated_partner
+#: model:ir.model,name:membership_delegated_partner.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: membership_delegated_partner
+#: model:ir.model,name:membership_delegated_partner.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: membership_delegated_partner
+#: model:ir.model,name:membership_delegated_partner.model_membership_membership_line
+msgid "Membership Line"
+msgstr ""
+
+#. module: membership_delegated_partner
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_membership_membership_line__partner
+msgid "Partner"
+msgstr ""
