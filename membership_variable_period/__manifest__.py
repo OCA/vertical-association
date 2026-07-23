@@ -4,12 +4,12 @@
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Variable period for memberships",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "category": "Association",
     "author": "Tecnativa, Onestein, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/vertical-association",
-    "depends": ["membership_extension"],
+    "depends": ["membership"],
     "data": ["views/product_template_views.xml"],
     "installable": True,
 }

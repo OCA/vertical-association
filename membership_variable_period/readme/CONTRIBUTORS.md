@@ -3,6 +3,7 @@
   - Antonio Espinosa
   - Rafael Blasco
   - David Vidal
+  - Carlos Lopez
 - [Onestein](https://onestein.eu):
   - Andrea Stirpe
 - [Sygel](https://www.sygel.es):
