@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [membership](membership/) | 19.0.1.1.0 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/yajo'><img src='https://github.com/yajo.png' width='32' height='32' style='border-radius:50%;' alt='yajo'/></a> | Members
+[membership_delegated_partner](membership_delegated_partner/) | 19.0.1.0.0 |  | Delegate membership on a specific partner
 
 [//]: # (end addons)
 
