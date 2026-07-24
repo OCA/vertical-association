@@ -1,10 +1,11 @@
 [project]
 name = "odoo-addons-oca-vertical-association"
-version = "19.0.20260723.1"
+version = "19.0.20260724.0"
 dependencies = [
     "odoo-addon-contract_membership_delegated_partner==19.0.*",
     "odoo-addon-membership==19.0.*",
     "odoo-addon-membership_delegated_partner==19.0.*",
+    "odoo-addon-membership_variable_period==19.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
