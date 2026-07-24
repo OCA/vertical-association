@@ -1,0 +1,13 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - Antonio Espinosa
+  - Rafael Blasco
+  - David Vidal
+  - Carlos Lopez
+- [Onestein](https://onestein.eu):
+  - Andrea Stirpe
+- [Sygel](https://www.sygel.es):
+  - Valentín Vinagre
+  - Roger Sans
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
