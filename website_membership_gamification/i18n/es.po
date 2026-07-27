@@ -38,17 +38,6 @@ msgid "Badges (recursive)"
 msgstr ""
 
 #. module: website_membership_gamification
-#. odoo-python
-#: code:addons/website_membership_gamification/models/res_partner.py:0
-#, python-format
-msgid ""
-"Both hr_gamification and website_membership_gamification modules are "
-"installed. You need to install user_hr_gamification in order to use both."
-msgstr ""
-"Se instalan los módulos hr_gamification y website_membership_gamification. "
-"Necesitas instalar user_hr_gamification para poder usar ambos."
-
-#. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
 msgid "Cancel"
 msgstr "Cancelar"
@@ -92,7 +81,6 @@ msgstr "Publicado en el directorio de miembros"
 #. module: website_membership_gamification
 #. odoo-python
 #: code:addons/website_membership_gamification/models/res_partner.py:0
-#, python-format
 msgid "Reward"
 msgstr "Recompensa"
 
@@ -104,7 +92,6 @@ msgstr "Recompensa con"
 #. module: website_membership_gamification
 #. odoo-python
 #: code:addons/website_membership_gamification/models/res_partner.py:0
-#, python-format
 msgid "The partner has no related users."
 msgstr "El socio no tiene usuarios relacionados."
 
@@ -112,3 +99,12 @@ msgstr "El socio no tiene usuarios relacionados."
 #: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_expiration_date
 msgid "Website Expiration Date"
 msgstr "Fecha de Caducidad del Sitio Web"
+
+#, python-format
+#~ msgid ""
+#~ "Both hr_gamification and website_membership_gamification modules are "
+#~ "installed. You need to install user_hr_gamification in order to use both."
+#~ msgstr ""
+#~ "Se instalan los módulos hr_gamification y "
+#~ "website_membership_gamification. Necesitas instalar user_hr_gamification "
+#~ "para poder usar ambos."

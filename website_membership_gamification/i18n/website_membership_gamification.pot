@@ -35,14 +35,6 @@ msgid "Badges (recursive)"
 msgstr ""
 
 #. module: website_membership_gamification
-#. odoo-python
-#: code:addons/website_membership_gamification/models/res_partner.py:0
-msgid ""
-"Both hr_gamification and website_membership_gamification modules are "
-"installed. You need to install user_hr_gamification in order to use both."
-msgstr ""
-
-#. module: website_membership_gamification
 #: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
 msgid "Cancel"
 msgstr ""

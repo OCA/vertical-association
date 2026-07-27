@@ -32,20 +32,6 @@ class ResPartner(models.Model):
             sel.has_related_users = any(a.active for a in sel.user_ids)
 
     def action_grant_badge_wizard(self):
-        user_hr_gamification_module = self.env["ir.module.module"].search(
-            [("name", "=", "user_hr_gamification")]
-        )
-        if (
-            not user_hr_gamification_module
-            or user_hr_gamification_module.state != "installed"
-        ) and "employee_id" in self.env["gamification.badge.user.wizard"]._fields:
-            raise ValidationError(
-                self.env._(
-                    "Both hr_gamification and website_membership_gamification "
-                    "modules are installed. You need to install "
-                    "user_hr_gamification in order to use both."
-                )
-            )
         if not self.has_related_users:
             raise ValidationError(self.env._("The partner has no related users."))
         user_id = self.user_ids.filtered(lambda a: a.active)[0]
