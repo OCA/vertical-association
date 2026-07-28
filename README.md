@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [membership_delegated_partner](membership_delegated_partner/) | 19.0.1.0.0 |  | Delegate membership on a specific partner
 [membership_variable_period](membership_variable_period/) | 19.0.1.0.0 |  | Variable period for memberships
 [website_membership](website_membership/) | 19.0.1.0.0 |  | Publish your members directory
+[website_membership_random_order](website_membership_random_order/) | 19.0.1.0.0 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Online Members Directory - Random order
 
 [//]: # (end addons)
 
