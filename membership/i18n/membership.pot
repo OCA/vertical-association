@@ -164,6 +164,11 @@ msgid "Contact"
 msgstr ""
 
 #. module: membership
+#: model:ir.model,website_form_label:membership.model_res_partner
+msgid "Create a Customer"
+msgstr ""
+
+#. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__create_uid
 #: model:ir.model.fields,field_description:membership.field_membership_membership_category__create_uid
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__create_uid
