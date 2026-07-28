@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="website_membership.membershipOption">
+        <BuilderRow label.translate="Location" level="1">
+            <BuilderCheckbox
+                action="'websiteConfig'"
+                actionParam="{views: ['website_membership.opt_index_country']}"
+            />
+        </BuilderRow>
+        <BuilderRow label.translate="World Map" level="1">
+            <BuilderCheckbox
+                action="'websiteConfig'"
+                actionParam="{views: ['website_membership.opt_index_google_map']}"
+            />
+        </BuilderRow>
+    </t>
+
+</templates>
