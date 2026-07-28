@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="index" inherit_id="website_membership.index">
+        <xpath expr="//t[@t-if='not memberships_partner_ids']" position="after">
+            <t t-else="">
+                <div class="oe_unmovable s_alert s_alert_md alert alert-info w-100 row">
+                    <i
+                        class="fa fa-2x fa-info-circle fa-stack o_not_editable s_alert_icon rounded-1 col-auto"
+                    />
+                    <div class="s_alert_content col d-flex align-items-center">
+                        <p
+                            class="mb-0"
+                        >This order of appearance is random and changes each time you refresh.</p>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
