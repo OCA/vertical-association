@@ -56,6 +56,11 @@ class WebsiteMembership(http.Controller):
                 ("partner_id.name", "ilike", post_name),
                 ("partner_id.website_description", "ilike", post_name),
             ]
+        # Only include membership products visible to the current user
+        memberships = Product.search(
+            [("membership", "=", True)], order="website_sequence"
+        )
+        base_line_domain.append(("membership_id", "in", memberships.ids))
         # group by country, based on all customers (base domain)
         if membership_id != "free":
             membership_lines = MembershipLine.sudo().search(base_line_domain)
@@ -109,12 +114,6 @@ class WebsiteMembership(http.Controller):
                 "country_id": (0, request.env._("All Countries")),
             },
         )
-        # format domain for group_by and memberships
-        memberships = Product.search(
-            [("membership", "=", True)], order="website_sequence"
-        )
-        # make sure we don't access to lines with unpublished membershipts
-        line_domain.append(("membership_id", "in", memberships.ids))
         limit = self._references_per_page
         offset = limit * (page - 1)
         count_members = 0
