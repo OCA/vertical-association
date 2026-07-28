@@ -39,14 +39,16 @@ msgstr "# ທີ່ລໍຖ້າ"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_kanban
-msgid "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Period\" title=\"Period\"/><strong> From: </strong>"
-msgstr ""
+msgid ""
 "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Period\" "
-"title=\"Period\"/><strong> ຈາກ: </strong>"
+"title=\"Period\"/>\n"
+"                            <strong> From: </strong>"
+msgstr ""
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_kanban
-msgid "<i class=\"fa fa-money\" role=\"img\" aria-label=\"Price\" title=\"Price\"/>"
+msgid ""
+"<i class=\"fa fa-money\" role=\"img\" aria-label=\"Price\" title=\"Price\"/>"
 msgstr ""
 "<i class=\"fa fa-money\" role=\"img\" aria-label=\"Price\" title=\"Price\"/>"
 
@@ -56,15 +58,31 @@ msgid "<strong> To:</strong>"
 msgstr "<strong> ເຖິງ:</strong>"
 
 #. module: membership
-#: model:ir.model.fields,help:membership.field_res_partner__associate_member
-#: model:ir.model.fields,help:membership.field_res_users__associate_member
-msgid "A member with whom you want to associate your membership.It will consider the membership state of the associated member."
+#: model:ir.model.fields,help:membership.field_res_partner__is_adhered_member
+#: model:ir.model.fields,help:membership.field_res_users__is_adhered_member
+msgid ""
+"A member who is associated to another one, but whose membership are "
+"independent."
 msgstr ""
-"ສະມາຊິກທີ່ທ່ານຕ້ອງການເຊື່ອມໂຍງການເປັນສະມາຊິກຂອງທ່ານນຳ. ມັນຈະພິຈາລະນາຈາກສະຖານະສະມາຊິກຂອງສະມ"
-"າຊິກທີ່ກ່ຽວຂ້ອງ."
 
 #. module: membership
-#: model:ir.model.fields,field_description:membership.field_membership_membership_line__account_invoice_line
+#: model:ir.model.fields,help:membership.field_res_partner__associate_member_id
+#: model:ir.model.fields,help:membership.field_res_users__associate_member_id
+msgid ""
+"A member with whom you want to associate your membership.It will consider "
+"the membership state of the associated member."
+msgstr ""
+"ສະມາຊິກທີ່ທ່ານຕ້ອງການເຊື່ອມໂຍງການເປັນສະມາຊິກຂອງທ່ານນຳ. "
+"ມັນຈະພິຈາລະນາຈາກສະຖານະສະມາຊິກຂອງສະມາຊິກທີ່ກ່ຽວຂ້ອງ."
+
+#. module: membership
+#. odoo-python
+#: code:addons/membership/models/product_template.py:0
+msgid "A membership product must have a start date and an end date."
+msgstr ""
+
+#. module: membership
+#: model:ir.model.fields,field_description:membership.field_membership_membership_line__account_invoice_line_id
 msgid "Account Invoice line"
 msgstr "ລາຍການໃບແຈ້ງໜີ້ບັນຊີ"
 
@@ -85,8 +103,8 @@ msgstr "ຈຳນວນເງິນສຳລັບການເປັນສະມ
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__associate_member_id
-#: model:ir.model.fields,field_description:membership.field_res_partner__associate_member
-#: model:ir.model.fields,field_description:membership.field_res_users__associate_member
+#: model:ir.model.fields,field_description:membership.field_res_partner__associate_member_id
+#: model:ir.model.fields,field_description:membership.field_res_users__associate_member_id
 #: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Associate Member"
 msgstr "ສະມາຊິກສົມທົບ"
@@ -100,6 +118,14 @@ msgstr "ຄູ່ຄ້າທີ່ກ່ຽວຂ້ອງ"
 #: model_terms:ir.ui.view,arch_db:membership.view_partner_form
 msgid "Buy Membership"
 msgstr "ຊື້ການເປັນສະມາຊິກ"
+
+#. module: membership
+#. odoo-python
+#: code:addons/membership/models/membership_line.py:0
+msgid ""
+"Can not remove membership line related to an invoice. Please, cancel invoice "
+"or remove invoice line instead"
+msgstr ""
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_membership_invoice_view
@@ -119,8 +145,6 @@ msgstr "ວັນທີຍົກເລີກ"
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__canceled
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__canceled
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__canceled
 msgid "Cancelled Member"
 msgstr "ສະມາຊິກທີ່ຍົກເລີກແລ້ວ"
 
@@ -136,6 +160,7 @@ msgid "Check if the product is eligible for membership."
 msgstr "ກວດສອບວ່າສິນຄ້ານີ້ສາມາດໃຊ້ສຳລັບການເປັນສະມາຊິກໄດ້ຫຼືບໍ່."
 
 #. module: membership
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__company_id
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__company_id
 #: model:ir.model.fields,field_description:membership.field_report_membership__company_id
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
@@ -153,13 +178,20 @@ msgid "Contact"
 msgstr "ຜູ້ຕິດຕໍ່"
 
 #. module: membership
+#: model:ir.model,website_form_label:membership.model_res_partner
+msgid "Create a Customer"
+msgstr ""
+
+#. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__create_uid
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__create_uid
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__create_uid
 msgid "Created by"
 msgstr "ສ້າງໂດຍ"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__create_date
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__create_date
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__create_date
 msgid "Created on"
 msgstr "ສ້າງເມື່ອ"
@@ -184,10 +216,14 @@ msgstr "ລູກຄ້າ"
 #. module: membership
 #: model:ir.model.fields,help:membership.field_product_product__membership_date_from
 #: model:ir.model.fields,help:membership.field_product_template__membership_date_from
-#: model:ir.model.fields,help:membership.field_res_partner__membership_start
-#: model:ir.model.fields,help:membership.field_res_users__membership_start
 msgid "Date from which membership becomes active."
 msgstr "ວັນທີທີ່ການເປັນສະມາຊິກເລີ່ມມີຜົນ."
+
+#. module: membership
+#: model:ir.model.fields,help:membership.field_res_partner__membership_start_adhered
+#: model:ir.model.fields,help:membership.field_res_users__membership_start_adhered
+msgid "Date from which partner is adhered."
+msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_membership_membership_line__date
@@ -197,23 +233,45 @@ msgstr "ວັນທີທີ່ສະມາຊິກໄດ້ເຂົ້າຮ
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership.field_res_users__membership_cancel
-msgid "Date on which membership has been cancelled"
-msgstr "ວັນທີທີ່ການເປັນສະມາຊິກຖືກຍົກເລີກ"
+msgid "Date on which membership has been cancelled."
+msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_product_product__membership_date_to
 #: model:ir.model.fields,help:membership.field_product_template__membership_date_to
-#: model:ir.model.fields,help:membership.field_res_partner__membership_stop
-#: model:ir.model.fields,help:membership.field_res_users__membership_stop
 msgid "Date until which membership remains active."
 msgstr "ວັນທີທີ່ການເປັນສະມາຊິກຍັງຄົງມີຜົນ."
 
 #. module: membership
+#: model:ir.model.fields,help:membership.field_res_partner__membership_stop
+#: model:ir.model.fields,help:membership.field_res_users__membership_stop
+msgid "Date when the latest partner's membership ends."
+msgstr ""
+
+#. module: membership
+#: model:ir.model.fields,help:membership.field_res_partner__membership_last_start
+#: model:ir.model.fields,help:membership.field_res_users__membership_last_start
+msgid "Date when the partner became a member for the last time."
+msgstr ""
+
+#. module: membership
+#: model:ir.model.fields,field_description:membership.field_account_move__display_name
+#: model:ir.model.fields,field_description:membership.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__display_name
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__display_name
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__display_name
+#: model:ir.model.fields,field_description:membership.field_product_product__display_name
+#: model:ir.model.fields,field_description:membership.field_product_template__display_name
 #: model:ir.model.fields,field_description:membership.field_report_membership__display_name
+#: model:ir.model.fields,field_description:membership.field_res_partner__display_name
 msgid "Display Name"
 msgstr "ຊື່ທີ່ສະແດງ"
+
+#. module: membership
+#: model:ir.model.fields,help:membership.field_res_partner__membership_start
+#: model:ir.model.fields,help:membership.field_res_users__membership_start
+msgid "Earliest historical date this partner ever became a member."
+msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__tot_earned
@@ -237,6 +295,11 @@ msgid "Ending Date Of Membership"
 msgstr "ວັນທີສິ້ນສຸດຂອງການເປັນສະມາຊິກ"
 
 #. module: membership
+#: model:ir.model.constraint,message:membership.constraint_membership_membership_line_start_date_greater
+msgid "Error ! Ending Date cannot be set before Beginning Date."
+msgstr ""
+
+#. module: membership
 #: model:ir.model.constraint,message:membership.constraint_product_template_membership_date_greater
 msgid "Error! Ending Date cannot be set before Beginning Date."
 msgstr "ຜິດພາດ! ວັນທີສິ້ນສຸດບໍ່ສາມາດກຳນົດກ່ອນວັນທີເລີ່ມຕົ້ນໄດ້."
@@ -250,8 +313,6 @@ msgstr "ຄາດຄະເນ"
 #: model:ir.model.fields,field_description:membership.field_res_partner__free_member
 #: model:ir.model.fields,field_description:membership.field_res_users__free_member
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__free
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__free
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__free
 msgid "Free Member"
 msgstr "ສະມາຊິກຟຣີ"
 
@@ -261,20 +322,20 @@ msgid "From"
 msgstr "ຈາກ"
 
 #. module: membership
-#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
-#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
-msgid "Group By"
-msgstr "ຈັດກຸ່ມໂດຍ"
+#: model:ir.module.category,description:membership.module_category_membership_management
+msgid "Helps you manage operations for managing memberships."
+msgstr ""
 
 #. module: membership
-#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
-msgid "Group by..."
-msgstr "ຈັດກຸ່ມໂດຍ..."
-
-#. module: membership
+#: model:ir.model.fields,field_description:membership.field_account_move__id
+#: model:ir.model.fields,field_description:membership.field_account_move_line__id
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__id
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__id
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__id
+#: model:ir.model.fields,field_description:membership.field_product_product__id
+#: model:ir.model.fields,field_description:membership.field_product_template__id
 #: model:ir.model.fields,field_description:membership.field_report_membership__id
+#: model:ir.model.fields,field_description:membership.field_res_partner__id
 msgid "ID"
 msgstr "ໄອດີ"
 
@@ -295,8 +356,6 @@ msgstr "ອອກໃບແຈ້ງໜີ້ການເປັນສະມາຊ
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__invoiced
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__invoiced
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__invoiced
 msgid "Invoiced Member"
 msgstr "ສະມາຊິກທີ່ອອກໃບແຈ້ງໜີ້ແລ້ວ"
 
@@ -306,6 +365,12 @@ msgid "Invoiced/Paid/Free"
 msgstr "ອອກໃບແຈ້ງໜີ້/ຊຳລະແລ້ວ/ຟຣີ"
 
 #. module: membership
+#: model:ir.model.fields,field_description:membership.field_res_partner__is_adhered_member
+#: model:ir.model.fields,field_description:membership.field_res_users__is_adhered_member
+msgid "Is Adhered Member"
+msgstr ""
+
+#. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_state
 #: model:ir.model.fields,help:membership.field_res_users__membership_state
 msgid ""
@@ -313,7 +378,8 @@ msgid ""
 "-Non Member: A partner who has not applied for any membership.\n"
 "-Cancelled Member: A member who has cancelled his membership.\n"
 "-Old Member: A member whose membership date has expired.\n"
-"-Waiting Member: A member who has applied for the membership and whose invoice is going to be created.\n"
+"-Waiting Member: A member who has applied for the membership and whose "
+"invoice is going to be created.\n"
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paying member: A member who has paid the membership fee."
 msgstr ""
@@ -332,7 +398,8 @@ msgid ""
 "-Non Member: A member who has not applied for any membership.\n"
 "-Cancelled Member: A member who has cancelled his membership.\n"
 "-Old Member: A member whose membership date has expired.\n"
-"-Waiting Member: A member who has applied for the membership and whose invoice is going to be created.\n"
+"-Waiting Member: A member who has applied for the membership and whose "
+"invoice is going to be created.\n"
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paid Member: A member who has paid the membership amount."
 msgstr ""
@@ -365,19 +432,32 @@ msgid "Journal Item"
 msgstr "ລາຍການບັນຊີ"
 
 #. module: membership
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+msgid "Last Start Month"
+msgstr ""
+
+#. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__write_uid
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__write_uid
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__write_uid
 msgid "Last Updated by"
 msgstr "ອັບເດດລ່າສຸດໂດຍ"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__write_date
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__write_date
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__write_date
 msgid "Last Updated on"
 msgstr "ອັບເດດລ່າສຸດເມື່ອ"
 
 #. module: membership
+#: model:res.groups,name:membership.group_membership_manager
+msgid "Manager"
+msgstr ""
+
+#. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__partner_id
+#: model:membership.membership_category,name:membership.membership_category_member
 msgid "Member"
 msgstr "ສະມາຊິກ"
 
@@ -390,7 +470,6 @@ msgstr "ລາຄາສະມາຊິກ"
 #: model:ir.actions.act_window,name:membership.action_membership_members
 #: model:ir.ui.menu,name:membership.menu_association
 #: model:ir.ui.menu,name:membership.menu_membership
-#: model_terms:ir.ui.view,arch_db:membership.membership_members_tree
 #: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Members"
 msgstr "ສະມາຊິກ"
@@ -405,8 +484,10 @@ msgstr "ການວິເຄາະສະມາຊິກ"
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__membership_id
 #: model:ir.model.fields,field_description:membership.field_product_product__membership
 #: model:ir.model.fields,field_description:membership.field_product_template__membership
-#: model:ir.model.fields,field_description:membership.field_res_partner__member_lines
-#: model:ir.model.fields,field_description:membership.field_res_users__member_lines
+#: model:ir.model.fields,field_description:membership.field_res_partner__member_line_ids
+#: model:ir.model.fields,field_description:membership.field_res_users__member_line_ids
+#: model:ir.module.category,name:membership.module_category_membership_management
+#: model:res.groups.privilege,name:membership.res_groups_privilege_membership_management
 #: model_terms:ir.ui.view,arch_db:membership.report_membership_view_tree
 #: model_terms:ir.ui.view,arch_db:membership.view_partner_form
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_graph1
@@ -414,6 +495,12 @@ msgstr "ການວິເຄາະສະມາຊິກ"
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Membership"
 msgstr "ການເປັນສະມາຊິກ"
+
+#. module: membership
+#: model:ir.model.fields,field_description:membership.field_res_partner__membership_start_adhered
+#: model:ir.model.fields,field_description:membership.field_res_users__membership_start_adhered
+msgid "Membership Adhered Start Date"
+msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_amount
@@ -425,6 +512,19 @@ msgstr "ຈຳນວນເງິນສະມາຊິກ"
 #: model:ir.model,name:membership.model_report_membership
 msgid "Membership Analysis"
 msgstr "ການວິເຄາະການເປັນສະມາຊິກ"
+
+#. module: membership
+#: model:ir.actions.act_window,name:membership.membership_category_action
+#: model:ir.model.fields,field_description:membership.field_res_partner__membership_category_ids
+#: model:ir.model.fields,field_description:membership.field_res_users__membership_category_ids
+#: model:ir.ui.menu,name:membership.menu_membership_category
+msgid "Membership Categories"
+msgstr ""
+
+#. module: membership
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+msgid "Membership Category"
+msgstr ""
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_form
@@ -453,14 +553,15 @@ msgid "Membership Invoice"
 msgstr "ໃບແຈ້ງໜີ້ສະມາຊິກ"
 
 #. module: membership
+#: model:ir.model.fields,field_description:membership.field_res_partner__membership_last_start
+#: model:ir.model.fields,field_description:membership.field_res_users__membership_last_start
+msgid "Membership Last Start Date"
+msgstr ""
+
+#. module: membership
 #: model:ir.model,name:membership.model_membership_membership_line
 msgid "Membership Line"
 msgstr "ລາຍການສະມາຊິກ"
-
-#. module: membership
-#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
-msgid "Membership Partners"
-msgstr "ຄູ່ຄ້າສະມາຊິກ"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__membership_id
@@ -472,7 +573,6 @@ msgstr "ສິນຄ້າສະມາຊິກ"
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_membership_products
 #: model:ir.ui.menu,name:membership.menu_membership_products
-#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 msgid "Membership Products"
 msgstr "ສິນຄ້າສະມາຊິກ"
 
@@ -495,10 +595,18 @@ msgid "Membership Status"
 msgstr "ສະຖານະການເປັນສະມາຊິກ"
 
 #. module: membership
-#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
-#: model_terms:ir.ui.view,arch_db:membership.membership_products_tree
-msgid "Membership products"
-msgstr "ສິນຄ້າສະມາຊິກ"
+#: model:ir.model,name:membership.model_membership_membership_category
+#: model:ir.model.fields,field_description:membership.field_membership_membership_line__category_id
+#: model:ir.model.fields,field_description:membership.field_product_product__membership_category_id
+#: model:ir.model.fields,field_description:membership.field_product_template__membership_category_id
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
+msgid "Membership category"
+msgstr ""
+
+#. module: membership
+#: model:ir.model.fields,field_description:membership.field_account_move_line__membership_line_ids
+msgid "Membership lines"
+msgstr ""
 
 #. module: membership
 #: model:ir.actions.server,name:membership.ir_cron_update_membership_ir_actions_server
@@ -506,14 +614,14 @@ msgid "Membership: update memberships"
 msgstr "ການເປັນສະມາຊິກ: ອັບເດດການເປັນສະມາຊິກ"
 
 #. module: membership
-#: model_terms:ir.ui.view,arch_db:membership.view_partner_form
-msgid "Memberships"
-msgstr "ການເປັນສະມາຊິກ"
-
-#. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Month"
 msgstr "ເດືອນ"
+
+#. module: membership
+#: model:ir.model.fields,field_description:membership.field_membership_membership_category__name
+msgid "Name"
+msgstr ""
 
 #. module: membership
 #: model_terms:ir.actions.act_window,help:membership.action_report_membership_tree
@@ -522,49 +630,41 @@ msgstr "ຍັງບໍ່ມີຂໍ້ມູນ!"
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__none
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__none
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__none
 msgid "Non Member"
 msgstr "ບໍ່ແມ່ນສະມາຊິກ"
 
 #. module: membership
 #: model_terms:ir.actions.act_window,help:membership.action_membership_members
 msgid ""
-"Odoo helps you easily track all activities related to a member: \n"
-"                  Current Membership Status, Discussions and History of Membership, etc."
+"Odoo helps you easily track all activities related to a member:\n"
+"                  Current Membership Status, Discussions and History of "
+"Membership, etc."
 msgstr ""
-"Odoo ຊ່ວຍໃຫ້ທ່ານຕິດຕາມທຸກກິດຈະກຳທີ່ກ່ຽວຂ້ອງກັບສະມາຊິກໄດ້ຢ່າງງ່າຍດາຍ: \n"
-"                  ສະຖານະສະມາຊິກປັດຈຸບັນ, ການສົນທະນາ ແລະ ປະຫວັດການເປັນສະມາຊິກ, ແລະ ອື່ນ"
-"ໆ."
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__old
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__old
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__old
 msgid "Old Member"
 msgstr "ສະມາຊິກເກົ່າ"
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__paid
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__paid
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__paid
 msgid "Paid Member"
 msgstr "ສະມາຊິກທີ່ຊຳລະແລ້ວ"
 
 #. module: membership
-#: model:ir.model.fields,field_description:membership.field_membership_membership_line__partner
+#: model:ir.model.fields,field_description:membership.field_membership_membership_line__partner_id
 msgid "Partner"
 msgstr "ຄູ່ຄ້າ"
 
 #. module: membership
 #. odoo-python
-#: code:addons/membership/models/partner.py:0
+#: code:addons/membership/models/res_partner.py:0
 msgid "Partner doesn't have an address to make the invoice."
 msgstr "ຄູ່ຄ້າບໍ່ມີທີ່ຢູ່ເພື່ອສ້າງໃບແຈ້ງໜີ້."
 
 #. module: membership
 #. odoo-python
-#: code:addons/membership/models/partner.py:0
+#: code:addons/membership/models/res_partner.py:0
 msgid "Partner is a free Member."
 msgstr "ຄູ່ຄ້າແມ່ນສະມາຊິກຟຣີ."
 
@@ -582,6 +682,11 @@ msgstr "ສິນຄ້າ"
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_form
 msgid "Product Name"
 msgstr "ຊື່ສິນຄ້າ"
+
+#. module: membership
+#: model:ir.model,name:membership.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__quantity
@@ -622,6 +727,11 @@ msgstr "ວັນທີເລີ່ມຕົ້ນ"
 #: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Starting Date Of Membership"
 msgstr "ວັນທີເລີ່ມຕົ້ນຂອງການເປັນສະມາຊິກ"
+
+#. module: membership
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+msgid "Starting month of last membership period"
+msgstr ""
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.report_membership_view_tree
@@ -681,13 +791,53 @@ msgstr "ຜູ້ສະໜອງ"
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__waiting
-#: model:ir.model.fields.selection,name:membership.selection__report_membership__membership_state__waiting
-#: model:ir.model.fields.selection,name:membership.selection__res_partner__membership_state__waiting
 msgid "Waiting Member"
 msgstr "ສະມາຊິກທີ່ລໍຖ້າ"
 
 #. module: membership
 #. odoo-python
-#: code:addons/membership/models/partner.py:0
+#: code:addons/membership/models/membership_category.py:0
+msgid ""
+"You cannot change the Company, as this Membership Category is used by "
+"Product Template (%s), which has an incompatible assigned Company."
+msgstr ""
+
+#. module: membership
+#. odoo-python
+#: code:addons/membership/models/res_partner.py:0
 msgid "You cannot create recursive associated members."
 msgstr "ທ່ານບໍ່ສາມາດສ້າງສະມາຊິກສົມທົບແບບວົນຊ້ຳໄດ້."
+
+#~ msgid ""
+#~ "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Period\" "
+#~ "title=\"Period\"/><strong> From: </strong>"
+#~ msgstr ""
+#~ "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Period\" "
+#~ "title=\"Period\"/><strong> ຈາກ: </strong>"
+
+#~ msgid "Date on which membership has been cancelled"
+#~ msgstr "ວັນທີທີ່ການເປັນສະມາຊິກຖືກຍົກເລີກ"
+
+#~ msgid "Group By"
+#~ msgstr "ຈັດກຸ່ມໂດຍ"
+
+#~ msgid "Group by..."
+#~ msgstr "ຈັດກຸ່ມໂດຍ..."
+
+#~ msgid "Membership Partners"
+#~ msgstr "ຄູ່ຄ້າສະມາຊິກ"
+
+#~ msgid "Membership products"
+#~ msgstr "ສິນຄ້າສະມາຊິກ"
+
+#~ msgid "Memberships"
+#~ msgstr "ການເປັນສະມາຊິກ"
+
+#~ msgid ""
+#~ "Odoo helps you easily track all activities related to a member: \n"
+#~ "                  Current Membership Status, Discussions and History of "
+#~ "Membership, etc."
+#~ msgstr ""
+#~ "Odoo ຊ່ວຍໃຫ້ທ່ານຕິດຕາມທຸກກິດຈະກຳທີ່ກ່ຽວຂ້ອງກັບສະມາຊິກໄດ້ຢ່າງງ່າຍດາຍ: \n"
+#~ "                  ສະຖານະສະມາຊິກປັດຈຸບັນ, ການສົນທະນາ ແລະ ປະຫວັດການເປັນສະມາຊິກ, ແລະ "
+#~ "ອື່ນໆ."
