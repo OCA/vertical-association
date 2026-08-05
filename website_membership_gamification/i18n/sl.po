@@ -1,0 +1,102 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_membership_gamification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-02 08:46+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_badge_user_kanban_view
+msgid "Assigned to"
+msgstr "Dodeljeno"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__badge_url
+msgid "Badge URL"
+msgstr "URL značke"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
+msgid "Badges"
+msgstr "Značke"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__gamification_badge_ids
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__gamification_badge_ids
+msgid "Badges (recursive)"
+msgstr "Značke (rekurzivne)"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
+msgid "Cancel"
+msgstr "Prekliči"
+
+#. module: website_membership_gamification
+#: model:ir.model,name:website_membership_gamification.model_res_partner
+msgid "Contact"
+msgstr "Stik"
+
+#. module: website_membership_gamification
+#: model:ir.model,name:website_membership_gamification.model_gamification_badge
+msgid "Gamification Badge"
+msgstr "Značka za igrifikacijo"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
+msgid "Grant Badge"
+msgstr "Podeli značko"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.website_membership_gamification_view_partner_form
+msgid "Grant a Badge"
+msgstr "Podeli značko"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_partner__has_related_users
+#: model:ir.model.fields,field_description:website_membership_gamification.field_res_users__has_related_users
+msgid "Has Related Users"
+msgstr "Ima povezane uporabnike"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__new_tab_url
+msgid "Open URL in new tab"
+msgstr "Odpri URL v novem zavihku"
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_member_published
+msgid "Published in member directory"
+msgstr "Objavljeno v imeniku članov"
+
+#. module: website_membership_gamification
+#. odoo-python
+#: code:addons/website_membership_gamification/models/res_partner.py:0
+msgid "Reward"
+msgstr "Nagrada"
+
+#. module: website_membership_gamification
+#: model_terms:ir.ui.view,arch_db:website_membership_gamification.partner_view_badge_wizard_reward
+msgid "Reward with"
+msgstr "Nagradite z"
+
+#. module: website_membership_gamification
+#. odoo-python
+#: code:addons/website_membership_gamification/models/res_partner.py:0
+msgid "The partner has no related users."
+msgstr "Partner nima povezanih uporabnikov."
+
+#. module: website_membership_gamification
+#: model:ir.model.fields,field_description:website_membership_gamification.field_gamification_badge__website_expiration_date
+msgid "Website Expiration Date"
+msgstr "Datum poteka veljavnosti spletnega mesta"
