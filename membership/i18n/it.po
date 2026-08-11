@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
-"PO-Revision-Date: 2026-07-23 07:46+0000\n"
+"PO-Revision-Date: 2026-08-11 13:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://app.transifex.com/odoo/teams/41243/it/)\n"
 "Language: it\n"
@@ -45,6 +45,9 @@ msgid ""
 "title=\"Period\"/>\n"
 "                            <strong> From: </strong>"
 msgstr ""
+"<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Periodo\" "
+"title=\"Periodo\"/>\n"
+"                            <strong> Da: </strong>"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_kanban
@@ -66,6 +69,7 @@ msgid ""
 "A member who is associated to another one, but whose membership are "
 "independent."
 msgstr ""
+"Un socio che risulta collegato a un altro, ma con iscrizione indipendente."
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__associate_member_id
@@ -81,7 +85,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/membership/models/product_template.py:0
 msgid "A membership product must have a start date and an end date."
-msgstr ""
+msgstr "Un prodotto iscrizione deve avere una data inizio e una data fine."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__account_invoice_line_id
@@ -128,6 +132,8 @@ msgid ""
 "Can not remove membership line related to an invoice. Please, cancel invoice "
 "or remove invoice line instead"
 msgstr ""
+"Impossibile rimuovere la riga di iscrizione collegata a una fattura. "
+"Annullare la fattura o rimuoverne invece la riga"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_membership_invoice_view
@@ -182,7 +188,7 @@ msgstr "Contatto"
 #. module: membership
 #: model:ir.model,website_form_label:membership.model_res_partner
 msgid "Create a Customer"
-msgstr ""
+msgstr "Crea un cliente"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__create_uid
@@ -225,7 +231,7 @@ msgstr "Data di attivazione dell'iscrizione."
 #: model:ir.model.fields,help:membership.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,help:membership.field_res_users__membership_start_adhered
 msgid "Date from which partner is adhered."
-msgstr ""
+msgstr "Data di adesione del partner."
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_membership_membership_line__date
@@ -236,7 +242,7 @@ msgstr "Data nella quale il socio ha effettuato l'iscrizione"
 #: model:ir.model.fields,help:membership.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled."
-msgstr ""
+msgstr "Data nella quale l'iscrizione è stata annullata."
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_product_product__membership_date_to
@@ -248,13 +254,13 @@ msgstr "Data di fine validità dell'iscrizione."
 #: model:ir.model.fields,help:membership.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership.field_res_users__membership_stop
 msgid "Date when the latest partner's membership ends."
-msgstr ""
+msgstr "Data di scadenza dell'ultimo abbonamento del partner."
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_last_start
 #: model:ir.model.fields,help:membership.field_res_users__membership_last_start
 msgid "Date when the partner became a member for the last time."
-msgstr ""
+msgstr "Data in cui il partner è diventato membro per l'ultima volta."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_account_move__display_name
@@ -273,7 +279,7 @@ msgstr "Nome visualizzato"
 #: model:ir.model.fields,help:membership.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership.field_res_users__membership_start
 msgid "Earliest historical date this partner ever became a member."
-msgstr ""
+msgstr "Data storica più antica in cui questo partner è diventato membro."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__tot_earned
@@ -299,7 +305,7 @@ msgstr "Data di fine iscrizione"
 #. module: membership
 #: model:ir.model.constraint,message:membership.constraint_membership_membership_line_start_date_greater
 msgid "Error ! Ending Date cannot be set before Beginning Date."
-msgstr ""
+msgstr "Errore! La data finale non può essere prima della data iniziale."
 
 #. module: membership
 #: model:ir.model.constraint,message:membership.constraint_product_template_membership_date_greater
@@ -328,7 +334,7 @@ msgstr "Dal"
 #. module: membership
 #: model:ir.module.category,description:membership.module_category_membership_management
 msgid "Helps you manage operations for managing memberships."
-msgstr ""
+msgstr "Aiuta a organizzare le operazioni di gestione delle iscrizioni."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_account_move__id
@@ -372,7 +378,7 @@ msgstr "Con fattura/Con pagamento/Non pagante"
 #: model:ir.model.fields,field_description:membership.field_res_partner__is_adhered_member
 #: model:ir.model.fields,field_description:membership.field_res_users__is_adhered_member
 msgid "Is Adhered Member"
-msgstr ""
+msgstr "È socio aderente"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_state
@@ -440,7 +446,7 @@ msgstr "Movimento contabile"
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Last Start Month"
-msgstr ""
+msgstr "Mese ultimo inizio"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__write_uid
@@ -459,7 +465,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: membership
 #: model:res.groups,name:membership.group_membership_manager
 msgid "Manager"
-msgstr ""
+msgstr "Responsabile"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__partner_id
@@ -506,7 +512,7 @@ msgstr "Iscrizione"
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_start_adhered
 #: model:ir.model.fields,field_description:membership.field_res_users__membership_start_adhered
 msgid "Membership Adhered Start Date"
-msgstr ""
+msgstr "Data inizio adesione associativa"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_amount
@@ -525,12 +531,12 @@ msgstr "Analisi iscrizione"
 #: model:ir.model.fields,field_description:membership.field_res_users__membership_category_ids
 #: model:ir.ui.menu,name:membership.menu_membership_category
 msgid "Membership Categories"
-msgstr ""
+msgstr "Categorie iscrizione"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Membership Category"
-msgstr ""
+msgstr "Categoria iscrizione"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_form
@@ -562,7 +568,7 @@ msgstr "Fattura di iscrizione"
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_last_start
 #: model:ir.model.fields,field_description:membership.field_res_users__membership_last_start
 msgid "Membership Last Start Date"
-msgstr ""
+msgstr "Data inizio ultima iscrizione"
 
 #. module: membership
 #: model:ir.model,name:membership.model_membership_membership_line
@@ -607,12 +613,12 @@ msgstr "Stato iscrizione"
 #: model:ir.model.fields,field_description:membership.field_product_template__membership_category_id
 #: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 msgid "Membership category"
-msgstr ""
+msgstr "Categoria iscrizione"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_account_move_line__membership_line_ids
 msgid "Membership lines"
-msgstr ""
+msgstr "Righe Iscrizione"
 
 #. module: membership
 #: model:ir.actions.server,name:membership.ir_cron_update_membership_ir_actions_server
@@ -627,7 +633,7 @@ msgstr "Mese"
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_category__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: membership
 #: model_terms:ir.actions.act_window,help:membership.action_report_membership_tree
@@ -646,6 +652,9 @@ msgid ""
 "                  Current Membership Status, Discussions and History of "
 "Membership, etc."
 msgstr ""
+"Odoo consente di tenere traccia facilmente delle attività di un socio: \n"
+"                  stato corrente dell'iscrizione, discussioni, cronologia "
+"delle iscrizioni ecc."
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__old
@@ -692,7 +701,7 @@ msgstr "Nome prodotto"
 #. module: membership
 #: model:ir.model,name:membership.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__quantity
@@ -737,7 +746,7 @@ msgstr "Data di partenza dell'iscrizione"
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Starting month of last membership period"
-msgstr ""
+msgstr "Mese di inizio del periodo dell'ultima iscrizione"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.report_membership_view_tree
@@ -807,6 +816,8 @@ msgid ""
 "You cannot change the Company, as this Membership Category is used by "
 "Product Template (%s), which has an incompatible assigned Company."
 msgstr ""
+"Impossibile cambiare l'azienda. La categoria di iscrizione è utilizzata dal "
+"modello del prodotto (%s) a cui è stata assegnata un'azienda non compatibile."
 
 #. module: membership
 #. odoo-python
