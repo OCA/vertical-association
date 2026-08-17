@@ -1,0 +1,1 @@
+odoo-addon-membership @ git+https://github.com/OCA/vertical-association.git@refs/pull/224/head#subdirectory=membership
