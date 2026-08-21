@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [membership_initial_fee](membership_initial_fee/) | 16.0.1.0.1 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Initial fee for memberships
 [membership_prorate](membership_prorate/) | 16.0.1.0.2 |  | Prorate membership fee
 [membership_prorate_variable_period](membership_prorate_variable_period/) | 16.0.1.0.2 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Prorate membership fee for variable periods
-[membership_variable_period](membership_variable_period/) | 16.0.1.0.2 |  | Variable period for memberships
+[membership_variable_period](membership_variable_period/) | 16.0.1.1.0 |  | Variable period for memberships
 [membership_withdrawal](membership_withdrawal/) | 16.0.1.0.0 |  | Log membership withdrawal reason and date of request
 [website_membership_gamification](website_membership_gamification/) | 16.0.1.0.1 |  | Show badges assigned to users on website
 [website_membership_random_order](website_membership_random_order/) | 16.0.1.0.0 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Online Members Directory - Random order
