@@ -9,16 +9,21 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-14 07:14+0000\n"
 "PO-Revision-Date: 2024-05-22 02:58+0000\n"
-"Last-Translator: Rodrigo Macedo <sottomaiormacedotec@users.noreply."
-"translation.odoo-community.org>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/"
-"OCA-vertical-association-8-0/language/pt_BR/)\n"
+"Last-Translator: Rodrigo Macedo "
+"<sottomaiormacedotec@users.noreply.translation.odoo-community.org>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-"
+"vertical-association-8-0/language/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.17\n"
+
+#. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_res_partner
+msgid "Contact"
+msgstr ""
 
 #. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__fixed

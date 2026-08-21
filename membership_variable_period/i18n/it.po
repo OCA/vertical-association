@@ -20,6 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: membership_variable_period
+#: model:ir.model,name:membership_variable_period.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: membership_variable_period
 #: model:ir.model.fields.selection,name:membership_variable_period.selection__product_template__membership_type__fixed
 msgid "Fixed dates"
 msgstr "Date fisse"
