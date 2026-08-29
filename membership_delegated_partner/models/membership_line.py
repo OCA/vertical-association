@@ -11,6 +11,7 @@ class MembershipLine(models.Model):
     partner = fields.Many2one(compute="_compute_partner", store=True, readonly=False)
 
     @api.depends(
+        "account_invoice_line.delegated_member_id",
         "account_invoice_line.move_id.delegated_member_id",
         "account_invoice_line.move_id.partner_id",
     )
@@ -28,8 +29,7 @@ class MembershipLine(models.Model):
             if "account_invoice_line" not in vals:
                 continue
             line = self.env["account.move.line"].browse(vals["account_invoice_line"])
-            if line.move_id.delegated_member_id:
-                vals["partner"] = line.move_id.delegated_member_id.id
+            vals["partner"] = line._get_partner_for_membership().id
         return super().create(vals_list)
 
     def write(self, vals):
@@ -42,6 +42,6 @@ class MembershipLine(models.Model):
             )
         else:
             inv_line = self.account_invoice_line
-        if inv_line and inv_line.move_id.delegated_member_id:
-            vals["partner"] = inv_line.move_id.delegated_member_id.id
+        if inv_line:
+            vals["partner"] = inv_line._get_partner_for_membership().id
         return super().write(vals)

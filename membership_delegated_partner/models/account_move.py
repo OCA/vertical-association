@@ -15,9 +15,16 @@ class AccountMove(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
+    delegated_member_id = fields.Many2one(comodel_name="res.partner")
+    membership = fields.Boolean(related="product_id.membership", readonly=True)
+
     def _get_partner_for_membership(self):
         """Auxiliary method for getting the correct membership partner for
         certain operations like initial fee check.
         """
         self.ensure_one()
-        return self.move_id.delegated_member_id or self.move_id.partner_id
+        return (
+            self.delegated_member_id
+            or self.move_id.delegated_member_id
+            or self.move_id.partner_id
+        )

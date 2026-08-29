@@ -14,8 +14,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: membership_delegated_partner
+#: model:ir.model.fields,help:membership_delegated_partner.field_account_move_line__membership
+msgid "Check if the product is eligible for membership."
+msgstr ""
+
+#. module: membership_delegated_partner
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_bank_statement_line__delegated_member_id
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move__delegated_member_id
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move_line__delegated_member_id
 #: model:ir.model.fields,field_description:membership_delegated_partner.field_account_payment__delegated_member_id
 msgid "Delegated Member"
 msgstr ""
@@ -33,6 +39,11 @@ msgstr ""
 #. module: membership_delegated_partner
 #: model:ir.model,name:membership_delegated_partner.model_account_move_line
 msgid "Journal Item"
+msgstr ""
+
+#. module: membership_delegated_partner
+#: model:ir.model.fields,field_description:membership_delegated_partner.field_account_move_line__membership
+msgid "Membership"
 msgstr ""
 
 #. module: membership_delegated_partner
