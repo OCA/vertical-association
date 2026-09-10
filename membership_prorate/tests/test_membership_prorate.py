@@ -1,16 +1,18 @@
 # Copyright 2015 Tecnativa - Pedro M. Baeza
 # Copyright 2017-19 Tecnativa - David Vidal
+# Copyright 2026 Tiesa
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from datetime import date
 from unittest.mock import patch
 
-from odoo.tests import Form
+from odoo.tests import Form, tagged
 
-from odoo.addons.base.tests.common import SavepointCaseWithUserDemo
+from odoo.addons.membership.tests.common import TestMembershipCommon
 from odoo.addons.membership_prorate.models.account_move_line import AccountMoveLine
 
 
-class TestMembershipProrate(SavepointCaseWithUserDemo):
+@tagged("post_install", "-at_install")
+class TestMembershipProrate(TestMembershipCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -23,19 +25,11 @@ class TestMembershipProrate(SavepointCaseWithUserDemo):
                 "membership_date_to": "2017-12-31",
             }
         )
-        receivable = cls.env["account.account"].create(
-            {
-                "name": "Test receivable account",
-                "code": "TESTRA",
-                "account_type": "asset_receivable",
-                "reconcile": True,
-            }
-        )
-        cls.partner = cls.env["res.partner"].create(
-            {
-                "name": "Test",
-                "property_account_receivable_id": receivable.id,
-            }
+        cls.partner = cls.partner_1
+
+    def _membership_line(self, invoice_line):
+        return self.env["membership.membership_line"].search(
+            [("account_invoice_line_id", "=", invoice_line.id)], limit=1
         )
 
     def test_create_invoice_membership_product_wo_prorate(self):
@@ -57,9 +51,7 @@ class TestMembershipProrate(SavepointCaseWithUserDemo):
         # Result is rounded to 2 decimals for avoiding the fail in tests
         # if "Product Unit of Measure" precision changes in the future
         self.assertAlmostEqual(invoice.invoice_line_ids[0].quantity, 0.50, 2)
-        memb_line = self.env["membership.membership_line"].search(
-            [("account_invoice_line", "=", invoice.invoice_line_ids[0].id)], limit=1
-        )
+        memb_line = self._membership_line(invoice.invoice_line_ids[0])
         self.assertAlmostEqual(memb_line.member_price, 50.00, 2)
         self.assertEqual(memb_line.date_from, date(2017, 7, 1))
         # Set the date six months before the membership period
@@ -71,9 +63,7 @@ class TestMembershipProrate(SavepointCaseWithUserDemo):
                 line_form.tax_ids.clear()
         # The whole period is calculated
         self.assertAlmostEqual(invoice.invoice_line_ids[1].quantity, 1.0, 2)
-        memb_line = self.env["membership.membership_line"].search(
-            [("account_invoice_line", "=", invoice.invoice_line_ids[1].id)], limit=1
-        )
+        memb_line = self._membership_line(invoice.invoice_line_ids[1])
         self.assertAlmostEqual(memb_line.member_price, 100.00, 2)
         self.assertEqual(memb_line.date_from, date(2017, 1, 1))
         # Set the date six months after the membership period
@@ -85,9 +75,7 @@ class TestMembershipProrate(SavepointCaseWithUserDemo):
                 line_form.tax_ids.clear()
         # Nothing to invoice
         self.assertAlmostEqual(invoice.invoice_line_ids[2].quantity, 0, 2)
-        memb_line = self.env["membership.membership_line"].search(
-            [("account_invoice_line", "=", invoice.invoice_line_ids[2].id)], limit=1
-        )
+        memb_line = self._membership_line(invoice.invoice_line_ids[2])
         self.assertAlmostEqual(memb_line.member_price, 0.00, 2)
         self.assertEqual(memb_line.date_from, date(2017, 12, 31))
 

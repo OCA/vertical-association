@@ -61,7 +61,7 @@ class AccountMoveLine(models.Model):
 
                 # Rectify membership price and start date
                 memb_line = self.env["membership.membership_line"].search(
-                    [("account_invoice_line", "=", invoice_line.id)], limit=1
+                    [("account_invoice_line_id", "=", invoice_line.id)], limit=1
                 )
                 memb_line.write(
                     {
