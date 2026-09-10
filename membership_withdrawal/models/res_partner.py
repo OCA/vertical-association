@@ -27,14 +27,14 @@ class ResPartner(models.Model):
 
     @api.depends(
         "membership_state",
-        "member_lines.withdrawal_reason_id",
-        "member_lines.date_withdrawal",
-        "associate_member.membership_last_withdrawal_reason_id",
-        "associate_member.membership_last_withdrawal_date",
+        "member_line_ids.withdrawal_reason_id",
+        "member_line_ids.date_withdrawal",
+        "associate_member_id.membership_last_withdrawal_reason_id",
+        "associate_member_id.membership_last_withdrawal_date",
     )
     def _compute_last_withdrawal(self):
         for partner in self:
-            parent = partner.associate_member
+            parent = partner.associate_member_id
             if parent:
                 partner.membership_last_withdrawal_reason_id = (
                     parent.membership_last_withdrawal_reason_id
@@ -43,9 +43,9 @@ class ResPartner(models.Model):
                     parent.membership_last_withdrawal_date
                 )
             else:
-                lines = partner.member_lines.filtered(
+                lines = partner.member_line_ids.filtered(
                     lambda line: line.withdrawal_reason_id and line.date_withdrawal
                 ).sorted("date_withdrawal", reverse=True)
-                line = fields.first(lines)
+                line = lines[:1]
                 partner.membership_last_withdrawal_reason_id = line.withdrawal_reason_id
                 partner.membership_last_withdrawal_date = line.date_withdrawal

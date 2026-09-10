@@ -17,15 +17,11 @@
                     invisible="not membership_last_withdrawal_reason_id"
                 />
             </field>
-        </field>
-    </record>
-    <record id="extension_view_partner_form" model="ir.ui.view">
-        <field name="name">Add membership withdrawal fields</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="membership_extension.view_partner_form" />
-        <field name="arch" type="xml">
+            <!-- membership 19.0 carries the member-line inline form itself
+                 (it used to live in membership_extension) and the o2m is
+                 member_line_ids. -->
             <xpath
-                expr="//field[@name='member_lines']/form//field[@name='date_cancel']"
+                expr="//field[@name='member_line_ids']/form//field[@name='date_cancel']"
                 position="after"
             >
                 <field name="date_withdrawal" />

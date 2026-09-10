@@ -17,7 +17,7 @@ class TestMembership(TransactionCase):
         self.reason = self.env.ref("membership_withdrawal.reason_unsatisfied")
         self.partner = self.env["res.partner"].create({"name": "Test company"})
         self.child = self.env["res.partner"].create(
-            {"name": "Test child", "associate_member": self.partner.id}
+            {"name": "Test child", "associate_member_id": self.partner.id}
         )
         self.product = self.env["product.product"].create(
             {
@@ -38,7 +38,7 @@ class TestMembership(TransactionCase):
                 "date": "2016-01-15",
                 "date_from": "2016-01-01",
                 "date_to": self.next_two_months,
-                "partner": self.partner.id,
+                "partner_id": self.partner.id,
                 "state": "invoiced",
             }
         )
