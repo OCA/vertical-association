@@ -419,6 +419,17 @@ class TestMembership(common.TransactionCase):
         self.child.associate_member = False
         self.assertFalse(self.child.is_adhered_member)
 
+    def test_adhered_member_default_start_date(self):
+        # A new adhered member starts today, not the day the server was started
+        child = self.env["res.partner"].create(
+            {
+                "name": "Adhered child",
+                "associate_member": self.partner.id,
+                "is_adhered_member": True,
+            }
+        )
+        self.assertEqual(child.membership_start, date(2025, 1, 1))
+
     def test_category_multicompany(self):
         company_a = self.env["res.company"].create({"name": "Test company A"})
         company_b = self.env["res.company"].create({"name": "Test company B"})
