@@ -105,3 +105,28 @@ class TestMembershipProrate(SavepointCaseWithUserDemo):
         ):
             invoice = self.partner.create_membership_invoice(self.product, 1.0)
             self.assertEqual(invoice.invoice_line_ids[0].quantity, 1.0)
+
+    def test_create_invoice_membership_product_prorate_days(self):
+        """The invoice day is a day of membership"""
+        self.product.write(
+            {
+                "membership_date_from": "2024-02-01",
+                "membership_date_to": "2024-02-29",
+            }
+        )
+        for invoice_date, quantity in (
+            (date(2024, 2, 1), 1.0),  # 29 days of 29
+            (date(2024, 2, 15), 0.52),  # 15 days of 29
+            (date(2024, 2, 29), 0.03),  # 1 day of 29
+        ):
+            invoice_form = Form(
+                self.env["account.move"].with_context(default_move_type="out_invoice")
+            )
+            invoice_form.partner_id = self.partner
+            invoice_form.invoice_date = invoice_date
+            with invoice_form.invoice_line_ids.new() as line_form:
+                line_form.product_id = self.product
+                line_form.price_unit = 100.0
+                line_form.tax_ids.clear()
+            invoice = invoice_form.save()
+            self.assertAlmostEqual(invoice.invoice_line_ids.quantity, quantity, 2)
