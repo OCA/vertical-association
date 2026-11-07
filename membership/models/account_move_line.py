@@ -39,18 +39,31 @@ class AccountMoveLine(models.Model):
     # Business Logics
     # -------------------------------------------------
     def _do_membership_lines(self):
-        to_create = self._filter_membership_lines()
+        to_create, to_update, to_disable = self._filter_membership_lines()
         to_create._create_membership_lines()
+        self._update_membership_lines(to_update)
+        self._disable_membership_lines(to_disable)
 
     def _filter_membership_lines(self):
         MoveLine = self.env["account.move.line"]
+        MembershipLine = self.env["membership.membership_line"]
         to_create = MoveLine
+        to_update = MembershipLine
+        to_disable = MembershipLine
         for line in self:
             if line.move_id.move_type != "out_invoice":
                 continue
-            if line.membership:
+            membership_lines = self._get_legitimate_membership_lines()
+            if membership_lines:
+                to_update |= membership_lines
+            elif line.membership:
                 to_create |= line
-        return to_create
+            to_disable |= line.membership_line_ids - membership_lines
+        return (to_create, to_update, to_disable)
+
+    def _get_legitimate_membership_lines(self):
+        """Extension hook"""
+        return self.filtered("membership").membership_line_ids
 
     def _create_membership_lines(self):
         """
@@ -59,6 +72,25 @@ class AccountMoveLine(models.Model):
         """
         vals_list = [line._prepare_membership_line_vals() for line in self]
         return self.env["membership.membership_line"].create(vals_list)
+
+    @api.model
+    def _update_membership_lines(self, membership_lines):
+        """
+        Rare case: a membership line was already created and the invoice line is
+        updated. Let's update the membership line (product, dates, partner, ...)
+        """
+        for membership_line in membership_lines:
+            invoice_line = membership_lines.account_invoice_line_id
+            vals = invoice_line._prepare_membership_line_vals()
+            membership_line.write(vals)
+
+    @api.model
+    def _disable_membership_lines(self, membership_lines):
+        """
+        Edge cases: a membership line was created before from the account move line.
+        Now, the product has changed and it is no longer a membership product.
+        """
+        membership_lines.with_context(allow_membership_line_unlink=True).unlink()
 
     def _prepare_membership_line_vals(self):
         self.ensure_one()
