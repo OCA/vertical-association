@@ -8,4 +8,5 @@
 - Valentín Vinagre \<<valentin.vinagre@sygel.es>\>
 - Roger Sans \<<roger.sans@sygel.es>\>
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
-  - Bhavesh Heliconia
+- Bhavesh Heliconia
+- Arnaud Layec
