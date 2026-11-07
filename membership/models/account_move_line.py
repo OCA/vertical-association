@@ -5,6 +5,7 @@
 from datetime import date
 
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class AccountMoveLine(models.Model):
@@ -16,6 +17,28 @@ class AccountMoveLine(models.Model):
         "account_invoice_line_id",
         string="Membership lines",
     )
+
+    # -------------------------------------------------
+    # Constrain
+    # -------------------------------------------------
+    # Using @api.constrains is useless here
+    # because `membership_line_ids` is not in the view
+    def _constrain_single_membership_line(self):
+        """
+        Ensure only 1 membership line per invoice line.
+        Indeed the field `membership_line_ids` is a O2m only by technical convenience.
+        In all business logics it's like a M2o.
+        We do it in base 'membership' module because it's a core feature.
+        """
+        # Provide a hook to silence the constrain, even if not used in the module
+        if self.env.context.get("allow_membership_multi_lines"):
+            return
+
+        for line in self:
+            if len(line.membership_line_ids) > 1:
+                raise ValidationError(
+                    self.env._("Only 1 membership is allowed per invoice line.")
+                )
 
     # -------------------------------------------------
     # CRUD
@@ -39,6 +62,7 @@ class AccountMoveLine(models.Model):
     # Business Logics
     # -------------------------------------------------
     def _do_membership_lines(self):
+        self._constrain_single_membership_line()
         to_create, to_update, to_disable = self._filter_membership_lines()
         to_create._create_membership_lines()
         self._update_membership_lines(to_update)
