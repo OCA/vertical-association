@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * membership_withdrawal
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-04 02:43+0000\n"
+"PO-Revision-Date: 2026-05-12 10:45+0000\n"
+"Last-Translator: \"Jan Tapper [Onestein]\" <j.tapper@onestein.nl>\n"
+"Language-Team: Dutch (https://www.transifex.com/oca/teams/23907/nl/)\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__active
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Active"
+msgstr "Actief"
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.membership_withdrawal_reason_search_view
+msgid "Archived"
+msgstr "Gearchiveerd"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_company_bankrupt
+msgid "Company bankrupt"
+msgstr "Bedrijf failliet"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,help:membership_withdrawal.field_membership_membership_line__date_withdrawal
+msgid "Date when member requested membership withdrawal"
+msgstr "Datum waarop het lid om opzegging van het lidmaatschap heeft verzocht"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__display_name
+msgid "Display Name"
+msgstr "Te tonen naam"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__id
+msgid "ID"
+msgstr "ID"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason____last_update
+msgid "Last Modified on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_membership_membership_line
+msgid "Membership Line"
+msgstr "Lidmaatschap regel"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_users__membership_last_withdrawal_date
+msgid "Membership withdrawal date"
+msgstr "Datum van beëindiging van het lidmaatschap"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
+#: model:ir.model.fields,field_description:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
+msgid "Membership withdrawal reason"
+msgstr "Reden voor opzegging van het lidmaatschap"
+
+#. module: membership_withdrawal
+#: model:ir.actions.act_window,name:membership_withdrawal.membership_withdrawal_reason_action
+#: model:ir.ui.menu,name:membership_withdrawal.menu_membership_withdrawal_reason
+msgid "Membership withdrawal reasons"
+msgstr "Redenen voor opzegging van het lidmaatschap"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_withdrawal_reason__name
+msgid "Name"
+msgstr "Naam"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_other
+msgid "Other"
+msgstr "Overige"
+
+#. module: membership_withdrawal
+#: model:ir.model,name:membership_withdrawal.model_membership_withdrawal_reason
+msgid "Reason for withdrawal in membership"
+msgstr "Reden voor beëindiging van het lidmaatschap"
+
+#. module: membership_withdrawal
+#: model:membership.withdrawal_reason,name:membership_withdrawal.reason_unsatisfied
+msgid "Unsatisfied"
+msgstr "Ontevreden"
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal Month"
+msgstr "Maand van opname"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__date_withdrawal
+msgid "Withdrawal date"
+msgstr "Datum van opname"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_date
+#: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_date
+msgid "Withdrawal date of current membership period"
+msgstr "Einddatum van de huidige lidmaatschapsperiode"
+
+#. module: membership_withdrawal
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal month"
+msgstr "Maand van opname"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,field_description:membership_withdrawal.field_membership_membership_line__withdrawal_reason_id
+#: model_terms:ir.ui.view,arch_db:membership_withdrawal.view_res_partner_member_filter
+msgid "Withdrawal reason"
+msgstr "Reden voor opzegging"
+
+#. module: membership_withdrawal
+#: model:ir.model.fields,help:membership_withdrawal.field_res_partner__membership_last_withdrawal_reason_id
+#: model:ir.model.fields,help:membership_withdrawal.field_res_users__membership_last_withdrawal_reason_id
+msgid "Withdrawal reason of current membership period"
+msgstr "Reden voor opzegging van de huidige lidmaatschapsperiode"
+
+#~ msgid "Partner"
+#~ msgstr "Relatie"
