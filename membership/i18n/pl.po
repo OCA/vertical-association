@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
-"PO-Revision-Date: 2024-09-25 09:41+0000\n"
-"Last-Translator: Marta Wacławek, 2025\n"
+"PO-Revision-Date: 2026-11-11 13:46+0000\n"
+"Last-Translator: leszekszczepkowski <leszekszczepkowski@gmail.com>\n"
 "Language-Team: Polish (https://app.transifex.com/odoo/teams/41243/pl/)\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__num_invoiced
@@ -72,8 +73,8 @@ msgid ""
 "A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
-"Członek, z którym chcesz powiązać swoje konto. Rozważany stan członków z "
-"członka stowarzyszonego."
+"Członek, z którym chcesz powiązać członkostwo. Brany będzie pod uwagę stan "
+"członkostwa powiązanego członka."
 
 #. module: membership
 #. odoo-python
@@ -84,7 +85,7 @@ msgstr ""
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__account_invoice_line_id
 msgid "Account Invoice line"
-msgstr "Pozycja konta faktury"
+msgstr "Pozycja faktury"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.membership_products_form
@@ -112,12 +113,12 @@ msgstr "Członek powiązany"
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Associated Partner"
-msgstr "Przypisany partner"
+msgstr "Powiązany kontrahent"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_partner_form
 msgid "Buy Membership"
-msgstr "Zakup członkowstwa"
+msgstr "Kup członkostwo"
 
 #. module: membership
 #. odoo-python
@@ -136,7 +137,7 @@ msgstr "Anuluj"
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership.field_res_users__membership_cancel
 msgid "Cancel Membership Date"
-msgstr "Data wygaśnięcia członkowstwa"
+msgstr "Data anulowania członkostwa"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date_cancel
@@ -157,7 +158,7 @@ msgstr "Kategoria"
 #: model:ir.model.fields,help:membership.field_product_product__membership
 #: model:ir.model.fields,help:membership.field_product_template__membership
 msgid "Check if the product is eligible for membership."
-msgstr "Sprawdź, czy produkt jest dostępny dla członków"
+msgstr "Zaznacz, jeśli produkt dotyczy członkostwa."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_category__company_id
@@ -302,7 +303,7 @@ msgstr ""
 #. module: membership
 #: model:ir.model.constraint,message:membership.constraint_product_template_membership_date_greater
 msgid "Error! Ending Date cannot be set before Beginning Date."
-msgstr "Błąd! Data końca nie może być ustawiona przed datą rozpoczęcia."
+msgstr "Błąd! Data zakończenia nie może być wcześniejsza niż data rozpoczęcia."
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
@@ -314,7 +315,7 @@ msgstr "Prognoza"
 #: model:ir.model.fields,field_description:membership.field_res_users__free_member
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__free
 msgid "Free Member"
-msgstr "Wolny członek"
+msgstr "Członek bezpłatny"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date_from
@@ -383,14 +384,14 @@ msgid ""
 "-Invoiced Member: A member whose invoice has been created.\n"
 "-Paying member: A member who has paid the membership fee."
 msgstr ""
-"Wskazuje on stan członkostwa.\n"
-"-Nie-członek: Partner, który nie ubiegał się o żadne członkostwo.\n"
-"-Anulowany członek: Członek, który anulował swoje członkostwo.\n"
-"-Stary członek: Członek, którego data członkostwa wygasła.\n"
-"-Oczekujący członek: Członek, który złożył wniosek o członkostwo i którego "
-"faktura zostanie utworzona.\n"
-"-Zafakturowany członek: Członek, którego faktura została utworzona.\n"
-"-Opłacony członek: Członek, który opłacił składkę członkowską."
+"Wskazuje stan członkostwa.\n"
+"-Nie-członek: kontrahent, który nie złożył wniosku o członkostwo.\n"
+"-Anulowany członek: członek, który zrezygnował z członkostwa.\n"
+"-Były członek: członek, którego członkostwo wygasło.\n"
+"-Oczekujący członek: członek, który złożył wniosek i czeka na wystawienie "
+"faktury.\n"
+"-Zafakturowany członek: członek, któremu wystawiono fakturę.\n"
+"-Opłacony członek: członek, który opłacił składkę członkowską."
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_membership_membership_line__state
@@ -405,13 +406,13 @@ msgid ""
 "-Paid Member: A member who has paid the membership amount."
 msgstr ""
 "Wskazuje status członkostwa.\n"
-"-Nie-członek: Członek, który nie ubiegał się o żadne członkostwo.\n"
-"-Anulowany członek: Członek, który anulował swoje członkostwo.\n"
-"-Stary członek: Członek, którego data członkostwa wygasła.\n"
-"-Oczekujący członek Członek, który złożył wniosek o członkostwo i którego "
-"faktura zostanie utworzona.\n"
-"-Zafakturowany członek: Członek, którego faktura została utworzona.\n"
-"-Opłacony członek: Członek, który zapłacił kwotę za członkostwo."
+"-Nie-członek: osoba, która nie złożyła wniosku o członkostwo.\n"
+"-Anulowany członek: członek, który zrezygnował z członkostwa.\n"
+"-Były członek: członek, którego członkostwo wygasło.\n"
+"-Oczekujący członek: członek, który złożył wniosek i czeka na wystawienie "
+"faktury.\n"
+"-Zafakturowany członek: członek, któremu wystawiono fakturę.\n"
+"-Opłacony członek: członek, który opłacił składkę członkowską."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date
@@ -466,7 +467,7 @@ msgstr "Członek"
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__member_price
 msgid "Member Price"
-msgstr "Cena członkostwa"
+msgstr "Cena dla członków"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_membership_members
@@ -508,7 +509,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_amount
 #: model:ir.model.fields,field_description:membership.field_res_users__membership_amount
 msgid "Membership Amount"
-msgstr "Ilość członków"
+msgstr "Kwota członkostwa"
 
 #. module: membership
 #: model:ir.model,name:membership.model_report_membership
@@ -563,20 +564,20 @@ msgstr ""
 #. module: membership
 #: model:ir.model,name:membership.model_membership_membership_line
 msgid "Membership Line"
-msgstr "Linia Członków"
+msgstr "Pozycja członkostwa"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__membership_id
 #: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Membership Product"
-msgstr "Produkt członków"
+msgstr "Produkt członkowski"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_membership_products
 #: model:ir.ui.menu,name:membership.menu_membership_products
 msgid "Membership Products"
-msgstr "Produkty członków"
+msgstr "Produkty członkowskie"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_product_product__membership_date_from
@@ -646,7 +647,7 @@ msgstr ""
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__old
 msgid "Old Member"
-msgstr "Stary członek"
+msgstr "Były członek"
 
 #. module: membership
 #: model:ir.model.fields.selection,name:membership.selection__membership_membership_line__state__paid
@@ -662,13 +663,13 @@ msgstr "Kontrahent"
 #. odoo-python
 #: code:addons/membership/models/res_partner.py:0
 msgid "Partner doesn't have an address to make the invoice."
-msgstr "Partner nie ma adresu do wystawienia faktury."
+msgstr "Kontrahent nie ma adresu do wystawienia faktury."
 
 #. module: membership
 #. odoo-python
 #: code:addons/membership/models/res_partner.py:0
 msgid "Partner is a free Member."
-msgstr "Partner jest bezpłatnym członkiem."
+msgstr "Kontrahent jest członkiem bezpłatnym."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__tot_pending
@@ -688,7 +689,7 @@ msgstr "Nazwa produktu"
 #. module: membership
 #: model:ir.model,name:membership.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Wariant produktu"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__quantity
@@ -703,7 +704,7 @@ msgstr "Raportowanie"
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Revenue Done"
-msgstr "Data przychodu"
+msgstr "Zrealizowany przychód"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__user_id
@@ -716,7 +717,7 @@ msgstr "Sprzedawca"
 #: model:ir.model.fields,help:membership.field_res_partner__free_member
 #: model:ir.model.fields,help:membership.field_res_users__free_member
 msgid "Select if you want to give free membership."
-msgstr "Zaznacz, jeśli chcesz przydzielić darmowe członkostwo"
+msgstr "Zaznacz, jeśli chcesz przyznać bezpłatne członkostwo."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__start_date
@@ -774,14 +775,12 @@ msgstr "Ta notatka będzie wyświetlana na ofertach..."
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "This will display paid, old and total earned columns"
-msgstr "Wyświetli to kolumny \"zapłacone\", \"stare\" i \"całkowite zarobki\"."
+msgstr "Wyświetla kolumny: opłacone, byłe i łączny przychód"
 
 #. module: membership
 #: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "This will display waiting, invoiced and total pending columns"
-msgstr ""
-"Wyświetlone zostaną kolumny: oczekujące, zafakturowane i całkowite "
-"oczekujące."
+msgstr "Wyświetla kolumny: oczekujące, zafakturowane i łącznie oczekujące"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date_to
@@ -810,7 +809,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/membership/models/res_partner.py:0
 msgid "You cannot create recursive associated members."
-msgstr "Nie można tworzyć rekursywnych członków stowarzyszonych."
+msgstr "Nie można tworzyć cyklicznych powiązań członków."
 
 #~ msgid ""
 #~ "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Period\" "
