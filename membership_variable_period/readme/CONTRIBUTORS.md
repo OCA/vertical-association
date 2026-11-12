@@ -11,3 +11,5 @@
   - Roger Sans
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
   - Bhavesh Heliconia
+- [Akretion](https://akretion.com)
+  - Arnaud Layec

@@ -20,11 +20,6 @@ class ProductTemplate(models.Model):
     membership_date_to = fields.Date(
         string="Membership End Date", help="Date until which membership remains active."
     )
-
-    _membership_date_greater = models.Constraint(
-        "check(membership_date_to >= membership_date_from)",
-        "Error! Ending Date cannot be set before Beginning Date.",
-    )
     membership_category_id = fields.Many2one(
         string="Membership category",
         comodel_name="membership.membership_category",
@@ -33,20 +28,10 @@ class ProductTemplate(models.Model):
         store=True,
     )
 
-    def _get_next_date(self, date, qty=1):
-        self.ensure_one()
-        if self.membership_date_to:
-            date_to = fields.Date.from_string(self.membership_date_to)
-            return date_to + timedelta(1)
-        return False  # pragma: no cover
-
-    @api.depends("company_id")
-    def _compute_membership_category_id(self):
-        """Reset the Membership Category in case a different Company is set"""
-        for record in self:
-            if record.company_id and record.membership_category_id.company_id:
-                if record.membership_category_id.company_id != record.company_id:
-                    record.membership_category_id = False
+    _membership_date_greater = models.Constraint(
+        "check(membership_date_to >= membership_date_from)",
+        "Error! Ending Date cannot be set before Beginning Date.",
+    )
 
     @api.constrains("membership_date_from", "membership_date_to", "membership")
     def _check_membership_dates(self):
@@ -59,3 +44,18 @@ class ProductTemplate(models.Model):
                     "A membership product must have a start date and an end date."
                 )
             )
+
+    @api.depends("company_id")
+    def _compute_membership_category_id(self):
+        """Reset the Membership Category in case a different Company is set"""
+        for record in self:
+            if record.company_id and record.membership_category_id.company_id:
+                if record.membership_category_id.company_id != record.company_id:
+                    record.membership_category_id = False
+
+    def _get_next_date(self, date, qty=1):
+        self.ensure_one()
+        if self.membership_date_to:
+            date_to = fields.Date.from_string(self.membership_date_to)
+            return date_to + timedelta(1)
+        return False  # pragma: no cover

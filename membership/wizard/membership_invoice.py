@@ -24,15 +24,21 @@ class MembershipInvoice(models.TransientModel):
             .browse(self.env.context.get("active_ids"))
             .create_membership_invoice(self.product_id, self.member_price)
         )
-        search_view_ref = self.env.ref("account.view_account_invoice_filter", False)
         form_view_ref = self.env.ref("account.view_move_form", False)
         list_view_ref = self.env.ref("account.view_move_tree", False)
-        return {
-            "domain": [("id", "in", invoice_list.ids)],
+        search_view_ref = self.env.ref("account.view_account_invoice_filter", False)
+        action = {
             "name": "Membership Invoices",
             "res_model": "account.move",
             "type": "ir.actions.act_window",
-            "views": [(list_view_ref.id, "list"), (form_view_ref.id, "form")],
             "search_view_id": search_view_ref and [search_view_ref.id],
+            "views": [(list_view_ref.id, "list"), (form_view_ref.id, "form")],
+            "domain": [("id", "in", invoice_list.ids)],
             "context": {"default_move_type": "out_invoice"},
         }
+        # If 1 invoice, only show the one in form view
+        if len(invoice_list) == 1:
+            action.update(
+                {"res_id": invoice_list.id, "views": [(form_view_ref.id, "form")]}
+            )
+        return action
