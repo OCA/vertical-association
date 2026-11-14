@@ -33,7 +33,7 @@ class ResPartner(models.Model):
     membership_start_adhered = fields.Date(
         string="Membership Adhered Start Date",
         help="Date from which partner is adhered.",
-        default=fields.Date.today(),
+        default=fields.Date.context_today,
     )
     membership_start = fields.Date(
         string="Membership Start Date",
