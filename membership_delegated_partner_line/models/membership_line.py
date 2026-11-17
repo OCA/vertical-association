@@ -24,15 +24,18 @@ class MembershipLine(models.Model):
             if inv_line:
                 membership.partner = inv_line._get_partner_for_membership()
 
-    @api.model
-    def create(self, vals):
-        """Delegate the member line to the designated partner"""
-        if "account_invoice_line" not in vals:
-            return super().create(vals)
-        line = self.env["account.move.line"].browse(vals["account_invoice_line"])
-        if line.delegated_member_id:
-            vals["partner"] = line.delegated_member_id.id
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Delegate the member line to the designated partner when applicable."""
+        for vals in vals_list:
+            account_line_id = vals.get("account_invoice_line")
+            if not account_line_id:
+                continue
+            line = self.env["account.move.line"].browse(account_line_id)
+            delegated_partner = line.delegated_member_id
+            if delegated_partner:
+                vals["partner"] = delegated_partner.id
+        return super().create(vals_list)
 
     def write(self, vals):
         """If a partner is delegated, avoid reassign"""

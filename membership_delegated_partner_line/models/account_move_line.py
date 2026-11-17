@@ -29,7 +29,7 @@ class AccountMoveLine(models.Model):
         self.name = self._get_computed_name()
 
     def _get_computed_name(self):
-        name = super()._get_computed_name()
+        name = self.move_id.partner_id.name
         if self.delegated_member_id:
-            name += " (%s)" % self.delegated_member_id.name
+            name += f" ({self.delegated_member_id.name})"
         return name
