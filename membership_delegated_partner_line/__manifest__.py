@@ -12,6 +12,9 @@
     "depends": [
         "membership",
     ],
+    "excludes": [
+        "membership_delegated_partner",
+    ],
     "data": [
         "views/account_move.xml",
     ],

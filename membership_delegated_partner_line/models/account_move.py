@@ -9,8 +9,9 @@ class AccountMove(models.Model):
 
     is_membership_invoice = fields.Boolean(compute="_compute_is_membership_invoice")
 
-    @api.depends("invoice_line_ids", "line_ids", "move_type", "line_ids.product_id")
-    @api.onchange("invoice_line_ids", "line_ids", "move_type")
+    @api.depends(
+        "invoice_line_ids", "line_ids", "move_type", "line_ids.product_id.membership"
+    )
     def _compute_is_membership_invoice(self):
         for rec in self:
             is_membership_invoice = False
