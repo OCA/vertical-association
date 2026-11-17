@@ -33,8 +33,6 @@
                 <field name="is_membership" invisible="1" />
                 <field name="delegated_member_id" invisible="1" />
             </xpath>
-
         </field>
     </record>
-
 </odoo>

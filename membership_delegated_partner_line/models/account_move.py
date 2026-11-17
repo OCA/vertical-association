@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class AccountMove(models.Model):
-
     _inherit = "account.move"
 
     is_membership_invoice = fields.Boolean(compute="_compute_is_membership_invoice")

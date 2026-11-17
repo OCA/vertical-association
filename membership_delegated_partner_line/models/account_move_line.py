@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class AccountMoveLine(models.Model):
-
     _inherit = "account.move.line"
 
     delegated_member_id = fields.Many2one(comodel_name="res.partner")

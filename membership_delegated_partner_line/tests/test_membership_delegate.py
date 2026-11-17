@@ -156,7 +156,6 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertEqual(get_member(), self.partner1)
 
     def test_is_membership_invoice(self):
-
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
@@ -185,7 +184,6 @@ class TestMembershipDelegate(common.SavepointCase):
         self.assertTrue(invoice.is_membership_invoice)
 
     def test_not_is_membership_invoice(self):
-
         invoice = self.env["account.move"].create(
             {
                 "name": "Test Customer Invoice",
