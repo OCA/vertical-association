@@ -12,77 +12,21 @@ from odoo import api, fields, models
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    def _prepare_membership_line(self, move, product, price_unit, qty=1.0):
-        qty = int(math.ceil(qty))
-        date_from = move.invoice_date or fields.Date.today()
-        date_to = product.product_tmpl_id._get_next_date(date_from, qty=qty)
-        date_to = date_to and (date_to - timedelta(days=1)) or False
-        return {
-            "partner_id": move.partner_id.id,
-            "membership_id": product.id,
-            "member_price": price_unit,
-            "date": move.invoice_date or fields.Date.today(),
-            "date_from": date_from,
-            "date_to": date_to,
-            "state": "waiting",
-            "account_invoice_line_id": self.id,
-        }
-
     @api.model
     def _get_variable_period_product_membership_types(self):
         return ["variable"]
 
-    def write(self, vals):
-        """Create before the lines of membership with variable period."""
-        memb_line_model = self.env["membership.membership_line"]
-        if any(x in vals for x in ["product_id", "quantity", "move_id", "price_unit"]):
-            membership_types = self._get_variable_period_product_membership_types()
-            for line in self:
-                product = (
-                    self.env["product.product"].browse(vals["product_id"])
-                    if vals.get("product_id")
-                    else line.product_id
-                )
-                move = (
-                    self.env["account.move"].browse(vals["move_id"])
-                    if vals.get("move_id")
-                    else line.move_id
-                )
-                if (
-                    move.move_type == "out_invoice"
-                    and product.membership
-                    and product.membership_type in membership_types
-                ):
-                    quantity = float(vals.get("quantity", line.quantity))
-                    price_unit = vals.get("price_unit", line.price_unit)
-                    membership_vals = line._prepare_membership_line(
-                        move, product, price_unit, qty=quantity
-                    )
-                    if line.membership_line_ids:
-                        if len(line.membership_line_ids) > 1:  # pragma: no cover
-                            # Remove all except last one,
-                            # only one membership line per invoice line
-                            line.membership_line_ids[:-1].unlink()
-                        # Update with changes
-                        line.membership_line_ids[0].write(membership_vals)
-                    else:
-                        # Create membership line
-                        memb_line_model.create(membership_vals)
-        return super().write(vals)
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        lines = super().create(vals_list)
+    def _prepare_membership_line_dates(self):
+        """
+        For the lines configured with a proper product, apply the logics of flexible
+        period when computing `date_to`
+        """
+        product_tmpl = self.product_id.product_tmpl_id
         membership_types = self._get_variable_period_product_membership_types()
-        for line in lines.filtered(
-            lambda move_line: move_line.move_id.move_type == "out_invoice"
-            and move_line.product_id.membership
-            and move_line.product_id.membership_type in membership_types
-        ):
-            qty = float(line.quantity)
-            membership_vals = line._prepare_membership_line(
-                line.move_id, line.product_id, line.price_unit, qty=qty
-            )
-            # There's already the super line
-            line.membership_line_ids[0].write(membership_vals)
-        return lines
+        if product_tmpl.membership_type not in membership_types:
+            return super()._prepare_membership_line_dates()
+        qty = int(math.ceil(self.quantity))
+        date_from = self.move_id.invoice_date or fields.Date.context_today(self)
+        date_to = product_tmpl._get_next_date(date_from, qty=qty)
+        date_to = date_to and (date_to - timedelta(days=1)) or False
+        return (date_from, date_to)

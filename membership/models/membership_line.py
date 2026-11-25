@@ -101,47 +101,26 @@ class MembershipLine(models.Model):
     )
     def _compute_state(self):
         """Compute the state lines"""
-        if not self:
-            return
-        groups = (
-            self.env["account.move"]
-            .sudo()
-            ._read_group(
-                domain=[("reversed_entry_id", "in", self.account_invoice_id.ids)],
-                groupby=["reversed_entry_id"],
-                aggregates=["__count"],
-            )
-        )
-        reverse_map = {move.id: count for move, count in groups}
-        no_invoice_lines = self.filtered(
-            lambda line: isinstance(line.id, NewId) or not line.account_invoice_id
-        )
-        cancelled_lines = self.filtered(
-            lambda line: line.account_invoice_id.state == "posted"
-            and line.account_invoice_id.payment_state == "reversed"
-        )
-        cancelled_lines.state = "canceled"
-        for line in no_invoice_lines:
-            line.state = line.state or "none"
-        remaining_lines = self - no_invoice_lines - cancelled_lines
-        for line in remaining_lines:
-            move_state = line.account_invoice_id.state
-            payment_state = line.account_invoice_id.payment_state
-            line.state = "none"
-            if move_state == "draft":
-                line.state = "waiting"
-            elif move_state == "posted":
-                if payment_state == "paid":
-                    if reverse_map.get(line.account_invoice_id.id):
-                        line.state = "canceled"
-                    else:
-                        line.state = "paid"
-                elif payment_state == "in_payment":
-                    line.state = "paid"
+        for line in self:
+            invoice = line.account_invoice_id
+            payment_state = invoice.payment_state
+            if isinstance(line.id, NewId) or not invoice:
+                line.state = line.state or "none"
+                continue
+            elif invoice.state == "draft":
+                state = "waiting"
+            elif invoice.state == "posted":
+                if invoice.reversal_move_ids or payment_state == "reversed":
+                    state = "canceled"
+                elif payment_state in ("paid", "in_payment"):
+                    state = "paid"
                 elif payment_state in ("not_paid", "partial"):
-                    line.state = "invoiced"
-            elif move_state == "cancel":
-                line.state = "canceled"
+                    state = "invoiced"
+            elif invoice.state == "cancel":
+                state = "canceled"
+            else:
+                state = "none"
+            line.state = state
 
     @api.onchange("date", "membership_id")
     def _onchange_membership_date(self):

@@ -2,7 +2,7 @@ This module allows you to manage all operations for managing memberships.
 
 - Membership category
 - Membership lines editable
-- Do not calculate membership state from invoice status
+- Calculate membership state from invoice status
 - Start date of last membership period
 - Partner's with member lines can't be deleted.
 - When a partner has an associated member there is the option to make

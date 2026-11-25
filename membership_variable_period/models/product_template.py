@@ -13,30 +13,6 @@ from odoo import api, fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    def _get_next_date(self, date, qty=1):
-        """Get the date that results on incrementing given date an interval of
-        time in time unit.
-        @param date: Original date.
-        @param unit: Interval time unit.
-        @param interval: Quantity of the time unit.
-        @rtype: date
-        @return: The date incremented in 'interval' units of 'unit'.
-        """
-        res = super()._get_next_date(date, qty=qty)
-        if self.membership_type == "variable":
-            delta = self.membership_interval_qty * int(math.ceil(qty))
-            if isinstance(date, str):
-                date = fields.Date.from_string(date)
-            if self.membership_interval_unit == "days":
-                return date + timedelta(days=delta)
-            elif self.membership_interval_unit == "weeks":
-                return date + timedelta(weeks=delta)
-            elif self.membership_interval_unit == "months":
-                return date + relativedelta(months=delta)
-            elif self.membership_interval_unit == "years":
-                return date + relativedelta(years=delta)
-        return res  # pragma: no cover
-
     membership_type = fields.Selection(
         selection=[("fixed", "Fixed dates"), ("variable", "Variable periods")],
         default="fixed",
@@ -59,40 +35,27 @@ class ProductTemplate(models.Model):
             ("years", "years"),
         ],
         default="years",
-        # Same comment as on membership_interval_qty in re being required.
+        # Same comment as on membership_interval_qty being required.
         required=True,
     )
+    membership_date_from = fields.Date(
+        compute="_compute_membership_dates",
+        store=True,
+        readonly=False,
+    )
+    membership_date_to = fields.Date(
+        compute="_compute_membership_dates",
+        store=True,
+        readonly=False,
+    )
 
-    def _correct_vals_membership_type(self, vals, membership_type):
-        if membership_type == "variable":
-            vals["membership_date_from"] = vals["membership_date_to"] = False
-        return vals
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        fixed_vals_list = []
-        for vals in vals_list:
-            fixed_vals = vals.copy()
-            membership_type = fixed_vals.get("membership_type", "fixed")
-            fixed_vals = self._correct_vals_membership_type(fixed_vals, membership_type)
-            fixed_vals_list.append(fixed_vals)
-        return super().create(fixed_vals_list)
-
-    def write(self, vals):
-        if not vals.get("membership_type"):
-            return super().write(vals)
-        for rec in self:
-            vals2 = vals.copy()
-            rec._correct_vals_membership_type(
-                vals2, vals.get("membership_type", rec.membership_type)
-            )
-            super(ProductTemplate, rec).write(vals2)
-        return True
-
+    # -------------------------------------------------
+    # Constrains
+    # -------------------------------------------------
     @api.constrains(
+        "membership",
         "membership_date_from",
         "membership_date_to",
-        "membership",
         "membership_type",
     )
     def _check_membership_dates(self):
@@ -100,3 +63,41 @@ class ProductTemplate(models.Model):
             ProductTemplate,
             self.filtered(lambda record: record.membership_type == "fixed"),
         )._check_membership_dates()
+
+    # -------------------------------------------------
+    # Compute
+    # -------------------------------------------------
+    @api.depends("membership_type")
+    def _compute_membership_dates(self):
+        self.filtered(lambda p: p.membership_type == "variable").update(
+            {
+                "membership_date_from": False,
+                "membership_date_to": False,
+            }
+        )
+
+    # -------------------------------------------------
+    # Business logics
+    # -------------------------------------------------
+    def _get_next_date(self, date, qty=1):
+        """
+        Increment `date` by `qty * membership_interval_qty` periods
+        :param date: Original date.
+        :field membership_interval_unit: Interval time unit.
+        :field membership_interval_qty: Quantity of the time unit.
+        :return: The date incremented in 'interval' units of 'unit'.
+        """
+        res = super()._get_next_date(date, qty=qty)
+        if self.membership_type == "variable":
+            delta = self.membership_interval_qty * int(math.ceil(qty))
+            if isinstance(date, str):
+                date = fields.Date.from_string(date)
+            if self.membership_interval_unit == "days":
+                return date + timedelta(days=delta)
+            elif self.membership_interval_unit == "weeks":
+                return date + timedelta(weeks=delta)
+            elif self.membership_interval_unit == "months":
+                return date + relativedelta(months=delta)
+            elif self.membership_interval_unit == "years":
+                return date + relativedelta(years=delta)
+        return res

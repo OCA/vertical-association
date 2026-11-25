@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from . import account_move
+from . import account_move_line
 from . import membership_line
 from . import membership_category
 from . import res_partner

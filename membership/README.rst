@@ -37,7 +37,7 @@ memberships.
 
 - Membership category
 - Membership lines editable
-- Do not calculate membership state from invoice status
+- Calculate membership state from invoice status
 - Start date of last membership period
 - Partner's with member lines can't be deleted.
 - When a partner has an associated member there is the option to make
@@ -139,8 +139,8 @@ Contributors
 - Valentín Vinagre <valentin.vinagre@sygel.es>
 - Roger Sans <roger.sans@sygel.es>
 - `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
-
-  - Bhavesh Heliconia
+- Bhavesh Heliconia
+- Arnaud Layec
 
 Maintainers
 -----------
