@@ -5,6 +5,7 @@
 
 from datetime import datetime, timedelta
 
+from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
 from odoo import fields
@@ -416,6 +417,14 @@ class TestMembership(common.TransactionCase):
         self.assertEqual(self.child.membership_start, datetime(2018, 1, 26).date())
         self.child.associate_member = False
         self.assertFalse(self.child.is_adhered_member)
+
+    @freeze_time("2030-02-15 12:00:00")
+    def test_adhered_member_default_start_date(self):
+        # A new adhered membership starts today, not the day the server was started
+        partner = self.env["res.partner"].new({"name": "Adhered child"})
+        self.assertEqual(
+            partner.membership_start_adhered, fields.Date.to_date("2030-02-15")
+        )
 
     def test_category_multicompany(self):
         company_a = self.env["res.company"].create({"name": "Test company A"})
